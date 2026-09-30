@@ -93,13 +93,9 @@ These are the open items from the website rebuild. Nothing here blocks launch: e
 25. **Volunteer signups.** The old volunteer app counted open spots automatically. The new pages show each role's status ("1 spot left", "Full") from `/admin` → *Volunteer events & roles*. Signups arrive by email (Web3Forms), so staff update the status there when a role fills.
     - Is that workflow OK?
     - If not, we can keep the old volunteer app for signups only.
-26. **Numbers that differ between the subdomains and the main site.** Which figure should every page use?
-    - **Average GPA:** 3.33 (Impact Report) vs. 3.31 (coach presentation)
-    - **Jobs aligned to major:** 90%+ vs. 89%+
-    - **"I feel supported" rating:** 4.95 vs. 4.92
+26. **Numbers that differ between pages.** Which figure should every page use?
     - **2025 contributed revenue:** $625K (Impact Report) vs. "$630K+ raised in 2025" (Your Dollar, Further)
-    - **Coaches:** 29 (2025) vs. 30+ vs. 36
-    - **Good standing:** 96% vs. 95%
+    - **Coaches:** 29 (2025 Impact Report) vs. "30+" vs. 36 (current list)
 
-    **Now:** each page shows exactly what its original showed.
+    The coaching presentation's results (3.33 GPA, 90%+, 48%, 4.95, 96%, 4.84) match the Impact Report. Its numbers count up on screen, which is why an early capture showed lower in-between values.
 27. **Vector logo found.** The coach presentation had SVG logos, and the site now uses them. That resolves item 20.
