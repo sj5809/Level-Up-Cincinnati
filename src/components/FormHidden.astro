@@ -4,7 +4,7 @@
 import site from '../data/site.json';
 interface Props { subject: string }
 const { subject } = Astro.props;
-if (site.forms.accessKey.startsWith('REPLACE')) console.warn('[forms] Set forms.accessKey in src/data/site.json (see README) — forms will not send until then.');
+if (site.forms.accessKey.startsWith('REPLACE') && !(globalThis as any).__formsWarned && ((globalThis as any).__formsWarned = true)) console.warn('[forms] Set forms.accessKey in src/data/site.json (see README) — forms will not send until then.');
 ---
 <input type="hidden" name="access_key" value={site.forms.accessKey} />
 <input type="hidden" name="subject" value={subject} />
