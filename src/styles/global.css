@@ -741,3 +741,6 @@ body:has(.subnav) { scroll-padding-top: calc(var(--header-h) + 4rem); }
 .coral-card .eyebrow::before { background: var(--navy); }
 .coral-big { display: block; font-size: clamp(3.5rem, 2.5rem + 5vw, 6rem); line-height: 1; }
 .slide:focus-visible { outline-offset: -4px; }
+/* Round photos: never let the <picture> wrapper shrink, and force a true square so circles stay circles. */
+.voices li > picture, picture:has(> .avatar-lg) { flex: none; display: block; }
+.voices img, .avatar-lg, .person img, .family img { aspect-ratio: 1; max-width: none; object-fit: cover; }
