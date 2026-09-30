@@ -16,10 +16,10 @@
   },
   "donateUrl": "https://givebutter.com/levelup",
   "givebutterEmbed": "https://givebutter.com/embed/c/levelup",
-  "volunteerUrl": "https://volunteer.levelupcincinnati.org/",
-  "impactUrl": "https://impact.levelupcincinnati.org/",
-  "aiUrl": "https://ai.levelupcincinnati.org/",
-  "coachPreviewUrl": "https://coach.levelupcincinnati.org/",
+  "volunteerUrl": "/volunteer",
+  "impactUrl": "/impact",
+  "aiUrl": "/your-dollar-further",
+  "coachPreviewUrl": "/coaching-in-5-minutes",
   "scholarAppUrl": "https://app.levelupcincinnati.org/",
   "social": {
     "linkedin": "https://www.linkedin.com/company/level-up-cincinnati/",
@@ -44,5 +44,7 @@
   "formAction": "https://api.web3forms.com/submit",
   "forms": {
     "accessKey": "REPLACE-WITH-WEB3FORMS-ACCESS-KEY"
-  }
+  },
+  "calendlyUrl": "https://calendly.com/jim-levelup",
+  "substackSeriesUrl": "https://jimrodarte.substack.com/s/the-0-department"
 }

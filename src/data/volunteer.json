@@ -1,0 +1,179 @@
+{
+  "events": [
+    {
+      "id": "pd-day-2026",
+      "title": "Professional Development Day 2026",
+      "date": "2026-10-03",
+      "when": "Saturday, October 3, 2026 \u00b7 11:00 AM - 2:00 PM",
+      "location": "UC Science Library",
+      "open": true,
+      "summary": "Our biggest program day of the year. Scholars spend a Saturday working on resumes, career stories, and the skills that turn a degree into a first job. Volunteers keep the whole day moving - and get a front-row seat to why this work matters.",
+      "crew": "Join Stacy, Bryen, Rachel, and 5 others who already grabbed a role - volunteers from 84.51, FEG Investment Advisors, Pinnacle Solutions Group, and Strategic Connexus.",
+      "roles": [
+        {
+          "name": "Breakout Lead: Craft a Standout Resume",
+          "description": "Help scholars create their first resume or refine an existing one so it communicates their experiences, strengths, and accomplishments more effectively. Facilitate both 45-minute rounds - Level Up provides the facilitation guide, talking points, and student activities in advance. 11:15 AM - 1:30 PM, lunch included. You're welcome to stay for the 2:00 close.",
+          "status": "Full"
+        },
+        {
+          "name": "Breakout Support: Craft a Standout Resume",
+          "description": "Help scholars create their first resume or refine an existing one so it communicates their experiences, strengths, and accomplishments more effectively. Partner with the session lead and coach scholars one-on-one through both rounds. 11:15 AM - 1:30 PM, lunch included. You're welcome to stay for the 2:00 close.",
+          "status": "1 spot left"
+        },
+        {
+          "name": "Breakout Lead: Find Your Next Opportunity",
+          "description": "Help scholars move beyond scrolling job boards - exploring roles, industries, employers, and search strategies that fit their interests, and leaving with a real next step. Facilitate both 45-minute rounds - Level Up provides the facilitation guide, talking points, and student activities in advance. 11:15 AM - 1:30 PM, lunch included. You're welcome to stay for the 2:00 close.",
+          "status": "Full"
+        },
+        {
+          "name": "Breakout Support: Find Your Next Opportunity",
+          "description": "Help scholars move beyond scrolling job boards - exploring roles, industries, employers, and search strategies that fit their interests, and leaving with a real next step. Partner with the session lead and coach scholars one-on-one through both rounds. 11:15 AM - 1:30 PM, lunch included. You're welcome to stay for the 2:00 close.",
+          "status": "1 spot left"
+        },
+        {
+          "name": "Breakout Lead: Build Your Personal Brand",
+          "description": "Help scholars clarify the strengths, values, and experiences they want to highlight, and how to communicate their story through LinkedIn and other professional interactions. Facilitate both 45-minute rounds - Level Up provides the facilitation guide, talking points, and student activities in advance. 11:15 AM - 1:30 PM, lunch included. You're welcome to stay for the 2:00 close.",
+          "status": "Full"
+        },
+        {
+          "name": "Breakout Support: Build Your Personal Brand",
+          "description": "Help scholars clarify the strengths, values, and experiences they want to highlight, and how to communicate their story through LinkedIn and other professional interactions. Partner with the session lead and coach scholars one-on-one through both rounds. 11:15 AM - 1:30 PM, lunch included. You're welcome to stay for the 2:00 close.",
+          "status": "Full"
+        },
+        {
+          "name": "Breakout Lead: Turn Experience into Impact",
+          "description": "Help scholars turn internships, jobs, volunteer roles, and student involvement into meaningful skills, relationships, and interview-ready stories. Facilitate both 45-minute rounds - Level Up provides the facilitation guide, talking points, and student activities in advance. 11:15 AM - 1:30 PM, lunch included. You're welcome to stay for the 2:00 close.",
+          "status": "Full"
+        },
+        {
+          "name": "Breakout Support: Turn Experience into Impact",
+          "description": "Help scholars turn internships, jobs, volunteer roles, and student involvement into meaningful skills, relationships, and interview-ready stories. Partner with the session lead and coach scholars one-on-one through both rounds. 11:15 AM - 1:30 PM, lunch included. You're welcome to stay for the 2:00 close.",
+          "status": "Full"
+        }
+      ]
+    },
+    {
+      "id": "aiming-for-opportunity",
+      "title": "Aiming for Opportunity",
+      "when": "Date coming soon",
+      "open": false,
+      "summary": "Our sporting clays tournament brings Cincinnati business leaders together for a day on the course - and every station funds scholarships and coaching. Volunteers welcome shooters, support stations, and keep the day rolling.",
+      "roles": [
+        {
+          "name": "Registration and Check-In"
+        },
+        {
+          "name": "Station Support"
+        },
+        {
+          "name": "General Support"
+        },
+        {
+          "name": "Setup and Tear Down"
+        }
+      ]
+    },
+    {
+      "id": "finance-dinner",
+      "title": "Annual Finance Dinner",
+      "when": "Winter 2026",
+      "open": false,
+      "summary": "An evening of real conversations about money - budgeting, loans, investing - shared over dinner with Cincinnati professionals. Volunteers host tables and help make money talk feel normal instead of scary.",
+      "roles": [
+        {
+          "name": "Finance Table Host"
+        },
+        {
+          "name": "Finance Speaker"
+        },
+        {
+          "name": "Registration and Check-In"
+        },
+        {
+          "name": "Setup and Tear Down"
+        }
+      ]
+    },
+    {
+      "id": "level-up-your-network",
+      "title": "Level Up Your Network",
+      "when": "Networking Month 2027",
+      "open": false,
+      "summary": "The flagship event of Networking Month - scholars have called it our most impactful event yet. Speed networking, career exploration, and a room full of Cincinnati professionals ready to open doors. Your job? Be one of them.",
+      "roles": [
+        {
+          "name": "Speed Networking Professional"
+        },
+        {
+          "name": "Career Exploration Host"
+        },
+        {
+          "name": "Registration and Check-In"
+        },
+        {
+          "name": "General Support"
+        }
+      ]
+    },
+    {
+      "id": "end-of-year-celebration",
+      "title": "End of Year Celebration",
+      "when": "Spring 2027",
+      "open": false,
+      "summary": "We close the academic year by celebrating what our scholars accomplished - the milestones, the wins, and the people who backed them. Volunteers handle setup and check-in and help make the night feel special.",
+      "roles": [
+        {
+          "name": "Setup and Tear Down"
+        },
+        {
+          "name": "Registration and Check-In"
+        },
+        {
+          "name": "Photography or Media"
+        },
+        {
+          "name": "General Support"
+        }
+      ]
+    },
+    {
+      "id": "urban-bourbon",
+      "title": "Urban Bourbon",
+      "when": "Date coming soon",
+      "open": false,
+      "summary": "An invitation-only bourbon tasting that raises money for scholarships and coaching. A small crew of volunteers keeps check-in smooth and the evening running so guests can focus on the pours.",
+      "roles": [
+        {
+          "name": "Registration and Check-In"
+        },
+        {
+          "name": "General Support"
+        },
+        {
+          "name": "Setup and Tear Down"
+        }
+      ]
+    },
+    {
+      "id": "match-day",
+      "title": "Match Day",
+      "when": "Late summer 2027",
+      "open": false,
+      "summary": "The day it all begins: scholars meet their coaches for the first time. Volunteers run check-in, welcome families, and help the introductions land - it's the foundation for everything that follows.",
+      "roles": [
+        {
+          "name": "Registration and Check-In"
+        },
+        {
+          "name": "General Support"
+        },
+        {
+          "name": "Setup and Tear Down"
+        },
+        {
+          "name": "Photography or Media"
+        }
+      ]
+    }
+  ]
+}

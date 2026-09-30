@@ -8,7 +8,7 @@ const site = JSON.parse(fs.readFileSync('src/data/site.json', 'utf8'));
 const origin = 'https://www.levelupcincinnati.org';
 export const rules = [
   ['/about', '/our-vision'], ['/home', '/'], ['/cart', '/'], ['/prog-dash', '/'], ['/app-1', '/'], ['/custom-404-page', '/'],
-  ['/volunteer', site.volunteerUrl], ['/join-the-network-archive', '/join-the-network'], ['/coach-profiles', '/coaches'],
+  ['/join-the-network-archive', '/join-the-network'], ['/coach-profiles', '/coaches'],
   ['/level-up-coaches-directory', '/coaches'], ['/level-up-scholar-directory-blog', '/scholars'],
   ...['Finance', 'Healthcare', 'Information+Technology', 'Insurance', 'Manufacturing'].map(c => [`/level-up-coaches-directory/category/${c}`, '/coaches']),
   ...['2023+Cohort', '2024+Cohort', 'Current+Coach'].map(t => [`/level-up-coaches-directory/tag/${t}`, '/coaches']),

@@ -58,7 +58,7 @@ const nav = [
   { label: 'Get Involved', items: [
     { label: 'Become a Coach', href: '/become-a-coach' },
     { label: 'Your Year as a Coach', href: '/your-year-as-a-coach' },
-    { label: 'Volunteer', href: site.volunteerUrl, ext: true },
+    { label: 'Volunteer', href: site.volunteerUrl },
     { label: 'Join the Launch Network', href: '/join-the-network' },
     { label: 'Partner With Us', href: '/our-partners' },
   ] },
@@ -75,8 +75,8 @@ const nav = [
     { label: 'Our Team', href: '/our-team' },
     { label: 'Our Coaches', href: '/coaches' },
     { label: 'Our Scholars', href: '/scholars' },
-    { label: 'Impact 2025', href: site.impactUrl, ext: true },
-    { label: 'Your Dollar, Further', href: site.aiUrl, ext: true },
+    { label: 'Impact Report 2025', href: site.impactUrl },
+    { label: 'Your Dollar, Further', href: site.aiUrl },
   ] },
 ];
 const current = (href: string) => (href === path ? 'page' : undefined);
@@ -114,7 +114,7 @@ const year = new Date().getFullYear();
   <header class="site-header">
     <div class="wrap header-bar">
       <a class="brand" href="/" aria-label="Level Up Cincinnati home">
-        <Img src="logo-white" alt="" widths={[140, 280]} sizes="140px" eager />
+        <img src="/logo-white.svg" width="140" height="67" alt="" />
       </a>
       <nav class="site-nav" id="site-nav" aria-label="Main">
         <ul class="nav-list">
@@ -151,7 +151,7 @@ const year = new Date().getFullYear();
     <div class="wrap">
       <div class="footer-grid">
         <div>
-          <Img src="logo-white" alt="Level Up Cincinnati" widths={[140, 280]} sizes="140px" class="footer-logo" />
+          <img src="/logo-white.svg" width="140" height="67" alt="Level Up Cincinnati" class="footer-logo" loading="lazy" />
           <p>Coaching, community, and career connections for first-generation college students at the University of Cincinnati.</p>
           <address>
             {site.address.street}<br />{site.address.city}, {site.address.region} {site.address.postalCode}<br />
@@ -224,7 +224,7 @@ const year = new Date().getFullYear();
     const[,a,n,z]=m,t=+n.replace(/,/g,''),p=(n.split('.')[1]||'').length,c=n.includes(','),s=performance.now();
     const f=now=>{const k=Math.min((now-s)/1400,1),v=t*(1-(1-k)**3);el.textContent=a+(c?Math.round(v).toLocaleString('en-US'):v.toFixed(p))+z;k<1&&requestAnimationFrame(f)};requestAnimationFrame(f)};
     const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const t=e.target;io.unobserve(t);t.classList.add('in');t.querySelectorAll('dd').forEach(run)}),{rootMargin:'0px 0px -8% 0px'});
-    d.querySelectorAll('.card,.split>*,.quote,.stats>div,.timeline>li,.steps>li,.person,.gallery li,.event,.list-cols,.journey>li,.family').forEach(el=>{if(el.getBoundingClientRect().top>H){el.classList.add('reveal');el.style.transitionDelay=[...el.parentNode.children].indexOf(el)%4*80+'ms'}io.observe(el)})}})();
+    d.querySelectorAll('.card,.split>*,.quote,.stats>div,.big-stats>div,.timeline>li,.steps>li,.person,.gallery li,.event,.list-cols,.journey>li,.family').forEach(el=>{if(el.getBoundingClientRect().top>H){el.classList.add('reveal');el.style.transitionDelay=[...el.parentNode.children].indexOf(el)%4*80+'ms'}io.observe(el)})}})();
   </script>
 </body>
 </html>

@@ -1,0 +1,314 @@
+---
+// 2025 Impact Report (was impact.levelupcincinnati.org), rebuilt as a page on the main site.
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import Icon from '../components/Icon.astro';
+import site from '../data/site.json';
+
+const spend = [['Scholarships', 200000], ['Program Leadership & Student Support', 110627], ['Student Experiences & Events', 18903], ['Coach Training & Support', 7189], ['Curriculum & Development', 3606], ['Professional Advancement', 920]] as const;
+const revenue = [['Foundation Support', 415275], ['Corporate Contributions', 161420], ['Individual Giving', 48643]] as const;
+const usd = (n: number) => '$' + n.toLocaleString('en-US');
+const pace = [
+  { l: 'P', t: 'Prioritize', s: 'Academic Excellence', items: ['Meet with Academic Advisor at least once per semester', 'Connect with a tutor at least twice per semester', 'Host independent study tables or study blocks', 'Review career path & course track for goal alignment', "Maintain GPA above major's graduation requirement"] },
+  { l: 'A', t: 'Advance', s: 'Personal & Professional Growth', items: ['Research industry-related companies in Cincinnati', 'Identify roles of interest at local companies', 'Join a Professional Organization at UC or city-wide', 'Complete & Review Resume & LinkedIn Profile', 'Apply to 3+ internship opportunities per semester'] },
+  { l: 'C', t: 'Connect', s: 'With as Many People as Possible', items: ['Research student programs & activities of interest', 'Coffee or lunch with coworkers & dinner with friends', 'Informational interviews in their field of study', 'Attend professional networking events on & off campus', 'Attend all mandatory Level Up events & activities'] },
+  { l: 'E', t: 'Embrace', s: '& Celebrate Every Win', items: ['Establish & review semester, annual & long-term goals', 'Invite family to celebrate progress & achievements', 'Celebrate tests, career experiences & skill growth', 'In-person meeting with scholar & coach monthly', 'Complete Level Up check-ins each semester'] },
+];
+const required = ["Maintain GPA above major's graduation requirement", 'Complete & Review Resume & LinkedIn Profile', 'Attend all mandatory Level Up events & activities', 'In-person meeting with scholar & coach monthly', 'Complete Level Up check-ins each semester'];
+const galleryAlts = ['Finance Dinner', 'Level Up Your Network', 'Elevating Women', 'Mentor and mentee', 'Match Day', 'Coach orientation', 'Professional Development Day', 'Sarah and Stacy', 'Study abroad', 'Mentor and mentee at Match Day', 'Level Up event', 'Level Up moment', 'Student experience', 'Aiming for Opportunity', 'Community connection', 'Mentor and mentee', 'Aiming for Opportunity event', 'Program highlight', 'Level Up Cincinnati', 'Level Up Cincinnati', 'Mentorship moment', 'Student success', 'Level Up community', 'Level Up 2025'];
+const coaches2025 = 'Stuart Gilchrist • Elena Teran • Ryan Stier • Becca Harper • Calvin Davis • Jena McClanahan • Victoria Pulido Corn • Stacy Rodarte • Jordan Outing • Jesus Avila • Perry Washburn • Jillian Bulman • Joshua Wierzba • Nathalia Pelaez • Stephanie Lawson • Harrison Dean • Kelvin Williams • Henry Lujan • Shannon Crooks • Gordon Thomas • Bryen Pinkard • Erin Sholar Wade • Rachel Skope • Olivia Citak • Mercede Chenault • Layne Titzer • Jess Aurand';
+const half = '(min-width: 56rem) 34rem, calc(100vw - 2rem)';
+const card = '(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, calc(100vw - 2rem)';
+---
+<Base
+  title="2025 Impact Report"
+  description="Level Up Cincinnati's 2025 Impact Report: 3.33 average GPA, 90%+ retention, $200K in scholarships, scholar stories, the P.A.C.E. model, and where every dollar goes."
+  image="impact-hero"
+  crumbs={[{ name: 'Impact Report 2025', path: '/impact' }]}
+>
+  <section class="hero-bleed on-navy">
+    <div class="bg"><Img src="impact-hero" alt="" priority sizes="(min-width: 56rem) 55vw, 110vw" widths={[480, 640, 800, 1080, 1440]} /></div>
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">Level Up Cincinnati · 2025</p>
+        <h1>Impact Report</h1>
+        <p class="lede">From proving ourselves to delivering repeatable results. This is our story of transformation.</p>
+        <div class="btn-row"><a class="btn btn-coral btn-arrow" href="#stories">Explore stories</a><a class="btn btn-outline" href="#action">Get involved</a></div>
+        <nav aria-label="Report sections"><ol class="chapters-nav">{[['Impact', 'impact'], ['Stories', 'stories'], ['Our Approach', 'approach'], ['Events', 'events'], ['Stewardship', 'stewardship'], ['Take Action', 'action']].map(([t, h]) => <li><a href={`#${h}`}>{t}</a></li>)}</ol></nav>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="impact" aria-labelledby="headline">
+    <div class="wrap">
+      <header class="head-center">
+        <p class="eyebrow">The 2025 headline</p>
+        <h2 id="headline">A community of mentors creating access. Students ready for the moment. Real opportunity delivered.</h2>
+        <p class="lede">The most defining feature of the year was not only that we grew, but that our purpose became visible in real-time through student outcomes. Connection points created by coaches and the Level Up community weren't symbolic. They became internships, jobs, career clarity, confidence, resilience, and momentum.</p>
+      </header>
+      <h3 class="center">2025 impact at a glance</h3>
+      <dl class="stats" style="margin-block:1.5rem 3rem">
+        <div><dt>students supported (up from 25 last year)</dt><dd>30</dd></div>
+        <div><dt>dedicated mentors</dt><dd>29</dd></div>
+        <div><dt>retention rate</dt><dd>90%+</dd></div>
+        <div><dt>in scholarships (up from $180K last year)</dt><dd>$200K</dd></div>
+      </dl>
+      <h3 class="center">Academic excellence</h3>
+      <dl class="stats" style="margin-top:1.5rem">
+        <div><dt>average GPA</dt><dd>3.33</dd></div>
+        <div><dt>Dean's List rate</dt><dd>48%</dd></div>
+        <div><dt>A/B grade rate</dt><dd>84%</dd></div>
+        <div><dt>good standing</dt><dd>96%</dd></div>
+      </dl>
+      <p class="center muted" style="margin-top:1.5rem">Our students outperformed the 3.1 national average GPA for public university students. Nine students earned Dean's List honors in both Spring and Fall semesters.</p>
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="feedback">
+    <div class="wrap">
+      <header class="head-center">
+        <p class="eyebrow">2025 survey results</p>
+        <h2 id="feedback">Program impact feedback</h2>
+        <p class="lede">What our scholars and coaches say about the Level Up experience, backed by data from our annual surveys.</p>
+      </header>
+      <dl class="stats" style="margin-bottom:2.5rem">
+        <div><dt>average program satisfaction rating from scholars</dt><dd>4.95/5</dd></div>
+        <div><dt>rated their Level Up experience 5 out of 5</dt><dd>95%</dd></div>
+        <div><dt>mentorship relationships at advanced depth</dt><dd>76%</dd></div>
+        <div><dt>made new professional connections this semester</dt><dd>100%</dd></div>
+      </dl>
+      <div class="grid grid-2">
+        <div>
+          <h3>Scholar feedback</h3>
+          <blockquote class="quote" style="background:var(--white);margin-bottom:1rem"><p>“Level Up helped me feel seen and supported during a time when I was struggling silently. It gave me a sense of community and reminded me that I'm not alone in this journey.”</p><footer><cite>Martha</cite>, Nursing Student</footer></blockquote>
+          <blockquote class="quote" style="background:var(--white);margin-bottom:1rem"><p>“Seeing Jordan, someone like me, someone in a position that I'd like to be in around 10 years from now, be so self-confident inspired me to be more self-confident. It wasn't a specific thing she said. It was just the way she carried herself.”</p><footer><cite>Ndeye</cite>, Level Up Scholar</footer></blockquote>
+          <blockquote class="quote" style="background:var(--white)"><p>“I'm so thankful to my mentor Steph, who I'm also lucky to call a friend. Level Up gave me someone to believe in me until I believed in myself.”</p><footer><cite>Tricia</cite>, Level Up Scholar</footer></blockquote>
+        </div>
+        <div>
+          <h3>Coach feedback</h3>
+          <blockquote class="quote" style="background:var(--white);margin-bottom:1rem"><p>“Witnessing Tricia slowly transform into a confident, self-assured, and proactive young woman has been incredible. She ran a half marathon, secured an internship as a freshman, and connected with professors outside of the classroom.”</p><footer><cite>Stephanie</cite>, Level Up Coach</footer></blockquote>
+          <blockquote class="quote" style="background:var(--white);margin-bottom:1rem"><p>“Through this mentorship, I've learned the importance of being a continuous learner and providing a space for young women to navigate collegiate and personal journeys.”</p><footer><cite>Jordan</cite>, Level Up Coach</footer></blockquote>
+          <blockquote class="quote" style="background:var(--white)"><p>“I've learned when to push Martha beyond what she thinks she can do and when to back off and listen. This is a partnership that can only flourish when both people are ready to move forward together.”</p><footer><cite>Elena</cite>, Level Up Coach</footer></blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="letter">
+    <div class="wrap split" style="align-items:start">
+      <figure style="margin:0"><Img src="impact-jim" alt="Jim Rodarte, Co-Founder and Executive Director of Level Up Cincinnati" sizes={half} /><figcaption class="small muted">Jim Rodarte, Co-Founder, Executive Director</figcaption></figure>
+      <div>
+        <p class="eyebrow">Letter from our Executive Director</p>
+        <h2 id="letter">Dear Friends,</h2>
+        <p>In 2025, we moved from proving ourselves to delivering repeatable results. The most defining feature of the year was not only that we grew, but that our purpose became visible in real-time through student outcomes.</p>
+        <p>We saw the core idea of Level Up fully come to life: a community of mentors and champions creating access, students being ready for the moment, and then converting that access into real opportunity.</p>
+        <p>Connection points weren't symbolic. They became internships, jobs, career clarity, confidence, resilience, and momentum.</p>
+        <p>This year, we also built more structure around mentorship, introduced clearer measures of success through the P.A.C.E. model, and invested in systems that keep students supported without overwhelming their schedules. We're growing, but we haven't lost the relational core that makes Level Up work.</p>
+        <p>One of the most encouraging things I've seen this year is the resilience of our freshmen. The transition to college is where so many first-generation students lose their footing. Our coaches are making a real difference in those critical early moments, helping students stay grounded, stay confident, and keep moving forward. Level Up is intervening at the point where long-term success is decided.</p>
+        <p>None of this would be possible without our donors, mentors, and corporate partners. Thanks to you, our revenue grew by 13% this year, allowing us to invest even more in scholarships, mentorship, and programming. Your support is shaping the next generation of leaders.</p>
+        <p>With gratitude,</p>
+        <p class="letter-sign">Jim Rodarte<br /><span class="muted" style="font-family:var(--body);font-size:1rem;font-weight:400">Co-Founder &amp; Executive Director</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" id="stories" aria-labelledby="stories-h">
+    <div class="wrap">
+      <header class="head-center">
+        <p class="eyebrow">Student success</p>
+        <h2 id="stories-h">Stories that prove the model works</h2>
+        <p class="lede">These stories are more than inspiration. They're proof that the model works. Level Up Cincinnati is actively moving students into professional outcomes.</p>
+      </header>
+      <article class="card" style="margin-bottom:1.5rem">
+        <div class="split">
+          <div>
+            <p class="badge">Student spotlight</p>
+            <h3 style="font-size:1.75rem">Sarah: from campus to career with Cintas</h3>
+            <p>When Sarah joined Level Up in 2024, she was heading into her junior year at UC studying international business and marketing. Like many first-generation students, she was motivated but unsure what direction to take. Then she was paired with her mentor, Stacy Rodarte.</p>
+            <p>From the beginning, Stacy helped Sarah see things differently. “Sales isn't about pressure. It's about people.” That one sentence changed my mindset. “I started realizing that my strengths, being curious, asking questions, and connecting with others, could actually be my career.”</p>
+            <p>At a Level Up networking event, Sarah connected with senior Cintas executives, including a Senior Vice President of HR and a General Manager. She applied for Cintas's Management Trainee program but missed the timing. Instead of walking away, she asked what she could do to stand out. They suggested earning a sales certificate, so she did, using Level Up's Professional Advancement Reimbursement Fund.</p>
+            <p>When she reapplied, Sarah felt more prepared, focused, and confident. In her final interview, she met Cintas's Group Vice President of Operations, who had attended Level Up's Elevating Women event earlier that year, where Sarah was a student speaker. Neither realized their paths would cross again.</p>
+            <p><strong>The outcome:</strong> Sarah received a full-time Management Trainee offer with Cintas, starting after graduation in 2026. “Words cannot describe how incredibly grateful I am for Stacy's continued support. No matter the setbacks, she always stayed positive to help me tackle a new challenge.”</p>
+          </div>
+          <Img src="impact-sarah" alt="Sarah" sizes={half} />
+        </div>
+      </article>
+      <article class="card" style="margin-bottom:1.5rem">
+        <div class="split flip">
+          <div>
+            <p class="badge">Student spotlight</p>
+            <h3 style="font-size:1.75rem">Martha: from gap-year doubt to master's degree</h3>
+            <p>Martha entered college feeling overwhelmed and uncertain about whether she belonged. Through Level Up Cincinnati, she was paired with Elena, a mentor who focused not only on academics and career goals, but on Martha as a whole person.</p>
+            <p>Martha had been considering taking a gap year after her undergraduate degree to work and save money before pursuing nursing. But when she learned that Level Up Cincinnati could support her through her master's degree as well, everything changed. With that encouragement, she applied directly to UC's nursing program and was accepted.</p>
+            <p>Over time, Martha grew more comfortable asking for help, stepping outside her comfort zone, and engaging with opportunities she previously would have avoided. Speaking at Level Up's Elevating Women event marked a turning point in her confidence.</p>
+            <p><strong>The outcome:</strong> Martha is now pursuing her master's degree in nursing while working in TriHealth's Neonatal Intensive Care Unit, her dream role. The position is giving her invaluable hands-on experience while setting her up for success after graduation.</p>
+          </div>
+          <Img src="impact-martha-work" alt="Martha working at TriHealth's Neonatal Intensive Care Unit" sizes={half} />
+        </div>
+      </article>
+      <article class="card">
+        <div class="split">
+          <div>
+            <p class="badge">Student spotlight</p>
+            <h3 style="font-size:1.75rem">Nick: from engineering student to designing jet engines</h3>
+            <p>Nick, a senior Aerospace Engineering student at the University of Cincinnati, was paired with Stuart Gilchrist, a UC engineering alum who works at GE Aerospace. From the beginning, the match was intentional: pairing a driven student with a mentor who could relate to his academic journey and help him navigate the demanding world of engineering.</p>
+            <p>Stuart provided insights into the rigors of engineering studies, helping Nick excel in his coursework and projects. Leveraging his industry connections, Stuart facilitated an internship opportunity for Nick at Beehive Industries, an innovative defense contractor specializing in advanced propulsion systems. The experience opened Nick's eyes to what was possible.</p>
+            <p><strong>The outcome:</strong> Upon graduation, Nick will join Williams International as a rotational engineer, designing jet engines. It's his dream role.</p>
+            <blockquote class="quote"><p>“I would never have been able to make it to this point without you guys. I wanted to say thank you so much to everyone in the Level Up family. This achievement is yours as much as it is mine.”</p><footer><cite>Nick</cite>, Aerospace Engineering, joining Williams International</footer></blockquote>
+          </div>
+          <Img src="impact-nick-stuart" alt="Nick with his mentor Stuart Gilchrist" sizes={half} />
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="coach-stories">
+    <div class="wrap">
+      <header class="head-center">
+        <p class="eyebrow">The power of mentorship</p>
+        <h2 id="coach-stories">Coach success stories</h2>
+        <p class="lede">The core of Level Up's success lies in the authentic relationships between students and their coaches. In 2025, we supported our scholars through 29 dedicated coaches, each playing a pivotal role in students' development.</p>
+      </header>
+      <div class="grid grid-3">
+        <article class="card"><div class="card-media"><Img src="impact-tricia-steph" alt="Stephanie and Tricia" sizes={card} /></div><p class="badge">Coach &amp; scholar</p><h3>Stephanie &amp; Tricia</h3><p>Stephanie, a first-generation college graduate herself, joined Level Up Cincinnati as a mentor to Tricia, a freshman navigating the transition to college. Initially shy and nervous about independence, Tricia transformed through months of conversations, practice, and encouragement.</p><p>Tricia secured an internship as a freshman, connected with professors, and ran long-distance races. She's now confidently introducing herself and pursuing opportunity.</p></article>
+        <article class="card"><div class="card-media"><Img src="impact-jordan-ndeye" alt="Jordan and Ndeye" sizes={card} /></div><p class="badge">Coach &amp; scholar</p><h3>Jordan &amp; Ndeye</h3><p>Ndeye entered college feeling overwhelmed and alone. Through Level Up, she was paired with Jordan, a mentor whose confidence and presence helped Ndeye reimagine what was possible for herself. Rather than specific advice, it was Jordan's example that empowered Ndeye to trust her decisions.</p><p>Ndeye described the mentorship as “life-changing.” Having someone believe in her allowed her to begin believing in herself.</p></article>
+        <article class="card"><div class="card-media"><Img src="impact-ian" alt="Harrison and Ian" sizes={card} /></div><p class="badge">Coach &amp; scholar</p><h3>Harrison &amp; Ian</h3><p>When they first met, Ian was reserved and shy, struggling through his freshman year. Harrison, an investment analyst, stuck with him, helping Ian explore different paths from computer engineering to finance to construction management. Through it all, Harrison has been a steady cheerleader by his side.</p><p>When Ian needed summer work, Level Up partner Green City Demolition stepped up with an opportunity. Now in his second year, Ian is more confident, more engaged, and has a clear path forward.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section on-navy" id="approach" aria-labelledby="pace-h">
+    <div class="wrap">
+      <header class="head-center">
+        <p class="eyebrow">Our framework</p>
+        <h2 id="pace-h">The P.A.C.E. Model</h2>
+        <p class="lede">A comprehensive framework introduced in 2025 that outlines the specific tasks to ensure scholars get the greatest benefit from Level Up Cincinnati. “Just keep up the P.A.C.E.” This actionable guide strengthens alignment between scholars and coaches, creating a shared roadmap for academic and professional success throughout the college journey.</p>
+      </header>
+      <div class="pace">
+        {pace.map(p => (
+          <article class="card"><p class="letter" aria-hidden="true">{p.l}</p><h3>{p.t} <span style="font-weight:400;font-family:var(--body);font-size:1rem;display:block;color:var(--blue-gray)">{p.s}</span></h3><ul class="checklist" style="color:var(--blue-gray)">{p.items.map(i => required.includes(i) ? <li style="color:var(--white);font-weight:700">{i} <span aria-hidden="true" style="color:var(--coral-light)">★</span><span class="visually-hidden">(required)</span></li> : <li>{i}</li>)}</ul></article>
+        ))}
+      </div>
+      <p class="center" style="margin-top:1.5rem;color:var(--blue-gray)"><strong style="color:var(--white)">★ = Requirements</strong> to maintain scholarship eligibility &amp; program participation</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="anchors">
+    <div class="wrap">
+      <header class="head-center">
+        <p class="eyebrow">Program design</p>
+        <h2 id="anchors">The four anchor experiences</h2>
+        <p class="lede">A coherent, repeatable annual experience that is both manageable for students and high-impact for outcomes.</p>
+      </header>
+      <ol class="steps grid grid-4">
+        <li><h3>Match Day</h3><p>Where students meet mentors and the year's relationship begins. The foundation of everything that follows.</p></li>
+        <li><h3>Professional Development Day</h3><p>Preparation for interviews, LinkedIn optimization, elevator pitches, and critical career readiness skills that employers value.</p></li>
+        <li><h3>Finance Dinner</h3><p>A relational event built around practical financial conversations with professionals, designed to reduce anxiety and increase confidence around money.</p></li>
+        <li><h3>Level Up Your Network</h3><p>The largest event of the year, where students engage professionals to build their networks. Described by scholars as “the most impactful event to date.”</p></li>
+      </ol>
+      <blockquote class="quote" style="margin-top:2rem"><p>“Level Up has helped me find my place as a first-generation student. It has allowed me to make meaningful connections with my peers and professionals. Without Level Up, there would be no 'Me' at UC.”</p><footer><cite>Emily</cite>, Class of '26</footer></blockquote>
+    </div>
+  </section>
+
+  <section class="section soft" id="events" aria-labelledby="events-h">
+    <div class="wrap">
+      <header class="head-center">
+        <p class="eyebrow">2025 fundraising initiatives</p>
+        <h2 id="events-h">Events that drive impact</h2>
+        <p class="lede">Three signature events brought our community together to raise funds and build connections that directly support first-generation students.</p>
+      </header>
+      <dl class="stats three" style="max-width:24rem;margin:0 auto 2rem;grid-template-columns:1fr"><div><dt>total raised in 2025</dt><dd>$146,525+</dd></div></dl>
+      <div class="grid grid-3">
+        <article class="card"><div class="card-media"><Img src="impact-afo" alt="Aiming for Opportunity sporting clays event" sizes={card} /></div><h3>Aiming for Opportunity</h3><p>Our second annual sporting clays tournament brought together Cincinnati's business leaders for a day of friendly competition and community impact. The 2025 event exceeded expectations with a remarkable 45% increase over our inaugural year.</p><p><strong>$87,525 raised · +45% YoY growth · 18 partners</strong></p><p class="small">Presenting sponsors: Vitis Technologies/Prosource • AMEND Consulting</p><a class="text-link arrow" href="/aiming-for-opportunity">Aiming for Opportunity</a></article>
+        <article class="card"><div class="card-media"><Img src="impact-ub-2025" alt="Urban Bourbon 2025 event" sizes={card} /></div><h3>Urban Bourbon</h3><p>This invitation-only evening united Cincinnati's most thoughtful leaders for exclusive bourbon tastings and authentic connections, benefiting Level Up Cincinnati and the Cincinnati Art Academy. Meaningful impact begins with meaningful relationships.</p><p><strong>$44,000+ raised · 2 beneficiaries</strong></p><p class="small">Presented by The George &amp; Margaret McLane Foundation • William S. Olson Foundation</p><a class="text-link arrow" href="/urban-bourbon">Urban Bourbon</a></article>
+        <article class="card"><div class="card-media"><Img src="impact-ew-2025" alt="Elevating Women 2025 celebration" sizes={card} /></div><h3>Elevating Women</h3><p>Our celebration of first-generation college women, their mentors, and female entrepreneurs featured a marketplace showcasing 15+ women-owned businesses. Student-coach pairs shared powerful transformation stories demonstrating life-changing mentorship.</p><p><strong>$15,000+ raised · 100+ attendees · 15+ businesses</strong></p><p class="small">Presented by Sycamore Capital</p><a class="text-link arrow" href="/elevating-women">Elevating Women</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="stewardship" aria-labelledby="steward-h">
+    <div class="wrap">
+      <header class="head-center">
+        <p class="eyebrow">Financial stewardship</p>
+        <h2 id="steward-h">Your gift goes directly to students</h2>
+        <p class="lede">Level Up Cincinnati is intentionally designed to operate with low overhead and high direct student investment. Thanks to dedicated founding supporters who cover operational costs, your contribution funds what matters most: scholarships, mentorship, and student programming.</p>
+      </header>
+      <div class="grid grid-2" style="gap:2rem">
+        <article class="card">
+          <h3>Where your dollars go</h3>
+          <p>Every contribution directly supports student success through these key investments:</p>
+          <ul class="bars">{spend.map(([k, v]) => <li><span>{k}</span><strong>{usd(v)}</strong><span class="bar" aria-hidden="true"><span style={`--w:${(v / 200000) * 100}%`}></span></span></li>)}</ul>
+          <p><strong>Total direct student investment: $341,245</strong></p>
+          <p><strong>Investment per student: $12–13K</strong> in annual programmatic investment. This comprehensive support includes multi-year scholarship assistance, one-to-one mentorship, professional development experiences, career readiness training, and targeted financial supports that remove real-time barriers to success.</p>
+        </article>
+        <div class="grid" style="gap:1.25rem">
+          <article class="card">
+            <h3>Our commitment</h3>
+            <p>Operational overhead is intentionally covered through dedicated support, allowing your donation to be deployed directly toward student programming and scholarships.</p>
+            <p>We use a lean, partner-forward model, outsourcing specialized work to trusted contractors rather than building a large internal payroll. This protects mission dollars for student outcomes.</p>
+          </article>
+          <article class="card">
+            <h3>2025 revenue growth</h3>
+            <p>Total contributed revenue grew 13% year-over-year, reflecting deepening community confidence in our model.</p>
+            <dl class="stats" style="grid-template-columns:repeat(2,minmax(0,1fr))"><div><dt>total contributed revenue</dt><dd>$625K</dd></div><div><dt>2025 operating surplus — disciplined growth, not expansion without control</dt><dd>$180,818</dd></div></dl>
+            <ul class="bars">{revenue.map(([k, v]) => <li><span>{k}</span><strong>{usd(v)}</strong><span class="bar" aria-hidden="true"><span style={`--w:${(v / 415275) * 100}%`}></span></span></li>)}</ul>
+            <p><strong>Year-over-year growth: +$70,764</strong></p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="photos">
+    <div class="wrap">
+      <header class="head-center"><p class="eyebrow">2025 in photos</p><h2 id="photos">Moments that matter</h2></header>
+      <ul class="gallery list-plain">
+        {galleryAlts.map((alt, i) => <li><Img src={`impact-gallery-${String(i + 1).padStart(2, '0')}`} alt={alt} sizes="(min-width: 56rem) 17rem, 45vw" widths={[240, 360, 540]} /></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section on-navy" id="action" aria-labelledby="action-h">
+    <div class="wrap">
+      <header class="head-center">
+        <p class="eyebrow">Take action</p>
+        <h2 id="action-h">How you can help</h2>
+        <p class="lede">Your support is making a measurable difference, and the success stories are stacking.</p>
+      </header>
+      <div class="grid grid-4">
+        <article class="card"><span class="ic-circle"><Icon name="heart" /></span><h3>Continue giving</h3><p>Your financial support directly funds scholarships, mentorship, and life-changing programming.</p><a class="text-link arrow" href="/donate">Donate</a></article>
+        <article class="card"><span class="ic-circle"><Icon name="coach" /></span><h3>Become a mentor</h3><p>Mentor availability is one of our biggest constraints to growth. Your time changes lives.</p><a class="text-link arrow" href="/become-a-coach">Become a coach</a></article>
+        <article class="card"><span class="ic-circle"><Icon name="calendar" /></span><h3>Attend our events</h3><p>Experience the mission in action at Level Up Your Network, our signature annual event.</p><a class="text-link arrow" href="/events">See events</a></article>
+        <article class="card"><span class="ic-circle"><Icon name="handshake" /></span><h3>Spread the word</h3><p>Introduce Level Up to organizations that want to make a difference in Cincinnati.</p><a class="text-link arrow" href="/our-partners">Partner with us</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="thanks-h">
+    <div class="wrap">
+      <header class="head-center">
+        <p class="eyebrow">Essential partners</p>
+        <h2 id="thanks-h">A special thank you</h2>
+        <p class="lede">Behind every success story is a network of partners who go above and beyond. These organizations don't just support Level Up; they are woven into the fabric of who we are.</p>
+      </header>
+      <div class="grid grid-3">
+        <article class="card"><div class="card-media"><Img src="impact-alive" alt="Olivia and Claire from Alive! Events & Marketing" sizes={card} /></div><h3>Alive! Events &amp; Marketing</h3><p class="badge">Olivia Citak, Owner &amp; Founder</p><p>Olivia and her team manage our fundraising events, social media, and marketing. But they're more than service providers: Olivia serves as a coach in our program, showing up as a volunteer alongside our students. Their belief in our mission shines through in everything they do.</p></article>
+        <article class="card"><div class="card-media"><Img src="impact-its" alt="Mary Tettenhorst from Impact Talent Strategies" sizes={card} /></div><h3>Impact Talent Strategies</h3><p class="badge">Mary Tettenhorst, Founder</p><p>Mary has been shaping our curriculum since Level Up's earliest days. Now she designs and facilitates our Professional Development Day, leads Networking Month, and delivers career coaching workshops. This year's programming has been among our most impactful yet.</p></article>
+        <article class="card"><div class="card-media"><Img src="impact-uc" alt="University of Cincinnati" sizes={card} /></div><h3>University of Cincinnati</h3><p class="badge">Academic &amp; work study partner</p><p>UC is our partner for every student we serve. They administer scholarships, help identify students, and provide work study opportunities that allow us to hire our own participants as interns, reinforcing our mission while adding critical operational support.</p></article>
+      </div>
+      <div style="margin-top:3rem">
+        <header class="head-center" style="margin-bottom:1.5rem">
+          <p class="eyebrow">With gratitude</p>
+          <h2>Thank you to our supporters</h2>
+          <p class="lede">Every gift, every mentor hour, and every connection made this year possible. We are grateful to each and every supporter who believes in the power of first-generation students. Below, we recognize the foundations, corporate partners, and major donors whose leadership-level investments helped us reach new heights in 2025.</p>
+        </header>
+        <div class="grid grid-3">
+          <div><h3>Corporate partners</h3><p class="names">84.51 • Aero Fulfillment Services • AMEND • BSI Engineering • Calculated Hire • Cintas • Citi • CMT Imports • Core Resources • Enerfab • Foundation Risk Partners • Green City Demolition • KZF Design • Monkey Business Board • Mueller • Neyra • OMNI • Sam Hubbard Foundation • Sycamore Capital • Truce Capital Advisors • Unistrut • Vitis Technologies • WP Land Company</p></div>
+          <div><h3>Foundation &amp; grant partners</h3><p class="names">George &amp; Margaret McLane Foundation • P&amp;G Foundation • The Ed &amp; Joann Hubert Family Foundation • The Donald C. &amp; Laura M. Harrison Family Foundation • Carol Ann and Ralph V. Haile Jr. Foundation • Louise Taft Semple Foundation • The PwC Foundation</p></div>
+          <div><h3>Our 2025 coaches</h3><p class="names">{coaches2025}</p></div>
+        </div>
+      </div>
+      <div class="btn-row" style="justify-content:center;margin-top:2.5rem"><a class="btn btn-coral btn-arrow" href="/donate">Continue giving</a><a class="btn btn-outline" href={site.aiUrl}>How we make your dollar go further</a></div>
+    </div>
+  </section>
+</Base>

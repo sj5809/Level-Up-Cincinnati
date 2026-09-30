@@ -1,0 +1,128 @@
+---
+import Base from '../../layouts/Base.astro';
+import Img from '../../components/Img.astro';
+import Icon from '../../components/Icon.astro';
+import FormHidden from '../../components/FormHidden.astro';
+import site from '../../data/site.json';
+import vol from '../../data/volunteer.json';
+
+// Dated events move to "Past" automatically after their day (daily rebuild).
+const today = new Date(Date.now() - 5 * 3600e3).toISOString().slice(0, 10);
+const upcoming = vol.events.filter(e => !e.date || e.date >= today);
+const past = vol.events.filter(e => e.date && e.date < today);
+const spots = (e: (typeof vol.events)[number]) => {
+  const open = (e.roles as { status?: string }[]).filter(r => r.status !== 'Full');
+  const left = open.reduce((n, r) => n + (Number(r.status?.match(/^(\d+) spots? left/)?.[1]) || 0), 0);
+  return e.open ? (open.length ? `${left || open.length} spot${(left || open.length) === 1 ? '' : 's'} open across ${e.roles.length} roles` : 'All roles are full — join the pool below') : null;
+};
+const ways = [
+  { icon: 'volunteer', title: 'Event Support', text: 'Our events run on volunteer energy. Show up for a few hours and help create the moments that matter for our scholars.', items: ['Setup & breakdown', 'Guest check-in', 'Greeting attendees', 'Day-of logistics'] },
+  { icon: 'coach', title: 'Networking Events', text: 'Sit across from a student and have a real conversation. Your career story and connections can change their trajectory.', items: ['Speed networking', 'Elevator pitch practice', 'Industry insights', 'Coffee chats'] },
+  { icon: 'student', title: 'Professional Development', text: "Put your expertise to work. Help scholars build the career tools they'll use long after graduation.", items: ['Resume review', 'LinkedIn optimization', 'Mock interviews', 'Industry guidance'] },
+  { icon: 'partner', title: 'Corporate Liaison', text: "Be the bridge between your company and Level Up. Bring your organization's resources to students who need them most.", items: ['Recruit volunteers', 'Partnership development', 'Event sponsorship', 'Company site visits'] },
+];
+---
+<Base
+  title="Volunteer"
+  description="Volunteer with Level Up Cincinnati. Pick an event and a role — check-in, mock interviews, resume reviews, speed networking — and help first-gen students launch."
+  image="home-moment"
+  crumbs={[{ name: 'Volunteer', path: '/volunteer' }]}
+>
+  <section class="hero on-navy">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Volunteer</p>
+        <h1>Your time, skills, and network make a difference.</h1>
+        <p class="lede">Help first-generation college students in Cincinnati access opportunity and launch careers. There's a role for everyone.</p>
+        <div class="btn-row">
+          <a class="btn btn-coral btn-arrow" href="#events">See upcoming events</a>
+          <a class="btn btn-outline" href="/volunteer/pool">Join the volunteer pool</a>
+        </div>
+      </div>
+      <div class="hero-media"><Img src="home-moment" alt="Level Up students at a personal development event" priority sizes="(min-width: 56rem) 34rem, calc(100vw - 2rem)" widths={[360, 480, 640, 800, 1080]} /></div>
+    </div>
+  </section>
+
+  <section class="section" id="events" aria-labelledby="events-h">
+    <div class="wrap">
+      <header class="head-center">
+        <p class="eyebrow">Get involved</p>
+        <h2 id="events-h">Upcoming events</h2>
+      </header>
+      <div class="grid grid-2">
+        {upcoming.map(e => (
+          <article class="card vol-event">
+            <p>{e.open ? <span class="status status-open"><Icon name="check" size={18} />Signups open</span> : <span class="status status-soon"><Icon name="clock" size={18} />Coming soon</span>}</p>
+            <h3>{e.title}</h3>
+            <p class="event-meta"><span><Icon name="calendar" size={18} />{e.when}</span>{e.location && <span><Icon name="pin" size={18} />{e.location}</span>}</p>
+            <p>{e.summary}</p>
+            {e.open ? (
+              <>
+                <p><strong>{spots(e)}</strong></p>
+                <a class="btn btn-navy btn-arrow" href={`/volunteer/${e.id}`}>Pick a role for {e.title.replace(/ \d{4}$/, '')}</a>
+              </>
+            ) : (
+              <>
+                <ul class="roles">{e.roles.map(r => <li>{r.name}</li>)}</ul>
+                <form class="interest" method="POST" action={site.formAction} aria-label={`Get notified about ${e.title}`}>
+                  <FormHidden subject={`Volunteer interest: ${e.title}`} />
+                  <input type="hidden" name="event" value={e.title} />
+                  <p style="width:100%;margin:0">Signups aren't open yet. Drop your email and you'll be first to know when they are.</p>
+                  <label class="visually-hidden" for={`int-${e.id}`}>Email address for {e.title}</label>
+                  <input type="email" id={`int-${e.id}`} name="email" autocomplete="email" placeholder="Email address" required />
+                  <button class="btn btn-coral" type="submit">I'm interested</button>
+                </form>
+              </>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="ways">
+    <div class="wrap">
+      <header class="head-center">
+        <p class="eyebrow">Ways to help</p>
+        <h2 id="ways">There's a way for everyone to show up.</h2>
+        <p class="lede">Whether you have an afternoon or an ongoing commitment, we'll match you with the opportunity that fits your skills and availability.</p>
+      </header>
+      <div class="grid grid-4">
+        {ways.map(w => (
+          <article class="card">
+            <span class="ic-circle"><Icon name={w.icon as any} /></span>
+            <h3>{w.title}</h3>
+            <p>{w.text}</p>
+            <ul class="checklist">{w.items.map(i => <li>{i}</li>)}</ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="past-h">
+    <div class="wrap narrow">
+      <h2 id="past-h">Past events</h2>
+      <p class="lede">Every one of these ran on volunteer power. Thank you, Cincinnati.</p>
+      {past.length ? (
+        <ul class="list-cols">{past.map(e => <li><strong>{e.title}</strong> · {e.when}</li>)}</ul>
+      ) : <p>Nothing here yet — our volunteer history starts now. <a href="#events">See what's coming up</a>.</p>}
+    </div>
+  </section>
+
+  <section class="section on-navy" aria-labelledby="connected">
+    <div class="wrap grid grid-2" style="gap:2rem">
+      <div>
+        <p class="eyebrow">Stay connected</p>
+        <h2 id="connected">Not sure where you fit? Join the volunteer pool.</h2>
+        <p class="lede">Give us your name and email and we'll reach out when something needs hands. A handful of emails a year, no commitment.</p>
+        <a class="btn btn-coral btn-arrow" href="/volunteer/pool">Count me in</a>
+      </div>
+      <div>
+        <h2>Want to go deeper? Coach.</h2>
+        <p class="lede">Our coaches walk alongside a scholar through college — from finding their footing freshman year to landing that first job. If a few hours a month sounds right, this is the most meaningful way to plug in.</p>
+        <a class="btn btn-outline" href="/become-a-coach">Learn about coaching</a>
+      </div>
+    </div>
+  </section>
+</Base>

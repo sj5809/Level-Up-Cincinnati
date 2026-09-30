@@ -1,0 +1,117 @@
+---
+// "Your dollar, further" (was ai.levelupcincinnati.org), rebuilt as a page on the main site.
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import site from '../data/site.json';
+
+const values = [['Grant writing, eliminated', '$15K/yr'], ['Mobile app build', '$40K'], ['CRM / student platform', '$14K'], ['Internal wiki / knowledge base', '$40K'], ['Professional website', '$8K'], ['Legal documents', '$3.5K'], ['Onboarding automation', '$35K'], ['Monthly relationship check-ins', '$15K/yr']];
+const wins = [
+  { img: 'ai-win-grant', alt: 'Three scholarships sketch', amt: '$15K', kicker: 'Per year · deleted', title: 'The $15K line item we deleted from our budget.', lead: 'We used to pay a consultant to write our grants. Now AI drafts, a human reviews, and the quality holds.', body: ['For years a $15,000 line item sat in our budget for a grant-writing consultant. It was normal, and it was the kind of overhead that quietly eats a small nonprofit alive.', 'Today that $15,000 funds three full $5,000 scholarships. Not a cost cut. A stewardship decision.'], tag: '$15K = 3 scholarships', url: 'https://jimrodarte.substack.com/p/the-15k-line-item-we-deleted-from' },
+  { img: 'ai-win-app', alt: 'Mobile app sketch', amt: '$40K', kicker: 'Build value', title: "We built a mobile app. We don't have a developer.", lead: 'The app our scholars use every day was built in-house with AI. Zero developer fees.', body: ['Built and shipped to the App Store and Google Play, a comparable app would run an agency around $40,000 at the conservative end.', 'We built ours with AI, no developer on payroll. Our scholars get a professional-grade experience and we spent nothing on engineering.'], tag: 'One place, not ten', url: 'https://jimrodarte.substack.com/p/we-built-a-mobile-app-we-dont-have' },
+  { img: 'ai-win-salesforce', alt: 'CRM sketch', amt: '$14K', kicker: 'Platform value', title: 'A CRM that tells us how every scholar is doing.', lead: 'In four days and 118 commits we turned a basic CRM into a full student-success platform.', body: ['A custom build like this runs around $14,000 from a Salesforce consultant. With AI we built it in four days: scholar dashboards, relationship-health gauges, and board-ready metrics.', 'Now we can answer "how is Jada doing?" in seconds, for every scholar in the program.'], tag: 'Both paths, one view', url: 'https://jimrodarte.substack.com/p/hows-jada-doing-we-built-a-crm-to' },
+  { img: 'ai-win-wiki', alt: 'Knowledge that persists sketch', amt: '$40K', kicker: 'Build + content', title: 'An internal wiki so knowledge never walks out the door.', lead: 'The entire organization in one place, from fundraising and finance to coaching, programs, and our tech stack. Searchable, interlinked, built in-house.', body: ["When knowledge lives in one person's head, it leaves when they do. So we built a dense, searchable internal wiki that documents the whole organization: 13 sections spanning mission, fundraising, finance, operations, governance, partnerships, marketing, events, our student programs, coach management, and the full tech stack.", 'We had to aggregate and structure all of it from scratch, a build-and-populate effort that would run around $40,000. Now anyone on the team can find how anything works, and it updates as we do.'], tag: '13 sections, one source', url: 'https://jimrodarte.substack.com/p/the-knowledge-that-walks-out-the' },
+  { img: 'ai-win-website', alt: 'Website iceberg sketch', amt: '$8K', kicker: 'Build value', title: 'A professional website without a web developer.', lead: 'Donations, volunteer signups, and our whole story. We built it and we maintain it.', body: ['Most nonprofits spend at least $8,000 to have a website built, plus thousands a year to maintain it.', 'Ours was built with AI and we maintain it ourselves. Every dollar saved is a dollar that never left the mission.'], tag: 'The work beneath', url: 'https://jimrodarte.substack.com/p/a-professional-website-without-a' },
+  { img: 'ai-win-skills', alt: 'Three-tier legal rule sketch', amt: '$3.5K', kicker: 'Drafting value', title: 'Legal documents, drafted by AI, vetted by attorneys.', lead: 'Employment agreements, HR policies, waivers. AI drafts, real attorneys review every word.', body: ["Drafting a small nonprofit's core legal documents runs around $3,500. We drafted ours with AI, then had pro bono attorneys review every word.", 'Right tool for the right work, with a human safety net where it counts.'], tag: 'Right tool, right work', url: 'https://jimrodarte.substack.com/p/the-board-seat-we-dont-need-to-fill' },
+  { img: 'ai-win-onboarding', alt: 'Automation layered on the app sketch', amt: '$35K', kicker: 'Build value', title: 'Onboarding on autopilot, for coaches and scholars.', lead: 'Signed in-app, filed automatically, status tracked live. The chasing and paperwork just disappeared.', body: ['Onboarding used to mean sending forms, chasing signatures, and filing them by hand. We layered an automated system on top of our app: documents signed in-app via e-signature webhooks, synced to Salesforce, filed automatically, with an AI nudge engine and a live admin dashboard.', 'A six-integration custom build like this runs around $35,000 conservatively. Nobody chases paperwork anymore.'], tag: 'The work, gone', url: 'https://jimrodarte.substack.com/p/we-were-the-7-before-ai-got-here' },
+  { img: 'ai-win-pulse', alt: 'Silence is the data sketch', amt: '$15K', kicker: 'Per year · saved', title: 'The survey nobody filled out, and what replaced it.', lead: 'A 30-second monthly check-in in our app gives every mentoring relationship an early-warning system.', body: ['We used to send a monthly survey asking how mentoring relationships were going. Almost nobody answered, so staff spent hours every month chasing updates by phone and piecing the picture together by hand.', 'We replaced it with a four-question check-in built into our app: automatic reminders, staff alerts when someone needs help, and a trend line for every relationship. It hands back about $15,000 a year in staff time, hours that used to go to chasing updates and now go to actual mentoring. In month one, 75% checked in and two support needs were caught and handled.'], tag: 'The quiet ones get found', url: 'https://jimrodarte.substack.com/p/the-survey-nobody-filled-out-and' },
+];
+---
+<Base
+  title="Your Dollar, Further"
+  description="How Level Up Cincinnati's 1.5-person team uses AI to stretch every dollar: $180K+ in value created, so more of your gift reaches scholars instead of overhead."
+  image="ai-sarah-grad"
+  crumbs={[{ name: 'Your Dollar, Further', path: '/your-dollar-further' }]}
+>
+  <section class="hero on-navy">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Your dollar, further</p>
+        <h1>We're obsessive about efficiency.</h1>
+        <p class="lede">It's how a 1.5-person team stewards every dollar. See how we use AI to make sure your gift reaches our students, not our overhead.</p>
+        <div class="btn-row"><a class="btn btn-coral btn-arrow" href="https://jimrodarte.substack.com/p/this-isnt-a-tech-story" rel="noopener">Start with the series opener</a><a class="btn btn-outline" href="#proof">See where the value comes from</a></div>
+      </div>
+      <div class="hero-media"><Img src="ai-sarah-grad" alt="Sarah at her University of Cincinnati graduation" priority sizes="(min-width: 56rem) 34rem, calc(100vw - 2rem)" widths={[360, 480, 640, 800, 1080]} /></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="value">
+    <div class="wrap">
+      <header class="head-center"><p class="eyebrow">Value created with AI to date</p><h2 id="value">$180K+ in value, and growing.</h2><p class="lede">Plus about $69,000 a year in ongoing work AI now handles. Every dollar redirected to scholars.</p></header>
+      <ul class="value-grid">{values.map(([k, v]) => <li><span>{k}</span><b>{v}</b></li>)}<li><span>+ 32 more use cases</span><b>…</b></li></ul>
+      <dl class="stats" style="margin-top:2.5rem">
+        <div><dt>raised in 2025</dt><dd>$630K+</dd></div>
+        <div><dt>full-time staff</dt><dd>1.5</dd></div>
+        <div><dt>AI use cases</dt><dd>40</dd></div>
+        <div><dt>value created with AI</dt><dd>$180K+</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section on-navy" aria-labelledby="point">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">The point</p>
+        <h2 id="point">Every dollar we don't spend on overhead is a dollar that supports a scholar.</h2>
+        <p class="lede">Efficiency is the means. Students are the point. Here's what your support produces.</p>
+        <dl class="stats" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+          <div><dt>scholar retention</dt><dd>90%+</dd></div>
+          <div><dt>in scholarships in 2025</dt><dd>$200K</dd></div>
+          <div><dt>scholar satisfaction</dt><dd>4.95/5</dd></div>
+          <div><dt>made new professional connections</dt><dd>100%</dd></div>
+        </dl>
+        <p style="color:var(--blue-gray)">Scholars like Sarah, who turned a Level Up connection into a full-time Management Trainee offer at Cintas. <strong style="color:var(--white)">100% of donations go directly to student programming, scholarships, and mentoring.</strong></p>
+      </div>
+      <figure style="margin:0"><Img src="impact-sarah" alt="Sarah" sizes="(min-width: 56rem) 34rem, calc(100vw - 2rem)" /><figcaption class="small" style="color:var(--blue-gray)">Sarah — read her story in the <a href="/impact#stories">2025 Impact Report</a>.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="section soft" id="proof" aria-labelledby="proof-h">
+    <div class="wrap">
+      <header class="head-center"><p class="eyebrow">The proof</p><h2 id="proof-h">Where the value comes from.</h2><p class="lede">Catch the high level, or open any one to read more. Each links to the full story on Substack.</p></header>
+      <div class="grid" style="gap:1.25rem">
+        {wins.map(w => (
+          <article class="card win">
+            <Img src={w.img} alt={w.alt} widths={[224, 448]} sizes="14rem" />
+            <div>
+              <p class="kicker">{w.kicker}</p>
+              <p class="amount">{w.amt}</p>
+              <h3>{w.title}</h3>
+              <p>{w.lead}</p>
+              <details class="more"><summary>Read more: {w.title.replace(/\.$/, '')}</summary><div>{w.body.map(b => <p>{b}</p>)}<p class="badge">{w.tag}</p><p><a class="text-link arrow" href={w.url} rel="noopener">Continue reading on Substack</a></p></div></details>
+            </div>
+          </article>
+        ))}
+      </div>
+      <p class="center" style="margin-top:2rem">These eight are the headline. Another 32 use cases add up underneath them.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="built">
+    <div class="wrap narrow">
+      <p class="eyebrow">What we've built so far</p>
+      <h2 id="built">$180K+ in value created with AI, and growing.</h2>
+      <p class="lede">Plus about $69,000 a year in work AI now handles.</p>
+      <details class="more"><summary>How we estimate these numbers</summary><div>
+        <p>These are conservative estimates of what this work would cost at 2026 market rates. Most is capability we created with AI, not cash we would have spent. Some, like the $15,000 grant-writing consultant we let go, is money we redirected straight to students.</p>
+        <p>A note on the numbers: outside of confirmed cash savings, like the $15,000 a year we no longer spend on grant writing, the dollar figures on this page are good-faith estimates of what this work would cost at market rates, calculated with help from the same AI we use to run the organization. Careful napkin math, shared transparently.</p>
+      </div></details>
+      <div style="margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:1.5rem;align-items:flex-start">
+        <Img src="ai-jim" alt="Jim Rodarte, Executive Director of Level Up Cincinnati" widths={[160, 320]} sizes="160px" class="avatar-lg" />
+        <blockquote class="quote" style="margin:0;flex:1 1 18rem"><p>“I'm not a developer. I'm a nonprofit director who got a little obsessive about making our budget go further. Everything on this page, I built with AI so more of every dollar reaches our scholars instead of our overhead. If you're thinking about supporting Level Up, I'd genuinely welcome a conversation.”</p><footer><cite>Jim Rodarte</cite>, Executive Director &amp; Co-Founder, Level Up Cincinnati</footer></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="section skyline-cta on-navy center" aria-labelledby="steward">
+    <div class="bg"><Img src="cincinnati-skyline" alt="" sizes="100vw" widths={[640, 1024, 1600]} /></div>
+    <div class="wrap">
+      <h2 id="steward">This is what responsible stewardship looks like.</h2>
+      <p class="lede">Every dollar we saved went to scholarships, coaching, and programming. Your gift goes further here. Funders and partners: let's talk about what your support makes possible.</p>
+      <div class="btn-row">
+        <a class="btn btn-coral btn-arrow" href="/donate">Donate</a>
+        <a class="btn btn-outline" href={site.calendlyUrl} rel="noopener">Start a conversation with Jim</a>
+        <a class="btn btn-outline" href={site.substackSeriesUrl} rel="noopener">Read the series: The $0 Department</a>
+      </div>
+    </div>
+  </section>
+</Base>

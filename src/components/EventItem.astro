@@ -22,7 +22,7 @@ const soon = !past ? countdown(event) : null;
     </p>
     <p>{d.summary}</p>
     <div class="btn-row">
-      {!past && d.registerUrl && <a class="btn btn-coral btn-arrow" href={d.registerUrl} rel="noopener">Register for {short}</a>}
+      {!past && d.registerUrl && <a class="btn btn-coral btn-arrow" href={d.registerUrl} rel={d.registerUrl.startsWith('http') ? 'noopener' : undefined}>{d.ctaLabel ?? `Register for ${short}`}</a>}
       {d.page && <a class="text-link arrow" href={d.page}>{past ? `About ${d.title.replace(/ \d{4}$/, '')}` : `Details: ${d.title.replace(/^HERizon: /, 'HERizon ')}`}</a>}
     </div>
     {cal && (

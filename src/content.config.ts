@@ -15,7 +15,8 @@ const events = defineCollection({
     location: z.string().optional(),
     address: z.string().optional(),
     summary: z.string(),
-    registerUrl: z.string().url().optional(),
+    registerUrl: z.string().optional(), // external URL or an internal path like /volunteer/pd-day-2026
+    ctaLabel: z.string().optional(), // button text; defaults to "Register for …"
     page: z.string().optional(), // internal page with full details
   }),
 });

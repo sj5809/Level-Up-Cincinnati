@@ -28,7 +28,8 @@ collections:
       - { name: location, label: Location, widget: string, required: false }
       - { name: address, label: Street address, widget: string, required: false }
       - { name: summary, label: Short description, widget: text }
-      - { name: registerUrl, label: Registration link, widget: string, required: false }
+      - { name: registerUrl, label: Registration link, widget: string, required: false, hint: "Full URL, or a page on this site like /volunteer/pd-day-2026" }
+      - { name: ctaLabel, label: Button text, widget: string, required: false, hint: 'Defaults to "Register for …"' }
       - { name: page, label: Event page on this site, widget: select, required: false, options: [/herizon-series, /aiming-for-opportunity, /urban-bourbon, /elevating-women, /events] }
       - { name: body, label: Notes (not shown), widget: markdown, required: false }
 
@@ -125,3 +126,26 @@ collections:
               - { name: photo, widget: image, required: false }
               - { name: linkedin, label: LinkedIn URL, widget: string, required: false }
               - { name: oldUrl, label: Old URL (redirects here), widget: string, required: false }
+      - name: volunteer
+        label: Volunteer events & roles
+        file: src/data/volunteer.json
+        fields:
+          - name: events
+            label: Volunteer events
+            widget: list
+            summary: "{{fields.title}} — {{fields.when}}"
+            fields:
+              - { name: id, label: "URL name (e.g. pd-day-2026)", widget: string }
+              - { name: title, widget: string }
+              - { name: date, label: "Date (YYYY-MM-DD; moves to Past after this day)", widget: string, required: false }
+              - { name: when, label: Date/time text, widget: string }
+              - { name: location, widget: string, required: false }
+              - { name: open, label: Signups open?, widget: boolean, default: false }
+              - { name: summary, widget: text }
+              - { name: crew, label: '"Join Stacy, Bryen…" line', widget: text, required: false }
+              - name: roles
+                widget: list
+                fields:
+                  - { name: name, widget: string }
+                  - { name: description, widget: text, required: false }
+                  - { name: status, label: 'Status (e.g. "1 spot left", "Full"; blank = open)', widget: string, required: false }

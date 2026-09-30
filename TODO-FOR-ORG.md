@@ -77,3 +77,29 @@ These are the open items from the website rebuild. Nothing here blocks launch: e
     - If Spanish (or another language) is needed, we can build static translated pages with no speed cost.
 22. **Analytics.** Do you want visitor analytics? Cloudflare Web Analytics and Plausible are privacy-friendly and don't slow the site down.
 23. **Pages that were removed (they redirect to the homepage):** `/cart`, `/prog-dash`, and `/app-1` were empty Squarespace pages.
+
+## Subdomain sites (now part of the main site)
+
+24. **Everything from the subdomains now lives on the main site.**
+
+    | Old subdomain | New page |
+    |---|---|
+    | `coach.` | `/coaching-in-5-minutes` |
+    | `impact.` | `/impact` |
+    | `ai.` | `/your-dollar-further` |
+    | `volunteer.` | `/volunteer`, `/volunteer/pool`, `/volunteer/<event>` |
+
+    - Once the new site is live, set each old subdomain to redirect to its new page (in Vercel/Netlify, or at DNS). `app.` (the Scholar App) stays as is.
+25. **Volunteer signups.** The old volunteer app counted open spots automatically. The new pages show each role's status ("1 spot left", "Full") from `/admin` → *Volunteer events & roles*. Signups arrive by email (Web3Forms), so staff update the status there when a role fills.
+    - Is that workflow OK?
+    - If not, we can keep the old volunteer app for signups only.
+26. **Numbers that differ between the subdomains and the main site.** Which figure should every page use?
+    - **Average GPA:** 3.33 (Impact Report) vs. 3.31 (coach presentation)
+    - **Jobs aligned to major:** 90%+ vs. 89%+
+    - **"I feel supported" rating:** 4.95 vs. 4.92
+    - **2025 contributed revenue:** $625K (Impact Report) vs. "$630K+ raised in 2025" (Your Dollar, Further)
+    - **Coaches:** 29 (2025) vs. 30+ vs. 36
+    - **Good standing:** 96% vs. 95%
+
+    **Now:** each page shows exactly what its original showed.
+27. **Vector logo found.** The coach presentation had SVG logos, and the site now uses them. That resolves item 20.

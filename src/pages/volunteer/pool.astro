@@ -1,0 +1,42 @@
+---
+import Base from '../../layouts/Base.astro';
+import FormHidden from '../../components/FormHidden.astro';
+import site from '../../data/site.json';
+---
+<Base
+  title="Join the Volunteer Pool"
+  description="Join Level Up Cincinnati's volunteer pool. We'll email you 6–8 times a year when events need hands — check-in, mock interviews, resume reviews. No commitment."
+  image="home-moment"
+  crumbs={[{ name: 'Volunteer', path: '/volunteer' }, { name: 'Volunteer Pool', path: '/volunteer/pool' }]}
+>
+  <section class="hero on-navy">
+    <div class="wrap narrow">
+      <p class="eyebrow">Stay connected</p>
+      <h1>Join the volunteer pool</h1>
+      <p class="lede">Tell us who you are and we'll reach out when the next event needs hands — check-in tables, mock interviews, resume reviews, setup crews. A handful of emails a year, no commitment.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split" style="align-items:start">
+      <div class="form-card">
+        <form class="form" method="POST" action={site.formAction}>
+          <FormHidden subject="New volunteer pool signup" />
+          <div class="field"><label for="p-name">Name <span class="req">(required)</span></label><input type="text" id="p-name" name="name" autocomplete="name" required /></div>
+          <div class="field"><label for="p-email">Email <span class="req">(required)</span></label><input type="email" id="p-email" name="email" autocomplete="email" required /></div>
+          <div class="field"><label for="p-company">Company <span class="req">(optional)</span></label><input type="text" id="p-company" name="company" autocomplete="organization" /></div>
+          <button class="btn btn-coral btn-arrow" type="submit">Count me in</button>
+        </form>
+      </div>
+      <div>
+        <h2>What happens next?</h2>
+        <ol class="steps" style="margin-top:1.5rem">
+          <li><h3>You join our volunteer community</h3><p>You're added to our pool of engaged volunteers who want to make a difference in Cincinnati.</p></li>
+          <li><h3>We notify you of opportunities</h3><p>When volunteer opportunities arise — typically 6–8 times per year — we reach out by email.</p></li>
+          <li><h3>You decide what fits</h3><p>No commitment required. Each time we reach out, you decide whether that opportunity fits your schedule.</p></li>
+        </ol>
+        <p class="muted">We respect your time — you'll only hear about real opportunities to make an impact, never spam.</p>
+      </div>
+    </div>
+  </section>
+</Base>
