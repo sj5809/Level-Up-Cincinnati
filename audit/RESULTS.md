@@ -14,8 +14,8 @@
 | Accessibility | 92 | 92 | **100** |
 | Best Practices | 96 | 73 | **100** |
 | SEO | 100 | 100 | **100** |
-| Largest Contentful Paint | 15.8 s | 17.2 s | **1.28s** |
-| First Contentful Paint | 3.9 s | 5.7 s | **0.65s** |
+| Largest Contentful Paint | 15.8 s | 17.2 s | **1.44s** |
+| First Contentful Paint | 3.9 s | 5.7 s | **0.84s** |
 | Total Blocking Time | 810 ms | 240 ms | **0 ms** |
 | Cumulative Layout Shift | 0 | 0 | **0** |
 | Page weight | 4,003 KiB | 3,971 KiB | **92 KiB** |
@@ -33,35 +33,35 @@
 
 | Page | Mobile P / A / BP / SEO | Mobile LCP | Mobile weight | Desktop P / A / BP / SEO | Desktop LCP |
 |---|---|---|---|---|---|
-| `/` | 100 / 100 / 100 / 100 | 1.28s | 92 KiB | 100 / 100 / 100 / 100 | 0.32s |
-| `/our-vision` | 100 / 100 / 100 / 100 | 0.91s | 194 KiB | 100 / 100 / 100 / 100 | 0.26s |
-| `/our-team` | 100 / 100 / 100 / 100 | 0.91s | 124 KiB | 100 / 100 / 100 / 100 | 0.27s |
-| `/become-a-coach` | 100 / 100 / 100 / 100 | 1.29s | 107 KiB | 100 / 100 / 100 / 100 | 0.32s |
-| `/your-year-as-a-coach` | 100 / 100 / 100 / 100 | 0.91s | 23 KiB | 100 / 100 / 100 / 100 | 0.24s |
-| `/our-partners` | 100 / 100 / 100 / 100 | 0.91s | 22 KiB | 100 / 100 / 100 / 100 | 0.25s |
-| `/join-the-network` | 100 / 100 / 100 / 100 | 1.13s | 78 KiB | 100 / 100 / 100 / 100 | 0.27s |
-| `/students` | 100 / 100 / 100 / 100 | 1.36s | 77 KiB | 100 / 100 / 100 / 100 | 0.31s |
-| `/events` | 100 / 100 / 100 / 100 | 0.91s | 22 KiB | 100 / 100 / 100 / 100 | 0.25s |
-| `/aiming-for-opportunity` | 100 / 100 / 100 / 100 | 1.28s | 169 KiB | 100 / 100 / 100 / 100 | 0.32s |
-| `/aiming-for-opportunity/what-to-expect` | 100 / 100 / 100 / 100 | 1.43s | 88 KiB | 100 / 100 / 100 / 100 | 0.31s |
-| `/urban-bourbon` | 100 / 100 / 100 / 100 | 1.37s | 111 KiB | 100 / 100 / 100 / 100 | 0.31s |
-| `/herizon-series` | 100 / 100 / 100 / 100 | 1.21s | 40 KiB | 100 / 100 / 100 / 100 | 0.29s |
-| `/elevating-women` | 100 / 100 / 100 / 100 | 1.59s | 152 KiB | 100 / 100 / 100 / 100 | 0.33s |
-| `/donate` | 100 / 100 / 100 / 100 | 0.91s | 31 KiB | 100 / 100 / 100 / 100 | 0.25s |
-| `/coaches` | 100 / 100 / 100 / 100 | 0.91s | 95 KiB | 100 / 100 / 100 / 100 | 0.25s |
-| `/coaches/jena-mcclanahan` | 100 / 100 / 100 / 100 | 0.91s | 32 KiB | 100 / 100 / 100 / 100 | 0.24s |
-| `/scholars` | 100 / 100 / 100 / 100 | 0.91s | 64 KiB | 100 / 100 / 100 / 100 | 0.25s |
-| `/scholars/ndeye-wade` | 100 / 100 / 100 / 100 | 0.90s | 31 KiB | 100 / 100 / 100 / 100 | 0.24s |
-| `/privacy-policy` | 100 / 100 / 100 / 100 | 0.91s | 26 KiB | 100 / 100 / 100 / 100 | 0.25s |
-| `/terms-of-use` | 100 / 100 / 100 / 100 | 1.06s | 29 KiB | 100 / 100 / 100 / 100 | 0.29s |
-| `/thanks` | 100 / 100 / 100 / 69 | 0.90s | 25 KiB | 100 / 100 / 100 / 69 | 0.24s |
-| `/404` | 100 / 100 / 100 / 100 | 0.90s | 34 KiB | 100 / 100 / 100 / 100 | 0.25s |
+| `/` | 100 / 100 / 100 / 100 | 1.44s | 92 KiB | 100 / 100 / 100 / 100 | 0.38s |
+| `/our-vision` | 100 / 100 / 100 / 100 | 1.06s | 197 KiB | 100 / 100 / 100 / 100 | 0.29s |
+| `/our-team` | 100 / 100 / 100 / 100 | 0.92s | 127 KiB | 100 / 100 / 100 / 100 | 0.26s |
+| `/become-a-coach` | 100 / 100 / 100 / 100 | 1.29s | 89 KiB | 100 / 100 / 100 / 100 | 0.32s |
+| `/your-year-as-a-coach` | 100 / 100 / 100 / 100 | 0.91s | 26 KiB | 100 / 100 / 100 / 100 | 0.24s |
+| `/our-partners` | 100 / 100 / 100 / 100 | 0.91s | 25 KiB | 100 / 100 / 100 / 100 | 0.25s |
+| `/join-the-network` | 100 / 100 / 100 / 100 | 1.14s | 81 KiB | 100 / 100 / 100 / 100 | 0.27s |
+| `/students` | 100 / 100 / 100 / 100 | 1.36s | 80 KiB | 100 / 100 / 100 / 100 | 0.32s |
+| `/events` | 100 / 100 / 100 / 100 | 0.91s | 25 KiB | 100 / 100 / 100 / 100 | 0.25s |
+| `/aiming-for-opportunity` | 100 / 100 / 100 / 100 | 1.36s | 172 KiB | 100 / 100 / 100 / 100 | 0.36s |
+| `/aiming-for-opportunity/what-to-expect` | 100 / 100 / 100 / 100 | 1.43s | 91 KiB | 100 / 100 / 100 / 100 | 0.31s |
+| `/urban-bourbon` | 100 / 100 / 100 / 100 | 1.36s | 114 KiB | 100 / 100 / 100 / 100 | 0.31s |
+| `/herizon-series` | 100 / 100 / 100 / 100 | 1.21s | 44 KiB | 100 / 100 / 100 / 100 | 0.30s |
+| `/elevating-women` | 100 / 100 / 100 / 100 | 1.74s | 155 KiB | 100 / 100 / 100 / 100 | 0.37s |
+| `/donate` | 100 / 100 / 100 / 100 | 0.91s | 34 KiB | 100 / 100 / 100 / 100 | 0.25s |
+| `/coaches` | 100 / 100 / 100 / 100 | 0.92s | 98 KiB | 100 / 100 / 100 / 100 | 0.26s |
+| `/coaches/jena-mcclanahan` | 100 / 100 / 100 / 100 | 0.91s | 61 KiB | 100 / 100 / 100 / 100 | 0.25s |
+| `/scholars` | 100 / 100 / 100 / 100 | 0.91s | 67 KiB | 100 / 100 / 100 / 100 | 0.25s |
+| `/scholars/ndeye-wade` | 100 / 100 / 100 / 100 | 0.91s | 61 KiB | 100 / 100 / 100 / 100 | 0.25s |
+| `/privacy-policy` | 100 / 100 / 100 / 100 | 1.06s | 29 KiB | 100 / 100 / 100 / 100 | 0.29s |
+| `/terms-of-use` | 100 / 100 / 100 / 100 | 1.06s | 32 KiB | 100 / 100 / 100 / 100 | 0.29s |
+| `/thanks` | 100 / 100 / 100 / 69 | 0.91s | 55 KiB | 100 / 100 / 100 / 69 | 0.25s |
+| `/404` | 100 / 100 / 100 / 100 | 0.91s | 64 KiB | 100 / 100 / 100 / 100 | 0.25s |
 
 **Across the whole site, averaged over the 20 pages measured before the rebuild:**
 - Performance: 56 → 100
 - Accessibility: 92 → 100
 - Best Practices: 73 → 100
-- Average page weight: 3.2 MB → 72 KB
+- Average page weight: 3.2 MB → 79 KB
 
 **Notes:**
 - `/thanks` is the page people see after submitting a form. It is deliberately marked "don't show in Google" (`noindex`), which Lighthouse's SEO score counts against it (69). Every page meant to appear in search scores 100.
@@ -102,6 +102,25 @@
 - **Donate** now sits inside the sticky header. The floating Givebutter button that covered "Be Someone's Coach" is gone.
 - A full-screen mobile menu with large rows and collapsible Get Involved / Events / About groups. Escape closes it, focus is managed, and the page behind is disabled while it's open.
 - The coach and scholar carousels became simple grids. Everyone is visible, with no swiping and no hidden duplicates.
+
+### New features the old site didn't have
+- **Instant, app-like navigation.**
+  - Pages load in the background when you hover or touch a link (Speculation Rules), then slide smoothly into place (View Transitions).
+  - A coach's photo in the directory morphs into their profile page when you click through.
+  - Browsers without support simply navigate normally.
+- **"There's a place for you" chooser (homepage).** Visitors pick *Mentor a student / Lend a hand at events / Open doors for my company / Fund a scholar / I'm a UC student*. They get a tailored panel with real facts, a real quote, and the right next step. It runs on HTML and CSS only.
+- **"A scholar's journey."** A timeline from selection at UC through Match Day, both coaches, and into a career, with a coral line that fills in as you scroll.
+- **"The Level Up family."** A wall of every real coach and scholar photo (36 coaches, 35 scholars, counted automatically from the data), ending with a coral "You?" tile that links to the coach application.
+- **Smarter events.**
+  - A live countdown ("In 23 days"), kept current by the daily rebuild.
+  - One-tap **Add to calendar** (Apple/Outlook `.ics` file, or Google Calendar) on every upcoming event.
+  - The next event is highlighted.
+- **Design upgrade.**
+  - A full-width photo hero with a hand-drawn coral underline.
+  - A stats card that floats over the hero.
+  - Cards that lift on hover, photos that zoom slightly, coral icon circles, and centered section headings.
+  - The Cincinnati skyline (Roebling Bridge at sunset) behind the footer and the final call to action.
+  - A reading-progress bar on long pages.
 
 ### Motion that doesn't cost speed
 - **Stats count up** the first time they scroll into view, like on the old site. The real number is always in the HTML, so search engines, link previews, and visitors without JavaScript see "98%" rather than "0%".

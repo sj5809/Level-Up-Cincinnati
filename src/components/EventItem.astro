@@ -1,25 +1,35 @@
 ---
-import { fmt, type Ev } from '../lib/events';
-interface Props { event: Ev; heading?: 'h2' | 'h3'; past?: boolean }
-const { event, heading = 'h3', past = false } = Astro.props;
+import { fmt, calendarInfo, countdown, type Ev } from '../lib/events';
+import Icon from './Icon.astro';
+interface Props { event: Ev; heading?: 'h2' | 'h3' | 'h4'; past?: boolean; featured?: boolean }
+const { event, heading = 'h3', past = false, featured = false } = Astro.props;
 const d = event.data;
 const H = heading;
+const short = d.title.replace(/^HERizon: /, '');
+const cal = !past ? calendarInfo(event, Astro.site!) : null;
+const soon = !past ? countdown(event) : null;
 ---
-<article class="event">
+<article class:list={['event', { 'event-featured': featured }]}>
   {d.date ? (
     <div class="event-date" aria-hidden="true"><span>{fmt(d.date, { month: 'short' })}</span><b>{fmt(d.date, { day: 'numeric' })}</b><span>{fmt(d.date, { year: 'numeric' })}</span></div>
   ) : <div class="event-date" aria-hidden="true"><span>Save</span><b>★</b><span>the date</span></div>}
   <div>
+    {soon && <p class="countdown"><Icon name="clock" size={18} /> {soon}</p>}
     <H>{d.title}</H>
-    <p class="small muted">
-      {d.date ? <time datetime={d.date.toISOString().slice(0, 10)}>{fmt(d.date, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</time> : d.dateLabel}
-      {d.time && <> · {d.time}</>}
-      {d.location && <> · {d.location}</>}
+    <p class="event-meta">
+      <span><Icon name="calendar" size={18} />{d.date ? <time datetime={d.date.toISOString().slice(0, 10)}>{fmt(d.date, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</time> : d.dateLabel}{d.time && <> · {d.time}</>}</span>
+      {d.location && <span><Icon name="pin" size={18} />{d.location}{d.address && d.address !== d.location && <>, {d.address}</>}</span>}
     </p>
     <p>{d.summary}</p>
     <div class="btn-row">
-      {!past && d.registerUrl && <a class="btn btn-coral" href={d.registerUrl} rel="noopener">Register for {d.title.replace(/^HERizon: /, '')}</a>}
+      {!past && d.registerUrl && <a class="btn btn-coral btn-arrow" href={d.registerUrl} rel="noopener">Register for {short}</a>}
       {d.page && <a class="text-link arrow" href={d.page}>{past ? `About ${d.title.replace(/ \d{4}$/, '')}` : `Details: ${d.title.replace(/^HERizon: /, 'HERizon ')}`}</a>}
     </div>
+    {cal && (
+      <p class="add-cal">
+        <a href={cal.icsPath} download aria-label={`Add to calendar: ${short} (Apple, Outlook)`}><Icon name="calendar" size={18} />Add to calendar</a>
+        <a href={cal.google} rel="noopener" aria-label={`Google Calendar: add ${short}`}>Google Calendar</a>
+      </p>
+    )}
   </div>
 </article>

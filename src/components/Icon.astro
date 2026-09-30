@@ -1,0 +1,20 @@
+---
+// Small decorative line icons (aria-hidden). Keep paths simple; stroke uses currentColor.
+interface Props { name: 'coach' | 'volunteer' | 'partner' | 'heart' | 'student' | 'calendar' | 'pin' | 'clock' | 'arrow' | 'launch' | 'check' | 'handshake'; size?: number }
+const { name, size = 24 } = Astro.props;
+const paths: Record<string, string> = {
+  coach: '<circle cx="9" cy="7" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.2A5 5 0 0 1 21 19"/>',
+  volunteer: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 15.5l2 2 4-4"/>',
+  partner: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/>',
+  heart: '<path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/>',
+  student: '<path d="M2 9.5 12 4.5l10 5-10 5z"/><path d="M6 11.5v4.8c0 1.8 2.7 3.2 6 3.2s6-1.4 6-3.2v-4.8M22 9.5v5"/>',
+  calendar: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+  pin: '<path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>',
+  arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  launch: '<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
+  check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+  handshake: '<path d="M3 11l4-4 4 2 3-2 7 5"/><path d="M7 7l-4 4 6 6 2-1 2 2 2-1 2 1 3-4"/><path d="M11 9l-3 3 2 2 3-2"/>',
+};
+---
+<svg class="icon" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" set:html={paths[name]} />

@@ -18,7 +18,7 @@ const { c } = Astro.props;
     <div class="wrap narrow center">
       <p class="eyebrow">Level Up coach</p>
       <h1>{c.name}</h1>
-      <ul class="people profile"><Person name={c.name} heading="h2" photo={c.photo} lines={[c.title, c.company, c.tags.join(' · ')]} linkedin={c.linkedin} large /></ul>
+      <ul class="people profile"><Person name={c.name} vt={`coach-${c.slug}`} heading="h2" photo={c.photo} lines={[c.title, c.company, c.tags.join(' · ')]} linkedin={c.linkedin} large /></ul>
       <div class="btn-row" style="margin-top:1.5rem"><a class="btn btn-navy" href="/coaches">All coaches</a><a class="btn btn-coral" href="/become-a-coach">Become a Coach</a></div>
     </div>
   </section>

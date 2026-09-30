@@ -6,7 +6,7 @@ const pages = (process.argv[2] || '/').split(',');
 const widths = (process.env.WIDTHS || '360,390,768,1280').split(',').map(Number);
 const b = await chromium.launch();
 for (const w of widths) {
-  const ctx = await b.newContext({ viewport: { width: w, height: 800 }, deviceScaleFactor: 1 });
+  const ctx = await b.newContext({ viewport: { width: w, height: 800 }, deviceScaleFactor: 1, reducedMotion: 'reduce' }); // show all content in full-page shots
   const p = await ctx.newPage();
   for (const path of pages) {
     await p.goto(base + path, { waitUntil: 'networkidle' });

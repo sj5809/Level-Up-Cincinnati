@@ -3,6 +3,7 @@ import FormHidden from '../components/FormHidden.astro';
 import Base from '../layouts/Base.astro';
 import site from '../data/site.json';
 import partners from '../data/partners.json';
+import Icon from '../components/Icon.astro';
 ---
 <Base
   title="Partner or Sponsor"
@@ -31,9 +32,9 @@ import partners from '../data/partners.json';
       <h2 id="why">Why partner with Level Up.</h2>
       <p class="lede">Align your organization with a mission that creates measurable impact — for your team and for Cincinnati's future workforce.</p>
       <div class="grid grid-3">
-        <article class="card path-card"><h3>Employee engagement</h3><p>Give your team meaningful volunteer opportunities — mentoring, networking events, and hands-on coaching that build connection and purpose.</p></article>
-        <article class="card path-card"><h3>Diverse talent pipeline</h3><p>Build relationships with driven, first-generation college students entering fields across Cincinnati — your future hires and industry leaders.</p></article>
-        <article class="card path-card"><h3>Community visibility</h3><p>Demonstrate your commitment to equity and inclusion through action — not just statements. Your brand becomes part of a proven story of impact.</p></article>
+        <article class="card path-card"><span class="ic-circle"><Icon name="coach" /></span><h3>Employee engagement</h3><p>Give your team meaningful volunteer opportunities — mentoring, networking events, and hands-on coaching that build connection and purpose.</p></article>
+        <article class="card path-card"><span class="ic-circle"><Icon name="launch" /></span><h3>Diverse talent pipeline</h3><p>Build relationships with driven, first-generation college students entering fields across Cincinnati — your future hires and industry leaders.</p></article>
+        <article class="card path-card"><span class="ic-circle"><Icon name="handshake" /></span><h3>Community visibility</h3><p>Demonstrate your commitment to equity and inclusion through action — not just statements. Your brand becomes part of a proven story of impact.</p></article>
       </div>
     </div>
   </section>

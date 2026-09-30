@@ -3,6 +3,7 @@ import FormHidden from '../components/FormHidden.astro';
 import Base from '../layouts/Base.astro';
 import Img from '../components/Img.astro';
 import Person from '../components/Person.astro';
+import Icon from '../components/Icon.astro';
 import site from '../data/site.json';
 import rosterData from '../data/coach-roster.json';
 const roster = rosterData.people;
@@ -119,9 +120,9 @@ const half = '(min-width: 56rem) 34rem, calc(100vw - 2rem)';
       <h2 id="support">“Will I have enough time?” “Will I know what to do?”</h2>
       <p class="lede">Those are the two biggest questions from new coaches. Here's how we support you every step of the way.</p>
       <div class="grid grid-3">
-        <article class="card"><h3>One-day orientation</h3><p>Before meeting your scholar, you'll attend our one-day orientation covering everything you need to know.</p></article>
-        <article class="card"><h3>Monthly conversation topics</h3><p>We provide suggested topics and resources each month, focusing on key areas that help students thrive.</p></article>
-        <article class="card"><h3>Dedicated staff support</h3><p>Our team is here whenever you need guidance, encouragement, or just want to celebrate a success.</p></article>
+        <article class="card"><span class="ic-circle"><Icon name="student" /></span><h3>One-day orientation</h3><p>Before meeting your scholar, you'll attend our one-day orientation covering everything you need to know.</p></article>
+        <article class="card"><span class="ic-circle"><Icon name="calendar" /></span><h3>Monthly conversation topics</h3><p>We provide suggested topics and resources each month, focusing on key areas that help students thrive.</p></article>
+        <article class="card"><span class="ic-circle"><Icon name="heart" /></span><h3>Dedicated staff support</h3><p>Our team is here whenever you need guidance, encouragement, or just want to celebrate a success.</p></article>
       </div>
     </div>
   </section>

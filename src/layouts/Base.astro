@@ -105,9 +105,12 @@ const year = new Date().getFullYear();
   {ogUrl && <meta property="og:image:height" content="630" />}
   <meta name="twitter:card" content="summary_large_image" />
   {ld.map(d => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
+  {/* Prerender internal pages on hover/touch so navigation feels instant (no-op in browsers without support). */}
+  <script type="speculationrules" set:html={JSON.stringify({ prerender: [{ where: { and: [{ href_matches: '/*' }, { not: { href_matches: ['/admin/*', '/thanks', '/*.ics'] } }] }, eagerness: 'moderate' }] })} />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
   <header class="site-header">
     <div class="wrap header-bar">
       <a class="brand" href="/" aria-label="Level Up Cincinnati home">
@@ -144,6 +147,7 @@ const year = new Date().getFullYear();
   </main>
 
   <footer class="site-footer">
+    <div class="footer-bg" aria-hidden="true"><Img src="cincinnati-skyline" alt="" sizes="100vw" widths={[640, 1024, 1600]} /></div>
     <div class="wrap">
       <div class="footer-grid">
         <div>
@@ -214,12 +218,13 @@ const year = new Date().getFullYear();
       skipped for prefers-reduced-motion; only elements below the first screen are ever hidden. */}
   <script is:inline>
     (()=>{if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver'in window))return;
-    const d=document,H=innerHeight;d.documentElement.classList.add('anim');
+    const d=document;if(d.prerendering)return d.addEventListener('prerenderingchange',()=>go(),{once:true});go();
+    function go(){const H=innerHeight;d.documentElement.classList.add('anim');
     const run=el=>{const m=el.textContent.match(/^(\D*)([\d,]*\.?\d+)(.*)$/);if(!m||/^(19|20)\d\d$/.test(m[0]))return;
     const[,a,n,z]=m,t=+n.replace(/,/g,''),p=(n.split('.')[1]||'').length,c=n.includes(','),s=performance.now();
     const f=now=>{const k=Math.min((now-s)/1400,1),v=t*(1-(1-k)**3);el.textContent=a+(c?Math.round(v).toLocaleString('en-US'):v.toFixed(p))+z;k<1&&requestAnimationFrame(f)};requestAnimationFrame(f)};
     const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const t=e.target;io.unobserve(t);t.classList.add('in');t.querySelectorAll('dd').forEach(run)}),{rootMargin:'0px 0px -8% 0px'});
-    d.querySelectorAll('.card,.split>*,.quote,.stats>div,.timeline>li,.steps>li,.person,.gallery li,.event,.list-cols').forEach(el=>{if(el.getBoundingClientRect().top>H){el.classList.add('reveal');el.style.transitionDelay=[...el.parentNode.children].indexOf(el)%4*80+'ms'}io.observe(el)})})();
+    d.querySelectorAll('.card,.split>*,.quote,.stats>div,.timeline>li,.steps>li,.person,.gallery li,.event,.list-cols,.journey>li,.family').forEach(el=>{if(el.getBoundingClientRect().top>H){el.classList.add('reveal');el.style.transitionDelay=[...el.parentNode.children].indexOf(el)%4*80+'ms'}io.observe(el)})}})();
   </script>
 </body>
 </html>

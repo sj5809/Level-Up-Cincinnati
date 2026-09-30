@@ -19,7 +19,7 @@ const desc = `${s.name} is a Level Up Cincinnati ${s.tag ? s.tag.toLowerCase() :
     <div class="wrap narrow center">
       <p class="eyebrow">Level Up scholar</p>
       <h1>{s.name}</h1>
-      <ul class="people profile"><Person name={s.name} heading="h2" photo={s.photo} lines={[...s.details, s.tag]} linkedin={s.linkedin} large /></ul>
+      <ul class="people profile"><Person name={s.name} vt={`scholar-${s.slug}`} heading="h2" photo={s.photo} lines={[...s.details, s.tag]} linkedin={s.linkedin} large /></ul>
       <div class="btn-row" style="margin-top:1.5rem"><a class="btn btn-navy" href="/scholars">All scholars</a><a class="btn btn-coral" href="/donate">Support a Scholar</a></div>
     </div>
   </section>

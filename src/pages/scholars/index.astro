@@ -30,7 +30,7 @@ const css = tags.map(t => `.dir:has(input[value="${id(t)}"]:checked) .people>li:
         {tags.map(t => <label><input type="radio" name="f" value={id(t)} /><span>{t}</span></label>)}
       </fieldset>
       <ul class="people">
-        {scholars.map(s => <Person name={s.name} photo={s.photo} lines={[...s.details, s.tag]} href={`/scholars/${s.slug}`} linkedin={s.linkedin} tags={s.tag ? id(s.tag) : ''} />)}
+        {scholars.map(s => <Person name={s.name} vt={`scholar-${s.slug}`} photo={s.photo} lines={[...s.details, s.tag]} href={`/scholars/${s.slug}`} linkedin={s.linkedin} tags={s.tag ? id(s.tag) : ''} />)}
       </ul>
       <div class="center" style="margin-top:3rem">
         <h2>Rooting for them?</h2>

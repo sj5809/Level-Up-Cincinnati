@@ -25,7 +25,7 @@ const ld = upcoming.map(e => eventJsonLd(e, Astro.site!)).filter(Boolean) as obj
     <div class="wrap narrow">
       <h2 id="upcoming">Upcoming events</h2>
       {upcoming.length ? (
-        <ul class="list-plain grid" style="gap:2rem">{upcoming.map(e => <li><EventItem event={e} /></li>)}</ul>
+        <ul class="list-plain grid" style="gap:2rem">{upcoming.map((e, i) => <li><EventItem event={e} featured={i === 0} /></li>)}</ul>
       ) : <p>New dates are on the way. <a href="#footer-newsletter">Join our mailing list</a> to hear first.</p>}
     </div>
   </section>

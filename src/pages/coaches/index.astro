@@ -35,7 +35,7 @@ const css = '.empty{display:none}' + tags.map(t => `.dir:has(input[value="${id(t
         {tags.map(t => <label><input type="radio" name="f" value={id(t)} /><span>{t}</span></label>)}
       </fieldset>
       <ul class="people">
-        {coaches.map(c => <Person name={c.name} photo={c.photo} lines={[c.title, c.company, c.tags.join(' · ')]} href={`/coaches/${c.slug}`} linkedin={c.linkedin} tags={c.tags.map(id).join(' ')} />)}
+        {coaches.map(c => <Person name={c.name} vt={`coach-${c.slug}`} photo={c.photo} lines={[c.title, c.company, c.tags.join(' · ')]} href={`/coaches/${c.slug}`} linkedin={c.linkedin} tags={c.tags.map(id).join(' ')} />)}
       </ul>
       <p class="empty muted">No one in this group yet.</p>
       <div class="center" style="margin-top:3rem">
