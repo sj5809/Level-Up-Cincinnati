@@ -22,7 +22,7 @@ if (!w.length) w.push(image.width);
   sizes={sizes}
   width={width}
   height={height}
-  quality={50}
+  quality={priority ? 40 : 50}
   loading={priority || eager ? 'eager' : 'lazy'}
   fetchpriority={priority ? 'high' : undefined}
   decoding={priority ? 'sync' : 'async'}

@@ -29,10 +29,10 @@ const half = '(min-width: 56rem) 34rem, calc(100vw - 2rem)';
 ---
 <Base
   title="Aiming for Opportunity"
-  description="Aiming for Opportunity is Level Up Cincinnati's sporting clays fundraiser at Sycamore Sporting Clays. $147K+ raised for first-gen students. Sponsor or shoot."
+  description="Level Up Cincinnati's sporting clays fundraiser at Sycamore Sporting Clays. $147K+ raised for first-gen college students. Sponsor, shoot, or volunteer."
   image="afo-hero"
   crumbs={[{ name: 'Events', path: '/events' }, { name: 'Aiming for Opportunity', path: '/aiming-for-opportunity' }]}
-  jsonld={isUpcoming ? [eventJsonLd(afo, Astro.site!)!] : []}
+  jsonld={isUpcoming ? [eventJsonLd(afo, Astro.site!)].filter(Boolean) as object[] : []}
 >
   <section class="hero on-navy">
     <div class="wrap hero-grid">
@@ -45,7 +45,7 @@ const half = '(min-width: 56rem) 34rem, calc(100vw - 2rem)';
           <a class="btn btn-outline" href="#beginners">New to Sporting Clays?</a>
         </div>
       </div>
-      <div class="hero-media"><Img src="afo-hero" alt="Aiming for Opportunity sporting clays tournament" priority sizes={half} widths={[360, 540, 720, 1080]} /></div>
+      <div class="hero-media"><Img src="afo-hero" alt="Aiming for Opportunity sporting clays tournament" priority sizes={half} widths={[360, 480, 640, 800, 1080]} /></div>
     </div>
   </section>
 
@@ -160,11 +160,11 @@ const half = '(min-width: 56rem) 34rem, calc(100vw - 2rem)';
       <div class="form-card">
         <form class="form" name="afo-interest" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="company-website">
           <input type="hidden" name="form-name" value="afo-interest" />
-          <p class="hp"><label>Leave blank <input name="company-website" tabindex="-1" autocomplete="off" /></label></p>
-          <div class="field"><label for="afo-org">Business / organization <span class="req">(required)</span></label><input id="afo-org" name="organization" autocomplete="organization" required /></div>
+          <p class="hp"><label>Leave blank <input type="text" name="company-website" tabindex="-1" autocomplete="off" /></label></p>
+          <div class="field"><label for="afo-org">Business / organization <span class="req">(required)</span></label><input type="text" id="afo-org" name="organization" autocomplete="organization" required /></div>
           <div class="half">
-            <div class="field"><label for="afo-first">First name <span class="req">(required)</span></label><input id="afo-first" name="first-name" autocomplete="given-name" required /></div>
-            <div class="field"><label for="afo-last">Last name <span class="req">(required)</span></label><input id="afo-last" name="last-name" autocomplete="family-name" required /></div>
+            <div class="field"><label for="afo-first">First name <span class="req">(required)</span></label><input type="text" id="afo-first" name="first-name" autocomplete="given-name" required /></div>
+            <div class="field"><label for="afo-last">Last name <span class="req">(required)</span></label><input type="text" id="afo-last" name="last-name" autocomplete="family-name" required /></div>
           </div>
           <div class="half">
             <div class="field"><label for="afo-email">Email <span class="req">(required)</span></label><input id="afo-email" type="email" name="email" autocomplete="email" required /></div>
@@ -172,7 +172,7 @@ const half = '(min-width: 56rem) 34rem, calc(100vw - 2rem)';
           </div>
           <fieldset class="field">
             <legend>I'm interested in: <span class="req">(check all that apply)</span></legend>
-            {interests.map((i, n) => <label class="check" for={`afo-i${n}`}><input id={`afo-i${n}`} type="checkbox" name="interests" value={i} />{i}</label>)}
+            {interests.map((i, n) => <label class="check"><input id={`afo-i${n}`} type="checkbox" name="interests" value={i} />{i}</label>)}
           </fieldset>
           <div class="field"><label for="afo-notes">Notes or questions</label><textarea id="afo-notes" name="notes"></textarea></div>
           <button class="btn btn-coral" type="submit">Send My Interest</button>

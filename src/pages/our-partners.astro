@@ -71,14 +71,14 @@ import partners from '../data/partners.json';
       <div class="form-card">
         <form class="form" name="partner-inquiry" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="company-website">
           <input type="hidden" name="form-name" value="partner-inquiry" />
-          <p class="hp"><label>Leave blank <input name="company-website" tabindex="-1" autocomplete="off" /></label></p>
+          <p class="hp"><label>Leave blank <input type="text" name="company-website" tabindex="-1" autocomplete="off" /></label></p>
           <div class="half">
-            <div class="field"><label for="pi-first">First name <span class="req">(required)</span></label><input id="pi-first" name="first-name" autocomplete="given-name" required /></div>
-            <div class="field"><label for="pi-last">Last name <span class="req">(required)</span></label><input id="pi-last" name="last-name" autocomplete="family-name" required /></div>
+            <div class="field"><label for="pi-first">First name <span class="req">(required)</span></label><input type="text" id="pi-first" name="first-name" autocomplete="given-name" required /></div>
+            <div class="field"><label for="pi-last">Last name <span class="req">(required)</span></label><input type="text" id="pi-last" name="last-name" autocomplete="family-name" required /></div>
           </div>
           <div class="half">
-            <div class="field"><label for="pi-company">Company <span class="req">(required)</span></label><input id="pi-company" name="company" autocomplete="organization" required /></div>
-            <div class="field"><label for="pi-title">Title <span class="req">(required)</span></label><input id="pi-title" name="title" autocomplete="organization-title" required /></div>
+            <div class="field"><label for="pi-company">Company <span class="req">(required)</span></label><input type="text" id="pi-company" name="company" autocomplete="organization" required /></div>
+            <div class="field"><label for="pi-title">Title <span class="req">(required)</span></label><input type="text" id="pi-title" name="title" autocomplete="organization-title" required /></div>
           </div>
           <div class="field"><label for="pi-email">Email <span class="req">(required)</span></label><input id="pi-email" type="email" name="email" autocomplete="email" required /></div>
           <div class="field">

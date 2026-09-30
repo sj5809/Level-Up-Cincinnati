@@ -21,7 +21,7 @@ export const fmt = (d: Date, opts: Intl.DateTimeFormatOptions) => d.toLocaleDate
 
 export function eventJsonLd(e: Ev, site: URL) {
   const d = e.data;
-  if (!d.date) return null;
+  if (!d.date || !d.location) return null; // Google requires a location for Event results
   return {
     '@context': 'https://schema.org',
     '@type': 'Event',

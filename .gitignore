@@ -5,3 +5,7 @@ content/images/*
 !content/images/_manifest.json
 dist/
 .astro/
+# large raw audit artifacts stay local (summaries are committed)
+audit/final/mobile/
+audit/final/desktop/
+audit/screens/

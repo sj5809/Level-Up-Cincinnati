@@ -15,7 +15,9 @@ interface Props {
   crumbs?: Crumb[];
   noindex?: boolean;
 }
-const { title, description, image = 'home-hero', jsonld = [], crumbs = [], noindex = false } = Astro.props;
+const { title, image = 'home-hero', jsonld = [], crumbs = [], noindex = false } = Astro.props;
+// Search engines truncate past ~155 chars; clamp at a word boundary.
+const description = Astro.props.description.length > 155 ? Astro.props.description.slice(0, 154).replace(/\s+\S*$/, '') + '…' : Astro.props.description;
 const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/').replace(/(.)\/$/, '$1');
 const isHome = path === '/';
 const fullTitle = isHome ? title : `${title} — ${site.name}`;
@@ -144,7 +146,7 @@ const year = new Date().getFullYear();
     <div class="wrap">
       <div class="footer-grid">
         <div>
-          <Img src="logo-white" alt="Level Up Cincinnati" widths={[140, 280]} sizes="140px" />
+          <Img src="logo-white" alt="Level Up Cincinnati" widths={[140, 280]} sizes="140px" class="footer-logo" />
           <p>Coaching, community, and career connections for first-generation college students at the University of Cincinnati.</p>
           <address>
             {site.address.street}<br />{site.address.city}, {site.address.region} {site.address.postalCode}<br />
@@ -175,7 +177,7 @@ const year = new Date().getFullYear();
         </div>
         <form name="newsletter" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="company-website">
           <input type="hidden" name="form-name" value="newsletter" />
-          <p class="hp"><label>Leave blank <input name="company-website" tabindex="-1" autocomplete="off" /></label></p>
+          <p class="hp"><label>Leave blank <input type="text" name="company-website" tabindex="-1" autocomplete="off" /></label></p>
           <label class="visually-hidden" for="nl-email">Email address</label>
           <input id="nl-email" type="email" name="email" autocomplete="email" placeholder="Email address" required />
           <button class="btn btn-coral" type="submit">Subscribe</button>
@@ -197,8 +199,8 @@ const year = new Date().getFullYear();
     </div>
   </footer>
 
+  {/* Inline script: mobile menu (aria-expanded, Escape, focus, inert page), desktop dropdowns, click-to-load embeds. Keep under 1KB. */}
   <script is:inline>
-    // Mobile menu + desktop dropdowns + click-to-load embeds. Kept under 1KB.
     (()=>{const d=document,h=d.documentElement,b=d.querySelector('.menu-btn'),q=s=>d.querySelectorAll(s),w=()=>innerWidth>=1024;
     const s=o=>{h.classList.toggle('menu-open',o);b.setAttribute('aria-expanded',o);q('main,footer').forEach(x=>x.inert=o);o?d.querySelector('.site-nav summary').focus():b.focus()};
     b.onclick=()=>s(b.getAttribute('aria-expanded')!='true');

@@ -1,0 +1,51 @@
+## mobile (median of 3)
+/                                         	100	100	100	100	LCP 1.28s	FCP 0.65s	TBT 0ms	CLS 0.000	92KiB	7req
+/our-vision                               	100	100	100	100	LCP 0.91s	FCP 0.65s	TBT 0ms	CLS 0.000	194KiB	9req
+/our-team                                 	100	100	100	100	LCP 0.91s	FCP 0.65s	TBT 0ms	CLS 0.000	124KiB	16req
+/become-a-coach                           	100	100	100	100	LCP 1.29s	FCP 0.82s	TBT 0ms	CLS 0.000	107KiB	9req
+/your-year-as-a-coach                     	100	100	100	100	LCP 0.91s	FCP 0.65s	TBT 0ms	CLS 0.000	23KiB	4req
+/our-partners                             	100	100	100	100	LCP 0.91s	FCP 0.66s	TBT 0ms	CLS 0.000	22KiB	4req
+/join-the-network                         	100	100	100	100	LCP 1.13s	FCP 0.65s	TBT 0ms	CLS 0.000	78KiB	7req
+/students                                 	100	100	100	100	LCP 1.36s	FCP 0.81s	TBT 0ms	CLS 0.000	77KiB	7req
+/events                                   	100	100	100	100	LCP 0.91s	FCP 0.69s	TBT 0ms	CLS 0.000	22KiB	4req
+/aiming-for-opportunity                   	100	100	100	100	LCP 1.28s	FCP 0.66s	TBT 0ms	CLS 0.000	169KiB	7req
+/aiming-for-opportunity/what-to-expect    	100	100	100	100	LCP 1.43s	FCP 0.65s	TBT 0ms	CLS 0.000	88KiB	6req
+/urban-bourbon                            	100	100	100	100	LCP 1.37s	FCP 0.65s	TBT 0ms	CLS 0.000	111KiB	11req
+/herizon-series                           	100	100	100	100	LCP 1.21s	FCP 0.67s	TBT 0ms	CLS 0.000	40KiB	5req
+/elevating-women                          	100	100	100	100	LCP 1.59s	FCP 0.66s	TBT 0ms	CLS 0.000	152KiB	13req
+   - performance: largest-contentful-paint (0.99) 1.6 s
+/donate                                   	100	100	100	100	LCP 0.91s	FCP 0.65s	TBT 0ms	CLS 0.000	31KiB	6req
+/coaches                                  	100	100	100	100	LCP 0.91s	FCP 0.66s	TBT 0ms	CLS 0.000	95KiB	22req
+/coaches/jena-mcclanahan                  	100	100	100	100	LCP 0.91s	FCP 0.64s	TBT 0ms	CLS 0.000	32KiB	6req
+/scholars                                 	100	100	100	100	LCP 0.91s	FCP 0.66s	TBT 0ms	CLS 0.000	64KiB	14req
+/scholars/ndeye-wade                      	100	100	100	100	LCP 0.90s	FCP 0.64s	TBT 0ms	CLS 0.000	31KiB	6req
+/privacy-policy                           	100	100	100	100	LCP 0.91s	FCP 0.65s	TBT 0ms	CLS 0.000	26KiB	4req
+/terms-of-use                             	100	100	100	100	LCP 1.06s	FCP 0.81s	TBT 0ms	CLS 0.000	29KiB	4req
+/thanks                                   	100	100	100	69	LCP 0.90s	FCP 0.64s	TBT 0ms	CLS 0.000	25KiB	5req
+   - seo: is-crawlable (0) 
+/404                                      	100	100	100	100	LCP 0.90s	FCP 0.65s	TBT 0ms	CLS 0.000	34KiB	6req
+## desktop
+/                                         	100	100	100	100	LCP 0.32s	FCP 0.18s	TBT 0ms	CLS 0.000	102KiB	10req
+/our-vision                               	100	100	100	100	LCP 0.26s	FCP 0.18s	TBT 0ms	CLS 0.000	147KiB	12req
+/our-team                                 	100	100	100	100	LCP 0.27s	FCP 0.19s	TBT 0ms	CLS 0.000	129KiB	16req
+/become-a-coach                           	100	100	100	100	LCP 0.32s	FCP 0.23s	TBT 0ms	CLS 0.000	97KiB	10req
+/your-year-as-a-coach                     	100	100	100	100	LCP 0.24s	FCP 0.18s	TBT 0ms	CLS 0.000	22KiB	4req
+/our-partners                             	100	100	100	100	LCP 0.25s	FCP 0.18s	TBT 0ms	CLS 0.000	21KiB	4req
+/join-the-network                         	100	100	100	100	LCP 0.27s	FCP 0.18s	TBT 0ms	CLS 0.000	76KiB	7req
+/students                                 	100	100	100	100	LCP 0.31s	FCP 0.22s	TBT 0ms	CLS 0.000	84KiB	25req
+/events                                   	100	100	100	100	LCP 0.25s	FCP 0.20s	TBT 0ms	CLS 0.000	20KiB	4req
+/aiming-for-opportunity                   	100	100	100	100	LCP 0.32s	FCP 0.18s	TBT 0ms	CLS 0.000	108KiB	9req
+/aiming-for-opportunity/what-to-expect    	100	100	100	100	LCP 0.31s	FCP 0.18s	TBT 0ms	CLS 0.000	103KiB	7req
+/urban-bourbon                            	100	100	100	100	LCP 0.31s	FCP 0.18s	TBT 0ms	CLS 0.000	74KiB	12req
+/herizon-series                           	100	100	100	100	LCP 0.29s	FCP 0.18s	TBT 0ms	CLS 0.000	35KiB	5req
+/elevating-women                          	100	100	100	100	LCP 0.33s	FCP 0.18s	TBT 0ms	CLS 0.000	197KiB	15req
+/donate                                   	100	100	100	100	LCP 0.25s	FCP 0.17s	TBT 0ms	CLS 0.000	29KiB	6req
+/coaches                                  	100	100	100	100	LCP 0.25s	FCP 0.18s	TBT 0ms	CLS 0.000	60KiB	24req
+/coaches/jena-mcclanahan                  	100	100	100	100	LCP 0.24s	FCP 0.17s	TBT 0ms	CLS 0.000	26KiB	6req
+/scholars                                 	100	100	100	100	LCP 0.25s	FCP 0.18s	TBT 0ms	CLS 0.000	44KiB	15req
+/scholars/ndeye-wade                      	100	100	100	100	LCP 0.24s	FCP 0.17s	TBT 0ms	CLS 0.000	26KiB	6req
+/privacy-policy                           	100	100	100	100	LCP 0.25s	FCP 0.17s	TBT 0ms	CLS 0.000	25KiB	4req
+/terms-of-use                             	100	100	100	100	LCP 0.29s	FCP 0.21s	TBT 0ms	CLS 0.000	27KiB	4req
+/thanks                                   	100	100	100	69	LCP 0.24s	FCP 0.17s	TBT 0ms	CLS 0.000	23KiB	5req
+   - seo: is-crawlable (0) 
+/404                                      	100	100	100	100	LCP 0.25s	FCP 0.19s	TBT 0ms	CLS 0.000	33KiB	6req

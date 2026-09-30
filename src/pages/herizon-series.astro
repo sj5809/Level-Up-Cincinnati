@@ -14,7 +14,7 @@ const nextUp = next[0];
   description="HERizon is a free monthly lunch panel connecting young women with female leaders across Greater Cincinnati and Northern Kentucky at SparkHaus."
   image="herizon-panel"
   crumbs={[{ name: 'Events', path: '/events' }, { name: 'HERizon Series', path: '/herizon-series' }]}
-  jsonld={next.map(e => eventJsonLd(e, Astro.site!)!).filter(Boolean)}
+  jsonld={next.map(e => eventJsonLd(e, Astro.site!)).filter(Boolean) as object[]}
 >
   <section class="hero on-navy">
     <div class="wrap hero-grid">
@@ -30,7 +30,7 @@ const nextUp = next[0];
           <a class="btn btn-outline" href="https://www.instagram.com/theherizonseries/" rel="noopener">Follow HERizon on Instagram</a>
         </div>
       </div>
-      <div class="hero-media"><Img src="herizon-panel" alt="Attendees at the HERizon Series August 2026 panel at SparkHaus" priority sizes="(min-width: 56rem) 34rem, calc(100vw - 2rem)" widths={[360, 540, 720, 1080]} /></div>
+      <div class="hero-media"><Img src="herizon-panel" alt="Attendees at the HERizon Series August 2026 panel at SparkHaus" priority sizes="(min-width: 56rem) 34rem, calc(100vw - 2rem)" widths={[360, 480, 640, 800, 1080]} /></div>
     </div>
   </section>
 

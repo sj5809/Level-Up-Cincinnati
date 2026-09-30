@@ -10,7 +10,7 @@ const { s } = Astro.props;
 const desc = `${s.name} is a Level Up Cincinnati ${s.tag ? s.tag.toLowerCase() : 'scholar'} at the University of Cincinnati. ${s.details.join('. ')}.`;
 ---
 <Base
-  title={`${s.name}, Level Up Scholar`}
+  title={`${s.name}, Level Up Scholar`.length > 38 ? s.name : `${s.name}, Level Up Scholar`}
   description={desc.length > 155 ? desc.slice(0, 152).replace(/\s\S*$/, '') + '…' : desc}
   image="students-hero"
   crumbs={[{ name: 'Our Scholars', path: '/scholars' }, { name: s.name, path: `/scholars/${s.slug}` }]}
