@@ -1,0 +1,132 @@
+{
+ "colors": [
+  [
+   "bg rgb(255, 255, 255)",
+   14231273
+  ],
+  [
+   "bg rgb(24, 38, 78)",
+   4138240
+  ],
+  [
+   "bg rgb(250, 250, 250)",
+   1768462
+  ],
+  [
+   "bg rgb(241, 95, 94)",
+   38015
+  ],
+  [
+   "bg rgb(241, 94, 94)",
+   34198
+  ],
+  [
+   "bg rgba(24, 38, 78, 0.5)",
+   23517
+  ],
+  [
+   "bg rgba(255, 255, 255, 0.08)",
+   20510
+  ],
+  [
+   "bg rgba(255, 255, 255, 0.2)",
+   384
+  ],
+  [
+   "fg rgb(24, 38, 78)",
+   183
+  ],
+  [
+   "fg rgb(255, 255, 255)",
+   120
+  ],
+  [
+   "fg rgb(75, 85, 99)",
+   10
+  ],
+  [
+   "fg rgb(241, 95, 94)",
+   6
+  ],
+  [
+   "fg rgba(255, 255, 255, 0.82)",
+   2
+  ],
+  [
+   "fg rgba(255, 255, 255, 0.95)",
+   2
+  ]
+ ],
+ "fonts": [
+  [
+   "Roboto 400",
+   278
+  ],
+  [
+   "system-ui 700",
+   18
+  ],
+  [
+   "system-ui 400",
+   9
+  ],
+  [
+   "Cabin 700",
+   4
+  ],
+  [
+   "Roboto 600",
+   4
+  ],
+  [
+   "Roboto 700",
+   4
+  ],
+  [
+   "Poppins 700",
+   3
+  ],
+  [
+   "sans-serif 400",
+   2
+  ]
+ ],
+ "fontFaces": [
+  "Roboto 400 unloaded",
+  "Roboto 400 loaded",
+  "Cabin 700 unloaded",
+  "Cabin 700 loaded",
+  "Roboto 700 loaded",
+  "Roboto 700 unloaded",
+  "Poppins 700 unloaded",
+  "squarespace-ui-font normal unloaded",
+  "social-icon-font normal unloaded",
+  "Poppins 600 unloaded",
+  "Poppins 700 loaded",
+  "Poppins 800 unloaded",
+  "Poppins 800 loaded",
+  "Roboto 500 unloaded",
+  "Roboto 500 loaded"
+ ],
+ "logo": {
+  "src": "https://images.squarespace-cdn.com/content/v1/625d9260b10356155a68ac03/b81535a6-c41e-428a-a6a9-8981dc3f4ed8/Blue+Background.jpg?format=1500w",
+  "alt": "Level Up Cincinnati"
+ },
+ "ctaBtn": {
+  "bg": "rgba(0, 0, 0, 0)",
+  "fg": "rgb(255, 255, 255)"
+ },
+ "cssVars": [
+  "--luc-blue: #18264E",
+  "--luc-coral: #F15F5E",
+  "--luc-soft-blue: #6B7BA8",
+  "--luc-light-coral: #FFA69E",
+  "--luc-teal: #4CAFB6",
+  "--luc-blue-gray: #d8d9df",
+  "--luc-success: #10b981",
+  "--luc-text: #111827",
+  "--luc-text-secondary: #4b5563",
+  "--luc-bg: #f3f4f6",
+  "--luc-white: #ffffff"
+ ]
+}
