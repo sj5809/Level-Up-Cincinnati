@@ -1,4 +1,5 @@
 ---
+import FormHidden from '../components/FormHidden.astro';
 import { getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import '../styles/global.css';
@@ -175,9 +176,8 @@ const year = new Date().getFullYear();
           <h2>Join our mailing list.</h2>
           <p>For updates on success stories, events, and volunteer opportunities. No spam ever — we promise.</p>
         </div>
-        <form name="newsletter" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="company-website">
-          <input type="hidden" name="form-name" value="newsletter" />
-          <p class="hp"><label>Leave blank <input type="text" name="company-website" tabindex="-1" autocomplete="off" /></label></p>
+        <form name="newsletter" method="POST" action={site.formAction}>
+          <FormHidden subject="New mailing list signup" />
           <label class="visually-hidden" for="nl-email">Email address</label>
           <input id="nl-email" type="email" name="email" autocomplete="email" placeholder="Email address" required />
           <button class="btn btn-coral" type="submit">Subscribe</button>

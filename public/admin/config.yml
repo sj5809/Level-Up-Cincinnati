@@ -1,6 +1,7 @@
-# Decap CMS config. Staff sign in with GitHub; every save is a commit and Netlify redeploys.
-# SETUP (one time): replace REPO below, then in Netlify add a GitHub OAuth provider
-# (Site configuration → Access & security → OAuth). See OUTREACH-PLAYBOOK.md / TODO-FOR-ORG.md.
+# CMS config (Decap format, used by Sveltia CMS). Every save is a commit to GitHub, and the
+# deploy workflow republishes the site in about two minutes.
+# SETUP (one time): replace REPO below with the real "owner/repo". Staff then open /admin and choose
+# "Sign in with token", using a GitHub fine-grained token with Contents: read & write on this repo.
 backend:
   name: github
   repo: REPLACE-WITH-GITHUB-ORG/levelup-site
@@ -98,7 +99,6 @@ collections:
               - { name: tags, widget: select, multiple: true, options: [Current Coach, 2024 Cohort, 2023 Cohort, Launch Network] }
               - { name: photo, widget: image, required: false }
               - { name: linkedin, label: LinkedIn URL, widget: string, required: false }
-              - { name: email, label: "Email (private, never shown on the site)", widget: string, required: false }
               - { name: oldUrl, label: Old URL (redirects here), widget: string, required: false }
       - name: scholar-roster
         label: Scholars (Students page)

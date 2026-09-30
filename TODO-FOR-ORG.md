@@ -4,20 +4,27 @@ These are the open items from the website rebuild. Nothing here blocks launch: e
 
 ## Must do before launch
 
-1. **Hosting account.** The new site runs on Netlify's free plan. Someone at Level Up should own the Netlify account and the GitHub repository (not a volunteer's personal account).
-2. **DNS: keep the subdomains working.** When `www.levelupcincinnati.org` moves from Squarespace to Netlify, copy every existing DNS record first. The site links to all of these and they must keep working:
-   - `impact.`
-   - `ai.`
-   - `volunteer.`
-   - `coach.`
-   - `app.`
-   - email (MX) records
-3. **Form notifications.** Coach applications, partner inquiries, Launch Network sign-ups, event sponsor interest, and newsletter sign-ups now go to Netlify Forms (free up to 100 submissions a month). **Which email address(es) should get a copy of each submission?**
+1. **GitHub account (free).** The site is hosted free on **GitHub Pages**. Level Up should create a free GitHub **organization** and own the repository (not a volunteer's personal account). The repository must be **public** for free Pages hosting. Personal data (coach emails) has been removed from it.
+   - Name the repository `<org-name>.github.io` so the preview works at `https://<org-name>.github.io/` before the domain moves. Any other name serves the site under a sub-path, which breaks links until the custom domain is connected.
+   - In the repo: **Settings → Pages → Source: GitHub Actions**. Every push then deploys automatically.
+2. **Domain: keep the subdomains working.** Point `www.levelupcincinnati.org` at GitHub Pages:
+   - Add a `CNAME` record `www` → `<org-name>.github.io`, plus the four GitHub `A` records for the bare domain.
+   - Enter the domain under **Settings → Pages → Custom domain**, then tick **Enforce HTTPS**.
+   - **Copy every existing DNS record first.** The site links to `impact.`, `ai.`, `volunteer.`, `coach.`, and `app.`, and email (MX) records must keep working.
+3. **Form email (free, 5 minutes).** All forms (coach applications, partner inquiries, Launch Network, event sponsor interest, and newsletter) send through **Web3Forms**. It's free for 250 submissions a month and uses no scripts.
+   - Go to web3forms.com, enter the email address that should receive submissions, and paste the access key it emails you into `src/data/site.json` → `forms.accessKey`.
+   - **Forms won't send until this is done.**
+   - Submissions arrive by email. Keep them, since Web3Forms doesn't store them.
+   - The Privacy Policy (Feb 17, 2026) should mention that website form submissions are processed by Web3Forms. Please have whoever maintains it add a line.
 4. **Mailing list.** The old Squarespace newsletter block stores subscribers inside Squarespace.
    - Please **export that list before cancelling Squarespace**.
-   - Do you use an email tool (Mailchimp, Constant Contact, Givebutter email)? If so, we can point the signup form straight at it.
-   - **Now:** sign-ups are collected in Netlify Forms.
-5. **Content editor login (`/admin`).** Staff edit events, people, partners, and stats at `/admin`. This needs one-time setup: the GitHub repository name in `public/admin/config.yml`, plus a GitHub OAuth app connected in Netlify.
+   - Do you use an email tool (Mailchimp, Constant Contact, Givebutter email)? If so, the signup form can point straight at it.
+   - **Now:** sign-ups arrive by email through Web3Forms.
+5. **Content editor login (`/admin`).** Staff edit events, people, partners, and stats at `/admin` (Sveltia CMS).
+   - One-time setup: put the real `owner/repo` in `public/admin/config.yml`.
+   - Each editor signs in with **"Sign in with token"**: a GitHub fine-grained token for this repo with *Contents: read and write*.
+   - Every save republishes the site in about 2 minutes.
+   - Staff can also edit the same files directly on github.com.
 
 ## Please confirm these facts
 
@@ -41,12 +48,12 @@ These are the open items from the website rebuild. Nothing here blocks launch: e
 11. **Elevating Women.** The live page still says "Save the date: Summer 2026". **Now:** it says "date to be announced". Is there a 2026 or 2027 date?
 12. **HERizon Oct 23 ("Exiting Well") and Nov 20 (Graeter's).** Registration links and locations aren't posted yet. Add them in `/admin` → Events when ready.
 13. **Urban Bourbon.** The Cincinnati Art Academy is listed as the "Current Partner · 2025". Is there a 2026 partner?
-14. **Events refresh daily.** Past events disappear from "upcoming" through a daily automatic rebuild. This needs a Netlify build hook saved as the GitHub secret `NETLIFY_BUILD_HOOK` (see `.github/workflows/daily-rebuild.yml`).
+14. **Events refresh daily.** Past events disappear from "upcoming" through an automatic daily rebuild (`.github/workflows/deploy.yml`). No setup is needed once GitHub Pages is on.
 
 ## People and privacy
 
-15. **Coach personal emails.** The current `/coach-profiles` page publishes coaches' **personal email addresses** (Gmail, Yahoo, work email). That invites spam and wasn't needed for anyone to contact Level Up.
-    - **Now:** emails are kept in the data file but **not shown** on the site.
+15. **Coach personal emails.** The current `/coach-profiles` page publishes coaches' **personal email addresses** (Gmail, Yahoo, work email). That invites spam and wasn't needed for anyone to contact Level Up. Because the repository is public, the emails were also removed from the code and its history.
+    - **Now:** they are **not shown** on the site and are not in the repository. A copy is kept offline with the volunteer who did the rebuild.
     - Should any be shown?
 16. **Scholar profiles.** The scholar directory shows students' full names and is indexed by Google. The newer Students page uses first names only.
     - Should the full-name profiles stay public and searchable?

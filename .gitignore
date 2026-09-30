@@ -9,3 +9,8 @@ dist/
 audit/final/mobile/
 audit/final/desktop/
 audit/screens/
+# never commit: personal data kept locally only
+private/
+content/raw/
+audit/baseline/*.report.json
+audit/baseline/*.report.html

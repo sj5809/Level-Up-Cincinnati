@@ -9,7 +9,7 @@ A plain-English guide for staff and volunteers. It covers how to get more coache
 Search Console shows how people find you on Google, and tells Google about the new site.
 
 1. Go to <https://search.google.com/search-console> and sign in with the Level Up Google account.
-2. Click **Add property**, choose **Domain**, and enter `levelupcincinnati.org`. Google shows a TXT record. Add it at your domain registrar (the same place the Netlify DNS records go), then click **Verify**.
+2. Click **Add property**, choose **Domain**, and enter `levelupcincinnati.org`. Google shows a TXT record. Add it at your domain registrar (the same place the GitHub Pages DNS records go), then click **Verify**.
 3. **Submit the sitemap.** Left menu → **Sitemaps** → enter `sitemap-index.xml` → **Submit**.
 4. **Clean out the old junk URLs.** The old Squarespace sitemap listed dozens of coach and scholar pages with long garbled addresses (like `/level-up-coaches-directory/stacyrodarte-gy7bh-…`).
    - The new site **permanently redirects every one of them** to the right person's new page, so Google will clean them up on its own over a few weeks.
@@ -115,10 +115,10 @@ Track three numbers every month in a simple spreadsheet:
 
 | What | Where to find it |
 |---|---|
-| **Coach applications** | Netlify → Forms → `coach-application` (count per month) |
+| **Coach applications** | Count the "New coach application" emails from Web3Forms (set up an email filter/label) |
 | **Volunteer signups** | volunteer.levelupcincinnati.org admin |
 | **Donations** | Givebutter → Transactions (filter by month) |
-| Also useful | Netlify Forms `partner-inquiry`, `launch-network`, `afo-interest`, `newsletter` |
+| Also useful | Emails titled "New partner inquiry", "New Launch Network advisor", "Aiming for Opportunity: sponsor/team interest", "New mailing list signup" |
 
 **Add privacy-friendly analytics (optional, free):**
 - **Cloudflare Web Analytics** is free and has no cookie banner. Add the snippet only if the org wants it; it doesn't slow the site down.

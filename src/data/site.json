@@ -7,7 +7,13 @@
   "email": "hello@levelupcincinnati.org",
   "partnerEmail": "info@levelupcincinnati.org",
   "phone": "513-549-2779",
-  "address": { "street": "PO Box 43057", "city": "Cincinnati", "region": "OH", "postalCode": "45243", "country": "US" },
+  "address": {
+    "street": "PO Box 43057",
+    "city": "Cincinnati",
+    "region": "OH",
+    "postalCode": "45243",
+    "country": "US"
+  },
   "donateUrl": "https://givebutter.com/levelup",
   "givebutterEmbed": "https://givebutter.com/embed/c/levelup",
   "volunteerUrl": "https://volunteer.levelupcincinnati.org/",
@@ -34,5 +40,9 @@
     "industries": "10+",
     "afoRaised": "$147K+",
     "coachHours": "~2 hours per month"
+  },
+  "formAction": "https://api.web3forms.com/submit",
+  "forms": {
+    "accessKey": "REPLACE-WITH-WEB3FORMS-ACCESS-KEY"
   }
 }

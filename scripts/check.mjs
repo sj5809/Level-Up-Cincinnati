@@ -5,7 +5,7 @@ import AxeBuilder from '@axe-core/playwright';
 import fs from 'node:fs';
 const base = process.env.BASE || 'http://localhost:4321';
 const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(`${d}/${e.name}`) : e.name.endsWith('.html') ? [`${d}/${e.name}`] : []);
-const routes = walk('dist').filter(f => !f.includes('/admin/')).map(f => f.slice(4).replace(/\.html$/, '').replace(/\/index$/, '/').replace(/^$/, '/')).map(r => r === '/index' ? '/' : r);
+const routes = walk('dist').filter(f => !f.includes('/admin/') && !fs.readFileSync(f, 'utf8').includes('http-equiv="refresh"')).map(f => f.slice(4).replace(/\.html$/, '').replace(/\/index$/, '/').replace(/^$/, '/')).map(r => r === '/index' ? '/' : r);
 const b = await chromium.launch();
 const p = await (await b.newContext({ viewport: { width: 390, height: 844 } })).newPage();
 const links = new Set(); let problems = 0;

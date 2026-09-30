@@ -1,4 +1,5 @@
 ---
+import FormHidden from '../components/FormHidden.astro';
 import Base from '../layouts/Base.astro';
 import site from '../data/site.json';
 import partners from '../data/partners.json';
@@ -69,9 +70,8 @@ import partners from '../data/partners.json';
         <p>Or reach us directly at <a href={`mailto:${site.partnerEmail}`}>{site.partnerEmail}</a>.</p>
       </div>
       <div class="form-card">
-        <form class="form" name="partner-inquiry" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="company-website">
-          <input type="hidden" name="form-name" value="partner-inquiry" />
-          <p class="hp"><label>Leave blank <input type="text" name="company-website" tabindex="-1" autocomplete="off" /></label></p>
+        <form class="form" name="partner-inquiry" method="POST" action={site.formAction}>
+          <FormHidden subject="New partner inquiry" />
           <div class="half">
             <div class="field"><label for="pi-first">First name <span class="req">(required)</span></label><input type="text" id="pi-first" name="first-name" autocomplete="given-name" required /></div>
             <div class="field"><label for="pi-last">Last name <span class="req">(required)</span></label><input type="text" id="pi-last" name="last-name" autocomplete="family-name" required /></div>

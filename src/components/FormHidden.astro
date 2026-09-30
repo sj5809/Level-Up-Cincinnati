@@ -1,0 +1,13 @@
+---
+// Hidden fields every form needs for Web3Forms (free, no JS): the org's access key,
+// an email subject, where to send people after submitting, and a spam trap.
+import site from '../data/site.json';
+interface Props { subject: string }
+const { subject } = Astro.props;
+if (site.forms.accessKey.startsWith('REPLACE')) console.warn('[forms] Set forms.accessKey in src/data/site.json (see README) — forms will not send until then.');
+---
+<input type="hidden" name="access_key" value={site.forms.accessKey} />
+<input type="hidden" name="subject" value={subject} />
+<input type="hidden" name="from_name" value="levelupcincinnati.org" />
+<input type="hidden" name="redirect" value={new URL('/thanks', Astro.site).href} />
+<input type="checkbox" name="botcheck" class="hp" tabindex="-1" aria-hidden="true" />

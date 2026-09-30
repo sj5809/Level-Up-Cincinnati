@@ -1,4 +1,5 @@
 ---
+import FormHidden from '../components/FormHidden.astro';
 import Base from '../layouts/Base.astro';
 import Img from '../components/Img.astro';
 import Person from '../components/Person.astro';
@@ -198,9 +199,8 @@ const half = '(min-width: 56rem) 34rem, calc(100vw - 2rem)';
         <p><strong>Eligibility:</strong> Applicants must be college graduates with two years of post-college working experience and provide satisfactory employment and reference checks. All coaches must pass criminal record federal, state, and local background checks.</p>
       </div>
       <div class="form-card">
-        <form class="form" name="coach-application" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="company-website">
-          <input type="hidden" name="form-name" value="coach-application" />
-          <p class="hp"><label>Leave blank <input type="text" name="company-website" tabindex="-1" autocomplete="off" /></label></p>
+        <form class="form" name="coach-application" method="POST" action={site.formAction}>
+          <FormHidden subject="New coach application" />
           <div class="half">
             <div class="field"><label for="ca-first">First name <span class="req">(required)</span></label><input type="text" id="ca-first" name="first-name" autocomplete="given-name" required /></div>
             <div class="field"><label for="ca-last">Last name <span class="req">(required)</span></label><input type="text" id="ca-last" name="last-name" autocomplete="family-name" required /></div>

@@ -20,4 +20,8 @@ import Img from '../components/Img.astro';
       <Img src="not-found" alt="" sizes="(min-width: 56rem) 34rem, calc(100vw - 2rem)" />
     </div>
   </section>
+  <script is:inline>
+    // Old Squarespace directory URLs not covered by a redirect page land on the new directories.
+    (p=>{if(/^\/level-up-coaches-directory/.test(p))location.replace('/coaches');else if(/^\/level-up-scholar-directory-blog/.test(p))location.replace('/scholars')})(location.pathname);
+  </script>
 </Base>

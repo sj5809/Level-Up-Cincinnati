@@ -95,7 +95,7 @@
 - **Weglot translation** loaded on every page but had no language switcher configured, so it was removed. Translation can come back as fast static pages if the org wants it (see `TODO-FOR-ORG.md`).
 - **Urban Bourbon video.** It shows a photo with a play button, and YouTube loads only on click.
 - **Candid seal.** It's a self-hosted image instead of a remote widget.
-- **Caching.** Hashed files are cached for a year (`public/_headers`).
+- **Hosting.** The site runs free on GitHub Pages behind its global CDN. It rebuilds and deploys automatically on every edit and every morning.
 
 ### Mobile
 - Designed at 360 px first. Every button and link is at least 48 px tall, and text is 16 px or larger. The old menu button was 37 px, nav links 33 px, footer links 26 px, and footer text 12–13 px.
@@ -122,8 +122,8 @@
   - Events are stored with dates. Past events move to "Past events" automatically.
   - A daily rebuild keeps this current.
   - Aiming for Opportunity now switches itself to "Thank you" plus a sign-up for next year once the date passes.
-- **Staff editing.** `/admin` (Decap CMS) lets staff edit events, coaches, scholars, partners, team, and stats without code.
-- **All forms still work, with no scripts.** Coach application, partner inquiry, Launch Network, sponsor interest, and newsletter all run on Netlify Forms, with spam protection.
+- **Staff editing.** `/admin` (Sveltia CMS) lets staff edit events, coaches, scholars, partners, team, and stats without code.
+- **All forms still work, with no scripts.** Coach application, partner inquiry, Launch Network, sponsor interest, and newsletter all send by email through Web3Forms (free), with spam protection.
 
 ### Search and sharing
 - Unique titles in the form "Page — Level Up Cincinnati", with the brand no longer doubled, and descriptions on every page (13 pages had none).
@@ -134,7 +134,7 @@
   - Events, when the date and location are set.
 - **Share previews.** Each main page has its own 1200×630 share image made from a real Level Up photo, served over HTTPS. The old one was an `http://` image from 2022.
 - **Clean sitemap.** It lists 58 pages, with no junk URLs.
-- **Clean URLs.** Coach and scholar profiles have readable addresses, like `/coaches/becca-harper`. The old garbled URLs were real people's pages, not duplicates, so each one 301-redirects to its new home.
+- **Clean URLs.** Coach and scholar profiles have readable addresses, like `/coaches/becca-harper`. The old garbled URLs were real people's pages, not duplicates, so each one redirects to its new home.
 - **Other fixes.** `robots.txt`, canonical tags, and a helpful 404 page. The `/cart` link and the leaked internal labels ("Hero Section Redesign", "Impact Section") are gone.
 - **The homepage stat shows 98% in the HTML** instead of "0%" for search engines and link previews.
 
@@ -145,7 +145,7 @@
 
 ## Next steps
 
-1. **Deploy.** Create a Netlify account owned by Level Up, connect the GitHub repo, then move DNS. **Keep the `impact.`, `ai.`, `volunteer.`, `coach.`, `app.`, and email records.**
+1. **Deploy (free).** Create a GitHub organization for Level Up, push the repo, and turn on GitHub Pages (Source: GitHub Actions). Add the Web3Forms key, then move DNS. **Keep the `impact.`, `ai.`, `volunteer.`, `coach.`, `app.`, and email records.**
 2. **Run PageSpeed Insights on the live URL** (mobile and desktop) to confirm the scores in production.
 3. **Answer the questions in `TODO-FOR-ORG.md`:** form email recipients, the mailing list export, and the numbers to confirm.
 4. **Follow `OUTREACH-PLAYBOOK.md`:**
