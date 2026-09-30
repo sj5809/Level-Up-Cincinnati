@@ -1,0 +1,99 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import EventItem from '../components/EventItem.astro';
+import { getEvents, eventJsonLd } from '../lib/events';
+
+const { upcoming, past } = await getEvents();
+const next = upcoming.filter(e => e.data.series === 'herizon');
+const done = past.filter(e => e.data.series === 'herizon');
+const nextUp = next[0];
+---
+<Base
+  title="HERizon Series"
+  description="HERizon is a free monthly lunch panel connecting young women with female leaders across Greater Cincinnati and Northern Kentucky at SparkHaus."
+  image="herizon-panel"
+  crumbs={[{ name: 'Events', path: '/events' }, { name: 'HERizon Series', path: '/herizon-series' }]}
+  jsonld={next.map(e => eventJsonLd(e, Astro.site!)!).filter(Boolean)}
+>
+  <section class="hero on-navy">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Sponsored by Level Up Cincinnati</p>
+        <h1>The HERizon Series</h1>
+        <p class="lede">A monthly lunch panel series connecting young women with female leaders across Greater Cincinnati and Northern Kentucky. Real conversations. Real connections. A seat at the table.</p>
+        {nextUp ? (
+          <p><strong>Next up: {nextUp.data.title.replace('HERizon: ', '')}</strong> — {nextUp.data.date!.toLocaleDateString('en-US', { timeZone: 'UTC', weekday: 'long', month: 'long', day: 'numeric' })}. All HERizon events are free to attend, lunch included.</p>
+        ) : <p>New sessions are being scheduled. Follow along for the next date.</p>}
+        <div class="btn-row">
+          {nextUp?.data.registerUrl ? <a class="btn btn-coral" href={nextUp.data.registerUrl} rel="noopener">Register now</a> : <a class="btn btn-coral" href="#schedule">See the schedule</a>}
+          <a class="btn btn-outline" href="https://www.instagram.com/theherizonseries/" rel="noopener">Follow HERizon on Instagram</a>
+        </div>
+      </div>
+      <div class="hero-media"><Img src="herizon-panel" alt="Attendees at the HERizon Series August 2026 panel at SparkHaus" priority sizes="(min-width: 56rem) 34rem, calc(100vw - 2rem)" widths={[360, 540, 720, 1080]} /></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="expect">
+    <div class="wrap">
+      <p class="eyebrow">What to expect</p>
+      <h2 id="expect">More than a panel. A turning point.</h2>
+      <p class="lede">Each HERizon session is built for connection, not just content. You'll leave with new relationships, new perspective, and the reminder that you already belong in the room.</p>
+      <div class="grid grid-3">
+        <article class="card path-card"><h3>Panel discussions</h3><p>Women leaders from a featured organization share their real career journeys, pivots, and lessons learned.</p></article>
+        <article class="card path-card"><h3>Q&amp;A + breakouts</h3><p>Small group conversations where you can ask real questions and get honest answers from the panelists.</p></article>
+        <article class="card path-card"><h3>Networking</h3><p>Structured networking to help you build relationships with peers and professionals who get it.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" id="schedule" aria-labelledby="sched-h">
+    <div class="wrap narrow">
+      <p class="eyebrow">2026 programming</p>
+      <h2 id="sched-h">Upcoming sessions</h2>
+      {next.length ? <ul class="list-plain grid" style="gap:2rem">{next.map(e => <li><EventItem event={e} /></li>)}</ul> : <p>New dates coming soon.</p>}
+      <p class="small muted" style="margin-top:1.5rem">Lunch at every session is provided by Tableful and made possible by the George &amp; Margaret McLane Foundation.</p>
+      {done.length > 0 && (
+        <>
+          <h3 style="margin-top:2rem">Completed sessions</h3>
+          <ul class="list-plain">{done.map(e => <li><span class="badge">Completed</span> {e.data.title.replace('HERizon: ', '')} · {e.data.date!.toLocaleDateString('en-US', { timeZone: 'UTC', month: 'short', day: 'numeric', year: 'numeric' })}</li>)}</ul>
+        </>
+      )}
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="started">
+    <div class="wrap narrow">
+      <p class="eyebrow">How it started</p>
+      <h2 id="started">Three organizations. One shared belief.</h2>
+      <p>HERizon started with Mollie Lewis. As President of New Riff Distilling, Mollie saw too many young women entering the workforce believing they needed to have it all figured out. They saw leaders as untouchable, opportunities as out of reach, and their own potential as conditional.</p>
+      <p>Mollie wanted to change that. Through honest conversations over lunch, she began bringing together women from across Greater Cincinnati and Northern Kentucky to share the truth: everyone struggles with imposter syndrome, pivots happen, and success rarely follows a straight line.</p>
+      <p>When Rachel DesRochers and Power to Pursue connected with Mollie, they recognized the same thread running through their work. And when Level Up Cincinnati joined the conversation, the final piece clicked into place. The young women in HERizon's audience are exactly who Level Up serves — and exactly who could become the next generation of mentors.</p>
+      <p><strong>You belong in that room.</strong></p>
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="possible">
+    <div class="wrap">
+      <p class="eyebrow">Made possible by</p>
+      <h2 id="possible">Built together, not in silos.</h2>
+      <div class="grid grid-2">
+        <article class="card"><p class="badge">Founding partner</p><h3>Level Up Cincinnati</h3><p>Proud to serve as Founding Partner for The HERizon Series in 2026, keeping this programming free and accessible to young women across the region. Level Up brings direct access to college students, a built-in mentor pipeline, and a community dedicated to uplifting the next generation of leaders.</p><a class="btn btn-coral" href="https://givebutter.com/the-herizon-series" rel="noopener">Help keep HERizon free: donate</a></article>
+        <article class="card"><p class="badge">Lunch sponsor</p><h3>George &amp; Margaret McLane Foundation</h3><p>Their 2026 support puts lunch on the table at every HERizon session, so the series stays free for everyone in the room.</p></article>
+        <article class="card"><p class="badge">Marketing &amp; event strategy</p><h3><a href="https://www.powertopursue.org/programming#herizon" rel="noopener">Power to Pursue</a></h3><p>An established community of women leaders with annual Summit reach of 900+ attendees and proven marketing infrastructure.</p></article>
+        <article class="card"><p class="badge">Creator &amp; panel leadership</p><h3><a href="https://www.linkedin.com/in/mollie-lewis-875755303/" rel="noopener">Mollie Lewis</a></h3><p>President of New Riff Distilling, Mollie created HERizon to give young women the honest conversations and access she wished she'd had earlier in her career.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section on-navy center" aria-labelledby="see-you">
+    <div class="wrap">
+      <h2 id="see-you">See you at the table.</h2>
+      <p class="lede">Join us for the next HERizon panel. Meet the women leading the way — and find your place among them.</p>
+      <div class="btn-row">
+        <a class="btn btn-coral" href="mailto:herizonseries@gmail.com?subject=Add%20me%20to%20the%20HERizon%20email%20list">Join the HERizon email list</a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/company/herizon-series/" rel="noopener">Follow HERizon on LinkedIn</a>
+      </div>
+    </div>
+  </section>
+</Base>

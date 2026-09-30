@@ -1,0 +1,43 @@
+---
+import Base from '../../layouts/Base.astro';
+import Person from '../../components/Person.astro';
+import scholarsData from '../../data/scholars.json';
+const scholars = scholarsData.people;
+
+const tags = ['Current Scholar', 'Alumni Scholar'];
+const id = (t: string) => t.toLowerCase().replace(/\s+/g, '-');
+const css = tags.map(t => `.dir:has(input[value="${id(t)}"]:checked) .people>li:not([data-tags~="${id(t)}"]){display:none}`).join('');
+---
+<Base
+  title="Scholar Directory"
+  description="Meet Level Up Cincinnati scholars — first-generation University of Cincinnati students earning degrees in engineering, nursing, business, and more."
+  image="students-hero"
+  crumbs={[{ name: 'Our Scholars', path: '/scholars' }]}
+>
+  <section class="hero on-navy">
+    <div class="wrap narrow">
+      <p class="eyebrow">Scholar directory</p>
+      <h1>Meet our scholars</h1>
+      <p class="lede">Current scholars and alumni of Level Up Cincinnati at the University of Cincinnati.</p>
+    </div>
+  </section>
+  <section class="section dir" aria-labelledby="dir-h">
+    <div class="wrap">
+      <h2 id="dir-h" class="visually-hidden">Scholar directory</h2>
+      <fieldset class="filters">
+        <legend class="visually-hidden">Filter scholars</legend>
+        <label><input type="radio" name="f" value="all" checked /><span>All</span></label>
+        {tags.map(t => <label><input type="radio" name="f" value={id(t)} /><span>{t}</span></label>)}
+      </fieldset>
+      <ul class="people">
+        {scholars.map(s => <Person name={s.name} photo={s.photo} lines={[...s.details, s.tag]} href={`/scholars/${s.slug}`} linkedin={s.linkedin} tags={s.tag ? id(s.tag) : ''} />)}
+      </ul>
+      <div class="center" style="margin-top:3rem">
+        <h2>Rooting for them?</h2>
+        <p>Scholarships like theirs are funded by supporters like you.</p>
+        <a class="btn btn-coral" href="/donate">Support a Scholar</a>
+      </div>
+    </div>
+  </section>
+  <style set:html={css}></style>
+</Base>

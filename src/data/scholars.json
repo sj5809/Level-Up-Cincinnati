@@ -1,0 +1,243 @@
+{
+  "people": [
+    {
+      "name": "Jainaba Drammeh",
+      "slug": "jainaba-drammeh",
+      "details": [
+        "Class of 2026",
+        "Bachelors of Science in Pre-Med"
+      ],
+      "tag": "Current Scholar",
+      "photo": null,
+      "linkedin": "https://www.linkedin.com/in/jainaba-drammeh-971b33352/",
+      "oldUrl": "/level-up-scholar-directory-blog/emily-espinoza-ruiz-zplnz-aghzk-4jg3d-r6kpl-bchdb-zghc5-x3d4d"
+    },
+    {
+      "name": "Nate Dunn",
+      "slug": "nate-dunn",
+      "details": [
+        "Class of 2026",
+        "Bachelors of Sciences in Athletic Sciences"
+      ],
+      "tag": "Current Scholar",
+      "photo": "/src/assets/people/scholar-dir-nate-dunn.webp",
+      "linkedin": "https://www.linkedin.com/in/nathaniel-dunn-1741bb222/",
+      "oldUrl": "/level-up-scholar-directory-blog/laron-kyles-nxynr-33rka-aj3p2-khc3y-ppya8-ngjym"
+    },
+    {
+      "name": "Tyler-James “T.J.” Matchen",
+      "slug": "tyler-james-tj-matchen",
+      "details": [
+        "Class of 2028",
+        "Middle School Teacher"
+      ],
+      "tag": "Current Scholar",
+      "photo": "/src/assets/people/scholar-dir-tyler-james-tj-matchen.webp",
+      "linkedin": "https://www.linkedin.com/in/tyler-james-matchen-457466322/",
+      "oldUrl": "/level-up-scholar-directory-blog/emily-espinoza-ruiz-zplnz-aghzk-4jg3d-r6kpl-bchdb-zghc5"
+    },
+    {
+      "name": "Emma Korman",
+      "slug": "emma-korman",
+      "details": [
+        "Class of 2027",
+        "Bachelors of Science in Mechanical Engineering"
+      ],
+      "tag": "Current Scholar",
+      "photo": null,
+      "linkedin": "https://www.linkedin.com/in/emma-korman/",
+      "oldUrl": "/level-up-scholar-directory-blog/laron-kyles-nxynr-33rka-aj3p2-khc3y-ppya8"
+    },
+    {
+      "name": "Aldo Espinoza",
+      "slug": "aldo-espinoza",
+      "details": [
+        "Class of 2028",
+        "Bachelors of Arts in Secondary Education, Mathematics"
+      ],
+      "tag": "Current Scholar",
+      "photo": null,
+      "linkedin": "https://www.linkedin.com/in/aldo-espinoza-11b047200/",
+      "oldUrl": "/level-up-scholar-directory-blog/emily-espinoza-ruiz-zplnz-aghzk-4jg3d-r6kpl-bchdb"
+    },
+    {
+      "name": "Ana Garay",
+      "slug": "ana-garay",
+      "details": [
+        "Class of 2028",
+        "Bachelors of Science in Political Sciences"
+      ],
+      "tag": "Current Scholar",
+      "photo": null,
+      "linkedin": "https://www.linkedin.com/in/ana-garay-524344349/",
+      "oldUrl": "/level-up-scholar-directory-blog/laron-kyles-nxynr-33rka-aj3p2-khc3y"
+    },
+    {
+      "name": "Tricia Roth",
+      "slug": "tricia-roth",
+      "details": [
+        "Class of 2028",
+        "Bachelors of Science in Psychology"
+      ],
+      "tag": "Current Scholar",
+      "photo": "/src/assets/people/scholar-dir-tricia-roth.webp",
+      "linkedin": "https://www.linkedin.com/in/tricia-roth-755863322/",
+      "oldUrl": "/level-up-scholar-directory-blog/emily-espinoza-ruiz-zplnz-aghzk-4jg3d-r6kpl"
+    },
+    {
+      "name": "Angela Garcia",
+      "slug": "angela-garcia",
+      "details": [
+        "Class of 2027",
+        "Bachelors of Arts in Fashion Designer"
+      ],
+      "tag": "Current Scholar",
+      "photo": null,
+      "linkedin": "https://www.linkedin.com/in/angelagarcia04/",
+      "oldUrl": "/level-up-scholar-directory-blog/laron-kyles-nxynr-33rka-aj3p2"
+    },
+    {
+      "name": "Danyela Taboada",
+      "slug": "danyela-taboada",
+      "details": [
+        "Class of 2025",
+        "Associates of Science in Mortuary Sciences"
+      ],
+      "tag": "Alumni Scholar",
+      "photo": "/src/assets/people/scholar-dir-danyela-taboada.webp",
+      "linkedin": null,
+      "oldUrl": "/level-up-scholar-directory-blog/emily-espinoza-ruiz-zplnz-aghzk-4jg3d"
+    },
+    {
+      "name": "Martha Domingo-Morales",
+      "slug": "martha-domingo-morales",
+      "details": [
+        "Class of 2025, Bachelors of Science in Public Health",
+        "Class of 2027,  Master of Science in Nursing"
+      ],
+      "tag": "Current Scholar",
+      "photo": "/src/assets/people/scholar-dir-martha-domingo-morales.webp",
+      "linkedin": "https://www.linkedin.com/in/martha-domingo-morales/",
+      "oldUrl": "/level-up-scholar-directory-blog/laron-kyles-nxynr-33rka"
+    },
+    {
+      "name": "Ian McNamara",
+      "slug": "ian-mcnamara",
+      "details": [
+        "Class of 2027",
+        "Undecided"
+      ],
+      "tag": "Current Scholar",
+      "photo": null,
+      "linkedin": "https://www.linkedin.com/in/ian-mcnamara-437500352/",
+      "oldUrl": "/level-up-scholar-directory-blog/emily-espinoza-ruiz-zplnz-aghzk"
+    },
+    {
+      "name": "Sarah Ottley",
+      "slug": "sarah-ottley",
+      "details": [
+        "Class of 2026",
+        "Bachelors of Science in Marketing & Business Management"
+      ],
+      "tag": "Current Scholar",
+      "photo": null,
+      "linkedin": "https://www.linkedin.com/in/sarahhottley/",
+      "oldUrl": "/level-up-scholar-directory-blog/laron-kyles-nxynr"
+    },
+    {
+      "name": "Nick Corona",
+      "slug": "nick-corona",
+      "details": [
+        "Class of 2026",
+        "Bachelors of Science in Aerospace Engineering"
+      ],
+      "tag": "Current Scholar",
+      "photo": null,
+      "linkedin": null,
+      "oldUrl": "/level-up-scholar-directory-blog/emily-espinoza-ruiz-zplnz"
+    },
+    {
+      "name": "Laron Kyles",
+      "slug": "laron-kyles",
+      "details": [
+        "Class of 2027",
+        "Bachelors of Sciences in Finance"
+      ],
+      "tag": "Current Scholar",
+      "photo": "/src/assets/people/scholar-dir-laron-kyles.webp",
+      "linkedin": null,
+      "oldUrl": "/level-up-scholar-directory-blog/laron-kyles"
+    },
+    {
+      "name": "Emily Espinoza-Ruiz",
+      "slug": "emily-espinoza-ruiz",
+      "details": [
+        "Class of 2028",
+        "Bachelors of Science in Biomedical Engineering"
+      ],
+      "tag": "Current Scholar",
+      "photo": null,
+      "linkedin": null,
+      "oldUrl": "/level-up-scholar-directory-blog/emily-espinoza-ruiz"
+    },
+    {
+      "name": "Ndeye Wade",
+      "slug": "ndeye-wade",
+      "details": [
+        "Class of 2027",
+        "Bachelors of Physics / Astophysics"
+      ],
+      "tag": "Current Scholar",
+      "photo": "/src/assets/people/scholar-dir-ndeye-wade.webp",
+      "linkedin": null,
+      "oldUrl": "/level-up-scholar-directory-blog/ndeye-wade"
+    },
+    {
+      "name": "Aiden Portman",
+      "slug": "aiden-portman",
+      "details": [
+        "Class of 2027",
+        "Bachelors of English & Political Science"
+      ],
+      "photo": "/src/assets/people/scholar-dir-aiden-portman.webp",
+      "linkedin": null,
+      "oldUrl": "/level-up-scholar-directory-blog/blog-post-title-one-89taz"
+    },
+    {
+      "name": "Mouhamed Minani",
+      "slug": "mouhamed-minani",
+      "details": [
+        "Class of 2025",
+        "Bachelors of Marketing"
+      ],
+      "tag": "Current Scholar",
+      "photo": "/src/assets/people/scholar-dir-mouhamed-minani.webp",
+      "linkedin": null,
+      "oldUrl": "/level-up-scholar-directory-blog/blog-post-title-two-zx42j"
+    },
+    {
+      "name": "Serenity Murphy",
+      "slug": "serenity-murphy",
+      "details": [
+        "Class of 2025",
+        "Bachelors of Science in Nursing"
+      ],
+      "tag": "Alumni Scholar",
+      "photo": "/src/assets/people/scholar-dir-serenity-murphy.webp",
+      "linkedin": null,
+      "oldUrl": "/level-up-scholar-directory-blog/blog-post-title-three-j4ncp"
+    },
+    {
+      "name": "Jada Wallace",
+      "slug": "jada-wallace",
+      "details": [
+        "Class of 2025, Bachelors of Health Sciences",
+        "Class of 2027, Masters of Nursing"
+      ],
+      "tag": "Current Scholar",
+      "photo": null,
+      "linkedin": null,
+      "oldUrl": "/level-up-scholar-directory-blog/blog-post-title-four-j8cz7"
+    }
+  ]
+}

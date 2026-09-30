@@ -1,0 +1,198 @@
+---
+import Base from '../../layouts/Base.astro';
+import Img from '../../components/Img.astro';
+import site from '../../data/site.json';
+import { getEvents, fmt, eventJsonLd } from '../../lib/events';
+
+// The page flips from "register/sponsor" to "thank you + next year" automatically once the date passes.
+const { upcoming, all } = await getEvents();
+const afo = all.filter(e => e.data.series === 'aiming-for-opportunity' && e.data.date).sort((a, b) => +b.data.date! - +a.data.date!)[0];
+const isUpcoming = upcoming.includes(afo);
+const dateText = fmt(afo.data.date!, { month: 'long', day: 'numeric', year: 'numeric' });
+const year = afo.data.date!.getUTCFullYear();
+
+const tiers = [
+  { name: 'Station Sponsor', price: '$2,500', status: '3 of 24 available', perks: ['Company name posted at one shooting station', 'Listed on event registration page', 'One social media mention', 'One team of 4 included'] },
+  { name: 'Cigar Lounge Sponsor', price: '$7,000', status: 'Claimed', perks: ['Presenting sponsor of the cigar lounge & signage at one shooting station', 'Every attendee receives a free cigar & a pour of bourbon', 'Listed on event pages & one email', 'One dedicated social media post', 'One team of 4 included'] },
+  { name: 'Food Sponsor', price: '$5,000', status: 'Claimed', perks: ['Company name at food bar & one shooting station', 'Listed on event pages & two emails', 'One dedicated social media post', 'One team of 4 included'] },
+  { name: 'Hydration Sponsor', price: '$5,000', status: 'Claimed', perks: ['Company name on the hydration cart that brings snacks & water to every shooting station', 'Listed on event pages & two emails', 'One dedicated social media post', 'One team of 4 included'] },
+  { name: 'Bar Sponsor', price: '$5,000', status: 'Claimed', perks: ['Company name at bar & one shooting station', 'Listed on event pages & two emails', 'One dedicated social media post', 'One team of 4 included'] },
+  { name: 'Ammunition Sponsor', price: '$5,000', status: 'Claimed', perks: ['Company name on ammunition bags & one station', 'Listed on event pages & one email', 'One dedicated social media post', 'One team of 4 included'] },
+];
+const eventSponsors = [
+  ['Cigar Lounge Sponsor', 'Green City Demolition'], ['Food Sponsor', 'The Ed & JoAnn Hubert Family Foundation'], ['Food Sponsor', 'CMT Imports'],
+  ['Bar Sponsor', 'BSI Engineering'], ['Ammunition Sponsor', 'The George and Margaret McLane Foundation'], ['Hydration Sponsor', 'UBS'],
+];
+const stationSponsors = ['Argentarii', 'Brighton Tru-Edge', 'Columbia Ridge Management', 'Enerfab', 'Flexamat / Motz Enterprises', 'Foundation Risk Partners', 'Johnstone Supply', 'LOTH', 'Mueller Roofing Distributors', 'Neyra Industries', 'Stough Development Corporation', 'Sycamore Capital', 'Truce Capital Advisors', 'WP Land Company'];
+const interests = ['Food Sponsor - $5,000', 'Bar Sponsor - $5,000', 'Ammunition Sponsor - $5,000', 'Skill Competition Sponsor - $5,000 + in-kind prize', 'Station Sponsor - $2,500', 'Notify me when teams open', 'I have questions'];
+const half = '(min-width: 56rem) 34rem, calc(100vw - 2rem)';
+---
+<Base
+  title="Aiming for Opportunity"
+  description="Aiming for Opportunity is Level Up Cincinnati's sporting clays fundraiser at Sycamore Sporting Clays. $147K+ raised for first-gen students. Sponsor or shoot."
+  image="afo-hero"
+  crumbs={[{ name: 'Events', path: '/events' }, { name: 'Aiming for Opportunity', path: '/aiming-for-opportunity' }]}
+  jsonld={isUpcoming ? [eventJsonLd(afo, Astro.site!)!] : []}
+>
+  <section class="hero on-navy">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="hero-date">{isUpcoming ? dateText : `Held ${dateText} · Thank you!`}</p>
+        <h1>Aim for opportunity. Change a student's trajectory.</h1>
+        <p class="lede">A day on the range with Cincinnati's business community — every shot fuels mentorship, scholarships, and career launches for first-generation college students.</p>
+        <div class="btn-row">
+          <a class="btn btn-coral" href="#sponsor">{isUpcoming ? 'Become a Sponsor' : `Sponsor ${year + 1}`}</a>
+          <a class="btn btn-outline" href="#beginners">New to Sporting Clays?</a>
+        </div>
+      </div>
+      <div class="hero-media"><Img src="afo-hero" alt="Aiming for Opportunity sporting clays tournament" priority sizes={half} widths={[360, 540, 720, 1080]} /></div>
+    </div>
+  </section>
+
+  {!isUpcoming && (
+    <section class="section-sm soft" aria-labelledby="recap">
+      <div class="wrap narrow">
+        <h2 id="recap">Thank you for an incredible {year} tournament.</h2>
+        <p>To every sponsor, shooter, captain, and volunteer who joined us at Sycamore Sporting Clays on {dateText}: thank you. The {year + 1} date will be announced soon. Tell us you're interested below and we'll reach out first.</p>
+      </div>
+    </section>
+  )}
+
+  <section class="section-sm" aria-labelledby="impact">
+    <div class="wrap">
+      <h2 id="impact" class="visually-hidden">Tournament impact</h2>
+      <dl class="stats three">
+        <div><dt>raised</dt><dd>{site.stats.afoRaised}</dd></div>
+        <div><dt>to students</dt><dd>100%</dd></div>
+        <div><dt>sponsor teams</dt><dd>19+</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="every-shot">
+    <div class="wrap split">
+      <div>
+        <h2 id="every-shot">Every shot creates opportunity.</h2>
+        <p>When you participate in Aiming for Opportunity, you're not just competing in a tournament — you're directly funding life-changing mentorship for first-generation college students who need it most.</p>
+        <p>These students face unique challenges navigating higher education without family guidance. Your support provides them with experienced mentors, career coaching, and the confidence to pursue their ambitions.</p>
+        <blockquote class="quote" style="background:var(--white)"><p>“When I first started college I felt very overwhelmed, intimidated, and alone. Level Up helped empower me to make my own decisions and be confident in myself as I navigate college life.”</p><footer><cite>Ndeye W.</cite>, Level Up Scholar</footer></blockquote>
+      </div>
+      <Img src="students-ndeye" alt="Ndeye W., Level Up Scholar" sizes={half} />
+    </div>
+  </section>
+
+  <section class="section on-navy" aria-labelledby="growth">
+    <div class="wrap">
+      <p class="eyebrow">Two years in. Just getting started.</p>
+      <h2 id="growth">Nearly $150,000 raised for first-generation scholars.</h2>
+      <dl class="stats" style="margin-top:1.5rem">
+        <div><dt>total impact in two years</dt><dd>$147,910</dd></div>
+        <div><dt>2024 inaugural</dt><dd>$60,385</dd></div>
+        <div><dt>2025 success</dt><dd>$87,525</dd></div>
+        <div><dt>year-over-year growth</dt><dd>45%</dd></div>
+      </dl>
+      <div class="grid grid-3" style="margin-top:2rem">
+        <article class="card"><h3>45% growth</h3><p>Our 2025 event exceeded expectations with a remarkable 45% increase in funds raised for student mentorship.</p></article>
+        <article class="card"><h3>$100K+ 2026 goal</h3><p>With your continued support, we're aiming to break six figures and expand our impact even further.</p></article>
+        <article class="card"><h3>100% direct to students</h3><p>Every dollar raised goes directly to providing mentorship, coaching, and career development support.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="day">
+    <div class="wrap">
+      <h2 id="day">A day of purpose &amp; connection.</h2>
+      <p class="lede">From the first safety briefing to the final award presentation, every moment is designed to build authentic relationships while supporting an incredible cause.</p>
+      <div class="grid grid-3">
+        <article class="card"><div class="card-media"><Img src="afo-shooter" alt="A shooter on the sporting clays course" sizes="(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, calc(100vw - 2rem)" /></div><h3>Tournament competition</h3><p>A professional sporting clays tournament designed for all skill levels. Teams compete for trophies and bragging rights while supporting first-generation college students.</p><a class="text-link arrow" href="/aiming-for-opportunity/what-to-expect#course">About the course</a></article>
+        <article class="card"><div class="card-media"><Img src="afo-2025" alt="Aiming for Opportunity 2025 guests" sizes="(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, calc(100vw - 2rem)" /></div><h3>Meaningful connections</h3><p>Natural networking with Cincinnati's business leaders who share your commitment to community impact. Build relationships that extend far beyond the event.</p><a class="text-link arrow" href="/aiming-for-opportunity/what-to-expect#schedule">The day's schedule</a></article>
+        <article class="card"><div class="card-media"><Img src="afo-station" alt="Teams at a shooting station" sizes="(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, calc(100vw - 2rem)" /></div><h3>Celebration &amp; impact</h3><p>Awards ceremony, networking reception, and celebration of the collective impact we're creating for Cincinnati's most deserving students.</p><a class="text-link arrow" href="/aiming-for-opportunity/what-to-expect#after">After the last station</a></article>
+      </div>
+      <p style="margin-top:2rem"><a class="btn btn-navy" href="/aiming-for-opportunity/what-to-expect">See the guest guide: schedule, directions, what to bring</a></p>
+    </div>
+  </section>
+
+  <section class="section soft" id="sponsor" aria-labelledby="tiers">
+    <div class="wrap">
+      <p class="eyebrow">{year} sponsorship opportunities</p>
+      <h2 id="tiers">Sponsor a tournament that changes lives.</h2>
+      <p class="lede">Every sponsorship dollar directly funds mentorship, scholarships, and career launches for first-generation college students. Pick a tier that fits your organization — or reach out and we'll build a custom package together.</p>
+      {!isUpcoming && <p><strong>These were our {year} levels.</strong> {year + 1} sponsorships will be announced soon — use the form below to get first pick.</p>}
+      <div class="grid grid-3">
+        {tiers.map(t => (
+          <article class="card tier">
+            {isUpcoming && <p class="badge">{t.status}</p>}
+            <h3>{t.name}</h3>
+            <p class="price">{t.price}</p>
+            <ul class="checklist small">{t.perks.map(p => <li>{p}</li>)}</ul>
+          </article>
+        ))}
+      </div>
+      <p class="small muted" style="margin-top:1.5rem">Teams must include one experienced shooter as captain (sponsors may opt to have the captain spot filled by a Level Up volunteer). Want a custom package or have questions? Reach out below.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="thanks">
+    <div class="wrap">
+      <p class="eyebrow">{dateText} · Sycamore Sporting Clays</p>
+      <h2 id="thanks">Thank you to our {year} sponsors.</h2>
+      <p class="lede">Every one of these companies and families is putting a first-generation college student on the path to a degree. We are grateful to have them on the course with us.</p>
+      <h3>Presenting sponsors</h3>
+      <ul class="sponsor-list">
+        <li><a href="https://www.amendllc.com/" rel="noopener">AMEND Consulting</a></li>
+        <li><a href="https://www.vitistech.com/" rel="noopener">Vitis Technologies / Prosource</a></li>
+      </ul>
+      <h3>Event sponsors</h3>
+      <ul class="sponsor-list">{eventSponsors.map(([role, name]) => <li><strong>{name}</strong><br /><span class="small muted">{role}</span></li>)}</ul>
+      <h3>Station sponsors</h3>
+      <ul class="sponsor-list">{stationSponsors.map(n => <li>{n}</li>)}</ul>
+      <p class="muted">With in-kind support from Holthaus Lackner Signs (event signage) and New Riff Distilling.</p>
+    </div>
+  </section>
+
+  <section class="section on-navy" id="registration" aria-labelledby="form-h">
+    <div class="wrap split" style="align-items:start">
+      <div>
+        <p class="eyebrow">Get involved</p>
+        <h2 id="form-h">Tell us how you'd like to show up.</h2>
+        <p class="lede">Share a few details and we'll follow up personally — usually within a day. No commitment, just the start of a conversation.</p>
+      </div>
+      <div class="form-card">
+        <form class="form" name="afo-interest" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="company-website">
+          <input type="hidden" name="form-name" value="afo-interest" />
+          <p class="hp"><label>Leave blank <input name="company-website" tabindex="-1" autocomplete="off" /></label></p>
+          <div class="field"><label for="afo-org">Business / organization <span class="req">(required)</span></label><input id="afo-org" name="organization" autocomplete="organization" required /></div>
+          <div class="half">
+            <div class="field"><label for="afo-first">First name <span class="req">(required)</span></label><input id="afo-first" name="first-name" autocomplete="given-name" required /></div>
+            <div class="field"><label for="afo-last">Last name <span class="req">(required)</span></label><input id="afo-last" name="last-name" autocomplete="family-name" required /></div>
+          </div>
+          <div class="half">
+            <div class="field"><label for="afo-email">Email <span class="req">(required)</span></label><input id="afo-email" type="email" name="email" autocomplete="email" required /></div>
+            <div class="field"><label for="afo-phone">Phone <span class="req">(required)</span></label><input id="afo-phone" type="tel" name="phone" autocomplete="tel" required /></div>
+          </div>
+          <fieldset class="field">
+            <legend>I'm interested in: <span class="req">(check all that apply)</span></legend>
+            {interests.map((i, n) => <label class="check" for={`afo-i${n}`}><input id={`afo-i${n}`} type="checkbox" name="interests" value={i} />{i}</label>)}
+          </fieldset>
+          <div class="field"><label for="afo-notes">Notes or questions</label><textarea id="afo-notes" name="notes"></textarea></div>
+          <button class="btn btn-coral" type="submit">Send My Interest</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="beginners" aria-labelledby="first-time">
+    <div class="wrap">
+      <h2 id="first-time">First time shooting? We've got you covered.</h2>
+      <p class="lede">Never held a shotgun? No problem! Clay shooting is like golf with a different kind of swing. We'll pair you with an experienced captain who'll guide you through every step.</p>
+      <div class="grid grid-2">
+        <article class="card"><h3>Think of it like golf, but more exciting</h3><p>Just as golf has 18 holes, sporting clays features multiple stations — each presenting different clay target scenarios. Instead of aiming for a hole, you're tracking flying clay targets that simulate real hunting situations. Don't worry about experience; many of our most enthusiastic participants had never touched a firearm before their first event.</p></article>
+        <article class="card"><h3>What to expect at each station</h3><p>Each station presents 2–3 different clay target presentations — some fly straight away, others cross left to right, and some bounce along the ground like rabbits. You'll get 5–10 shots per station to find your rhythm. Think of each station as a different golf hole with its own unique challenge and strategy.</p></article>
+        <article class="card"><h3>Expert guidance when you need it</h3><p>Teams with novice shooters are paired with an experienced captain who'll teach you proper stance, gun mounting, and lead techniques. Our captains handle firearm operation while you focus on learning. Sycamore Sporting Clays' professional staff oversees every aspect, ensuring a safe and enjoyable experience for all skill levels.</p></article>
+        <article class="card"><h3>The thrill of your first hit</h3><p>There's nothing quite like the satisfaction of watching that orange clay explode into pieces when you connect. Most beginners break their first target within 3–5 shots. By the end of the tournament, you'll be calling “Pull!” with confidence and likely planning your next clay shooting adventure.</p></article>
+        <article class="card"><h3>Professional safety &amp; expertise</h3><p>Everyone begins with a comprehensive safety briefing covering fundamental firearm safety rules. Eye and ear protection are provided. Sycamore Sporting Clays brings decades of experience hosting corporate events — and statistically clay shooting is safer than bowling or golf.</p></article>
+        <article class="card"><h3>Ready to try something new?</h3><p>Join Cincinnati's business leaders for an unforgettable experience that combines friendly competition with meaningful community impact. No experience necessary — just bring your enthusiasm and we'll handle the rest.</p><a class="btn btn-navy" href="#sponsor">Explore Sponsorship Opportunities</a></article>
+      </div>
+    </div>
+  </section>
+</Base>

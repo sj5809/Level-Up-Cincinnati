@@ -1,0 +1,111 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import Person from '../components/Person.astro';
+import site from '../data/site.json';
+import rosterData from '../data/scholar-roster.json';
+const roster = rosterData.people;
+
+const faq = [
+  { q: 'How are scholars selected?', a: ["Level Up scholars are selected through our partnership with the University of Cincinnati. Selection is based on first-generation college student status, Pell Grant eligibility, and demonstrated potential for success.", "There is no separate application or interview process. If you've been invited to join Level Up, congratulations — you're already in!"] },
+  { q: "What's the time commitment?", a: ['Monthly mentor meetings: meet with your mentor once per month at a time that works for your schedule, typically 1–2 hours.', 'Program events: attend 5 mandatory events per year, including workshops, networking opportunities, and community gatherings.', 'The program is designed to support your success without overwhelming your schedule.'] },
+  { q: 'When will I meet my mentor?', a: ["We match students with their mentors every summer before the beginning of the school year. You'll meet your mentor at Match Day, our annual kickoff event where scholars and coaches are paired.", 'This gives you time to build your relationship before the semester starts, so you have support from day one.'] },
+  { q: 'What if I change my major?', a: ["No problem! We support scholars in all majors. Changing your major doesn't affect your participation in Level Up Cincinnati.", 'Your mentor and the Level Up team are here to support you through all the twists and turns of your college journey, including major changes.'] },
+  { q: 'How long does the support last?', a: ["We support scholars for up to 5 years of undergraduate education. Throughout your time at UC, you'll work with two dedicated mentors who will guide you through every milestone.", 'Our goal is to be with you from freshman orientation to graduation day and beyond.'] },
+  { q: 'Is there summer programming?', a: ['Outside of Match Day (our annual summer kickoff event), there is no required programming during the summer.', 'This intentional break ensures you can focus on internships, job opportunities, and other experiences that build your resume and career.'] },
+  { q: 'Do I have to be a first-generation student?', a: ['Yes. Level Up Cincinnati is specifically designed to support first-generation college students who are navigating higher education without the benefit of parental college experience.', 'This focus allows us to provide targeted support that addresses the unique challenges first-gen students face.'] },
+  { q: 'How do I access the Level Up app?', a: ["Once you're selected as a Level Up scholar, you'll receive login credentials and instructions for accessing the app at app.levelupcincinnati.org.", 'The app is your central hub for connecting with your mentor, viewing upcoming events, accessing resources, and staying connected with the Level Up community.'] },
+];
+const faqLd = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.join(' ') } })) };
+const card = '(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, calc(100vw - 2rem)';
+---
+<Base
+  title="For UC Scholars"
+  description="Level Up scholars at the University of Cincinnati get two dedicated coaches, workshops, and a professional Launch Network. No application needed."
+  image="students-hero"
+  crumbs={[{ name: 'Students', path: '/students' }]}
+  jsonld={[faqLd]}
+>
+  <section class="hero on-navy">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">For Level Up scholars</p>
+        <h1>Welcome to Level Up Cincinnati.</h1>
+        <p class="lede">You're not just getting a scholarship. You're joining a community of coaches, professionals, and fellow scholars committed to your success from freshman year through graduation and beyond.</p>
+        <div class="btn-row">
+          <a class="btn btn-coral" href={site.scholarAppUrl}>Access Scholar App</a>
+          <a class="btn btn-outline" href="#how">Learn About the Program</a>
+        </div>
+      </div>
+      <div class="hero-media"><Img src="students-hero" alt="Two Level Up Cincinnati scholars at the University of Cincinnati" priority sizes="(min-width: 56rem) 34rem, calc(100vw - 2rem)" widths={[360, 540, 720, 1080]} /></div>
+    </div>
+  </section>
+
+  <section class="section" id="how" aria-labelledby="how-h">
+    <div class="wrap">
+      <p class="eyebrow">Getting started</p>
+      <h2 id="how-h">How it works.</h2>
+      <p class="lede">There's no application process. Level Up scholars are selected by our team in partnership with UC admissions based on first-generation status and demonstrated potential.</p>
+      <ol class="steps grid grid-3" style="margin-top:2rem">
+        <li><h3>You're selected</h3><p>Our team identifies promising first-generation students from UC's incoming class. Selection is based on your potential for success and commitment to growth — not a separate application or interview.</p></li>
+        <li><h3>You're invited</h3><p>Selected scholars receive a personal invitation with all program details. You'll learn about the support, mentorship, and opportunities waiting for you throughout your UC journey.</p></li>
+        <li><h3>You get started</h3><p>Welcome to the Level Up community! Meet your dedicated coach, access our scholar app, and begin your journey with orientation and onboarding designed to set you up for success.</p></li>
+      </ol>
+      <p>Questions about how scholars are selected? <a href={`mailto:${site.email}?subject=Scholar%20selection%20question`}>Email our team</a>.</p>
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="pillars">
+    <div class="wrap">
+      <p class="eyebrow">What you'll receive</p>
+      <h2 id="pillars">Three pillars of support.</h2>
+      <p class="lede">From financial literacy to career connections, we provide support designed to help you thrive academically, professionally, and personally.</p>
+      <div class="grid grid-3">
+        <article class="card"><h3>Comprehensive curriculum</h3><p>Expert-led workshops and training across three critical areas to prepare you for success in college, career, and life.</p><ul class="checklist"><li>Financial literacy &amp; money management</li><li>Mental wellness &amp; stress management</li><li>Professional development &amp; career skills</li></ul></article>
+        <article class="card"><h3>1-on-1 mentorship</h3><p>Personal coaching throughout your entire UC journey. You'll work with two dedicated mentors who guide you through every challenge and milestone.</p><ul class="checklist"><li>Regular check-ins &amp; accountability</li><li>Academic planning &amp; goal setting</li><li>Career guidance &amp; decision support</li></ul></article>
+        <article class="card"><h3>Launch Network</h3><p>Access to our network of corporate partners, alumni, and professionals who open doors to internships, jobs, and career opportunities.</p><ul class="checklist"><li>Corporate partner connections</li><li>Internship &amp; job placement support</li><li>Professional networking events</li></ul></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="stories">
+    <div class="wrap">
+      <p class="eyebrow">Our community</p>
+      <h2 id="stories">Meet our scholars.</h2>
+      <p class="lede">Real students, real stories, real impact.</p>
+      <div class="grid grid-3">
+        <article class="card"><div class="card-media"><Img src="students-ndeye" alt="Ndeye W., Level Up Scholar" sizes={card} /></div><blockquote class="quote" style="padding:0;background:none"><p>“When I first started college I felt very overwhelmed, intimidated, and alone. Level Up helped empower me to make my own decisions and be confident in myself as I navigate college life.”</p><footer><cite>Ndeye W.</cite>, Class of 2027 · Biological Sciences</footer></blockquote></article>
+        <article class="card"><div class="card-media"><Img src="coach-elena-martha" alt="Martha, Level Up Scholar, with her mentor Elena" sizes={card} /></div><blockquote class="quote" style="padding:0;background:none"><p>“My mentor Elena believed in me even when I doubted myself. She helped me find my voice, and now I'm confident speaking in front of large groups — something I never thought I could do.”</p><footer><cite>Martha</cite>, Class of 2026 · Masters of Nursing</footer></blockquote></article>
+        <article class="card"><div class="card-media"><Img src="coach-nick-stuart" alt="Nick, Level Up Scholar, with his mentor Stuart" sizes={card} /></div><blockquote class="quote" style="padding:0;background:none"><p>“Stuart's mentorship opened doors that have shaped my career path. His support has been a cornerstone of my success, helping me land internships and navigate the professional world.”</p><footer><cite>Nick</cite>, Class of 2025 · Engineering</footer></blockquote></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="all">
+    <div class="wrap">
+      <p class="eyebrow">All our scholars</p>
+      <h2 id="all">The whole Level Up family.</h2>
+      <p class="lede">Every scholar in our program, earning degrees in engineering, business, health sciences, and more at the University of Cincinnati. <strong>{roster.length} scholars are leveling up right now.</strong></p>
+      <ul class="people">
+        {roster.map(p => <Person name={p.name} photo={p.photo} lines={[p.major, `Class of ${p.classOf}`]} linkedin={p.linkedin} />)}
+      </ul>
+      <div class="center" style="margin-top:2.5rem">
+        <h3>Rooting for them?</h3>
+        <p>Scholarships like theirs are funded by supporters like you.</p>
+        <a class="btn btn-coral" href="/donate">Support a Scholar</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="faq">
+    <div class="wrap narrow">
+      <p class="eyebrow">Questions?</p>
+      <h2 id="faq">Frequently asked questions.</h2>
+      <div class="faq">
+        {faq.map(f => <details><summary>{f.q}</summary><div>{f.a.map(p => <p>{p}</p>)}</div></details>)}
+      </div>
+      <p style="margin-top:1.5rem">Still have questions? We're here to help. <a href={`mailto:${site.email}`}>Email {site.email}</a>.</p>
+      <div class="btn-row" style="margin-top:1.5rem"><a class="btn btn-navy" href={site.scholarAppUrl}>Join Our Community in the App</a></div>
+    </div>
+  </section>
+</Base>

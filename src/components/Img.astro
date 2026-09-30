@@ -1,0 +1,30 @@
+---
+// Responsive AVIF + WebP picture for any image in src/assets. `src` is a short name
+// ("home-hero") or a full "/src/assets/..." path (used by the people data files).
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/{img,people}/*.{jpg,jpeg,png,webp}', { eager: true });
+interface Props { src: string; alt: string; sizes?: string; widths?: number[]; priority?: boolean; eager?: boolean; class?: string; width?: number; height?: number }
+const { src, alt, sizes = '100vw', widths = [360, 540, 720, 960, 1280], priority = false, eager = false, class: cls, width, height } = Astro.props;
+const key = src.startsWith('/src/') ? src : Object.keys(images).find(k => k.includes(`/img/${src}.`));
+if (!key || !images[key]) throw new Error(`Image not found: ${src}`);
+const image = images[key].default;
+const w = widths.filter(x => x <= image.width);
+if (!w.length) w.push(image.width);
+---
+<Picture
+  src={image}
+  alt={alt}
+  formats={['avif']}
+  fallbackFormat="webp"
+  widths={w}
+  sizes={sizes}
+  width={width}
+  height={height}
+  quality={50}
+  loading={priority || eager ? 'eager' : 'lazy'}
+  fetchpriority={priority ? 'high' : undefined}
+  decoding={priority ? 'sync' : 'async'}
+  class={cls}
+/>

@@ -1,0 +1,94 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+import partners from '../data/partners.json';
+---
+<Base
+  title="Partner or Sponsor"
+  description="Partner with Level Up Cincinnati: employee volunteering, a diverse talent pipeline, and event sponsorships that support first-gen college students."
+  image="home-networking"
+  crumbs={[{ name: 'Our Partners', path: '/our-partners' }]}
+>
+  <section class="hero on-navy">
+    <div class="wrap narrow">
+      <p class="eyebrow">Our partners</p>
+      <h1>Impact through action, not just checks.</h1>
+      <p class="lede">Our partners show up. Through coaching, networking events, and hands-on professional development, they help first-generation college students build the futures they've earned.</p>
+      <div class="btn-row">
+        <a class="btn btn-coral" href="#partner-form">Become a partner</a>
+        <a class="btn btn-outline" href="/aiming-for-opportunity#sponsor">Sponsor an event</a>
+      </div>
+      <dl class="stats three" style="margin-top:2rem">
+        <div><dt>partners</dt><dd>{site.stats.partners}</dd></div>
+        <div><dt>industries</dt><dd>{site.stats.industries}</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="why">
+    <div class="wrap">
+      <h2 id="why">Why partner with Level Up.</h2>
+      <p class="lede">Align your organization with a mission that creates measurable impact — for your team and for Cincinnati's future workforce.</p>
+      <div class="grid grid-3">
+        <article class="card path-card"><h3>Employee engagement</h3><p>Give your team meaningful volunteer opportunities — mentoring, networking events, and hands-on coaching that build connection and purpose.</p></article>
+        <article class="card path-card"><h3>Diverse talent pipeline</h3><p>Build relationships with driven, first-generation college students entering fields across Cincinnati — your future hires and industry leaders.</p></article>
+        <article class="card path-card"><h3>Community visibility</h3><p>Demonstrate your commitment to equity and inclusion through action — not just statements. Your brand becomes part of a proven story of impact.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="ways">
+    <div class="wrap">
+      <h2 id="ways">Ways to partner.</h2>
+      <div class="grid grid-4">
+        <article class="card"><h3>Coach a scholar</h3><p>Encourage employees to become coaches — about two hours a month.</p><a class="text-link arrow" href="/become-a-coach">Coaching details</a></article>
+        <article class="card"><h3>Join the Launch Network</h3><p>Open your network, share industry insight, and offer introductions.</p><a class="text-link arrow" href="/join-the-network">Launch Network details</a></article>
+        <article class="card"><h3>Sponsor an event</h3><p>Aiming for Opportunity, Urban Bourbon, HERizon, and Elevating Women.</p><a class="text-link arrow" href="/events">See our events</a></article>
+        <article class="card"><h3>Offer internships</h3><p>Create internships and career paths for students ready to launch.</p><a class="text-link arrow" href="#partner-form">Start a conversation</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="who">
+    <div class="wrap">
+      <h2 id="who">Who stands with us.</h2>
+      <p class="lede">Cincinnati's leading organizations and institutions powering opportunity for first-generation college students.</p>
+      <h3 style="margin-top:2rem">Foundation &amp; grant partners <span class="badge">{partners.foundations.length} partners</span></h3>
+      <ul class="list-cols">{partners.foundations.map(p => <li>{p}</li>)}</ul>
+      <h3 style="margin-top:2rem">Corporate partners <span class="badge">{partners.corporate.length} partners</span></h3>
+      <ul class="list-cols">{partners.corporate.map(p => <li>{p}</li>)}</ul>
+      <p class="muted" style="margin-top:1.5rem">Our partners are active participants in making a difference — connecting their expertise and networks with first-generation students who are ready to launch into careers that were once out of reach.</p>
+    </div>
+  </section>
+
+  <section class="section on-navy" id="partner-form" aria-labelledby="form-h">
+    <div class="wrap split" style="align-items:start">
+      <div>
+        <h2 id="form-h">Ready to make an impact?</h2>
+        <p class="lede">Tell us about your organization and we'll follow up with partnership opportunities that fit.</p>
+        <p>Or reach us directly at <a href={`mailto:${site.partnerEmail}`}>{site.partnerEmail}</a>.</p>
+      </div>
+      <div class="form-card">
+        <form class="form" name="partner-inquiry" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="company-website">
+          <input type="hidden" name="form-name" value="partner-inquiry" />
+          <p class="hp"><label>Leave blank <input name="company-website" tabindex="-1" autocomplete="off" /></label></p>
+          <div class="half">
+            <div class="field"><label for="pi-first">First name <span class="req">(required)</span></label><input id="pi-first" name="first-name" autocomplete="given-name" required /></div>
+            <div class="field"><label for="pi-last">Last name <span class="req">(required)</span></label><input id="pi-last" name="last-name" autocomplete="family-name" required /></div>
+          </div>
+          <div class="half">
+            <div class="field"><label for="pi-company">Company <span class="req">(required)</span></label><input id="pi-company" name="company" autocomplete="organization" required /></div>
+            <div class="field"><label for="pi-title">Title <span class="req">(required)</span></label><input id="pi-title" name="title" autocomplete="organization-title" required /></div>
+          </div>
+          <div class="field"><label for="pi-email">Email <span class="req">(required)</span></label><input id="pi-email" type="email" name="email" autocomplete="email" required /></div>
+          <div class="field">
+            <label for="pi-msg">Message <span class="req">(required)</span></label>
+            <textarea id="pi-msg" name="message" required aria-describedby="pi-msg-hint"></textarea>
+            <span class="hint" id="pi-msg-hint">Let us know a little more about your company, and why you'd like to get involved.</span>
+          </div>
+          <button class="btn btn-coral" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</Base>

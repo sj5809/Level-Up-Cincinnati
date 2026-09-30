@@ -1,0 +1,212 @@
+---
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import '../styles/global.css';
+import site from '../data/site.json';
+import Img from '../components/Img.astro';
+import logoLightSrc from '../assets/img/logo-light.webp';
+
+interface Crumb { name: string; path: string }
+interface Props {
+  title: string; // page name only; the brand suffix is added here
+  description: string;
+  image?: string; // short name in src/assets/img used for the 1200×630 share image
+  jsonld?: object[];
+  crumbs?: Crumb[];
+  noindex?: boolean;
+}
+const { title, description, image = 'home-hero', jsonld = [], crumbs = [], noindex = false } = Astro.props;
+const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/').replace(/(.)\/$/, '$1');
+const isHome = path === '/';
+const fullTitle = isHome ? title : `${title} — ${site.name}`;
+const canonical = new URL(path, Astro.site).href;
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/img/*.{jpg,jpeg,png,webp}', { eager: true });
+const ogSrc = Object.entries(images).find(([k]) => k.includes(`/img/${image}.`))?.[1].default;
+const og = ogSrc ? await getImage({ src: ogSrc, width: 1200, height: 630, fit: 'cover', format: 'jpg', quality: 70 }) : null;
+const ogUrl = og ? new URL(og.src, Astro.site).href : undefined;
+const logoLight = await getImage({ src: logoLightSrc, width: 512, format: 'png' });
+
+const org = {
+  '@context': 'https://schema.org',
+  '@type': 'NGO',
+  '@id': `${Astro.site}#org`,
+  name: site.name,
+  legalName: site.legalName,
+  url: Astro.site?.href,
+  logo: new URL(logoLight.src, Astro.site).href,
+  description: site.description,
+  taxID: site.ein,
+  nonprofitStatus: 'Nonprofit501c3',
+  email: site.email,
+  telephone: `+1-${site.phone}`,
+  address: { '@type': 'PostalAddress', streetAddress: site.address.street, addressLocality: site.address.city, addressRegion: site.address.region, postalCode: site.address.postalCode, addressCountry: site.address.country },
+  areaServed: 'Cincinnati, Ohio',
+  sameAs: [site.social.linkedin, site.social.instagram, site.trust.candid],
+};
+const breadcrumb = crumbs.length ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [{ name: 'Home', path: '/' }, ...crumbs].map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: new URL(c.path, Astro.site).href })),
+} : null;
+const ld = [...(isHome ? [org] : []), ...(breadcrumb ? [breadcrumb] : []), ...jsonld];
+
+const nav = [
+  { label: 'Get Involved', items: [
+    { label: 'Become a Coach', href: '/become-a-coach' },
+    { label: 'Your Year as a Coach', href: '/your-year-as-a-coach' },
+    { label: 'Volunteer', href: site.volunteerUrl, ext: true },
+    { label: 'Join the Launch Network', href: '/join-the-network' },
+    { label: 'Partner With Us', href: '/our-partners' },
+  ] },
+  { label: 'Events', items: [
+    { label: 'All Events', href: '/events' },
+    { label: 'Aiming for Opportunity', href: '/aiming-for-opportunity' },
+    { label: 'Urban Bourbon', href: '/urban-bourbon' },
+    { label: 'HERizon Series', href: '/herizon-series' },
+    { label: 'Elevating Women', href: '/elevating-women' },
+  ] },
+  { label: 'Students', href: '/students' },
+  { label: 'About', items: [
+    { label: 'Our Story', href: '/our-vision' },
+    { label: 'Our Team', href: '/our-team' },
+    { label: 'Our Coaches', href: '/coaches' },
+    { label: 'Our Scholars', href: '/scholars' },
+    { label: 'Impact 2025', href: site.impactUrl, ext: true },
+    { label: 'Your Dollar, Further', href: site.aiUrl, ext: true },
+  ] },
+];
+const current = (href: string) => (href === path ? 'page' : undefined);
+const year = new Date().getFullYear();
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  {noindex && <meta name="robots" content="noindex" />}
+  <link rel="preload" href="/fonts/poppins-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="icon" href="/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#18264e" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={site.name} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  {ogUrl && <meta property="og:image" content={ogUrl} />}
+  {ogUrl && <meta property="og:image:width" content="1200" />}
+  {ogUrl && <meta property="og:image:height" content="630" />}
+  <meta name="twitter:card" content="summary_large_image" />
+  {ld.map(d => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-bar">
+      <a class="brand" href="/" aria-label="Level Up Cincinnati home">
+        <Img src="logo-white" alt="" widths={[140, 280]} sizes="140px" eager />
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul class="nav-list">
+          {nav.map(g => (
+            <li>
+              {g.items ? (
+                <details>
+                  <summary>{g.label}</summary>
+                  <ul>
+                    {g.items.map(i => <li><a href={i.href} class:list={{ ext: i.ext }} aria-current={current(i.href)}>{i.label}</a></li>)}
+                  </ul>
+                </details>
+              ) : <a href={g.href} aria-current={current(g.href!)}>{g.label}</a>}
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-coral" href="/donate">Donate</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <svg class="i-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg>
+          <svg class="i-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <slot />
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <Img src="logo-white" alt="Level Up Cincinnati" widths={[140, 280]} sizes="140px" />
+          <p>Coaching, community, and career connections for first-generation college students at the University of Cincinnati.</p>
+          <address>
+            {site.address.street}<br />{site.address.city}, {site.address.region} {site.address.postalCode}<br />
+            <a href={`mailto:${site.email}`}>{site.email}</a><br />
+            <a href={`tel:+1${site.phone.replace(/-/g, '')}`}>{site.phone}</a>
+          </address>
+          <div class="social">
+            <a href={site.social.linkedin} rel="noopener" aria-label="Level Up Cincinnati on LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" /></svg>
+            </a>
+            <a href={site.social.instagram} rel="noopener" aria-label="Level Up Cincinnati on Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:2"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1.2" style="fill:currentColor;stroke:none" /></svg>
+            </a>
+          </div>
+        </div>
+        {nav.filter(g => g.items).map(g => (
+          <div>
+            <h2>{g.label}</h2>
+            <ul>{g.items!.map(i => <li><a href={i.href} class:list={{ ext: i.ext }}>{i.label}</a></li>)}</ul>
+          </div>
+        ))}
+      </div>
+
+      <div class="newsletter" id="footer-newsletter">
+        <div>
+          <h2>Join our mailing list.</h2>
+          <p>For updates on success stories, events, and volunteer opportunities. No spam ever — we promise.</p>
+        </div>
+        <form name="newsletter" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="company-website">
+          <input type="hidden" name="form-name" value="newsletter" />
+          <p class="hp"><label>Leave blank <input name="company-website" tabindex="-1" autocomplete="off" /></label></p>
+          <label class="visually-hidden" for="nl-email">Email address</label>
+          <input id="nl-email" type="email" name="email" autocomplete="email" placeholder="Email address" required />
+          <button class="btn btn-coral" type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="legal">
+        <div class="trust">
+          <a href={site.trust.candid} rel="noopener" aria-label="Candid Seal of Transparency: view our Candid profile">
+            <img src="/candid-seal.svg" width="72" height="72" alt="" loading="lazy" />
+          </a>
+          <a href={site.trust.propublica} rel="noopener">Our Form 990s</a>
+          <a href={site.trust.charityNavigator} rel="noopener">Charity Navigator rating</a>
+          <a href={site.impactUrl}>Impact report</a>
+        </div>
+        <p>© {year} {site.name}. A 501(c)(3) public charity, registered and in compliance with the Ohio Attorney General. EIN {site.ein}.</p>
+        <p><a href="/privacy-policy">Privacy Policy</a> · <a href="/terms-of-use">Terms of Use</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script is:inline>
+    // Mobile menu + desktop dropdowns + click-to-load embeds. Kept under 1KB.
+    (()=>{const d=document,h=d.documentElement,b=d.querySelector('.menu-btn'),q=s=>d.querySelectorAll(s),w=()=>innerWidth>=1024;
+    const s=o=>{h.classList.toggle('menu-open',o);b.setAttribute('aria-expanded',o);q('main,footer').forEach(x=>x.inert=o);o?d.querySelector('.site-nav summary').focus():b.focus()};
+    b.onclick=()=>s(b.getAttribute('aria-expanded')!='true');
+    const c=k=>q('.nav-list details[open]').forEach(x=>x!=k&&(x.open=false));
+    addEventListener('keydown',e=>{if(e.key=='Escape'){c();h.classList.contains('menu-open')&&s(false)}});
+    q('.nav-list details').forEach(x=>x.addEventListener('toggle',()=>x.open&&w()&&c(x)));
+    addEventListener('click',e=>w()&&!e.target.closest('.nav-list')&&c());
+    q('details[data-src]').forEach(x=>x.addEventListener('toggle',()=>{if(x.open&&!x.querySelector('iframe')){const f=d.createElement('iframe');f.src=x.dataset.src;f.title=x.dataset.title;f.allow='autoplay; encrypted-media; payment; fullscreen';x.append(f);f.focus()}}))})();
+  </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import site from '../data/site.json';
+
+const gallery = [
+  ['ew-student-coach', 'Student and coach speaking', 'Powerful stories — student-coach pairs sharing their transformation journeys'],
+  ['ew-marketplace', 'Women-owned marketplace', 'Women-owned marketplace — local entrepreneurs showcasing their businesses'],
+  ['ew-vendors', 'Vendor displays', 'Community support — women supporting women in business'],
+  ['ew-connecting', 'Guests connecting', 'Meaningful connections — building relationships that last'],
+  ['ew-crowd', 'Speaking to the crowd', 'Inspiring moments — stories of resilience and growth'],
+  ['ew-speaker', 'An individual speaker', 'Personal journeys — each story unique and powerful'],
+  ['ew-smiling', 'Smiling guests', 'Joy & celebration — the energy was infectious'],
+  ['ew-art', 'Interactive art', 'Creative expression — interactive experiences celebrating empowerment'],
+];
+const vendors = ['Charm Haven', 'Wander Your Way', 'Thrive Med Spa', 'Naturally Nourished', 'Dance Factory Fitness', 'Kreative SOULutions', 'Cozinests', 'Bee Haven Honey', 'Tillage Clothing Company', 'SoHza Sister Boutique', 'Snook in a Book', 'The Coarse Culture'];
+const half = '(min-width: 56rem) 34rem, calc(100vw - 2rem)';
+---
+<Base
+  title="Elevating Women"
+  description="Elevating Women celebrates first-generation college women, their mentors, and Cincinnati's women entrepreneurs. 2024: 100+ attendees, $15K+ raised."
+  image="ew-crowd"
+  crumbs={[{ name: 'Events', path: '/events' }, { name: 'Elevating Women', path: '/elevating-women' }]}
+>
+  <section class="hero on-navy">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">A Level Up Cincinnati event</p>
+        <h1>Celebrating women who lead.</h1>
+        <p class="lede">An annual celebration of first-generation college women, their mentors, and the female entrepreneurs who inspire Cincinnati's future leaders.</p>
+        <p><strong>Next event:</strong> date to be announced · Cincinnati, Ohio</p>
+        <div class="btn-row"><a class="btn btn-coral" href="#join">Get involved</a><a class="btn btn-outline" href="#highlights">See 2024 highlights</a></div>
+      </div>
+      <div class="hero-media"><Img src="ew-crowd" alt="A speaker addressing the crowd at Elevating Women 2024" priority sizes={half} widths={[360, 540, 720, 1080]} /></div>
+    </div>
+  </section>
+
+  <section class="section" id="highlights" aria-labelledby="story">
+    <div class="wrap">
+      <p class="eyebrow">2024 success story</p>
+      <h2 id="story">A day that changed everything.</h2>
+      <p class="lede">On July 27, 2024, we brought together incredible women from across Cincinnati to celebrate, connect, and elevate each other. The energy was electric, the stories were powerful, and the impact was immediate.</p>
+      <dl class="stats" style="margin-block:1.5rem 2.5rem">
+        <div><dt>attendees</dt><dd>100+</dd></div>
+        <div><dt>women-owned vendors</dt><dd>15+</dd></div>
+        <div><dt>student-coach pairs</dt><dd>4</dd></div>
+        <div><dt>raised for scholarships</dt><dd>$15K+</dd></div>
+      </dl>
+      <ul class="gallery list-plain">
+        {gallery.map(([src, alt, cap]) => <li><figure style="margin:0"><Img src={src} alt={alt} sizes="(min-width: 56rem) 17rem, 45vw" widths={[240, 360, 540]} /><figcaption>{cap}</figcaption></figure></li>)}
+      </ul>
+      <blockquote class="quote" style="margin-top:2.5rem"><p>“Today is about Elevating Women. Today is also about supporting first-generation college students because there's a massive gap that exists where only 1 in 9 of these students graduate. Level Up exists to help close that gap.”</p><footer><cite>Stacy R.</cite>, Level Up Coach</footer></blockquote>
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="experience">
+    <div class="wrap">
+      <p class="eyebrow">What to expect</p>
+      <h2 id="experience">The Elevating Women experience.</h2>
+      <p class="lede">A day designed to celebrate, connect, and empower. From inspiring stories to meaningful connections, every moment is crafted to elevate women in our community.</p>
+      <div class="grid grid-3">
+        <article class="card"><h3>Women-owned marketplace</h3><p>Shop from Cincinnati's most inspiring women entrepreneurs. Discover unique products, services, and stories from local business owners who are paving their own way and lifting others as they rise.</p></article>
+        <article class="card"><h3>Powerful stories of transformation</h3><p>Hear directly from first-generation college students and their mentors about the journey of growth, resilience, and empowerment.</p></article>
+        <article class="card"><h3>Meaningful connections</h3><p>Network with like-minded women who believe in lifting each other up. Build relationships with students, mentors, entrepreneurs, and community leaders.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="impact">
+    <div class="wrap">
+      <p class="eyebrow">Real impact</p>
+      <h2 id="impact">From nervous to unstoppable.</h2>
+      <p class="lede">Stephanie and Tricia's journey shows what happens when someone believes in you until you believe in yourself. One year. One relationship. Infinite possibilities.</p>
+      <div class="split">
+        <div>
+          <ol class="timeline">
+            <li><p class="when">Day one · Summer 2023</p><h3>The beginning</h3><p>“My first impression of Tricia was a shy, sweet girl, eager to start college, but unsure of what lay ahead. She was nervous about living on her own and wary of all the big changes to come.” — Stephanie</p></li>
+            <li><p class="when">Growth</p><h3>The turning point</h3><p>“I was terrified of the networking event. But with reassurance from Steph, I became more confident. Multiple people complimented how I did, and that has stuck with me ever since.” — Tricia</p></li>
+            <li><p class="when">One year later · Elevating Women 2024</p><h3>The transformation</h3><p>“I'll never forget when she called to tell me she walked right up to a panelist, shook their hand, and asked to exchange contact info. Such a stark contrast from the girl I met last summer.” — Stephanie</p></li>
+          </ol>
+          <h3>Tricia's first-year achievements</h3>
+          <ul class="checklist">
+            <li>Ran a half marathon + hundreds of miles in run club</li>
+            <li>Secured an internship as a freshman</li>
+            <li>Connected with professors outside the classroom</li>
+            <li>Got her temp license</li>
+          </ul>
+        </div>
+        <div class="grid">
+          <Img src="ew-first-meeting" alt="Stephanie and Tricia at their first meeting" sizes={half} />
+          <Img src="ew-stephanie-tricia" alt="Stephanie and Tricia at Elevating Women" sizes={half} />
+        </div>
+      </div>
+      <blockquote class="quote" style="margin-top:2rem"><p>“Level Up gave me someone to believe in me — until I believed in myself.”</p><footer><cite>Tricia</cite>, Level Up Cincinnati Scholar</footer></blockquote>
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="vendors">
+    <div class="wrap">
+      <p class="eyebrow">Community spotlight</p>
+      <h2 id="vendors">Celebrating women-owned businesses.</h2>
+      <p class="lede">Thank you to the incredible women entrepreneurs who joined us in 2024 to showcase their businesses and inspire Cincinnati's future leaders.</p>
+      <h3>2024 marketplace vendors</h3>
+      <ul class="list-cols">{vendors.map(v => <li>{v}</li>)}</ul>
+      <p style="margin-top:1.5rem">Are you a woman-owned business in Cincinnati? We'd love to have you at the next event. <a href={`mailto:${site.email}?subject=Vendor%20Interest%20-%20Elevating%20Women`}>Express your vendor interest</a>.</p>
+    </div>
+  </section>
+
+  <section class="section on-navy" id="join" aria-labelledby="join-h">
+    <div class="wrap">
+      <p class="eyebrow">Get involved</p>
+      <h2 id="join-h">Join the movement.</h2>
+      <p class="lede">There are many ways to support first-generation college women and be part of the Elevating Women community.</p>
+      <div class="grid grid-3">
+        <article class="card"><h3>Become a coach</h3><p>Transform a student's life through meaningful mentorship. Guide, support, and empower the next generation.</p><a class="btn btn-coral" href="/become-a-coach">Apply to coach</a></article>
+        <article class="card"><h3>Volunteer</h3><p>Help us make the next Elevating Women amazing. Join our volunteer team and be part of something special.</p><a class="btn btn-coral" href="https://volunteer.levelupcincinnati.org/">Register as a volunteer</a></article>
+        <article class="card"><h3>Sponsor, vend, or partner</h3><p>Interested in sponsoring, vending, or partnering with Elevating Women? Vendor registration, sponsorships, and tickets for the next event will be announced here.</p><a class="btn btn-coral" href={`mailto:${site.email}?subject=Interest%20in%20Elevating%20Women`}>Get in touch</a></article>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import Person from '../../components/Person.astro';
+import scholarsData from '../../data/scholars.json';
+
+export function getStaticPaths() {
+  return scholarsData.people.map(s => ({ params: { slug: s.slug }, props: { s } }));
+}
+const { s } = Astro.props;
+const desc = `${s.name} is a Level Up Cincinnati ${s.tag ? s.tag.toLowerCase() : 'scholar'} at the University of Cincinnati. ${s.details.join('. ')}.`;
+---
+<Base
+  title={`${s.name}, Level Up Scholar`}
+  description={desc.length > 155 ? desc.slice(0, 152).replace(/\s\S*$/, '') + '…' : desc}
+  image="students-hero"
+  crumbs={[{ name: 'Our Scholars', path: '/scholars' }, { name: s.name, path: `/scholars/${s.slug}` }]}
+>
+  <section class="section">
+    <div class="wrap narrow center">
+      <p class="eyebrow">Level Up scholar</p>
+      <h1>{s.name}</h1>
+      <ul class="people profile"><Person name={s.name} heading="h2" photo={s.photo} lines={[...s.details, s.tag]} linkedin={s.linkedin} large /></ul>
+      <div class="btn-row" style="margin-top:1.5rem"><a class="btn btn-navy" href="/scholars">All scholars</a><a class="btn btn-coral" href="/donate">Support a Scholar</a></div>
+    </div>
+  </section>
+</Base>

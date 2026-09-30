@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+---
+<Base title="Page Not Found" description="Sorry, the page you're looking for doesn't exist. Here's how to get back on track with Level Up Cincinnati." noindex>
+  <section class="section">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">404</p>
+        <h1>Listen, we're not perfect.</h1>
+        <p class="lede">It looks like we've misplaced this page. Let's get you back on track.</p>
+        <ul class="list-plain">
+          <li><a class="text-link arrow" href="/">Home</a></li>
+          <li><a class="text-link arrow" href="/become-a-coach">Become a Coach</a></li>
+          <li><a class="text-link arrow" href="/events">Upcoming events</a></li>
+          <li><a class="text-link arrow" href="/students">For UC scholars</a></li>
+          <li><a class="text-link arrow" href="/donate">Donate</a></li>
+        </ul>
+      </div>
+      <Img src="not-found" alt="" sizes="(min-width: 56rem) 34rem, calc(100vw - 2rem)" />
+    </div>
+  </section>
+</Base>

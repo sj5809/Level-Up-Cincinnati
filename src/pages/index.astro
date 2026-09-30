@@ -1,0 +1,148 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import EventItem from '../components/EventItem.astro';
+import site from '../data/site.json';
+import { getEvents } from '../lib/events';
+
+const { upcoming } = await getEvents();
+const next = upcoming[0];
+const s = site.stats;
+---
+<Base
+  title="Level Up Cincinnati — Coaches for First-Gen Students"
+  description="We match first-generation college students at UC with volunteer coaches and a professional network. Become a coach, volunteer, partner, or donate."
+>
+  <section class="hero on-navy">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">First-gen college students · University of Cincinnati</p>
+        <h1>Every student deserves someone in their corner.</h1>
+        <p class="lede">We match first-generation college students with dedicated coaches and a professional community that opens real doors — to internships, careers, and confidence.</p>
+        <div class="btn-row">
+          <a class="btn btn-coral" href="/become-a-coach">Be Someone's Coach</a>
+          <a class="btn btn-outline" href={site.impactUrl}>Explore Our Impact</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <Img src="home-hero" alt="Level Up Cincinnati scholars and coaches at Match Day 2025" priority sizes="(min-width: 56rem) 34rem, calc(100vw - 2rem)" widths={[360, 540, 720, 1080]} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm" aria-labelledby="results">
+    <div class="wrap">
+      <h2 id="results" class="visually-hidden">Our 2025 results</h2>
+      <dl class="stats">
+        <div><dt>program satisfaction rating from our scholars</dt><dd>{s.satisfaction}</dd></div>
+        <div><dt>average cumulative GPA</dt><dd>{s.gpa}</dd></div>
+        <div><dt>Dean's List rate</dt><dd>{s.deansList}</dd></div>
+        <div><dt>jobs &amp; internships aligned to major</dt><dd>{s.alignedJobs}</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="paths">
+    <div class="wrap">
+      <p class="eyebrow">Get involved</p>
+      <h2 id="paths">There's a place for you in this story.</h2>
+      <p class="lede">Every coach, volunteer, partner, and donor helps a first-generation student get closer to the future they deserve.</p>
+      <div class="grid grid-4">
+        <article class="card path-card">
+          <h3>Become a Coach</h3>
+          <p>Walk alongside a student through college and beyond. About two hours a month can reshape someone's trajectory.</p>
+          <a class="btn btn-navy" href="/become-a-coach">Apply to coach</a>
+        </article>
+        <article class="card path-card">
+          <h3>Volunteer</h3>
+          <p>Share your time, skills, or network at events, workshops, and professional development sessions.</p>
+          <a class="btn btn-navy" href={site.volunteerUrl}>Find a volunteer shift</a>
+        </article>
+        <article class="card path-card">
+          <h3>Partner or Sponsor</h3>
+          <p>Create internships, sponsor programs and events, or open career doors for students ready to launch.</p>
+          <a class="btn btn-navy" href="/our-partners">Partner with us</a>
+        </article>
+        <article class="card path-card">
+          <h3>Donate</h3>
+          <p>Fund scholarships, coaching, and career development for first-generation students. 100% of gifts support programming.</p>
+          <a class="btn btn-coral" href="/donate">Give today</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="why">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Why it matters</p>
+        <h2 id="why">Coaching and support when it's needed most.</h2>
+        <p>First-generation college students often start without the networks, guidance, and resources their peers take for granted. That gap doesn't close on its own.</p>
+        <p>Level Up pairs each scholar with a dedicated coach and a community of professionals who show up consistently. Through one-on-one coaching, professional development, and real-world connections, we help students build the confidence and careers they've earned.</p>
+        <a class="btn btn-navy" href="/our-vision">Read our story</a>
+      </div>
+      <Img src="home-pair" alt="Level Up scholar and coach together" sizes="(min-width: 56rem) 34rem, calc(100vw - 2rem)" />
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="programs">
+    <div class="wrap">
+      <p class="eyebrow">Our programs</p>
+      <h2 id="programs">The support behind every student.</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <div class="card-media"><Img src="home-pd-day" alt="Level Up Cincinnati Professional Development Day" sizes="(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, calc(100vw - 2rem)" /></div>
+          <h3>Personal Development</h3>
+          <p>Workshops, retreats, and real conversations that help students build self-awareness, resilience, and the soft skills that open doors.</p>
+        </article>
+        <article class="card">
+          <div class="card-media"><Img src="home-coaching" alt="Level Up mentor and student in a coaching session" sizes="(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, calc(100vw - 2rem)" /></div>
+          <h3>1-on-1 Growth Coaching</h3>
+          <p>Every student is paired with a dedicated coach — a consistent, trusted guide who helps them navigate college, career, and everything in between.</p>
+        </article>
+        <article class="card">
+          <div class="card-media"><Img src="home-networking" alt="Level Up Cincinnati students networking with professionals" sizes="(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, calc(100vw - 2rem)" /></div>
+          <h3>Launch Network</h3>
+          <p>Students gain access to Cincinnati's professional community — real connections that lead to internships, mentorship, and careers after graduation.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section on-navy" aria-labelledby="stories">
+    <div class="wrap split">
+      <Img src="home-tricia-stephanie" alt="Level Up Cincinnati scholar and coach in conversation" sizes="(min-width: 56rem) 34rem, calc(100vw - 2rem)" />
+      <div>
+        <h2 id="stories" class="visually-hidden">Scholar and coach stories</h2>
+        <blockquote class="quote">
+          <p>“Level Up gave me someone to believe in me until I believed in myself.”</p>
+          <footer><cite>Tricia</cite>, Level Up Scholar</footer>
+        </blockquote>
+        <blockquote class="quote">
+          <p>“Witnessing Tricia slowly transform into a confident, self-assured, and proactive young woman has been incredible.”</p>
+          <footer><cite>Stephanie</cite>, Tricia's Coach</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="next-event">
+    <div class="wrap narrow">
+      <p class="eyebrow">Next up</p>
+      <h2 id="next-event">Come meet the community.</h2>
+      {next ? <EventItem event={next} /> : <p>New events are on the way. Check back soon.</p>}
+      <p><a class="text-link arrow" href="/events">See all Level Up events</a></p>
+    </div>
+  </section>
+
+  <section class="section soft center" aria-labelledby="cta">
+    <div class="wrap">
+      <h2 id="cta">Without support, 1 in 2 first-gen students drop out.</h2>
+      <p class="lede">With a coach in their corner, Level Up scholars earn a {s.gpa} average GPA and rate their support {s.supported}.</p>
+      <div class="btn-row">
+        <a class="btn btn-navy" href="/become-a-coach">Become a coach</a>
+        <a class="btn btn-coral" href="/donate">Support a scholar</a>
+      </div>
+    </div>
+  </section>
+</Base>

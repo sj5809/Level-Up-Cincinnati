@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import Person from '../components/Person.astro';
+import team from '../data/team.json';
+---
+<Base
+  title="Our Team & Board"
+  description="Meet the Level Up Cincinnati staff and Board of Directors — leaders united by one belief: every student deserves someone in their corner."
+  image="team-board-match-day"
+  crumbs={[{ name: 'Our Team', path: '/our-team' }]}
+>
+  <section class="hero on-navy">
+    <div class="wrap narrow">
+      <p class="eyebrow">Our team</p>
+      <h1>The people behind every breakthrough.</h1>
+      <p class="lede">Staff, coaches, and board members united by one belief — that every student deserves someone in their corner.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="staff">
+    <div class="wrap">
+      <h2 id="staff">Staff</h2>
+      <div class="grid grid-2">
+        {team.staff.map(p => (
+          <article class="card">
+            <div class="card-media"><Img src={p.photo} alt={`${p.name}, ${p.role}`} sizes="(min-width: 40rem) 45vw, calc(100vw - 2rem)" /></div>
+            <h3>{p.name}</h3>
+            <p class="badge">{p.role}</p>
+            <p>{p.bio}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="board">
+    <div class="wrap">
+      <p class="eyebrow">Board of Directors</p>
+      <h2 id="board">Guided by leaders who care.</h2>
+      <ul class="people" style="margin-top:2rem">
+        {team.board.map(p => <Person name={p.name} photo={p.photo} lines={[p.role, p.org]} large />)}
+      </ul>
+      <figure style="margin-top:3rem">
+        <Img src="team-board-match-day" alt="Members of the Level Up Cincinnati Board at the Inaugural Match Day Event, 2023" sizes="(min-width: 72rem) 72rem, calc(100vw - 2rem)" />
+        <figcaption class="small muted">Members of the Level Up Cincinnati Board at our Inaugural Match Day Event, 2023.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section center" aria-labelledby="join">
+    <div class="wrap">
+      <h2 id="join">Join the team in someone's corner.</h2>
+      <div class="btn-row"><a class="btn btn-navy" href="/become-a-coach">Become a Coach</a><a class="btn btn-outline" href="/coaches">Meet our coaches</a></div>
+    </div>
+  </section>
+</Base>

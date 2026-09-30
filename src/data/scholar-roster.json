@@ -1,0 +1,249 @@
+{
+  "people": [
+    {
+      "name": "Alayah",
+      "major": "Pre Health Professions",
+      "classOf": 2029,
+      "photo": "/src/assets/people/scholar-alayah.jpg",
+      "linkedin": "https://www.linkedin.com/in/alayah-bowie-05a511329"
+    },
+    {
+      "name": "Aldo",
+      "major": "Mathematics",
+      "classOf": 2029,
+      "photo": "/src/assets/people/scholar-aldo.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Amanda",
+      "major": "Mechanical Engineering",
+      "classOf": 2031,
+      "photo": "/src/assets/people/scholar-amanda.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Ana",
+      "major": "Political Science, Spanish",
+      "classOf": 2028,
+      "photo": "/src/assets/people/scholar-ana.jpg",
+      "linkedin": "https://www.linkedin.com/in/ana-garay-524344349/"
+    },
+    {
+      "name": "Angie",
+      "major": "Fashion Design",
+      "classOf": 2027,
+      "photo": null,
+      "linkedin": "https://www.linkedin.com/in/angelagarcia04"
+    },
+    {
+      "name": "Caelyn",
+      "major": "Nursing",
+      "classOf": 2029,
+      "photo": "/src/assets/people/scholar-caelyn.jpg",
+      "linkedin": "https://www.linkedin.com/in/caelyn-harper-91a227377"
+    },
+    {
+      "name": "Chasity",
+      "major": "Nursing",
+      "classOf": 2029,
+      "photo": "/src/assets/people/scholar-chasity.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Deontae",
+      "major": "Computer science",
+      "classOf": 2029,
+      "photo": "/src/assets/people/scholar-deontae.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Emily",
+      "major": "Chemical Engineering",
+      "classOf": 2028,
+      "photo": "/src/assets/people/scholar-emily.jpg",
+      "linkedin": "https://www.linkedin.com/in/emily-espinoza-ruiz"
+    },
+    {
+      "name": "Emma",
+      "major": "Mechanical Engineering",
+      "classOf": 2027,
+      "photo": "/src/assets/people/scholar-emma.jpg",
+      "linkedin": "https://www.linkedin.com/in/emma-korman"
+    },
+    {
+      "name": "Farouk",
+      "major": "Mechanical Engineering",
+      "classOf": 2030,
+      "photo": "/src/assets/people/scholar-farouk.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Florida",
+      "major": "Mechanical Engineering",
+      "classOf": 2030,
+      "photo": "/src/assets/people/scholar-florida.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Habarugira",
+      "major": "computer science",
+      "classOf": 2029,
+      "photo": "/src/assets/people/scholar-habarugira.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Ian",
+      "major": "Construction Management",
+      "classOf": 2028,
+      "photo": "/src/assets/people/scholar-ian.jpg",
+      "linkedin": "https://www.linkedin.com/in/ian-mcnamara-437500352"
+    },
+    {
+      "name": "Jada",
+      "major": "Nursing",
+      "classOf": 2027,
+      "photo": "/src/assets/people/scholar-jada.jpg",
+      "linkedin": "https://linkedin.com/in/jwallace-pride"
+    },
+    {
+      "name": "Jailah",
+      "major": "Business",
+      "classOf": 2029,
+      "photo": "/src/assets/people/scholar-jailah.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Jayden",
+      "major": "Biochemistry",
+      "classOf": 2030,
+      "photo": "/src/assets/people/scholar-jayden.jpg",
+      "linkedin": "https://www.linkedin.com/in/jayden-miller-0ba735417"
+    },
+    {
+      "name": "Justin",
+      "major": "Marketing",
+      "classOf": 2030,
+      "photo": "/src/assets/people/scholar-justin.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Khader",
+      "major": "Finance",
+      "classOf": 2030,
+      "photo": "/src/assets/people/scholar-khader.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "KieMauri",
+      "major": "Social Work",
+      "classOf": 2029,
+      "photo": "/src/assets/people/scholar-kiemauri.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Kyla",
+      "major": "Marketing",
+      "classOf": 2029,
+      "photo": "/src/assets/people/scholar-kyla.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Laron",
+      "major": "Finance",
+      "classOf": 2027,
+      "photo": "/src/assets/people/scholar-laron.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Logan",
+      "major": "Political Science",
+      "classOf": 2030,
+      "photo": "/src/assets/people/scholar-logan.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Martha",
+      "major": "Nursing",
+      "classOf": 2028,
+      "photo": "/src/assets/people/scholar-martha.jpg",
+      "linkedin": "https://linkedin.com/in/martha-domingo-morales"
+    },
+    {
+      "name": "Molly",
+      "major": "Middle Childhood Education",
+      "classOf": 2030,
+      "photo": "/src/assets/people/scholar-molly.jpg",
+      "linkedin": "https://www.linkedin.com/in/molfishr6"
+    },
+    {
+      "name": "Naomi",
+      "major": "Finance",
+      "classOf": 2030,
+      "photo": "/src/assets/people/scholar-naomi.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Natalie",
+      "major": "Business Analytics",
+      "classOf": 2030,
+      "photo": "/src/assets/people/scholar-natalie.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Nate",
+      "major": "Sport Administration",
+      "classOf": 2026,
+      "photo": "/src/assets/people/scholar-nate.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Ndeye",
+      "major": "Biological Sciences",
+      "classOf": 2027,
+      "photo": "/src/assets/people/scholar-ndeye.jpg",
+      "linkedin": "https://linkedin.com/in/ndeye-wade-307706290"
+    },
+    {
+      "name": "Noah",
+      "major": "Finance",
+      "classOf": 2030,
+      "photo": "/src/assets/people/scholar-noah.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Sarah",
+      "major": "Marketing & International Business",
+      "classOf": 2026,
+      "photo": "/src/assets/people/scholar-sarah.jpg",
+      "linkedin": "https://www.linkedin.com/in/sarahhottley/"
+    },
+    {
+      "name": "Sosso",
+      "major": "Health Sciences (Pre-Pharmacy)",
+      "classOf": 2029,
+      "photo": "/src/assets/people/scholar-sosso.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Sumikchha",
+      "major": "Nursing",
+      "classOf": 2030,
+      "photo": "/src/assets/people/scholar-sumikchha.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "TJ",
+      "major": "Secondary Education Social Studies",
+      "classOf": 2028,
+      "photo": "/src/assets/people/scholar-tj.jpg",
+      "linkedin": "https://www.linkedin.com/in/tyler-james-matchen-457466322"
+    },
+    {
+      "name": "Tricia",
+      "major": "Psychology",
+      "classOf": 2028,
+      "photo": "/src/assets/people/scholar-tricia.jpg",
+      "linkedin": "https://linkedin.com/in/tricia-roth-755863322"
+    }
+  ]
+}

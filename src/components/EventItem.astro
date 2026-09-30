@@ -1,0 +1,25 @@
+---
+import { fmt, type Ev } from '../lib/events';
+interface Props { event: Ev; heading?: 'h2' | 'h3'; past?: boolean }
+const { event, heading = 'h3', past = false } = Astro.props;
+const d = event.data;
+const H = heading;
+---
+<article class="event">
+  {d.date ? (
+    <div class="event-date" aria-hidden="true"><span>{fmt(d.date, { month: 'short' })}</span><b>{fmt(d.date, { day: 'numeric' })}</b><span>{fmt(d.date, { year: 'numeric' })}</span></div>
+  ) : <div class="event-date" aria-hidden="true"><span>Save</span><b>★</b><span>the date</span></div>}
+  <div>
+    <H>{d.title}</H>
+    <p class="small muted">
+      {d.date ? <time datetime={d.date.toISOString().slice(0, 10)}>{fmt(d.date, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</time> : d.dateLabel}
+      {d.time && <> · {d.time}</>}
+      {d.location && <> · {d.location}</>}
+    </p>
+    <p>{d.summary}</p>
+    <div class="btn-row">
+      {!past && d.registerUrl && <a class="btn btn-coral" href={d.registerUrl} rel="noopener">Register for {d.title.replace(/^HERizon: /, '')}</a>}
+      {d.page && <a class="text-link arrow" href={d.page}>{past ? `About ${d.title.replace(/ \d{4}$/, '')}` : `Details: ${d.title.replace(/^HERizon: /, 'HERizon ')}`}</a>}
+    </div>
+  </div>
+</article>

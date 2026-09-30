@@ -1,0 +1,244 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import Person from '../components/Person.astro';
+import site from '../data/site.json';
+import rosterData from '../data/coach-roster.json';
+const roster = rosterData.people;
+
+const s = site.stats;
+const faq = [
+  { q: 'How much time does coaching take?', a: `About two hours a month. Plan on one in-person meeting with your scholar each month (coffee, lunch, a campus visit, or a Level Up event together) plus quick weekly check-ins by text, email, or phone. Coaches commit to two years with their scholar.` },
+  { q: 'Who can become a Level Up coach?', a: 'Applicants must be college graduates with two years of post-college working experience and provide satisfactory employment and reference checks. All coaches must pass criminal record federal, state, and local background checks.' },
+  { q: 'Do I need to have been a first-generation college student?', a: "No. It's not a requirement. We ask because it helps us provide a better match for some students." },
+  { q: 'Will I know what to do?', a: "Yes. Before meeting your scholar you'll attend a one-day orientation. Each month we provide suggested conversation topics and resources, and our staff checks in with you monthly and after each semester. Our team is always a text away." },
+  { q: 'When are coaches matched with scholars?', a: 'New coaches join every summer. Coach Orientation is in July, and new scholars and coaches are paired for the first time at Match Day in August.' },
+  { q: "What's the difference between a Transition Coach and a Career Coach?", a: 'Transition Coaches (years 1–2) are college graduates who can relate to the move into college life. Career Coaches (years 3–4) are leaders in fields related to a scholar\'s major who can share industry insights and open professional doors.' },
+  { q: 'Still have a question?', a: `Email ${site.email} — a real person answers.` },
+];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+const half = '(min-width: 56rem) 34rem, calc(100vw - 2rem)';
+---
+<Base
+  title="Become a Volunteer Coach"
+  description="Mentor a first-generation college student at UC. About 2 hours a month. Level Up scholars earn a 3.33 average GPA. Apply to coach in Cincinnati."
+  image="coach-nick-stuart"
+  crumbs={[{ name: 'Become a Coach', path: '/become-a-coach' }]}
+  jsonld={[faqLd]}
+>
+  <section class="hero on-navy">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Become a coach</p>
+        <h1>Change a student's life. Transform your own.</h1>
+        <p class="lede">Join our growing network of volunteer coaches helping first-generation college students navigate their journey to graduation and career success. Your time commitment: <strong>{s.coachHours}</strong>.</p>
+        <div class="btn-row">
+          <a class="btn btn-coral" href="#apply">Apply to Be a Coach</a>
+          <a class="btn btn-outline" href={site.coachPreviewUrl}>See Coaching in 5 Min</a>
+        </div>
+        <p class="small" style="margin-top:1rem">New coaches join every summer — the next class of scholars is already on the way.</p>
+      </div>
+      <div class="hero-media">
+        <Img src="coach-nick-stuart" alt="Nick and his coach Stuart together at a Level Up event" priority sizes={half} widths={[360, 540, 720, 1080]} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm" aria-labelledby="results">
+    <div class="wrap">
+      <h2 id="results">Without support, 1 in 2 first-generation college students drop out.</h2>
+      <p class="lede">With coaching, everything changes. Our 2025 results show what's possible when students have someone in their corner.</p>
+      <dl class="stats">
+        <div><dt>average cumulative GPA</dt><dd>{s.gpa}</dd></div>
+        <div><dt>Dean's List rate</dt><dd>{s.deansList}</dd></div>
+        <div><dt>jobs &amp; internships aligned to major</dt><dd>{s.alignedJobs}</dd></div>
+        <div><dt>scholars feel supported by Level Up</dt><dd>{s.supported}</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="role">
+    <div class="wrap">
+      <blockquote class="quote" style="background:var(--white);margin-bottom:3rem">
+        <p>“Stuart's mentorship opened doors that have shaped my career path. His support has been a cornerstone of my success.”</p>
+        <footer><cite>Nick</cite>, aerospace engineering graduate, mentored by Stuart — now building jet engines at Williams International</footer>
+      </blockquote>
+      <p class="eyebrow">Your role</p>
+      <h2 id="role">Your role in changing lives.</h2>
+      <p class="lede">Join our community of mentors making a real difference in students' lives through meaningful commitment.</p>
+      <div class="grid grid-3">
+        <article class="card">
+          <div class="card-media"><Img src="coach-working" alt="Coach and student working together" sizes="(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, calc(100vw - 2rem)" /></div>
+          <h3>Commit your time to a Level Up scholar</h3>
+          <p>Dedicate two meaningful years to guide a student through their critical transition to college or career launch. Your consistent presence becomes their foundation for success.</p>
+        </article>
+        <article class="card">
+          <div class="card-media"><Img src="coach-video-call" alt="Student on a video call with his coach" sizes="(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, calc(100vw - 2rem)" /></div>
+          <h3>Stay connected through weekly check-ins</h3>
+          <p>Touch base with your scholar each week through text, email, or phone calls. Build a relationship through consistent communication that fits both your schedules.</p>
+        </article>
+        <article class="card">
+          <div class="card-media"><Img src="coach-meetup" alt="Students and coaches at a monthly meetup" sizes="(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, calc(100vw - 2rem)" /></div>
+          <h3>Meet monthly on your schedule</h3>
+          <p>Connect in person each month through flexible one-on-one meetings or Level Up community events. Create lasting bonds while accommodating your busy lifestyle.</p>
+        </article>
+      </div>
+      <p style="margin-top:2rem"><a class="btn btn-navy" href="/your-year-as-a-coach">See what a year as a coach looks like</a></p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="tiers">
+    <div class="wrap">
+      <p class="eyebrow">Two-tier coaching</p>
+      <h2 id="tiers">We pair our scholars with the support they need, at the time they need it most.</h2>
+      <div class="grid grid-2">
+        <article class="card">
+          <div class="card-media"><Img src="coach-transition" alt="Students working with their transition coach" sizes="(min-width: 40rem) 45vw, calc(100vw - 2rem)" /></div>
+          <p class="badge">Years 1–2</p>
+          <h3>Transition Coach</h3>
+          <p>We connect our students with someone who can relate: a college graduate who can share life experiences and give advice on successfully transitioning into college life.</p>
+        </article>
+        <article class="card">
+          <div class="card-media"><Img src="coach-career" alt="Professional mentor meeting with a college student to discuss career plans" sizes="(min-width: 40rem) 45vw, calc(100vw - 2rem)" /></div>
+          <p class="badge">Years 3–4</p>
+          <h3>Career Coach</h3>
+          <p>We connect students with leaders in fields related to their majors — professionals who are well networked and adept at providing industry insights.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section on-navy" aria-labelledby="support">
+    <div class="wrap">
+      <p class="eyebrow">You're never alone in this</p>
+      <h2 id="support">“Will I have enough time?” “Will I know what to do?”</h2>
+      <p class="lede">Those are the two biggest questions from new coaches. Here's how we support you every step of the way.</p>
+      <div class="grid grid-3">
+        <article class="card"><h3>One-day orientation</h3><p>Before meeting your scholar, you'll attend our one-day orientation covering everything you need to know.</p></article>
+        <article class="card"><h3>Monthly conversation topics</h3><p>We provide suggested topics and resources each month, focusing on key areas that help students thrive.</p></article>
+        <article class="card"><h3>Dedicated staff support</h3><p>Our team is here whenever you need guidance, encouragement, or just want to celebrate a success.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="coaches">
+    <div class="wrap">
+      <p class="eyebrow">The network you're joining</p>
+      <h2 id="coaches">You'll be in good company.</h2>
+      <p class="lede">Level Up coaches are executives, engineers, founders, and scientists from companies like Procter &amp; Gamble, GE Aerospace, and The Christ Hospital. They show up for their scholars, and they show up for each other. <strong>{roster.length} Cincinnati professionals coach with Level Up today.</strong></p>
+      <ul class="people">
+        {roster.map(c => <Person name={c.name} photo={c.photo} lines={[c.title, c.company]} linkedin={c.linkedin} />)}
+      </ul>
+      <p class="center" style="margin-top:2rem">There's a spot for you. <a href="#apply">Apply to join the next cohort</a>.</p>
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="impact">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="eyebrow">Our growing impact</p>
+          <h2 id="impact">Be part of our growing community of change-makers.</h2>
+          <p>In 2025 we celebrated our first graduating class and welcomed our largest class of freshmen. You could be part of guiding the next generation of first-gen college graduates to unprecedented success.</p>
+          <dl class="stats" style="grid-template-columns:repeat(2,1fr)">
+            <div><dt>active coaches currently mentoring students</dt><dd>30+</dd></div>
+            <div><dt>corporate &amp; community partners</dt><dd>50+</dd></div>
+            <div><dt>first graduates — a historic milestone</dt><dd>2025</dd></div>
+            <div><dt>of students staying in school</dt><dd>100%</dd></div>
+          </dl>
+          <p class="small muted">Official University of Cincinnati partnership, established 2022. Scholarships managed through the UC Foundation.</p>
+        </div>
+        <figure>
+          <Img src="coach-match-day-2025" alt="Level Up Cincinnati's scholars with their coaches at Match Day 2025" sizes={half} />
+          <figcaption class="small muted">Match Day 2025: our 2025 class of students and their dedicated coaches marking a historic milestone.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="story">
+    <div class="wrap split flip">
+      <div>
+        <p class="eyebrow">From shy to spotlight</p>
+        <h2 id="story">Martha &amp; Elena: a transformative journey.</h2>
+        <p>“When I first met Martha at the Level Up picnic, my impression was that she is extremely quiet and shy and that building this relationship would be a real challenge!”</p>
+        <ul class="checklist">
+          <li><strong>Building trust:</strong> Elena showed up to Martha's soccer games, proving her commitment beyond academics.</li>
+          <li><strong>Breaking out:</strong> Martha became a featured speaker at Level Up events, finding her voice and confidence.</li>
+          <li><strong>Global experience:</strong> Martha secured a competitive internship abroad and is now planning a nursing degree with clear direction.</li>
+        </ul>
+        <blockquote class="quote"><p>“Over two years, we became almost like friends... It has to come from them.”</p><footer><cite>Elena Terán</cite>, Martha's Coach</footer></blockquote>
+      </div>
+      <Img src="coach-elena-martha" alt="Elena and Martha together at a Level Up event" sizes={half} />
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="voices">
+    <div class="wrap">
+      <h2 id="voices">What our coaches are saying.</h2>
+      <div class="grid grid-3">
+        <blockquote class="quote" style="background:var(--white)"><p>“So proud to be a mentor for Level Up Cincinnati! They are run professionally and with so much heart.”</p><footer><cite>Jessica K.</cite>, Emily's Coach</footer></blockquote>
+        <blockquote class="quote" style="background:var(--white)"><p>“To watch the progress after working with Tricia on her elevator pitch was so fulfilling.”</p><footer><cite>Stephanie L.</cite>, Tricia's Coach</footer></blockquote>
+        <blockquote class="quote" style="background:var(--white)"><p>“I am very honored to be a part of this journey in helping to build more opportunities for these students in Cincinnati.”</p><footer><cite>Jose A.</cite>, Laron's Coach</footer></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="section on-navy" id="apply" aria-labelledby="apply-h">
+    <div class="wrap split" style="align-items:start">
+      <div>
+        <p class="eyebrow">Apply</p>
+        <h2 id="apply-h">Ready to get started?</h2>
+        <p class="lede">Fill out the application and we'll reach out with next steps. The process is simple and we'll support you every step of the way.</p>
+        <p>New coaches join every summer — apply now to be part of the next cohort.</p>
+        <p><strong>Eligibility:</strong> Applicants must be college graduates with two years of post-college working experience and provide satisfactory employment and reference checks. All coaches must pass criminal record federal, state, and local background checks.</p>
+      </div>
+      <div class="form-card">
+        <form class="form" name="coach-application" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="company-website">
+          <input type="hidden" name="form-name" value="coach-application" />
+          <p class="hp"><label>Leave blank <input name="company-website" tabindex="-1" autocomplete="off" /></label></p>
+          <div class="half">
+            <div class="field"><label for="ca-first">First name <span class="req">(required)</span></label><input id="ca-first" name="first-name" autocomplete="given-name" required /></div>
+            <div class="field"><label for="ca-last">Last name <span class="req">(required)</span></label><input id="ca-last" name="last-name" autocomplete="family-name" required /></div>
+          </div>
+          <div class="half">
+            <div class="field"><label for="ca-email">Email <span class="req">(required)</span></label><input id="ca-email" type="email" name="email" autocomplete="email" required /></div>
+            <div class="field"><label for="ca-phone">Phone <span class="req">(required)</span></label><input id="ca-phone" type="tel" name="phone" autocomplete="tel" required /></div>
+          </div>
+          <div class="field">
+            <label for="ca-firstgen">Former first-generation student? <span class="req">(required)</span></label>
+            <select id="ca-firstgen" name="former-first-gen" required aria-describedby="ca-firstgen-hint">
+              <option value="">Select an option</option><option>Yes</option><option>No</option><option>Prefer not to say</option>
+            </select>
+            <span class="hint" id="ca-firstgen-hint">This is not a requirement. This information helps us provide a better match for some students.</span>
+          </div>
+          <div class="half">
+            <div class="field"><label for="ca-company">Company <span class="req">(required)</span></label><input id="ca-company" name="company" autocomplete="organization" required /></div>
+            <div class="field"><label for="ca-title">Job title <span class="req">(required)</span></label><input id="ca-title" name="job-title" autocomplete="organization-title" required /></div>
+          </div>
+          <div class="field">
+            <label for="ca-work">What do you do for work? <span class="req">(required)</span></label>
+            <textarea id="ca-work" name="work" required aria-describedby="ca-work-hint"></textarea>
+            <span class="hint" id="ca-work-hint">In junior and senior year, we try to pair our students with coaches who work in their field of study. This information helps us provide a better match.</span>
+          </div>
+          <button class="btn btn-coral" type="submit">Submit Application</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="faq">
+    <div class="wrap narrow">
+      <p class="eyebrow">Questions</p>
+      <h2 id="faq">Coaching FAQ</h2>
+      <div class="faq">
+        {faq.map(f => <details><summary>{f.q}</summary><div><p>{f.a}</p></div></details>)}
+      </div>
+      <p style="margin-top:1.5rem">Still haven't found your answer? <a href={`mailto:${site.email}?subject=Coaching%20question`}>Email us</a> — we'd be happy to help.</p>
+    </div>
+  </section>
+</Base>

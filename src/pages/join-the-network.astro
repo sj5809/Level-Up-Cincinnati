@@ -1,0 +1,125 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+
+const industries = ['Agriculture / Forestry / Mining', 'Industrials (Manufacturing, Construction, etc.)', 'Energy / Utilities', 'Transport / Logistics', 'Media, Creative Industries', 'Data Infrastructure, Telecom, Computer Science', 'Healthcare', 'Education', 'Life Sciences', 'Retail / E-commerce', 'Hospitality, Food, Leisure, Travel', 'Public / Social Service', 'Financial Services', 'Professional Services (Legal, Consulting, etc.)', 'Other'];
+const half = '(min-width: 56rem) 34rem, calc(100vw - 2rem)';
+---
+<Base
+  title="Join the Launch Network"
+  description="Become an Executive Advisor in Level Up Cincinnati's Launch Network. Share your network and expertise with first-generation college students."
+  image="network-connecting"
+  crumbs={[{ name: 'Join the Launch Network', path: '/join-the-network' }]}
+>
+  <section class="hero on-navy">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">The Launch Network</p>
+        <h1>Having the right connection matters.</h1>
+        <p class="lede">Navigating the transition from college to career can be daunting, but having the right connections can make a world of difference. With Level Up Cincinnati, scholars gain access to a robust network of business and community leaders dedicated to their success.</p>
+        <div class="btn-row"><a class="btn btn-coral" href="#advisor">Join the Network</a></div>
+      </div>
+      <div class="hero-media"><Img src="network-connecting" alt="Level Up Cincinnati student connecting with the Launch Network" priority sizes={half} widths={[360, 540, 720, 1080]} /></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="why">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">A network for everyone</p>
+        <h2 id="why">Why join as an Executive Advisor?</h2>
+        <p>We invite you to become a part of our Executive Advisors Network, an exceptional group of accomplished professionals and business leaders.</p>
+        <p>By joining us, you'll have the opportunity to directly impact the lives of our scholars and contribute to the growth and diversity of Cincinnati's workforce.</p>
+        <p>As an Executive Advisor, you'll play a crucial role in shaping the next generation of leaders, while also enhancing your own leadership skills and expanding your network.</p>
+      </div>
+      <Img src="network-meeting" alt="Level Up Cincinnati scholar networking" sizes={half} />
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="do">
+    <div class="wrap split flip">
+      <div>
+        <h2 id="do">What you'll do.</h2>
+        <p>As an Executive Advisor, you will connect with Level Up Cincinnati scholars, providing them with valuable insights, guidance, and mentorship as they navigate their educational journey and transition into the professional world. Your expertise and experiences will be instrumental in helping these young talents unlock their full potential, build a strong foundation for their careers, and contribute to the advancement of our community.</p>
+        <h3>Key responsibilities</h3>
+        <ul class="checklist">
+          <li>Share your professional experiences and industry insights</li>
+          <li>Assist scholars in exploring and achieving their career goals</li>
+          <li>Offer networking opportunities and introductions to your professional connections</li>
+          <li>Attend occasional networking events and workshops</li>
+        </ul>
+      </div>
+      <Img src="network-career-coach" alt="Student and career coach meeting in person" sizes={half} />
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="benefits">
+    <div class="wrap">
+      <h2 id="benefits">Benefits of joining.</h2>
+      <div class="grid grid-4">
+        <article class="card path-card"><h3>Meaningful impact</h3><p>Make a tangible difference in the lives of young scholars and contribute to building a more diverse and equitable future.</p></article>
+        <article class="card path-card"><h3>Personal growth</h3><p>Enhance your leadership, coaching, and mentoring skills while fostering a sense of fulfillment.</p></article>
+        <article class="card path-card"><h3>Networking</h3><p>Expand your professional network by connecting with other accomplished Executive Advisors and engaging with the Level Up community.</p></article>
+        <article class="card path-card"><h3>Recognition</h3><p>Receive recognition for your valuable contribution to our scholars and the Cincinnati community.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section on-navy" aria-labelledby="takes">
+    <div class="wrap">
+      <p class="eyebrow">What it takes</p>
+      <h2 id="takes">What it takes to be an Executive Advisor.</h2>
+      <div class="grid grid-3">
+        <article class="card"><h3>Open your personal &amp; professional network</h3><p>Our Executive Advisors deliver impactful connections to our students — helping them build social capital.</p></article>
+        <article class="card"><h3>Provide advice &amp; knowledge</h3><p>Share expertise in your career field when it's applicable to a student need or interest.</p></article>
+        <article class="card"><h3>Be an ambassador for Level Up Cincinnati</h3><p>Help spread the word about Level Up and commit to a yearly fundraising goal.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="voices">
+    <div class="wrap">
+      <h2 id="voices" class="visually-hidden">What Launch Network members say</h2>
+      <div class="grid grid-3">
+        <blockquote class="quote"><p>“For first-generation students, finding the right connections in the professional community can often be challenging. The Launch Network eases the transition from college to career, making the right connections accessible.”</p><footer><cite>Rico Grant</cite>, Paloozanoire</footer></blockquote>
+        <blockquote class="quote"><p>“I’m always leaning on my professional network for opportunities and industry insights. Having access to social capital is key for college students in achieving professional success.”</p><footer><cite>Kelly Adamson</cite>, Over-the-Rhine Chamber of Commerce</footer></blockquote>
+        <blockquote class="quote"><p>“The fact is, who you know matters. If I can help a driven young adult land in a career they’re passionate about — I want to help.”</p><footer><cite>Lori Landrum</cite>, Ohio National</footer></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" id="advisor" aria-labelledby="advisor-h">
+    <div class="wrap split" style="align-items:start">
+      <div>
+        <h2 id="advisor-h">Join the Launch Network as an Executive Advisor.</h2>
+        <p class="lede">Help us build our next generation of diverse leaders in Cincinnati. Provide us your information and join The Launch Network today.</p>
+      </div>
+      <div class="form-card">
+        <form class="form" name="launch-network" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="company-website">
+          <input type="hidden" name="form-name" value="launch-network" />
+          <p class="hp"><label>Leave blank <input name="company-website" tabindex="-1" autocomplete="off" /></label></p>
+          <div class="half">
+            <div class="field"><label for="ln-first">First name <span class="req">(required)</span></label><input id="ln-first" name="first-name" autocomplete="given-name" required /></div>
+            <div class="field"><label for="ln-last">Last name <span class="req">(required)</span></label><input id="ln-last" name="last-name" autocomplete="family-name" required /></div>
+          </div>
+          <div class="field"><label for="ln-email">Email <span class="req">(required)</span></label><input id="ln-email" type="email" name="email" autocomplete="email" required /></div>
+          <div class="field">
+            <label for="ln-li">LinkedIn profile URL <span class="req">(required)</span></label>
+            <input id="ln-li" type="url" name="linkedin" placeholder="https://www.linkedin.com/in/…" required aria-describedby="ln-li-hint" />
+            <span class="hint" id="ln-li-hint">We use LinkedIn as our main hub for communication. Navigate to your profile and copy your unique URL.</span>
+          </div>
+          <div class="field">
+            <label for="ln-ind">Your industry <span class="req">(required)</span></label>
+            <select id="ln-ind" name="industry" required><option value="">Select an option</option>{industries.map(i => <option>{i}</option>)}</select>
+          </div>
+          <div class="half">
+            <div class="field"><label for="ln-org">Where do you work? <span class="req">(required)</span></label><input id="ln-org" name="organization" autocomplete="organization" required /></div>
+            <div class="field"><label for="ln-title">Job title <span class="req">(required)</span></label><input id="ln-title" name="job-title" autocomplete="organization-title" required /></div>
+          </div>
+          <div class="field"><label for="ln-why">Tell us why you'd like to join the Launch Network <span class="req">(required)</span></label><textarea id="ln-why" name="why" required></textarea></div>
+          <button class="btn btn-coral" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</Base>

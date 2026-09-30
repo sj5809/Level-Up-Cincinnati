@@ -1,0 +1,127 @@
+# Decap CMS config. Staff sign in with GitHub; every save is a commit and Netlify redeploys.
+# SETUP (one time): replace REPO below, then in Netlify add a GitHub OAuth provider
+# (Site configuration → Access & security → OAuth). See OUTREACH-PLAYBOOK.md / TODO-FOR-ORG.md.
+backend:
+  name: github
+  repo: REPLACE-WITH-GITHUB-ORG/levelup-site
+  branch: main
+site_url: https://www.levelupcincinnati.org
+display_url: https://www.levelupcincinnati.org
+media_folder: src/assets/people
+public_folder: /src/assets/people
+
+collections:
+  - name: events
+    label: Events
+    label_singular: Event
+    description: Events with a date move to "Past events" automatically the day after they happen.
+    folder: src/content/events
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: series, label: Series, widget: select, options: [herizon, aiming-for-opportunity, urban-bourbon, elevating-women, other] }
+      - { name: date, label: Date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", required: false, hint: "Leave blank if the date isn't set yet." }
+      - { name: dateLabel, label: "Date text (when no exact date)", widget: string, required: false, hint: 'e.g. "Date to be announced"' }
+      - { name: time, label: Time, widget: string, required: false, hint: "e.g. 11:30 a.m.–1:30 p.m." }
+      - { name: location, label: Location, widget: string, required: false }
+      - { name: address, label: Street address, widget: string, required: false }
+      - { name: summary, label: Short description, widget: text }
+      - { name: registerUrl, label: Registration link, widget: string, required: false }
+      - { name: page, label: Event page on this site, widget: select, required: false, options: [/herizon-series, /aiming-for-opportunity, /urban-bourbon, /elevating-women, /events] }
+      - { name: body, label: Notes (not shown), widget: markdown, required: false }
+
+  - name: data
+    label: Site data
+    editor: { preview: false }
+    files:
+      - name: site
+        label: Stats & contact info
+        file: src/data/site.json
+        fields:
+          - { name: email, label: Main email, widget: string }
+          - { name: partnerEmail, label: Partnerships email, widget: string }
+          - { name: phone, label: Phone, widget: string }
+          - name: stats
+            label: Stats (shown exactly as typed)
+            widget: object
+            fields:
+              - { name: satisfaction, label: Program satisfaction, widget: string }
+              - { name: gpa, label: Average GPA, widget: string }
+              - { name: deansList, label: "Dean's List rate", widget: string }
+              - { name: alignedJobs, label: Jobs aligned to major, widget: string }
+              - { name: supported, label: Scholars feel supported, widget: string }
+              - { name: partners, label: Partners, widget: string }
+              - { name: industries, label: Industries, widget: string }
+              - { name: afoRaised, label: Aiming for Opportunity raised, widget: string }
+              - { name: coachHours, label: Coach time commitment, widget: string }
+      - name: team
+        label: Team & board
+        file: src/data/team.json
+        fields:
+          - name: staff
+            label: Staff
+            widget: list
+            fields: [{ name: name, widget: string }, { name: role, widget: string }, { name: photo, label: "Photo (image name in src/assets/img)", widget: string }, { name: bio, widget: text }]
+          - name: board
+            label: Board
+            widget: list
+            fields: [{ name: name, widget: string }, { name: role, widget: string }, { name: org, label: Organization, widget: string }, { name: photo, label: "Photo (image name in src/assets/img)", widget: string }]
+      - name: partners
+        label: Partners
+        file: src/data/partners.json
+        fields:
+          - { name: foundations, label: Foundation & grant partners, widget: list, field: { name: name, widget: string } }
+          - { name: corporate, label: Corporate partners, widget: list, field: { name: name, widget: string } }
+      - name: coach-roster
+        label: Coaches (Become a Coach page)
+        file: src/data/coach-roster.json
+        fields:
+          - name: people
+            label: Coaches
+            widget: list
+            summary: "{{fields.name}} — {{fields.company}}"
+            fields: [{ name: name, widget: string }, { name: title, widget: string }, { name: company, widget: string }, { name: photo, widget: image, required: false }, { name: linkedin, label: LinkedIn URL, widget: string, required: false }]
+      - name: coaches
+        label: Coach directory (profile pages)
+        file: src/data/coaches.json
+        fields:
+          - name: people
+            label: Coaches
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, widget: string }
+              - { name: slug, label: "URL name (e.g. jane-doe)", widget: string }
+              - { name: title, widget: string, required: false }
+              - { name: company, widget: string, required: false }
+              - { name: tags, widget: select, multiple: true, options: [Current Coach, 2024 Cohort, 2023 Cohort, Launch Network] }
+              - { name: photo, widget: image, required: false }
+              - { name: linkedin, label: LinkedIn URL, widget: string, required: false }
+              - { name: email, label: "Email (private, never shown on the site)", widget: string, required: false }
+              - { name: oldUrl, label: Old URL (redirects here), widget: string, required: false }
+      - name: scholar-roster
+        label: Scholars (Students page)
+        file: src/data/scholar-roster.json
+        fields:
+          - name: people
+            label: Scholars
+            widget: list
+            summary: "{{fields.name}} — {{fields.classOf}}"
+            fields: [{ name: name, label: First name, widget: string }, { name: major, widget: string }, { name: classOf, label: Class of, widget: number }, { name: photo, widget: image, required: false }, { name: linkedin, label: LinkedIn URL, widget: string, required: false }]
+      - name: scholars
+        label: Scholar directory (profile pages)
+        file: src/data/scholars.json
+        fields:
+          - name: people
+            label: Scholars
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, widget: string }
+              - { name: slug, label: "URL name (e.g. jane-doe)", widget: string }
+              - { name: details, label: "Details (class, degree)", widget: list, field: { name: line, widget: string } }
+              - { name: tag, widget: select, options: [Current Scholar, Alumni Scholar], required: false }
+              - { name: photo, widget: image, required: false }
+              - { name: linkedin, label: LinkedIn URL, widget: string, required: false }
+              - { name: oldUrl, label: Old URL (redirects here), widget: string, required: false }

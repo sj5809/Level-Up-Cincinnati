@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import Person from '../../components/Person.astro';
+import coachesData from '../../data/coaches.json';
+
+export function getStaticPaths() {
+  return coachesData.people.map(c => ({ params: { slug: c.slug }, props: { c } }));
+}
+const { c } = Astro.props;
+---
+<Base
+  title={`${c.name}, Level Up Coach`}
+  description={`${c.name}${c.title ? `, ${c.title}` : ''}${c.company ? ` at ${c.company}` : ''}, is a Level Up Cincinnati volunteer coach (${c.tags.join(', ')}).`}
+  image="coach-group"
+  crumbs={[{ name: 'Our Coaches', path: '/coaches' }, { name: c.name, path: `/coaches/${c.slug}` }]}
+>
+  <section class="section">
+    <div class="wrap narrow center">
+      <p class="eyebrow">Level Up coach</p>
+      <h1>{c.name}</h1>
+      <ul class="people profile"><Person name={c.name} heading="h2" photo={c.photo} lines={[c.title, c.company, c.tags.join(' · ')]} linkedin={c.linkedin} large /></ul>
+      <div class="btn-row" style="margin-top:1.5rem"><a class="btn btn-navy" href="/coaches">All coaches</a><a class="btn btn-coral" href="/become-a-coach">Become a Coach</a></div>
+    </div>
+  </section>
+</Base>

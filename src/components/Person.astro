@@ -1,0 +1,13 @@
+---
+import Img from './Img.astro';
+interface Props { name: string; photo?: string | null; lines?: (string | undefined | null)[]; linkedin?: string | null; href?: string; heading?: 'h2' | 'h3'; large?: boolean; tags?: string }
+const { name, photo, lines = [], linkedin, href, heading = 'h3', large = false, tags } = Astro.props;
+const H = heading;
+const initials = name.replace(/[“”"]/g, '').split(/\s+/).filter(Boolean).map(w => w[0]).slice(0, 2).join('');
+---
+<li class:list={['person', { 'person-lg': large }]} data-tags={tags}>
+  {photo ? <Img src={photo} alt="" widths={large ? [160, 320] : [112, 224]} sizes={large ? '160px' : '112px'} /> : <span class="avatar" aria-hidden="true">{initials}</span>}
+  <H>{href ? <a href={href}>{name}</a> : name}</H>
+  {lines.filter(Boolean).map(l => <p>{l}</p>)}
+  {linkedin && <a href={linkedin} rel="noopener" aria-label={`${name} on LinkedIn`}>LinkedIn</a>}
+</li>

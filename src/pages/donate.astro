@@ -1,0 +1,83 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import site from '../data/site.json';
+const s = site.stats;
+---
+<Base
+  title="Donate"
+  description="Give to Level Up Cincinnati, a 501(c)(3). Your tax-deductible gift funds coaching, scholarships, and careers for first-generation UC students."
+  image="donate-martha"
+  crumbs={[{ name: 'Donate', path: '/donate' }]}
+>
+  <section class="hero on-navy">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">501(c)(3) · Tax deductible</p>
+        <h1>Support Cincinnati's future leaders.</h1>
+        <p class="lede">Your donation directly supports first-generation college students with scholarships, mentorship, and life-changing opportunities.</p>
+        <div class="btn-row">
+          <a class="btn btn-coral" href={site.donateUrl} rel="noopener">Give securely on Givebutter</a>
+          <a class="btn btn-outline" href="#give">Give on this page</a>
+        </div>
+      </div>
+      <div class="hero-media"><Img src="donate-martha" alt="Martha, a Level Up scholar" priority sizes="(min-width: 56rem) 34rem, calc(100vw - 2rem)" widths={[360, 540, 720, 1080]} /></div>
+    </div>
+  </section>
+
+  <section class="section-sm" aria-labelledby="proof">
+    <div class="wrap">
+      <h2 id="proof" class="visually-hidden">Why give</h2>
+      <dl class="stats">
+        <div><dt>of gifts support programming</dt><dd>100%</dd></div>
+        <div><dt>of students on track to graduate</dt><dd>100%</dd></div>
+        <div><dt>program satisfaction</dt><dd>{s.satisfaction}</dd></div>
+        <div><dt>average cumulative GPA</dt><dd>{s.gpa}</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="what">
+    <div class="wrap">
+      <h2 id="what">What your gift does.</h2>
+      <p class="lede">Without support, 1 in 2 first-generation students drop out. Your gift keeps a scholar in college and on the path to a career.</p>
+      <div class="grid grid-3">
+        <article class="card path-card"><h3>Two dedicated coaches</h3><p>A Transition Coach in years 1–2 and a Career Coach in years 3–4, with training and staff support for every coach.</p></article>
+        <article class="card path-card"><h3>Workshops that open doors</h3><p>Professional Development Day, the Annual Finance Dinner, and Networking Month build real-world skills and confidence.</p></article>
+        <article class="card path-card"><h3>A professional network</h3><p>The Launch Network connects scholars to {s.partners} partners across {s.industries} industries — {s.alignedJobs} of jobs and internships align to their major.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="give" aria-labelledby="give-h">
+    <div class="wrap narrow">
+      <h2 id="give-h">Make your gift.</h2>
+      <p>Every dollar goes directly to supporting first-generation college students. Gifts are processed securely by Givebutter with 256-bit encryption and an instant tax receipt.</p>
+      <details class="facade embed-frame" data-src={site.givebutterEmbed} data-title="Donate to Level Up Cincinnati with Givebutter" style="background:var(--bg-soft)">
+        <summary class="btn btn-coral" style="display:flex;width:100%">Open the secure donation form</summary>
+      </details>
+      <p class="small muted" style="margin-top:1rem">Prefer a new tab? <a href={site.donateUrl} rel="noopener">Donate on givebutter.com/levelup</a>.</p>
+    </div>
+  </section>
+
+  <section class="section on-navy" aria-labelledby="martha">
+    <div class="wrap narrow">
+      <h2 id="martha">Meet Martha.</h2>
+      <blockquote class="quote"><p>“Level Up has changed my life. It has given me a community of support that I didn’t know I needed, and now I can’t imagine going through college without it.”</p><footer><cite>Martha</cite>, Level Up Scholar, Class of 2025</footer></blockquote>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="trust">
+    <div class="wrap">
+      <h2 id="trust">Give with confidence.</h2>
+      <p class="lede">Level Up Cincinnati is a 501(c)(3) public charity, registered and in compliance with the Ohio Attorney General. EIN {site.ein}.</p>
+      <div class="grid grid-4">
+        <article class="card"><img src="/candid-seal.svg" width="72" height="72" alt="" loading="lazy" style="margin-bottom:.75rem" /><h3>Candid Seal of Transparency</h3><a class="text-link arrow" href={site.trust.candid} rel="noopener">View our Candid profile</a></article>
+        <article class="card"><h3>Form 990s</h3><p>Our public filings on ProPublica Nonprofit Explorer.</p><a class="text-link arrow" href={site.trust.propublica} rel="noopener">Read our Form 990s</a></article>
+        <article class="card"><h3>Charity Navigator</h3><p>See our profile and rating.</p><a class="text-link arrow" href={site.trust.charityNavigator} rel="noopener">View our Charity Navigator rating</a></article>
+        <article class="card"><h3>2025 Impact Report</h3><p>Where the money goes and what it achieves. <a href={site.aiUrl}>How we make every dollar go further</a>.</p><a class="text-link arrow" href={site.impactUrl}>Read the Impact Report</a></article>
+      </div>
+      <p style="margin-top:2rem">Other ways to give: <a href="/aiming-for-opportunity#sponsor">sponsor an event</a>, <a href="/our-partners#partner-form">become a corporate partner</a>, or <a href="/become-a-coach">give your time as a coach</a>. Questions? <a href={`mailto:${site.email}?subject=Donation%20question`}>Email us</a>.</p>
+    </div>
+  </section>
+</Base>

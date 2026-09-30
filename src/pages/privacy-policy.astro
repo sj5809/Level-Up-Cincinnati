@@ -1,0 +1,7 @@
+---
+import Base from '../layouts/Base.astro';
+import body from '../content/legal/privacy-policy.html?raw';
+---
+<Base title="Privacy Policy" description="How Level Up Cincinnati collects, uses, and protects personal information across our website, web app, and mobile app." crumbs={[{ name: 'Privacy Policy', path: '/privacy-policy' }]}>
+  <section class="section"><div class="wrap prose"><h1>Privacy Policy</h1><Fragment set:html={body} /></div></section>
+</Base>

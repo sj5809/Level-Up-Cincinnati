@@ -3,3 +3,5 @@ node_modules/
 # originals are 46MB; re-fetch with scripts in Phase 0 or keep locally
 content/images/*
 !content/images/_manifest.json
+dist/
+.astro/

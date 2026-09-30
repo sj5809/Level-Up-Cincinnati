@@ -1,0 +1,256 @@
+{
+  "people": [
+    {
+      "name": "Becca Harper",
+      "title": "Executive Director",
+      "company": "The Christ Hospital",
+      "photo": "/src/assets/people/coach-becca-harper.jpg",
+      "linkedin": "https://www.linkedin.com/in/rebecca-harper2"
+    },
+    {
+      "name": "Bernard Voss",
+      "title": "Data Engineer",
+      "company": "Encore Talent",
+      "photo": "/src/assets/people/coach-bernard-voss.jpg",
+      "linkedin": "https://www.linkedin.com/in/bernievoss"
+    },
+    {
+      "name": "Bryen Pinkard",
+      "title": "Head of Audit & Assurance",
+      "company": "Core Specialty",
+      "photo": "/src/assets/people/coach-bryen-pinkard.jpg",
+      "linkedin": "https://www.linkedin.com/in/bryen-pinkard"
+    },
+    {
+      "name": "Bryson Lair",
+      "title": "DOS",
+      "company": "Vitis",
+      "photo": "/src/assets/people/coach-bryson-lair.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Carol Morrison",
+      "title": "Supply Chain Sourcing Leader",
+      "company": "GE Aerospace",
+      "photo": "/src/assets/people/coach-carol-morrison.jpg",
+      "linkedin": "https://www.linkedin.com/in/carol-morrison-39a38580"
+    },
+    {
+      "name": "Carolon Donnally",
+      "title": "Founder & Burnout Prevention Strategist",
+      "company": "Carolon Donnally Consulting",
+      "photo": "/src/assets/people/coach-carolon-donnally.jpg",
+      "linkedin": "https://www.linkedin.com/in/carolondonnally"
+    },
+    {
+      "name": "Courtney Walker",
+      "title": "SVP Quality Assurance Lead",
+      "company": "Citi Bamk",
+      "photo": "/src/assets/people/coach-courtney-walker.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Elena Terán",
+      "title": "Director of Impact",
+      "company": "Revision Collective",
+      "photo": "/src/assets/people/coach-elena-teran.jpg",
+      "linkedin": "https://www.linkedin.com/in/elenateran"
+    },
+    {
+      "name": "Ely Friedman",
+      "title": "Founder & Managing Director",
+      "company": "Truce Capital Advisors",
+      "photo": "/src/assets/people/coach-ely-friedman.jpg",
+      "linkedin": "https://www.linkedin.com/in/ely-friedman-07610726"
+    },
+    {
+      "name": "Erin Sholar Wade",
+      "title": "VP Service Analyst",
+      "company": "Citi",
+      "photo": "/src/assets/people/coach-erin-sholar-wade.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Gordon Thomas",
+      "title": "Director, Engineering",
+      "company": "Kadant",
+      "photo": "/src/assets/people/coach-gordon-thomas.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Harrison Dean",
+      "title": "Investment Associate (Alternative Investments)",
+      "company": "MCF Advisors",
+      "photo": "/src/assets/people/coach-harrison-dean.jpg",
+      "linkedin": "https://www.linkedin.com/in/harrisonmichaeldean"
+    },
+    {
+      "name": "Henry Lujan",
+      "title": "Human Safety Toxicologist",
+      "company": "Procter & Gamble",
+      "photo": "/src/assets/people/coach-henry-lujan.jpg",
+      "linkedin": "https://www.linkedin.com/in/henry-lujan-a11317140"
+    },
+    {
+      "name": "Jason Motz",
+      "title": "Principal",
+      "company": "Whitehorse Capital",
+      "photo": "/src/assets/people/coach-jason-motz.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Jena Mcclanahan",
+      "title": "Career Navigation Leader",
+      "company": "GE Aerospace",
+      "photo": "/src/assets/people/coach-jena-mcclanahan.jpg",
+      "linkedin": "https://www.linkedin.com/in/jenamcclanahan"
+    },
+    {
+      "name": "Jess Aurand",
+      "title": "Strategy Director",
+      "company": "Elevance Health",
+      "photo": "/src/assets/people/coach-jess-aurand.jpg",
+      "linkedin": "https://linkedin.com/jessaurand"
+    },
+    {
+      "name": "Jesus Avila",
+      "title": "Production Underwriting Specialist",
+      "company": "Great American Insurance Group",
+      "photo": "/src/assets/people/coach-jesus-avila.jpg",
+      "linkedin": "https://www.linkedin.com/in/jesus-a-827300119"
+    },
+    {
+      "name": "Jillian Bulman",
+      "title": "Clinical Research Coordinator",
+      "company": "Cincinnati Children’s Hospital",
+      "photo": "/src/assets/people/coach-jillian-bulman.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Jordan Outing",
+      "title": "Operations",
+      "company": "P&G",
+      "photo": "/src/assets/people/coach-jordan-outing.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Josh Wierzba",
+      "title": "CEO",
+      "company": "Baerlocher USA",
+      "photo": "/src/assets/people/coach-josh-wierzba.jpg",
+      "linkedin": "https://linkedin.com/in/josh-wierzba"
+    },
+    {
+      "name": "Karen Keuper",
+      "title": "Associate Financial Advisor",
+      "company": "Baird",
+      "photo": "/src/assets/people/coach-karen-keuper.jpg",
+      "linkedin": "https://www.linkedin.com/in/karen-keuper-6aa7ba9"
+    },
+    {
+      "name": "Kelvin Williams",
+      "title": "Private Client Banker",
+      "company": "Chase",
+      "photo": "/src/assets/people/coach-kelvin-williams.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Laura Atalaya",
+      "title": "Senior Hotline Attorney",
+      "company": "Immigrant Defense Project",
+      "photo": null,
+      "linkedin": null
+    },
+    {
+      "name": "Layne Titzer",
+      "title": "Sourcing Category Management Analyst",
+      "company": "Kroger",
+      "photo": "/src/assets/people/coach-layne-titzer.jpg",
+      "linkedin": "https://linkedin.com/in/laynetitzer/"
+    },
+    {
+      "name": "Madison OBrien",
+      "title": "Senior Analyst",
+      "company": "AMEND Consulting",
+      "photo": "/src/assets/people/coach-madison-obrien.jpg",
+      "linkedin": "https://www.linkedin.com/in/madisonobrien1"
+    },
+    {
+      "name": "Maria Roma-Hossain",
+      "title": "Systems Engineer",
+      "company": "Johnson And Johnson MedTech",
+      "photo": "/src/assets/people/coach-maria-roma-hossain.jpg",
+      "linkedin": "https://www.linkedin.com/in/maria-roma-hossain-775769112"
+    },
+    {
+      "name": "Mercede Chenault",
+      "title": "Consultant",
+      "company": "Ingage Partners",
+      "photo": "/src/assets/people/coach-mercede-chenault.jpg",
+      "linkedin": "https://www.linkedin.com/in/mercede-chenault"
+    },
+    {
+      "name": "Nathalia Pelaez",
+      "title": "Packaging Senior Scientist",
+      "company": "Procter & Gamble",
+      "photo": "/src/assets/people/coach-nathalia-pelaez.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Olivia Citak",
+      "title": "Founder",
+      "company": "Alive! Events & Marketing",
+      "photo": "/src/assets/people/coach-olivia-citak.jpg",
+      "linkedin": "https://www.linkedin.com/in/oliviacitak"
+    },
+    {
+      "name": "Rachel Skope",
+      "title": "Organizational Development Advisor",
+      "company": "Aliniti",
+      "photo": "/src/assets/people/coach-rachel-skope.jpg",
+      "linkedin": "https://www.linkedin.com/in/rachel-skope/"
+    },
+    {
+      "name": "Reba Perry",
+      "title": "Head of Human Resources",
+      "company": "FEG Investment Advisors",
+      "photo": "/src/assets/people/coach-reba-perry.jpg",
+      "linkedin": null
+    },
+    {
+      "name": "Shannon Crooks",
+      "title": "Human Resources Business Partner",
+      "company": "The Christ Hospital",
+      "photo": "/src/assets/people/coach-shannon-crooks.jpg",
+      "linkedin": "https://www.linkedin.com/in/shannonveasley/"
+    },
+    {
+      "name": "Stacy Rodarte",
+      "title": "Director",
+      "company": "84.51",
+      "photo": "/src/assets/people/coach-stacy-rodarte.jpg",
+      "linkedin": "https://www.linkedin.com/in/stacyrodarte"
+    },
+    {
+      "name": "Steph Tanner",
+      "title": "Educational Data Analyst",
+      "company": "Newsela",
+      "photo": "/src/assets/people/coach-steph-tanner.jpg",
+      "linkedin": "https://www.linkedin.com/in/steph-tanner"
+    },
+    {
+      "name": "Stuart Gilchrist",
+      "title": "Senior Quality Engineer",
+      "company": "GE Aerospace",
+      "photo": "/src/assets/people/coach-stuart-gilchrist.jpg",
+      "linkedin": "https://www.linkedin.com/in/stuart-gilchrist-86105059"
+    },
+    {
+      "name": "Ty Seidl",
+      "title": "Financial Advisor",
+      "company": "Fifth Third Securities",
+      "photo": "/src/assets/people/coach-ty-seidl.jpg",
+      "linkedin": "https://www.linkedin.com/in/ty-seidl-cfp%C2%AE-b446307b/"
+    }
+  ]
+}

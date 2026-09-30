@@ -1,0 +1,249 @@
+{
+  "people": [
+    {
+      "name": "Jena McClanahan",
+      "tags": [
+        "Current Coach",
+        "2024 Cohort"
+      ],
+      "title": "Engineer & Technical Growth Leader",
+      "company": "GE Aerospace",
+      "photo": "/src/assets/people/coach-dir-jena-mcclanahan.webp",
+      "linkedin": "https://www.linkedin.com/in/jenamcclanahan/",
+      "oldUrl": "/level-up-coaches-directory/stacyrodarte-gy7bh-mhb52-d76b2-zttms-emaaj-pzj5p-nag7c-n6gtf-r4884-r7hxw-nhmge-h3zjj-55ksw",
+      "slug": "jena-mcclanahan"
+    },
+    {
+      "name": "Victoria White",
+      "tags": [
+        "Current Coach",
+        "2023 Cohort"
+      ],
+      "title": "HR Partner",
+      "company": "Children’s Hospital",
+      "photo": "/src/assets/people/coach-dir-victoria-white.webp",
+      "linkedin": null,
+      "oldUrl": "/level-up-coaches-directory/stacyrodarte-gy7bh-mhb52-d76b2-zttms-emaaj-pzj5p-nag7c-n6gtf-r4884-r7hxw-nhmge-h3zjj",
+      "slug": "victoria-white"
+    },
+    {
+      "name": "Victoria Pulido Corn",
+      "tags": [
+        "Current Coach",
+        "2024 Cohort"
+      ],
+      "title": "Vice President Media Analytics",
+      "company": "Nielsen",
+      "photo": "/src/assets/people/coach-dir-victoria-pulido-corn.webp",
+      "linkedin": "https://www.linkedin.com/in/victoria-pulido-49644787/",
+      "oldUrl": "/level-up-coaches-directory/stacyrodarte-gy7bh-mhb52-d76b2-zttms-emaaj-pzj5p-nag7c-n6gtf-r4884-r7hxw-nhmge",
+      "slug": "victoria-pulido-corn"
+    },
+    {
+      "name": "Stuart Gilchrist",
+      "tags": [
+        "Current Coach",
+        "2023 Cohort"
+      ],
+      "title": "Senior Additive Quality Engineer",
+      "company": "GE Aerospace",
+      "photo": "/src/assets/people/coach-dir-stuart-gilchrist.webp",
+      "linkedin": "https://www.linkedin.com/in/stuart-gilchrist-86105059/",
+      "oldUrl": "/level-up-coaches-directory/stacyrodarte-gy7bh-mhb52-d76b2-zttms-emaaj-pzj5p-nag7c-n6gtf-r4884-r7hxw",
+      "slug": "stuart-gilchrist"
+    },
+    {
+      "name": "Ryan Stier",
+      "tags": [
+        "Current Coach",
+        "2023 Cohort"
+      ],
+      "title": "Account Executive",
+      "company": "Oracle / Netsuite",
+      "photo": "/src/assets/people/coach-dir-ryan-stier.webp",
+      "linkedin": "https://www.linkedin.com/in/ryan-stier-440098137/",
+      "oldUrl": "/level-up-coaches-directory/stacyrodarte-gy7bh-mhb52-d76b2-zttms-emaaj-pzj5p-nag7c-n6gtf-r4884-6jzba-6sjlx-e4z6r",
+      "slug": "ryan-stier"
+    },
+    {
+      "name": "Perry Washburn",
+      "tags": [
+        "Current Coach",
+        "2024 Cohort"
+      ],
+      "photo": "/src/assets/people/coach-dir-perry-washington.webp",
+      "linkedin": "https://www.linkedin.com/in/washington-nicole/",
+      "oldUrl": "/level-up-coaches-directory/stacyrodarte-gy7bh-mhb52-d76b2-zttms-emaaj-pzj5p-nag7c-n6gtf-r4884-6jzba-6sjlx",
+      "slug": "perry-washburn"
+    },
+    {
+      "name": "Nicole Washington",
+      "tags": [
+        "Current Coach",
+        "2024 Cohort"
+      ],
+      "title": "Employee Experience Consultant",
+      "company": "Children’s Hospital",
+      "photo": "/src/assets/people/coach-dir-nicole-washington.webp",
+      "linkedin": "https://www.linkedin.com/in/washington-nicole/",
+      "oldUrl": "/level-up-coaches-directory/stacyrodarte-gy7bh-mhb52-d76b2-zttms-emaaj-pzj5p-nag7c-n6gtf-r4884-6jzba",
+      "slug": "nicole-washington"
+    },
+    {
+      "name": "Nathalia Pelaez",
+      "tags": [
+        "Current Coach",
+        "2024 Cohort"
+      ],
+      "title": "Packaging Development",
+      "company": "Charmin / Procter & Gamble",
+      "photo": "/src/assets/people/coach-dir-nathalia-pelaez.webp",
+      "linkedin": "https://www.linkedin.com/in/nathalia-pelaez-b53ba153/",
+      "oldUrl": "/level-up-coaches-directory/stacyrodarte-gy7bh-mhb52-d76b2-zttms-emaaj-pzj5p-nag7c-n6gtf-r4884",
+      "slug": "nathalia-pelaez"
+    },
+    {
+      "name": "Kelvin Williams",
+      "tags": [
+        "Current Coach",
+        "2024 Cohort"
+      ],
+      "title": "Private Client Banker",
+      "company": "JP Morgan Chase",
+      "photo": "/src/assets/people/coach-dir-kelvin-williams.webp",
+      "linkedin": "https://www.linkedin.com/in/kelvin-williams-032074b7/",
+      "oldUrl": "/level-up-coaches-directory/stacyrodarte-gy7bh-mhb52-d76b2-zttms-emaaj-pzj5p-nag7c-n6gtf",
+      "slug": "kelvin-williams"
+    },
+    {
+      "name": "Josh Wierzba",
+      "tags": [
+        "Current Coach",
+        "2024 Cohort"
+      ],
+      "title": "SBU Director, PVC",
+      "company": "Baerlocher, USA",
+      "photo": "/src/assets/people/coach-dir-josh-wierzba.webp",
+      "linkedin": "https://www.linkedin.com/in/josh-wierzba/",
+      "oldUrl": "/level-up-coaches-directory/stacyrodarte-gy7bh-mhb52-d76b2-zttms-emaaj-pzj5p-nag7c",
+      "slug": "josh-wierzba"
+    },
+    {
+      "name": "Jordan Outing",
+      "tags": [
+        "Current Coach",
+        "2023 Cohort"
+      ],
+      "title": "IT Operations Manager",
+      "company": "Procter & Gamble",
+      "photo": "/src/assets/people/coach-dir-jordan-outing.webp",
+      "linkedin": "https://www.linkedin.com/in/jordanouting/",
+      "oldUrl": "/level-up-coaches-directory/stacyrodarte-gy7bh-mhb52-d76b2-zttms-emaaj-pzj5p",
+      "slug": "jordan-outing"
+    },
+    {
+      "name": "Jesus Avila",
+      "tags": [
+        "Current Coach",
+        "2023 Cohort"
+      ],
+      "title": "Production Underwriting Specialist",
+      "company": "Great American Insurance",
+      "photo": "/src/assets/people/coach-dir-jesus-avila.webp",
+      "linkedin": "https://www.linkedin.com/in/jesus-a-827300119/",
+      "oldUrl": "/level-up-coaches-directory/stacyrodarte-gy7bh-mhb52-d76b2-zttms-emaaj",
+      "slug": "jesus-avila"
+    },
+    {
+      "name": "Elena Teran",
+      "tags": [
+        "Current Coach",
+        "2023 Cohort"
+      ],
+      "title": "Director of Impact and Employee Experience",
+      "company": "Revision Collective",
+      "photo": "/src/assets/people/coach-dir-elena-teran.webp",
+      "linkedin": "https://www.linkedin.com/in/elenateran/",
+      "oldUrl": "/level-up-coaches-directory/stacyrodarte-gy7bh-mhb52-d76b2-zttms",
+      "slug": "elena-teran"
+    },
+    {
+      "name": "Harrison Dean",
+      "tags": [
+        "Current Coach",
+        "2024 Cohort"
+      ],
+      "title": "Investment Associate & Head of Alternative Investments",
+      "company": "MCF Advisors",
+      "photo": "/src/assets/people/coach-dir-harrison-dean.webp",
+      "linkedin": "https://www.linkedin.com/in/harrisonmichaeldean/",
+      "oldUrl": "/level-up-coaches-directory/stacyrodarte-gy7bh-mhb52-d76b2",
+      "slug": "harrison-dean"
+    },
+    {
+      "name": "Calvin Davis",
+      "tags": [
+        "Current Coach",
+        "2024 Cohort"
+      ],
+      "title": "Donor Engagement Manager",
+      "company": "Cincinnati Art Museum",
+      "photo": "/src/assets/people/coach-dir-calvin-davis.webp",
+      "linkedin": "https://www.linkedin.com/in/calvinjdavis06/",
+      "oldUrl": "/level-up-coaches-directory/stacyrodarte-gy7bh-mhb52",
+      "slug": "calvin-davis"
+    },
+    {
+      "name": "Becca Harper",
+      "tags": [
+        "Current Coach",
+        "2024 Cohort"
+      ],
+      "title": "Executive Director Research Institute",
+      "company": "Christ Hospital",
+      "photo": "/src/assets/people/coach-dir-becca-harper.webp",
+      "linkedin": "https://www.linkedin.com/in/rebecca-harper2/",
+      "oldUrl": "/level-up-coaches-directory/stacyrodarte-gy7bh",
+      "slug": "becca-harper"
+    },
+    {
+      "name": "Stephanie Lawson",
+      "tags": [
+        "Current Coach",
+        "2024 Cohort"
+      ],
+      "title": "Senior Production Underwriter",
+      "company": "Great American Insurance",
+      "photo": "/src/assets/people/coach-dir-stephanie-lawson.webp",
+      "linkedin": "https://www.linkedin.com/in/salawson/",
+      "oldUrl": "/level-up-coaches-directory/stephanie-lawson",
+      "slug": "stephanie-lawson"
+    },
+    {
+      "name": "Jessica King",
+      "tags": [
+        "Current Coach",
+        "2023 Cohort"
+      ],
+      "title": "Digital Sales Operations Manager",
+      "company": "Paycor",
+      "photo": "/src/assets/people/coach-dir-jessica-king.webp",
+      "linkedin": "https://www.linkedin.com/in/jessica-king-83240233/",
+      "oldUrl": "/level-up-coaches-directory/jessica-king",
+      "slug": "jessica-king"
+    },
+    {
+      "name": "Stacy Rodarte",
+      "tags": [
+        "Current Coach",
+        "2024 Cohort"
+      ],
+      "title": "Director of Insights",
+      "company": "84.51",
+      "photo": "/src/assets/people/coach-dir-stacy-rodarte.webp",
+      "linkedin": "https://www.linkedin.com/in/stacyrodarte/",
+      "oldUrl": "/level-up-coaches-directory/stacyrodarte",
+      "slug": "stacy-rodarte"
+    }
+  ]
+}

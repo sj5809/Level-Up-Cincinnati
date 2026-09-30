@@ -1,0 +1,119 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+
+const timeline = [
+  { when: '2008', title: 'The foundation: a commitment to mentorship', img: 'vision-mike-early', alt: 'Mike mentoring through various mentoring programs', text: 'Mike Rodarte was already deeply invested in mentorship, actively guiding multiple young people through various mentoring programs. His sustained commitment to developing young talent laid the groundwork for what would become Level Up Cincinnati.' },
+  { when: '2008', title: 'The meeting that changed everything', img: 'vision-mike-jerod-downtown', alt: 'Mike and JeRod building their mentorship relationship', text: 'Mike met JeRod Lindsey through a financial literacy program. JeRod was a first-generation college student. What started as a 6-month program became the beginning of a transformative 15-year relationship.' },
+  { when: '2008–2022', title: '15 years of sustained support', img: 'vision-jerod-mike', alt: 'JeRod and Mike after 15 years of mentorship', text: 'Mike and JeRod’s mentoring relationship extended well beyond the original program. With JeRod’s determination and drive at the center, and Mike offering consistent support, genuine care, and strategic guidance, JeRod thrived in school and in his career — highlighting how mentorship can help unlock a person’s full potential while honoring their own commitment to success.' },
+  { when: '2022–2023', title: 'Recognizing the systemic gap', img: 'vision-jim-jerod', alt: 'Jim and JeRod celebrating the UC partnership', text: "Through their relationship, Mike learned that JeRod's struggles weren't unique — they represented the norm for first-generation students. Mike and his brother Jim realized that while existing mentoring programs served younger students effectively, there was a critical gap in support for college students transitioning to professional life." },
+  { when: '2023', title: 'Level Up Cincinnati is born', img: 'vision-founders', alt: 'Jim, Mike, and JeRod, the founding team of Level Up Cincinnati', text: "Unable to find an existing program in Cincinnati that addressed this specific need, Mike, Jim, JeRod, and key supporters launched Level Up Cincinnati. Their mission: to scale the proven model of transformative mentorship to serve Cincinnati's entire first-generation student community." },
+];
+const founders = [
+  { name: 'Mike Rodarte', role: 'Co-Founder & Board Chair', img: 'founder-mike', text: "A seasoned mentor who has consistently sought out opportunities to guide young adults throughout his career. Mike's 15-year transformative mentorship with JeRod became the proven blueprint for Level Up Cincinnati's approach to developing first-generation students." },
+  { name: 'JeRod Lindsey', role: 'Board Member & Living Proof', img: 'founder-jerod', text: "From freshman year struggles to Senior Analyst at Citi Bank, JeRod's transformation through mentorship embodies our mission. His lived experience as a first-generation student guides everything we do at Level Up Cincinnati." },
+  { name: 'Jim Rodarte', role: 'Co-Founder & Executive Director', img: 'founder-jim', text: "As Executive Director, Jim provides the strategic leadership and operational expertise needed to scale one successful mentorship into a comprehensive program that serves Cincinnati's entire first-generation student community." },
+];
+---
+<Base
+  title="Our Story"
+  description="How one 15-year mentorship between Mike Rodarte and JeRod Lindsey became Level Up Cincinnati, a program for first-generation college students."
+  image="vision-founders"
+  crumbs={[{ name: 'Our Story', path: '/our-vision' }]}
+>
+  <section class="hero on-navy">
+    <div class="wrap narrow">
+      <p class="eyebrow">About Level Up</p>
+      <h1>Our Story</h1>
+      <p class="lede">From a chance meeting to a movement that's changing lives — discover how Level Up Cincinnati began with one mentor's vision to level the playing field.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="start">
+    <div class="wrap">
+      <h2 id="start">It started with one mentor.</h2>
+      <p class="lede">Sometimes the most powerful changes begin with a single relationship. This is the story of how one mentorship sparked a movement to transform the lives of first-generation college students in Cincinnati.</p>
+      <ol class="timeline" style="margin-top:2rem">
+        {timeline.map(t => (
+          <li>
+            <div class="split">
+              <div>
+                <p class="when">{t.when}</p>
+                <h3>{t.title}</h3>
+                <p>{t.text}</p>
+              </div>
+              <Img src={t.img} alt={t.alt} sizes="(min-width: 56rem) 32rem, calc(100vw - 4rem)" />
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="founders">
+    <div class="wrap">
+      <h2 id="founders">Meet our founders.</h2>
+      <p class="lede">The visionaries who turned one successful mentorship into a movement.</p>
+      <div class="grid grid-3">
+        {founders.map(f => (
+          <article class="card">
+            <div class="card-media"><Img src={f.img} alt={`${f.name}, ${f.role}`} sizes="(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, calc(100vw - 2rem)" /></div>
+            <h3>{f.name}</h3>
+            <p class="badge">{f.role}</p>
+            <p>{f.text}</p>
+          </article>
+        ))}
+      </div>
+      <p style="margin-top:2rem"><a class="btn btn-navy" href="/our-team">Meet our team and board</a></p>
+    </div>
+  </section>
+
+  <section class="section on-navy" aria-labelledby="challenge">
+    <div class="wrap">
+      <p class="eyebrow">The challenge we're solving</p>
+      <h2 id="challenge">First-generation students face systemic barriers that shouldn't define their future.</h2>
+      <div class="grid grid-3">
+        <article class="card"><p class="badge">Most critical barrier</p><h3>The college completion crisis</h3><p><strong>9 out of 10</strong> low-income, first-generation students leave college without a degree. Behind each statistic is a dream deferred, potential unrealized.</p></article>
+        <article class="card"><p class="badge">Disproportionate impact</p><h3>The equity gap</h3><p><strong>1 in 2</strong> first-generation Black and Latinx students drop out of college. This isn't just about individual outcomes — it's about systemic change.</p></article>
+        <article class="card"><p class="badge">Lifetime impact</p><h3>The economic reality</h3><p>A <strong>$36,000</strong> median household income gap between first-generation and continuing-generation students. This isn't just a number — it's generational poverty perpetuated.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="solution">
+    <div class="wrap">
+      <p class="eyebrow">Our proven solution</p>
+      <h2 id="solution">Three interconnected pillars.</h2>
+      <p class="lede">Three pillars that transform challenges into opportunities, backed by research and proven through results.</p>
+      <div class="grid grid-3">
+        <article class="card path-card">
+          <p class="stat-inline"><strong style="font:700 2.25rem var(--head);color:var(--navy)">+30%</strong> more likely to hold leadership positions</p>
+          <h3>Personal Development</h3>
+          <p>We don't just mentor — we develop leaders. Through structured personal development, students build confidence, emotional intelligence, and the executive presence needed to thrive.</p>
+          <p class="small">Leadership Training · Goal Setting · Self-Advocacy</p>
+        </article>
+        <article class="card path-card">
+          <p><strong style="font:700 2.25rem var(--head);color:var(--navy)">+20%</strong> more likely to graduate college</p>
+          <h3>One-on-One Coaching</h3>
+          <p>Like Mike's 15-year relationship with JeRod, we provide sustained, personalized guidance that adapts to each student's unique journey and challenges.</p>
+          <p class="small">Academic Support · Career Guidance · Life Coaching</p>
+        </article>
+        <article class="card path-card">
+          <p><strong style="font:700 2.25rem var(--head);color:var(--navy)">85%</strong> of jobs filled through networking</p>
+          <h3>The Launch Network</h3>
+          <p>We don't just open doors, we build the network that keeps opening them. Students gain access to mentors, industry professionals, and opportunities that transform careers.</p>
+          <p class="small">Industry Connections · Professional Mentors · Career Opportunities</p>
+        </article>
+      </div>
+      <p class="lede" style="margin-top:2rem"><strong>The result: transformative change.</strong> When these three pillars work together, students don't just graduate, they become leaders who transform their families, communities, and industries.</p>
+    </div>
+  </section>
+
+  <section class="section soft center" aria-labelledby="next">
+    <div class="wrap">
+      <h2 id="next">Be part of the next chapter.</h2>
+      <p class="lede">Every mentorship has the potential to change a life. Every life changed has the power to transform a community. Join us in leveling the playing field for Cincinnati's first-generation college students.</p>
+      <div class="btn-row"><a class="btn btn-navy" href="/become-a-coach">Become a Coach</a><a class="btn btn-outline" href="/our-partners">Partner with Us for Change</a></div>
+    </div>
+  </section>
+</Base>

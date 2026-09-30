@@ -1,0 +1,111 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+
+const seasons = [
+  { id: 'summer', label: 'May – August', title: 'Summer', items: [
+    { when: 'Ongoing', tag: 'Off-season', title: 'Off-Season', text: 'The lightest time of year. Keep up your monthly in-person meeting and stay connected with your scholar through check-ins. A text after their summer class. A call to see how work is going.' },
+    { when: 'July', tag: 'New coaches', title: 'Coach Orientation', text: "If you're new, this is where it starts. You'll get everything you need to hit the ground running and feel confident heading into Match Day." },
+    { when: 'August', tag: 'All coaches', title: 'Match Day', text: 'One of the biggest celebrations of the year. New scholars and coaches are paired for the first time — and returning coaches come back to be part of the energy. This is where the Level Up family grows.', ask: 'What are you most excited about this year? What feels hardest?' },
+  ] },
+  { id: 'fall', label: 'September – December', title: 'Fall Semester', items: [
+    { when: 'September', tag: 'Staff-guided', title: 'Goal-Setting', text: 'Right after Match Day, you and your scholar set goals together — what they want to accomplish this semester and for the full year. Staff provides the framework. You help make it personal.', ask: 'What do you want this semester to look like? Where do you want to be by May?' },
+    { when: 'October', tag: 'Full day', title: 'Professional Development Day', text: "A full-day workshop: interview skills, LinkedIn profiles, elevator pitches, and career readiness. You're there alongside your scholar, reinforcing what they learn and helping them put it into practice.", ask: "What stood out to you today? Let's build on that." },
+    { when: 'Nov/Dec', tag: 'Evening', title: 'Annual Finance Dinner', text: 'An evening built around real financial conversations with professionals. Your scholar will leave with new confidence around money — and you can keep that conversation going in your next meeting.', ask: "What's one thing about money that feels clearer now?" },
+    { when: 'December', tag: 'Required', title: 'End-of-Semester Check-In', text: 'A brief survey to help Level Up understand how the relationship is going. Our team does a deeper check-in with you after the semester wraps to make sure you have what you need.' },
+  ] },
+  { id: 'spring', label: 'January – May', title: 'Spring Semester', items: [
+    { when: 'Pre-event', tag: 'Varies', title: 'Professional Presence Prep', text: 'Before Networking Month, help your scholar get their professional presence ready. Review their LinkedIn, sharpen their resume, and practice introductions together.', ask: "Let's get your LinkedIn ready. Who do you want to meet?" },
+    { when: 'Varies', tag: 'Month-long', title: 'Networking Month', text: "This is where your role really shines. You'll receive weekly updates on what your scholar is learning about networking. The main ask: attend the Level Up Your Network event together and help your scholar work the room.", ask: "Who do you want to connect with? Let's make a plan before we walk in." },
+    { when: 'May', tag: 'Celebration', title: 'End of Year Celebration', text: "We close out the year by celebrating everything your scholar accomplished. Look back at the goals you set together after Match Day and see how far they've come.", ask: 'Look at where you started. Look at where you are.' },
+    { when: 'May', tag: 'Seniors', title: 'Graduation Dinner', text: 'If your scholar is a graduating senior, we honor them with a dedicated celebration of their journey through Level Up.' },
+  ] },
+];
+---
+<Base
+  title="Your Year as a Coach"
+  description="What a year as a Level Up coach looks like: one monthly meeting, Match Day, Professional Development Day, Networking Month, and a supportive community."
+  image="coach-match-day-2025"
+  crumbs={[{ name: 'Become a Coach', path: '/become-a-coach' }, { name: 'Your Year as a Coach', path: '/your-year-as-a-coach' }]}
+>
+  <section class="hero on-navy">
+    <div class="wrap narrow">
+      <p class="eyebrow">Level Up Cincinnati</p>
+      <h1>A year as a Level Up coach</h1>
+      <p class="lede">You're not following a script. You're building a relationship. Here's the rhythm of what that year looks like.</p>
+      <div class="btn-row"><a class="btn btn-coral" href="/become-a-coach#apply">Apply to Be a Coach</a></div>
+    </div>
+  </section>
+
+  <section class="section-sm" aria-labelledby="footprint">
+    <div class="wrap">
+      <h2 id="footprint">Your one commitment: get in front of your scholar once a month.</h2>
+      <p class="lede">Everything else — texts, calls, events — is about building a genuine connection at a pace that works for both of you.</p>
+      <dl class="stats" style="margin-top:1.5rem">
+        <div><dt>in-person meeting per month</dt><dd>1x</dd></div>
+        <div><dt>year commitment</dt><dd>2</dd></div>
+        <div><dt>brief surveys per year</dt><dd>3</dd></div>
+        <div><dt>community events</dt><dd>6+</dd></div>
+      </dl>
+      <p style="margin-top:1.5rem">And <strong>1 scholar who needs you</strong>. That's the whole footprint. One monthly meeting is the core commitment; the rest is a community built to help you keep it.</p>
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="backup">
+    <div class="wrap">
+      <p class="eyebrow">We've got your back</p>
+      <h2 id="backup">You're never on your own.</h2>
+      <div class="grid grid-3">
+        <article class="card"><h3>We check in with you</h3><p>Our team reaches out every month via text or call to see how things are going.</p></article>
+        <article class="card"><h3>Semester reviews</h3><p>Deeper touchpoints after each semester to reflect and recalibrate.</p></article>
+        <article class="card"><h3>Always available</h3><p>Need guidance? Our team is a text away. You're never doing this alone.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="rhythm">
+    <div class="wrap">
+      <p class="eyebrow">The rhythm of the year</p>
+      <h2 id="rhythm">We run the calendar. You bring the relationship.</h2>
+      <p class="lede">Every event below is planned and hosted by Level Up. Your job stays simple: show up, stay curious, and walk alongside your scholar.</p>
+      {seasons.map(s => (
+        <div style="margin-top:2.5rem">
+          <h3 style="font-size:1.5rem">{s.title} <span class="muted small" style="font-family:var(--body);font-weight:400">· {s.label}</span></h3>
+          <ol class="timeline">
+            {s.items.map(i => (
+              <li>
+                <p class="when">{i.when} · <span class="badge">{i.tag}</span></p>
+                <h4>{i.title}</h4>
+                <p>{i.text}</p>
+                {i.ask && <p class="muted"><em>Conversation starter: “{i.ask}”</em></p>}
+              </li>
+            ))}
+          </ol>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="all-year">
+    <div class="wrap">
+      <p class="eyebrow">Throughout the year</p>
+      <h2 id="all-year">All year long.</h2>
+      <div class="grid grid-4">
+        <article class="card"><p class="badge">The core expectation</p><h3>Monthly in-person meeting</h3><p>Coffee, lunch, campus visit, or attending a Level Up event together. Get in front of your scholar at least once a month.</p></article>
+        <article class="card"><p class="badge">At your natural pace</p><h3>Check-ins with your scholar</h3><p>Texts, calls, messages. No rigid schedule. The goal is that your scholar knows you're in their corner.</p></article>
+        <article class="card"><p class="badge">Quarterly · Optional</p><h3>Coach Happy Hours</h3><p>Casual get-togethers with other coaches. Share wins, swap stories, and feel the community around you.</p></article>
+        <article class="card"><p class="badge">Monthly · Optional</p><h3>HERizon programming</h3><p>Women's professional development sessions available to women coaches and scholars. <a href="/herizon-series">About the HERizon Series</a></p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section on-navy center" aria-labelledby="ready">
+    <div class="wrap">
+      <p class="eyebrow">Ready when you are</p>
+      <h2 id="ready">See yourself in this year?</h2>
+      <p class="lede">You've seen what the year looks like. A scholar is ready to share it with you.</p>
+      <div class="btn-row"><a class="btn btn-coral" href="/become-a-coach#apply">Apply to Be a Coach</a></div>
+      <p style="margin-top:1.5rem">Questions first? Email <a href={`mailto:${site.email}`}>{site.email}</a>. A real person answers.</p>
+    </div>
+  </section>
+</Base>

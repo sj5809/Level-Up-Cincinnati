@@ -1,0 +1,17 @@
+{
+  "staff": [
+    { "name": "Jim Rodarte", "role": "Co-Founder & Executive Director", "photo": "team-jim", "bio": "Jim spent a decade in strategy and operations before channeling it all into what matters most — helping students succeed. A 2024 Forty Under 40 honoree, he leads Level Up with the same belief that drives every mentor: showing up changes everything." },
+    { "name": "JeRod Lindsey", "role": "Director of Student Success", "photo": "team-jerod", "bio": "A Senior Analyst at Citi Bank, JeRod serves as fractional Director of Student Success — coordinating coaching, programming, and community because he knows firsthand what the right support can mean." }
+  ],
+  "board": [
+    { "name": "Mike Rodarte", "role": "Co-Founder & Board Chair", "org": "Portfolio Manager, Sycamore Capital", "photo": "board-mike" },
+    { "name": "Rene Cheatham", "role": "Board Treasurer", "org": "Fractional CFO, The Cedric Group · Chief Spirit Officer, Poti9n", "photo": "board-rene" },
+    { "name": "Paul Delaney", "role": "Board Member", "org": "President, AMEND Consulting", "photo": "board-paul" },
+    { "name": "Kathy List", "role": "Board Member", "org": "Former President, Big Brothers Big Sisters Cincinnati", "photo": "board-kathy" },
+    { "name": "Elena Terán", "role": "Board Member", "org": "Director of Purpose, Revision Collective", "photo": "board-elena" },
+    { "name": "Jordan Hickam", "role": "Board Secretary", "org": "Strategic Partnerships, Paramify", "photo": "board-jordan" },
+    { "name": "Greg Olson", "role": "Board Member", "org": "CEO, Urban Sites", "photo": "board-greg" },
+    { "name": "Brendan Hosty", "role": "Board Member", "org": "Director, Baird", "photo": "board-brendan" },
+    { "name": "Kyle Shumate", "role": "Board Member", "org": "Chief Marketing Officer, Clark Schaefer Hackett", "photo": "board-kyle" }
+  ]
+}

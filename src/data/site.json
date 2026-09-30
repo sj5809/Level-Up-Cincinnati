@@ -1,0 +1,38 @@
+{
+  "name": "Level Up Cincinnati",
+  "legalName": "Level Up Cincinnati, Inc.",
+  "ein": "88-0931411",
+  "tagline": "Every student deserves someone in their corner.",
+  "description": "Level Up Cincinnati matches first-generation, low-income college students at the University of Cincinnati with volunteer coaches and a professional Launch Network.",
+  "email": "hello@levelupcincinnati.org",
+  "partnerEmail": "info@levelupcincinnati.org",
+  "phone": "513-549-2779",
+  "address": { "street": "PO Box 43057", "city": "Cincinnati", "region": "OH", "postalCode": "45243", "country": "US" },
+  "donateUrl": "https://givebutter.com/levelup",
+  "givebutterEmbed": "https://givebutter.com/embed/c/levelup",
+  "volunteerUrl": "https://volunteer.levelupcincinnati.org/",
+  "impactUrl": "https://impact.levelupcincinnati.org/",
+  "aiUrl": "https://ai.levelupcincinnati.org/",
+  "coachPreviewUrl": "https://coach.levelupcincinnati.org/",
+  "scholarAppUrl": "https://app.levelupcincinnati.org/",
+  "social": {
+    "linkedin": "https://www.linkedin.com/company/level-up-cincinnati/",
+    "instagram": "https://www.instagram.com/levelupcincinnati/"
+  },
+  "trust": {
+    "candid": "https://app.candid.org/profile/14050060/level-up-cincinnati-88-0931411",
+    "propublica": "https://projects.propublica.org/nonprofits/organizations/880931411",
+    "charityNavigator": "https://www.charitynavigator.org/ein/880931411"
+  },
+  "stats": {
+    "satisfaction": "98%",
+    "gpa": "3.33",
+    "deansList": "48%",
+    "alignedJobs": "90%+",
+    "supported": "4.95/5",
+    "partners": "30+",
+    "industries": "10+",
+    "afoRaised": "$147K+",
+    "coachHours": "~2 hours per month"
+  }
+}

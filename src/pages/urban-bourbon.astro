@@ -1,0 +1,92 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import site from '../data/site.json';
+const half = '(min-width: 56rem) 34rem, calc(100vw - 2rem)';
+const video = 'https://www.youtube-nocookie.com/embed/3RBdohWsAqg?autoplay=1';
+---
+<Base
+  title="Urban Bourbon"
+  description="Urban Bourbon is an annual, invitation-only evening of exclusive tastings in Cincinnati supporting Level Up scholars and partner organizations."
+  image="ub-evening"
+  crumbs={[{ name: 'Events', path: '/events' }, { name: 'Urban Bourbon', path: '/urban-bourbon' }]}
+>
+  <section class="hero on-navy">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Annual invitation-only event</p>
+        <h1>Urban Bourbon</h1>
+        <p class="lede">Cheers to a good cause — where Cincinnati's finest gather for exclusive tastings and meaningful impact.</p>
+        <div class="btn-row"><a class="btn btn-coral" href={`mailto:${site.email}?subject=Urban%20Bourbon%20Info%20Request`}>Request Urban Bourbon info</a></div>
+      </div>
+      <div class="hero-media"><Img src="ub-evening" alt="Guests at Urban Bourbon" priority sizes={half} widths={[360, 540, 720, 1080]} /></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="glass">
+    <div class="wrap split">
+      <div>
+        <h2 id="glass">Raising a glass to opportunity.</h2>
+        <p>Urban Bourbon brings together Cincinnati's most thoughtful leaders for an evening of exclusive tastings, meaningful connections, and direct impact on our community's future.</p>
+        <p>Every sip supports first-generation college students and partner organizations that share our commitment to empowering the next generation through mentorship and opportunity.</p>
+        <ul class="checklist"><li>Exclusive tastings</li><li>Meaningful connections</li><li>Direct community impact</li></ul>
+      </div>
+      <div>
+        <h3>Hear from our scholars</h3>
+        <p class="small muted">Listen to one of our students share how Level Up Cincinnati changed their trajectory (2:15).</p>
+        <details class="facade" data-src={video} data-title="Hear From Our Scholars video">
+          <summary>
+            <Img src="ub-video" alt="" sizes={half} />
+            <span class="play">Play video: Hear From Our Scholars</span>
+          </summary>
+        </details>
+        <p class="small"><a href="https://youtu.be/3RBdohWsAqg" rel="noopener">Watch on YouTube</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="private">
+    <div class="wrap">
+      <h2 id="private">A private evening in support of Level Up Cincinnati.</h2>
+      <p class="lede">A private, invitation-only fundraiser bringing together sponsors and guests to support Level Up Cincinnati students and programs.</p>
+      <div class="grid grid-3">
+        <article class="card"><div class="card-media"><Img src="ub-tasting" alt="A tasting at Urban Bourbon" sizes="(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, calc(100vw - 2rem)" /></div><h3>Exclusive tastings</h3><p>A complimentary tasting experience for discerning palates and meaningful conversations.</p></article>
+        <article class="card"><div class="card-media"><Img src="ub-guests" alt="Guests connecting at Urban Bourbon" sizes="(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, calc(100vw - 2rem)" /></div><h3>Impactful connections</h3><p>Connect with Cincinnati's most thoughtful business leaders in an intimate setting designed for authentic relationships and shared commitment to community impact.</p></article>
+        <article class="card"><div class="card-media"><Img src="ub-logo" alt="Urban Bourbon logo" sizes="(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, calc(100vw - 2rem)" /></div><h3>Direct community impact</h3><p>Celebrate the collective impact as funds raised directly support Level Up Cincinnati scholars and partner organizations creating opportunity in our community.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="sponsors">
+    <div class="wrap">
+      <h2 id="sponsors">Presented by foundations committed to community impact.</h2>
+      <div class="grid grid-2">
+        <article class="card">
+          <div style="max-width:14rem;margin-bottom:1rem"><Img src="ub-mclane" alt="The George and Margaret McLane Foundation logo" sizes="14rem" widths={[224, 448]} /></div>
+          <p class="badge">Presenting Sponsor</p>
+          <h3>The George and Margaret McLane Foundation</h3>
+          <p>The George and Margaret McLane Foundation's presenting sponsorship demonstrates their unwavering commitment to empowering Cincinnati's future leaders and strengthening our community's educational foundation.</p>
+        </article>
+        <article class="card">
+          <div style="max-width:14rem;margin-bottom:1rem"><Img src="ub-olson" alt="William S. Olson Foundation logo" sizes="14rem" widths={[224, 448]} /></div>
+          <p class="badge">Presenting Partner</p>
+          <h3>William S. Olson Foundation</h3>
+          <p>The William S. Olson Foundation's partnership makes this exclusive event possible, enabling us to support Level Up Cincinnati and our charitable partners year after year.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section on-navy" aria-labelledby="community">
+    <div class="wrap">
+      <h2 id="community">Supporting our community.</h2>
+      <p class="lede">Urban Bourbon consistently supports Level Up Cincinnati's mission while partnering with other impactful organizations to expand our collective community impact.</p>
+      <div class="grid grid-4">
+        <article class="card"><p class="badge">Primary beneficiary</p><h3>Level Up Cincinnati</h3><p>Our consistent beneficiary, empowering first-generation college students through meaningful mentorship, career coaching, and community connections.</p></article>
+        <article class="card"><p class="badge">Current partner · 2025</p><h3><a href="https://www.artacademy.edu/" rel="noopener">Cincinnati Art Academy</a></h3><p>This year's featured partner, fostering artistic excellence and creative community impact.</p></article>
+        <article class="card"><p class="badge">Past partner</p><h3><a href="https://www.starfirecincy.org/" rel="noopener">Starfire</a></h3><p>Previous partner focused on building inclusive communities and meaningful connections.</p></article>
+        <article class="card"><p class="badge">Founding partner</p><h3><a href="https://www.facebook.com/p/William-S-Olson-Foundation-100079293891300/" rel="noopener">William S. Olson Foundation</a></h3><p>Founding partner organization committed to community investment and impact.</p></article>
+      </div>
+    </div>
+  </section>
+</Base>

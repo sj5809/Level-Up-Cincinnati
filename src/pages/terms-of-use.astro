@@ -1,0 +1,7 @@
+---
+import Base from '../layouts/Base.astro';
+import body from '../content/legal/terms-of-use.html?raw';
+---
+<Base title="Terms of Use" description="The terms that govern use of the Level Up Cincinnati website, web application, and mobile application." crumbs={[{ name: 'Terms of Use', path: '/terms-of-use' }]}>
+  <section class="section"><div class="wrap prose"><h1>Terms of Use</h1><Fragment set:html={body} /></div></section>
+</Base>

@@ -1,0 +1,125 @@
+---
+import Base from '../../layouts/Base.astro';
+import Img from '../../components/Img.astro';
+import site from '../../data/site.json';
+
+const schedule = [
+  { t: '12:15 PM', h: 'Check-in opens', p: 'Head to the picnic shelter. Pick up your ammo bag and scorecard, buy into the Calcutta if you’re feeling lucky, and grab a drink.' },
+  { t: '12:45 PM', h: 'Safety briefing', p: 'Everyone attends, every year, no matter how many times you’ve shot. It’s short, and it’s the one part of the day we won’t start without you. Please be there.' },
+  { t: '1:00 PM', h: 'Shoot the course', p: 'Teams head out to their first station. Three hours on the course, with snacks and water coming to you along the way.' },
+  { t: '4:00 PM', h: 'Awards and happy hour', p: 'Back at the shelter for tacos, cold beer, bourbon, the cigar lounge, the raffle and auction, and the trophies. Wraps up around 5:30.' },
+];
+const maps = 'https://www.google.com/maps/search/?api=1&query=Sycamore+Sporting+Clays+6245+Lewis+Rd+Miamiville+OH+45147';
+const half = '(min-width: 56rem) 34rem, calc(100vw - 2rem)';
+---
+<Base
+  title="Aiming for Opportunity Guest Guide"
+  description="Your Aiming for Opportunity guest guide: schedule, directions to Sycamore Sporting Clays, what to bring, and first-timer tips for sporting clays."
+  image="afo-guide-hero"
+  crumbs={[{ name: 'Events', path: '/events' }, { name: 'Aiming for Opportunity', path: '/aiming-for-opportunity' }, { name: 'Guest Guide', path: '/aiming-for-opportunity/what-to-expect' }]}
+>
+  <section class="hero on-navy">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Aiming for Opportunity · Guest guide</p>
+        <h1>Here’s what your day looks like.</h1>
+        <p class="lede">An afternoon of sporting clays with Cincinnati’s business community, followed by tacos, bourbon, cigars and trophies. Whether it’s your first time holding a shotgun or your fiftieth, this page tells you everything you need to know before you arrive.</p>
+        <div class="btn-row"><a class="btn btn-coral" href="#schedule">See the schedule</a><a class="btn btn-outline" href="/aiming-for-opportunity">Back to the event page</a></div>
+      </div>
+      <div class="hero-media"><Img src="afo-guide-hero" alt="Guests on the course at Aiming for Opportunity" priority sizes={half} widths={[360, 540, 720, 1080]} /></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="before">
+    <div class="wrap">
+      <p class="eyebrow">Before you arrive</p>
+      <h2 id="before">Three things, and you’re set.</h2>
+      <p class="lede">Your team captain handles the sign-up. You handle the waiver. We handle everything else.</p>
+      <ol class="steps grid grid-3" style="margin-top:1.5rem">
+        <li><h3>Your captain RSVPs the team</h3><p>Team captains send us the names and emails of everyone on their team. That’s your RSVP. If you were invited by a sponsor, they’ve got this covered.</p></li>
+        <li><h3>Watch your inbox for the waiver</h3><p>Every shooter gets an email with the event details and a link to sign the Sycamore Sporting Clays liability waiver. It takes about two minutes. Please sign it before event day — every shooter signs their own.</p></li>
+        <li><h3>Tell us if you need a shotgun</h3><p>Don’t own one? No problem. Let your captain know when you RSVP and we’ll make sure there’s one waiting for you.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section soft" id="schedule" aria-labelledby="schedule-h">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">The day at a glance</p>
+        <h2 id="schedule-h">Plan on the whole afternoon.</h2>
+        <p>Check-in opens just after noon and the last trophy goes home around 5:30. The best conversations happen at the shelter after the shooting, so don’t book anything early.</p>
+        <ol class="timeline">{schedule.map(s => <li><p class="when">{s.t}</p><h3>{s.h}</h3><p>{s.p}</p></li>)}</ol>
+      </div>
+      <Img src="afo-guide-banner" alt="The Aiming for Opportunity banner at the picnic shelter" sizes={half} />
+    </div>
+  </section>
+
+  <section class="section" id="course" aria-labelledby="course-h">
+    <div class="wrap">
+      <p class="eyebrow">On the course</p>
+      <h2 id="course-h">Think golf with a shotgun.</h2>
+      <p class="lede">Your team of four moves station to station across the property. Each one throws a different set of clay targets. Some fly straight away, some cross, some bounce along the ground like rabbits. You’ll get several shots at each to find your rhythm.</p>
+      <div class="grid grid-3">
+        <article class="card"><h3>Four shooters, one captain</h3><p>Every team has an experienced captain who brings a shotgun that can be shared and coaches anyone who’s new. Captains handle the firearm basics so you can focus on the target.</p></article>
+        <article class="card"><h3>Two courses, two trophies</h3><p>Teams shoot either the Upper or the Lower course. Each course crowns its own champion, and the perpetual trophies come out at the shelter afterward.</p></article>
+        <article class="card"><h3>Snacks and water come to you</h3><p>Our hydration cart makes the rounds all afternoon, so there’s no need to carry anything out to the stations.</p></article>
+        <article class="card"><h3>The bonus shot station</h3><p>On the toughest stand of each course you can buy a bonus shot to boost your score. Every dollar goes straight to our scholars.</p></article>
+        <article class="card"><h3>The Calcutta</h3><p>Buy your own team at check-in. If your team wins, you split the pot with Level Up. Full details at the check-in table.</p></article>
+        <article class="card"><h3>Never shot before? You’re in good company.</h3><p>Plenty of our most enthusiastic shooters had never held a shotgun before their first Aiming for Opportunity. Most beginners break their first target within a few shots, and your captain will walk you through stance, mount and lead.</p><a class="text-link arrow" href="/aiming-for-opportunity#beginners">First-timer tips</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" aria-labelledby="bring">
+    <div class="wrap split flip">
+      <div>
+        <p class="eyebrow">What to bring</p>
+        <h2 id="bring">Pack light. We’ve got the rest.</h2>
+        <ul class="checklist">
+          <li><strong>Your shotgun, if you have one.</strong> 12 or 20 gauge. Need one? Tell your captain when you RSVP and we’ll have one waiting for you.</li>
+          <li><strong>Outdoor clothes and closed-toe shoes.</strong> The stations are spread across the property, so plan on walking and dress for the weather. A hat and sunscreen never hurt.</li>
+          <li><strong>A card or some cash.</strong> The bonus shot station, Calcutta, raffle and auction all go straight to our scholars. Bring a little something to play with.</li>
+        </ul>
+        <p>Leave the rest at home. Ammunition, eye protection and ear protection are all provided. You’ll pick up your ammo bag at check-in.</p>
+      </div>
+      <Img src="afo-guide-course" alt="Shooters at a station on the wooded course" sizes={half} />
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="there">
+    <div class="wrap narrow">
+      <p class="eyebrow">Getting there</p>
+      <h2 id="there">Twenty minutes from downtown.</h2>
+      <address style="font-style:normal"><strong>Sycamore Sporting Clays</strong><br />6245 Lewis Rd, Miamiville, OH 45147</address>
+      <p>From I-275, take Exit 54 (Wards Corner Road) and follow it to Lewis Road. A small bridge on your right takes you into the parking lot.</p>
+      <p>“Sycamore Sporting Clays” in Google Maps gets you there. Watch for our Level Up signs once you pull in.</p>
+      <a class="btn btn-navy" href={maps} rel="noopener">Open in Google Maps</a>
+    </div>
+  </section>
+
+  <section class="section on-navy" id="after" aria-labelledby="after-h">
+    <div class="wrap">
+      <p class="eyebrow">After the last station</p>
+      <h2 id="after-h">The shooting ends at four. The day doesn’t.</h2>
+      <p class="lede">Everyone lands back at the shelter for the part of the afternoon people talk about the rest of the year. Stick around.</p>
+      <div class="grid grid-4">
+        <article class="card"><h3>Happy hour</h3><p>Taco bar, cold beer, and pours of local bourbon at the shelter.</p></article>
+        <article class="card"><h3>Cigar lounge</h3><p>Every guest gets a cigar and a pour of bourbon. Pull up a chair.</p></article>
+        <article class="card"><h3>Awards</h3><p>Perpetual trophies for the Upper Course and Lower Course champions.</p></article>
+        <article class="card"><h3>Raffle and auction</h3><p>A few bottles worth going home with. Bidding opens during happy hour.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="fuels">
+    <div class="wrap narrow center">
+      <h2 id="fuels">Every shot fuels a scholar.</h2>
+      <p>Only one in ten first-generation college students from lower-income families finishes their degree. Aiming for Opportunity exists to change that number in Cincinnati.</p>
+      <p>Every dollar this event raises goes to programming for first-generation college students: Transition Coaches and Career Coaches, scholarships, and a professional network most of them are the first in their family to have. Thank you for being part of it.</p>
+      <h3>Questions before the day?</h3>
+      <p>Email <a href={`mailto:${site.email}`}>{site.email}</a> or call <a href={`tel:+1${site.phone.replace(/-/g, '')}`}>{site.phone}</a>. We’ll see you on the course.</p>
+      <a class="btn btn-coral" href="/aiming-for-opportunity#sponsor">Event page &amp; sponsorships</a>
+    </div>
+  </section>
+</Base>

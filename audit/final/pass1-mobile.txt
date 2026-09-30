@@ -1,0 +1,2 @@
+/our-vision                               	100	96	100	100	LCP 0.91s	FCP 0.66s	TBT 0ms	CLS 0.000	194KiB	9req
+   - accessibility: color-contrast (0) 
