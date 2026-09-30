@@ -210,5 +210,16 @@ const year = new Date().getFullYear();
     addEventListener('click',e=>w()&&!e.target.closest('.nav-list')&&c());
     q('details[data-src]').forEach(x=>x.addEventListener('toggle',()=>{if(x.open&&!x.querySelector('iframe')){const f=d.createElement('iframe');f.src=x.dataset.src;f.title=x.dataset.title;f.allow='autoplay; encrypted-media; payment; fullscreen';x.append(f);f.focus()}}))})();
   </script>
+  {/* Inline script: on-scroll reveal + stat count-up. Progressive enhancement: real numbers stay in the HTML;
+      skipped for prefers-reduced-motion; only elements below the first screen are ever hidden. */}
+  <script is:inline>
+    (()=>{if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver'in window))return;
+    const d=document,H=innerHeight;d.documentElement.classList.add('anim');
+    const run=el=>{const m=el.textContent.match(/^(\D*)([\d,]*\.?\d+)(.*)$/);if(!m||/^(19|20)\d\d$/.test(m[0]))return;
+    const[,a,n,z]=m,t=+n.replace(/,/g,''),p=(n.split('.')[1]||'').length,c=n.includes(','),s=performance.now();
+    const f=now=>{const k=Math.min((now-s)/1400,1),v=t*(1-(1-k)**3);el.textContent=a+(c?Math.round(v).toLocaleString('en-US'):v.toFixed(p))+z;k<1&&requestAnimationFrame(f)};requestAnimationFrame(f)};
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const t=e.target;io.unobserve(t);t.classList.add('in');t.querySelectorAll('dd').forEach(run)}),{rootMargin:'0px 0px -8% 0px'});
+    d.querySelectorAll('.card,.split>*,.quote,.stats>div,.timeline>li,.steps>li,.person,.gallery li,.event,.list-cols').forEach(el=>{if(el.getBoundingClientRect().top>H){el.classList.add('reveal');el.style.transitionDelay=[...el.parentNode.children].indexOf(el)%4*80+'ms'}io.observe(el)})})();
+  </script>
 </body>
 </html>

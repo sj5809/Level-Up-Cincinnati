@@ -20,7 +20,7 @@
 | Cumulative Layout Shift | 0 | 0 | **0** |
 | Page weight | 4,003 KiB | 3,971 KiB | **92 KiB** |
 | Requests | — | 85 | **7** |
-| JavaScript files | 39 scripts | 32 scripts | **0 files** (one ~1 KB inline menu script) |
+| JavaScript files | 39 scripts | 32 scripts | **0 files** (two ~1 KB inline scripts: menu, and scroll animations) |
 
 **How these were measured:**
 - **Lighthouse 13**, mobile preset: an emulated Moto G Power on a simulated slow 4G connection.
@@ -102,6 +102,13 @@
 - **Donate** now sits inside the sticky header. The floating Givebutter button that covered "Be Someone's Coach" is gone.
 - A full-screen mobile menu with large rows and collapsible Get Involved / Events / About groups. Escape closes it, focus is managed, and the page behind is disabled while it's open.
 - The coach and scholar carousels became simple grids. Everyone is visible, with no swiping and no hidden duplicates.
+
+### Motion that doesn't cost speed
+- **Stats count up** the first time they scroll into view, like on the old site. The real number is always in the HTML, so search engines, link previews, and visitors without JavaScript see "98%" rather than "0%".
+- **Cards, photos, quotes, and timeline steps fade and slide in** as they come into view, one after another.
+- Nothing visible on first load is ever hidden, so there's no delay in how fast the page appears and no layout shift.
+- Both effects switch off for visitors whose device is set to reduce motion.
+- The whole effect is about 1 KB of inline code. Scores stayed at 100 with 0 ms blocking time and 0 layout shift.
 
 ### Accessibility (WCAG 2.2 AA)
 - **Contrast.** White text on the coral buttons measured 3.2:1, which fails. The coral buttons now use **navy text (4.6:1)**, keeping the exact brand colors `#18264E` and `#F15F5E`. Small labels on navy use the brand's light coral (7.9:1).
