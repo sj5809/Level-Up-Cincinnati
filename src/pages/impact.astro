@@ -26,41 +26,46 @@ const card = '(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, calc(100vw - 2r
   image="impact-hero"
   crumbs={[{ name: 'Impact Report 2025', path: '/impact' }]}
 >
-  <section class="hero-bleed on-navy">
-    <div class="bg"><Img src="impact-hero" alt="" priority sizes="(min-width: 56rem) 55vw, 110vw" widths={[480, 640, 800, 1080, 1440]} /></div>
-    <div class="wrap">
-      <div class="hero-copy">
-        <p class="eyebrow">Level Up Cincinnati · 2025</p>
-        <h1>Impact Report</h1>
-        <p class="lede">From proving ourselves to delivering repeatable results. This is our story of transformation.</p>
-        <div class="btn-row"><a class="btn btn-coral btn-arrow" href="#stories">Explore stories</a><a class="btn btn-outline" href="#action">Get involved</a></div>
-        <nav aria-label="Report sections"><ol class="chapters-nav">{[['Impact', 'impact'], ['Stories', 'stories'], ['Our Approach', 'approach'], ['Events', 'events'], ['Stewardship', 'stewardship'], ['Take Action', 'action']].map(([t, h]) => <li><a href={`#${h}`}>{t}</a></li>)}</ol></nav>
-      </div>
+  <section class="mag-hero on-navy">
+    <div class="mag-photo"><Img src="impact-hero" alt="Level Up Cincinnati students and mentors at Match Day" priority sizes="(min-width: 56rem) 55vw, 100vw" widths={[480, 640, 800, 1080, 1440]} /></div>
+    <div class="wrap mag-copy">
+      <p class="eyebrow">Level Up Cincinnati</p>
+      <h1 class="mag-title"><span>2025</span> Impact <em>Report</em></h1>
+      <p class="lede">From proving ourselves to delivering repeatable results. This is our story of transformation.</p>
+      <div class="btn-row"><a class="btn btn-coral btn-arrow" href="#stories">Explore stories</a><a class="btn btn-outline" href="#action">Get involved</a></div>
     </div>
   </section>
+  <nav class="subnav" aria-label="Report sections"><div class="wrap"><ol>{[['Impact', 'impact'], ['Stories', 'stories'], ['Our Approach', 'approach'], ['Events', 'events'], ['Stewardship', 'stewardship'], ['Take Action', 'action']].map(([t, h]) => <li><a href={`#${h}`}>{t}</a></li>)}</ol></div></nav>
 
   <section class="section" id="impact" aria-labelledby="headline">
     <div class="wrap">
-      <header class="head-center">
+      <header class="mag-headline">
+        <span class="bigquote" aria-hidden="true">“</span>
         <p class="eyebrow">The 2025 headline</p>
         <h2 id="headline">A community of mentors creating access. Students ready for the moment. Real opportunity delivered.</h2>
         <p class="lede">The most defining feature of the year was not only that we grew, but that our purpose became visible in real-time through student outcomes. Connection points created by coaches and the Level Up community weren't symbolic. They became internships, jobs, career clarity, confidence, resilience, and momentum.</p>
       </header>
-      <h3 class="center">2025 impact at a glance</h3>
-      <dl class="stats" style="margin-block:1.5rem 3rem">
+    </div>
+  </section>
+  <section class="band on-navy" aria-labelledby="glance">
+    <span class="watermark" aria-hidden="true" data-text="Impact"></span>
+    <div class="wrap">
+      <p class="eyebrow center" style="display:flex;justify-content:center">By the numbers</p>
+      <h2 id="glance" class="center">2025 impact at a glance</h2>
+      <dl class="band-stats">
         <div><dt>students supported (up from 25 last year)</dt><dd>30</dd></div>
         <div><dt>dedicated mentors</dt><dd>29</dd></div>
         <div><dt>retention rate</dt><dd>90%+</dd></div>
         <div><dt>in scholarships (up from $180K last year)</dt><dd>$200K</dd></div>
       </dl>
-      <h3 class="center">Academic excellence</h3>
-      <dl class="stats" style="margin-top:1.5rem">
+      <h3 class="center" style="margin-top:2.5rem">Academic excellence</h3>
+      <dl class="band-stats">
         <div><dt>average GPA</dt><dd>3.33</dd></div>
         <div><dt>Dean's List rate</dt><dd>48%</dd></div>
         <div><dt>A/B grade rate</dt><dd>84%</dd></div>
         <div><dt>good standing</dt><dd>96%</dd></div>
       </dl>
-      <p class="center muted" style="margin-top:1.5rem">Our students outperformed the 3.1 national average GPA for public university students. Nine students earned Dean's List honors in both Spring and Fall semesters.</p>
+      <p class="center" style="margin-top:1.5rem;color:var(--blue-gray)">Our students outperformed the 3.1 national average GPA for public university students. Nine students earned Dean's List honors in both Spring and Fall semesters.</p>
     </div>
   </section>
 
@@ -102,7 +107,7 @@ const card = '(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, calc(100vw - 2r
         <h2 id="letter">Dear Friends,</h2>
         <p>In 2025, we moved from proving ourselves to delivering repeatable results. The most defining feature of the year was not only that we grew, but that our purpose became visible in real-time through student outcomes.</p>
         <p>We saw the core idea of Level Up fully come to life: a community of mentors and champions creating access, students being ready for the moment, and then converting that access into real opportunity.</p>
-        <p>Connection points weren't symbolic. They became internships, jobs, career clarity, confidence, resilience, and momentum.</p>
+        <p class="pullquote">Connection points weren't symbolic. They became internships, jobs, career clarity, confidence, resilience, and momentum.</p>
         <p>This year, we also built more structure around mentorship, introduced clearer measures of success through the P.A.C.E. model, and invested in systems that keep students supported without overwhelming their schedules. We're growing, but we haven't lost the relational core that makes Level Up work.</p>
         <p>One of the most encouraging things I've seen this year is the resilience of our freshmen. The transition to college is where so many first-generation students lose their footing. Our coaches are making a real difference in those critical early moments, helping students stay grounded, stay confident, and keep moving forward. Level Up is intervening at the point where long-term success is decided.</p>
         <p>None of this would be possible without our donors, mentors, and corporate partners. Thanks to you, our revenue grew by 13% this year, allowing us to invest even more in scholarships, mentorship, and programming. Your support is shaping the next generation of leaders.</p>
@@ -119,9 +124,8 @@ const card = '(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, calc(100vw - 2r
         <h2 id="stories-h">Stories that prove the model works</h2>
         <p class="lede">These stories are more than inspiration. They're proof that the model works. Level Up Cincinnati is actively moving students into professional outcomes.</p>
       </header>
-      <article class="card" style="margin-bottom:1.5rem">
-        <div class="split">
-          <div>
+      <article class="story-bleed">
+          <div class="story-text">
             <p class="badge">Student spotlight</p>
             <h3 style="font-size:1.75rem">Sarah: from campus to career with Cintas</h3>
             <p>When Sarah joined Level Up in 2024, she was heading into her junior year at UC studying international business and marketing. Like many first-generation students, she was motivated but unsure what direction to take. Then she was paired with her mentor, Stacy Rodarte.</p>
@@ -130,12 +134,10 @@ const card = '(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, calc(100vw - 2r
             <p>When she reapplied, Sarah felt more prepared, focused, and confident. In her final interview, she met Cintas's Group Vice President of Operations, who had attended Level Up's Elevating Women event earlier that year, where Sarah was a student speaker. Neither realized their paths would cross again.</p>
             <p><strong>The outcome:</strong> Sarah received a full-time Management Trainee offer with Cintas, starting after graduation in 2026. “Words cannot describe how incredibly grateful I am for Stacy's continued support. No matter the setbacks, she always stayed positive to help me tackle a new challenge.”</p>
           </div>
-          <Img src="impact-sarah" alt="Sarah" sizes={half} />
-        </div>
+          <div class="story-img"><Img src="impact-sarah" alt="Sarah" sizes="(min-width: 56rem) 50vw, 100vw" widths={[480, 720, 960, 1280]} /></div>
       </article>
-      <article class="card" style="margin-bottom:1.5rem">
-        <div class="split flip">
-          <div>
+      <article class="story-bleed flip">
+          <div class="story-text">
             <p class="badge">Student spotlight</p>
             <h3 style="font-size:1.75rem">Martha: from gap-year doubt to master's degree</h3>
             <p>Martha entered college feeling overwhelmed and uncertain about whether she belonged. Through Level Up Cincinnati, she was paired with Elena, a mentor who focused not only on academics and career goals, but on Martha as a whole person.</p>
@@ -143,21 +145,18 @@ const card = '(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, calc(100vw - 2r
             <p>Over time, Martha grew more comfortable asking for help, stepping outside her comfort zone, and engaging with opportunities she previously would have avoided. Speaking at Level Up's Elevating Women event marked a turning point in her confidence.</p>
             <p><strong>The outcome:</strong> Martha is now pursuing her master's degree in nursing while working in TriHealth's Neonatal Intensive Care Unit, her dream role. The position is giving her invaluable hands-on experience while setting her up for success after graduation.</p>
           </div>
-          <Img src="impact-martha-work" alt="Martha working at TriHealth's Neonatal Intensive Care Unit" sizes={half} />
-        </div>
+          <div class="story-img"><Img src="impact-martha-work" alt="Martha working at TriHealth's Neonatal Intensive Care Unit" sizes="(min-width: 56rem) 50vw, 100vw" widths={[480, 720, 960, 1280]} /></div>
       </article>
-      <article class="card">
-        <div class="split">
-          <div>
+      <article class="story-bleed">
+          <div class="story-text">
             <p class="badge">Student spotlight</p>
             <h3 style="font-size:1.75rem">Nick: from engineering student to designing jet engines</h3>
             <p>Nick, a senior Aerospace Engineering student at the University of Cincinnati, was paired with Stuart Gilchrist, a UC engineering alum who works at GE Aerospace. From the beginning, the match was intentional: pairing a driven student with a mentor who could relate to his academic journey and help him navigate the demanding world of engineering.</p>
             <p>Stuart provided insights into the rigors of engineering studies, helping Nick excel in his coursework and projects. Leveraging his industry connections, Stuart facilitated an internship opportunity for Nick at Beehive Industries, an innovative defense contractor specializing in advanced propulsion systems. The experience opened Nick's eyes to what was possible.</p>
             <p><strong>The outcome:</strong> Upon graduation, Nick will join Williams International as a rotational engineer, designing jet engines. It's his dream role.</p>
-            <blockquote class="quote"><p>“I would never have been able to make it to this point without you guys. I wanted to say thank you so much to everyone in the Level Up family. This achievement is yours as much as it is mine.”</p><footer><cite>Nick</cite>, Aerospace Engineering, joining Williams International</footer></blockquote>
+            <blockquote class="quote quote-navy"><p>“I would never have been able to make it to this point without you guys. I wanted to say thank you so much to everyone in the Level Up family. This achievement is yours as much as it is mine.”</p><footer><cite>Nick</cite>, Aerospace Engineering, joining Williams International</footer></blockquote>
           </div>
-          <Img src="impact-nick-stuart" alt="Nick with his mentor Stuart Gilchrist" sizes={half} />
-        </div>
+          <div class="story-img"><Img src="impact-nick-stuart" alt="Nick with his mentor Stuart Gilchrist" sizes="(min-width: 56rem) 50vw, 100vw" widths={[480, 720, 960, 1280]} /></div>
       </article>
     </div>
   </section>

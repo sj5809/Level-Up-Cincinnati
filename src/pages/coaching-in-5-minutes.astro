@@ -1,13 +1,13 @@
 ---
-// "Coaching in 5 minutes": the coach.levelupcincinnati.org presentation, rebuilt as a scrolling story.
+// "Coaching in 5 minutes": the coach.levelupcincinnati.org presentation, rebuilt as a real slideshow.
+// Slides are a horizontal scroll-snap strip (swipe works without JS); a small inline script adds
+// arrow keys, prev/next buttons, the counter, the segmented progress bar, and #s1…#s14 deep links.
 import Base from '../layouts/Base.astro';
 import Img from '../components/Img.astro';
 import Icon from '../components/Icon.astro';
 import site from '../data/site.json';
 
-const chapters = ['The odds', 'The difference', 'The solution', 'The model', 'Real stories', 'Student spotlight', 'The experience', 'Your year', 'Your support', 'The results', 'Who we want', 'The ask'];
-const id = (t: string) => t.toLowerCase().replace(/[^a-z]+/g, '-');
-const half = '(min-width: 56rem) 34rem, calc(100vw - 2rem)';
+const total = 14;
 const card = '(min-width: 64rem) 17rem, (min-width: 40rem) 45vw, calc(100vw - 2rem)';
 ---
 <Base
@@ -16,258 +16,284 @@ const card = '(min-width: 64rem) 17rem, (min-width: 40rem) 45vw, calc(100vw - 2r
   image="deck-hero"
   crumbs={[{ name: 'Become a Coach', path: '/become-a-coach' }, { name: 'Coaching in 5 Minutes', path: '/coaching-in-5-minutes' }]}
 >
-  <div class="story-progress" aria-hidden="true"><span></span></div>
+  <div class="deck-wrap">
+    <div class="deck" id="deck" role="region" aria-roledescription="carousel" aria-label="Coaching in 5 minutes presentation">
 
-  <section class="hero-bleed on-navy">
-    <div class="bg"><Img src="deck-hero" alt="" priority sizes="(min-width: 56rem) 55vw, 110vw" widths={[480, 640, 800, 1080, 1440]} /></div>
-    <div class="wrap">
-      <div class="hero-copy">
-        <p class="eyebrow">Become a coach · 5-minute read</p>
-        <h1>Change a student's life. Transform your own.</h1>
-        <p class="lede">Level Up Cincinnati pairs first-generation college students with dedicated coaches who help them navigate college and launch their careers. This is what it means to be one of them.</p>
-        <div class="btn-row"><a class="btn btn-coral btn-arrow" href="#the-odds">Begin</a><a class="btn btn-outline" href="/become-a-coach#apply">Skip to the application</a></div>
-        <nav aria-label="Chapters"><ol class="chapters-nav">{chapters.map((c, i) => <li><a href={`#${id(c)}`}>{i + 2}. {c}</a></li>)}</ol></nav>
-      </div>
-    </div>
-  </section>
+      <section class="slide s-navy s-photo is-active" id="s1" tabindex="0" aria-roledescription="slide" aria-label="1 of 14: Become a coach">
+        <div class="bg"><Img src="deck-hero" alt="" priority sizes="100vw" widths={[480, 640, 800, 1080, 1440, 1600]} /></div>
+        <div class="wrap">
+          <p class="eyebrow">Become a coach</p>
+          <h1 class="slide-title">Change a student's life. <span style="color:var(--coral)">Transform your own.</span></h1>
+          <p class="lede">Level Up Cincinnati pairs first-generation college students with dedicated coaches who help them navigate college and launch their careers. This is what it means to be one of them.</p>
+          <div class="btn-row"><a class="btn btn-coral btn-arrow" href="#s2">Begin</a><a class="btn btn-outline" href="/become-a-coach#apply">Skip to the application</a></div>
+          <p class="slide-hint">Swipe, use the arrows below, or press → to move through the slides.</p>
+        </div>
+      </section>
 
-  <section class="chapter" id="the-odds" aria-labelledby="c2">
-    <div class="wrap">
-      <p class="chapter-num">02 · The odds</p>
-      <h2 id="c2">First-gen students face odds stacked against them.</h2>
-      <p class="lede">Talent isn't the problem. Support is. Students who are the first in their family to attend college navigate everything alone: the paperwork, the finances, the pressure, the unknowns.</p>
-      <dl class="big-stats">
-        <div><dt>low-income, first-generation students finish college</dt><dd>1 in 10</dd></div>
-        <div><dt>don't make it past their third year</dt><dd>33%</dd></div>
-        <div><dt>less likely to graduate than their peers</dt><dd>18%</dd></div>
-      </dl>
-      <p class="source">Sources: National Center for Education Statistics; Pell Institute</p>
-    </div>
-  </section>
+      <section class="slide" id="s2" tabindex="0" aria-roledescription="slide" aria-label="2 of 14: The odds">
+        <div class="wrap">
+          <p class="eyebrow">The odds</p>
+          <h2 class="slide-title">First-gen students face odds stacked against them.</h2>
+          <p class="lede">Talent isn't the problem. Support is. Students who are the first in their family to attend college navigate everything alone: the paperwork, the finances, the pressure, the unknowns.</p>
+          <dl class="tile-stats">
+            <div><dt>low-income, first-generation students finish college</dt><dd>1 in 10</dd></div>
+            <div><dt>don't make it past their third year</dt><dd>33%</dd></div>
+            <div><dt>less likely to graduate than their peers</dt><dd>18%</dd></div>
+          </dl>
+          <p class="source">Sources: National Center for Education Statistics; Pell Institute</p>
+        </div>
+      </section>
 
-  <section class="chapter on-navy" id="the-difference" aria-labelledby="c3">
-    <div class="wrap">
-      <p class="chapter-num">03 · The difference</p>
-      <h2 id="c3">One person changes the odds.</h2>
-      <p class="lede">Getting to campus was the easy part. A consistent mentor is what turns an enrolled student into a confident graduate with a career waiting.</p>
-      <dl class="big-stats">
-        <div><dt>more engaged in their work after graduation when a mentor encouraged their goals</dt><dd>2.2x</dd></div>
-        <div><dt>of workers say they landed their most recent job through a personal connection</dt><dd>54%</dd></div>
-        <div><dt>Level Up scholars navigate college alone. Every scholar gets two dedicated coaches.</dt><dd>0</dd></div>
-      </dl>
-      <p class="source">Sources: Gallup-Purdue Index; workforce surveys (2025)</p>
-    </div>
-  </section>
+      <section class="slide s-navy" id="s3" tabindex="0" aria-roledescription="slide" aria-label="3 of 14: The difference">
+        <div class="wrap">
+          <p class="eyebrow">The difference</p>
+          <h2 class="slide-title">One person changes the odds.</h2>
+          <p class="lede">Getting to campus was the easy part. A consistent mentor is what turns an enrolled student into a confident graduate with a career waiting.</p>
+          <dl class="tile-stats">
+            <div><dt>more engaged in their work after graduation when a mentor encouraged their goals</dt><dd>2.2x</dd></div>
+            <div><dt>of workers say they landed their most recent job through a personal connection</dt><dd>54%</dd></div>
+            <div><dt>Level Up scholars navigate college alone. Every scholar gets two dedicated coaches.</dt><dd>0</dd></div>
+          </dl>
+          <p class="source">Sources: Gallup-Purdue Index; workforce surveys (2025)</p>
+        </div>
+      </section>
 
-  <section class="chapter" id="the-solution" aria-labelledby="c4">
-    <div class="wrap split">
-      <div>
-        <p class="chapter-num">04 · The solution</p>
-        <h2 id="c4">Meet Level Up Cincinnati.</h2>
-        <p class="lede">We pair first-generation college students with dedicated coaches who help them navigate college and launch their careers. Every scholar also receives $5,000 a year in scholarship support and access to Cincinnati's professional community.</p>
-        <p class="eyebrow">In partnership with the University of Cincinnati</p>
-        <dl class="stats" style="grid-template-columns:repeat(2,minmax(0,1fr))">
-          <div><dt>active scholars</dt><dd>30+</dd></div>
-          <div><dt>engaged coaches</dt><dd>30+</dd></div>
-          <div><dt>scholarships awarded to date</dt><dd>$485K</dd></div>
-          <div><dt>feel supported</dt><dd>100%</dd></div>
-        </dl>
-        <p class="source">2025 Impact Report &amp; current program records · <a href="/impact">Impact Report</a></p>
-      </div>
-      <Img src="deck-match-day" alt="Match Day 2025: scholars and coaches together" sizes={half} />
-    </div>
-  </section>
+      <section class="slide" id="s4" tabindex="0" aria-roledescription="slide" aria-label="4 of 14: The solution">
+        <div class="wrap slide-split">
+          <div>
+            <p class="eyebrow">The solution</p>
+            <h2 class="slide-title">Meet Level Up Cincinnati.</h2>
+            <p>We pair first-generation college students with dedicated coaches who help them navigate college and launch their careers. Every scholar also receives <strong>$5,000 a year in scholarship support</strong> and access to Cincinnati's professional community.</p>
+            <p class="badge">In partnership with the University of Cincinnati</p>
+            <dl class="tile-stats compact">
+              <div><dt>active scholars</dt><dd>30+</dd></div>
+              <div><dt>engaged coaches</dt><dd>30+</dd></div>
+              <div><dt>scholarships awarded to date</dt><dd>$485K</dd></div>
+              <div><dt>feel supported</dt><dd>100%</dd></div>
+            </dl>
+            <p class="source">2025 Impact Report &amp; current program records · <a href="/impact">Impact Report</a></p>
+          </div>
+          <div class="slide-photo"><Img src="deck-match-day" alt="Match Day 2025: scholars and coaches together" sizes="(min-width: 56rem) 34rem, calc(100vw - 2rem)" /></div>
+        </div>
+      </section>
 
-  <section class="chapter soft" id="the-model" aria-labelledby="c5">
-    <div class="wrap">
-      <p class="chapter-num">05 · The model</p>
-      <h2 id="c5">Two coaches. One journey.</h2>
-      <p class="lede">Each scholar is paired with two coaches across their four-year college career. Open a card to see where you'd fit.</p>
-      <div class="grid grid-2">
-        <article class="card">
-          <p class="badge">Freshman &amp; sophomore years</p>
-          <h3>Transition Coach</h3>
-          <p>Guides new students through the leap from high school to college.</p>
-          <details class="more"><summary>See your role as a Transition Coach</summary><div>
-            <p><strong>You'd help your scholar:</strong></p>
-            <ul class="checklist"><li>Navigate campus life and college expectations</li><li>Build study habits and time management skills</li><li>Choose a major and stick with it</li><li>Find early confidence and belonging</li></ul>
-            <p><em>A great fit if you remember the leap to college vividly and want to help someone land it.</em></p>
-          </div></details>
-        </article>
-        <article class="card">
-          <p class="badge">Junior &amp; senior years</p>
-          <h3>Career Coach</h3>
-          <p>Paired once scholars identify their career field. Helps them launch.</p>
-          <details class="more"><summary>See your role as a Career Coach</summary><div>
-            <p><strong>You'd help your scholar:</strong></p>
-            <ul class="checklist"><li>Unlock career pathways in their field</li><li>Prepare for internships and interviews</li><li>Build a real professional network</li><li>Land the first job after graduation</li></ul>
-            <p><em>A great fit if you're established in your field and love opening doors for others.</em></p>
-          </div></details>
-        </article>
-      </div>
-    </div>
-  </section>
+      <section class="slide s-soft" id="s5" tabindex="0" aria-roledescription="slide" aria-label="5 of 14: The model">
+        <div class="wrap">
+          <p class="eyebrow">The model</p>
+          <h2 class="slide-title">Two coaches. One journey.</h2>
+          <p class="lede">Each scholar is paired with two coaches across their four-year college career. Open a card to see where you'd fit.</p>
+          <div class="grid grid-2">
+            <article class="card">
+              <p class="badge">Freshman &amp; sophomore years</p>
+              <h3>Transition Coach</h3>
+              <p>Guides new students through the leap from high school to college.</p>
+              <details class="more"><summary>See your role as a Transition Coach</summary><div>
+                <p><strong>You'd help your scholar:</strong></p>
+                <ul class="checklist"><li>Navigate campus life and college expectations</li><li>Build study habits and time management skills</li><li>Choose a major and stick with it</li><li>Find early confidence and belonging</li></ul>
+                <p><em>A great fit if you remember the leap to college vividly and want to help someone land it.</em></p>
+              </div></details>
+            </article>
+            <article class="card">
+              <p class="badge">Junior &amp; senior years</p>
+              <h3>Career Coach</h3>
+              <p>Paired once scholars identify their career field. Helps them launch.</p>
+              <details class="more"><summary>See your role as a Career Coach</summary><div>
+                <p><strong>You'd help your scholar:</strong></p>
+                <ul class="checklist"><li>Unlock career pathways in their field</li><li>Prepare for internships and interviews</li><li>Build a real professional network</li><li>Land the first job after graduation</li></ul>
+                <p><em>A great fit if you're established in your field and love opening doors for others.</em></p>
+              </div></details>
+            </article>
+          </div>
+        </div>
+      </section>
 
-  <section class="chapter" id="real-stories" aria-labelledby="c6">
-    <div class="wrap">
-      <p class="chapter-num">06 · Real stories</p>
-      <h2 id="c6">Coaches like you.</h2>
-      <p class="lede">Our coaches are professionals from across Cincinnati. None of them are trained counselors. All of them show up.</p>
-      <div class="grid grid-3">
-        <article class="card"><p class="badge">Transition Coach</p><h3>Stephanie &amp; Tricia</h3><p>Tricia arrived as a shy freshman. With Stephanie's guidance she secured an internship her first year, started running races, and now confidently introduces herself to anyone.</p></article>
-        <article class="card"><p class="badge">Transition Coach</p><h3>Jordan &amp; Ndeye</h3><p>Jordan's consistent example empowered Ndeye to trust her own decisions. Their bond stretched beyond school to life skills, like learning to drive.</p></article>
-        <article class="card"><p class="badge">Career Coach</p><h3>Stuart &amp; Nick</h3><p>Nick dreamed of being an aerospace engineer. Stuart, a UC grad himself, helped him navigate the university, opened doors with career introductions, and guided his internship search. Nick graduated with a job at Williams International, building jet engines.</p></article>
-      </div>
-      <h3 style="margin-top:2.5rem">More voices from our coaching family</h3>
-      <ul class="people" style="grid-template-columns:repeat(auto-fill,minmax(15rem,1fr))">
-        {[['deck-jessica', 'So proud to be a mentor... They are run professionally and with so much heart.', 'Jessica K.', "Emily's Coach"], ['deck-stephanie', 'To watch the progress... was so fulfilling.', 'Stephanie L.', "Tricia's Coach"], ['deck-jose', 'I am very honored to be a part of this journey.', 'Jose A.', "Laron's Coach"]].map(([img, q, n, r]) => (
-          <li class="person"><Img src={img} alt={n} widths={[112, 224]} sizes="112px" /><blockquote style="margin:0"><p style="color:var(--navy);font-weight:700">“{q}”</p><footer><cite style="font-style:normal">{n}</cite>, {r}</footer></blockquote></li>
-        ))}
-      </ul>
-    </div>
-  </section>
+      <section class="slide s-navy" id="s6" tabindex="0" aria-roledescription="slide" aria-label="6 of 14: Real stories">
+        <div class="wrap">
+          <p class="eyebrow">Real stories</p>
+          <h2 class="slide-title">Coaches like you.</h2>
+          <p class="lede">Our coaches are professionals from across Cincinnati. None of them are trained counselors. All of them show up.</p>
+          <div class="grid grid-3">
+            <article class="card"><p class="badge">Transition Coach</p><h3>Stephanie &amp; Tricia</h3><p>Tricia arrived as a shy freshman. With Stephanie's guidance she secured an internship her first year, started running races, and now confidently introduces herself to anyone.</p></article>
+            <article class="card"><p class="badge">Transition Coach</p><h3>Jordan &amp; Ndeye</h3><p>Jordan's consistent example empowered Ndeye to trust her own decisions. Their bond stretched beyond school to life skills, like learning to drive.</p></article>
+            <article class="card"><p class="badge">Career Coach</p><h3>Stuart &amp; Nick</h3><p>Nick dreamed of being an aerospace engineer. Stuart, a UC grad himself, helped him navigate the university, opened doors with career introductions, and guided his internship search. Nick graduated with a job at Williams International, building jet engines.</p></article>
+          </div>
+          <p class="eyebrow" style="margin-top:1.5rem">More voices from our coaching family</p>
+          <ul class="voices">
+            {[['deck-jessica', 'So proud to be a mentor... They are run professionally and with so much heart.', 'Jessica K.', "Emily's Coach"], ['deck-stephanie', 'To watch the progress... was so fulfilling.', 'Stephanie L.', "Tricia's Coach"], ['deck-jose', 'I am very honored to be a part of this journey.', 'Jose A.', "Laron's Coach"]].map(([img, q, n, r]) => (
+              <li><Img src={img} alt={n} widths={[96, 192]} sizes="64px" /><blockquote><p>“{q}”</p><footer><cite>{n}</cite>, {r}</footer></blockquote></li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
-  <section class="chapter soft" id="student-spotlight" aria-labelledby="c7">
-    <div class="wrap">
-      <p class="chapter-num">07 · Student spotlight</p>
-      <h2 id="c7">From self-doubt to the NICU.</h2>
-      <div class="split" style="margin-top:1.5rem">
-        <ol class="story-steps">
-          <li><h3>Starting point</h3><p>Martha arrived at college quiet, unsure of herself, and struggling to find her place.</p></li>
-          <li><h3>The coaching</h3><p>Her coach Elena showed up consistently: listening, encouraging, and attending activities alongside her.</p></li>
-          <li><h3>The leap</h3><p>Martha stretched herself with an international internship, far from home, and grew into a leadership role there and in the Level Up program.</p></li>
-          <li><h3>The outcome</h3><p>Through Level Up's Launch Network she landed a NICU role at TriHealth. Today she speaks at events, mentors others, and is pursuing her master's in nursing.</p></li>
-        </ol>
-        <figure style="margin:0"><Img src="deck-martha-trihealth" alt="Martha at work at TriHealth" sizes={half} /><figcaption class="small muted">Martha at TriHealth</figcaption></figure>
-      </div>
-      <blockquote class="quote" style="margin-top:2rem;background:var(--navy)"><p style="color:var(--white)">“My coach helped me believe that I was capable of succeeding in college and life, even when I doubted myself. She encouraged me to apply for opportunities I wouldn't have gone for on my own.”</p><footer style="color:var(--coral-light)"><cite style="color:var(--white)">Martha</cite>, Level Up Scholar · Elevating Women 2025</footer></blockquote>
-    </div>
-  </section>
+      <section class="slide s-soft" id="s7" tabindex="0" aria-roledescription="slide" aria-label="7 of 14: Student spotlight">
+        <div class="wrap slide-split">
+          <div>
+            <p class="eyebrow">Student spotlight</p>
+            <h2 class="slide-title">From self-doubt to the NICU.</h2>
+            <ol class="story-steps">
+              <li><h3>Starting point</h3><p>Martha arrived at college quiet, unsure of herself, and struggling to find her place.</p></li>
+              <li><h3>The coaching</h3><p>Her coach Elena showed up consistently: listening, encouraging, and attending activities alongside her.</p></li>
+              <li><h3>The leap</h3><p>Martha stretched herself with an international internship, far from home, and grew into a leadership role there and in the Level Up program.</p></li>
+              <li><h3>The outcome</h3><p>Through Level Up's Launch Network she landed a NICU role at TriHealth. Today she speaks at events, mentors others, and is pursuing her master's in nursing.</p></li>
+            </ol>
+          </div>
+          <div>
+            <figure class="slide-photo" style="margin:0"><Img src="deck-martha-trihealth" alt="Martha at work at TriHealth" sizes="(min-width: 56rem) 34rem, calc(100vw - 2rem)" /><figcaption>Martha at TriHealth</figcaption></figure>
+            <blockquote class="quote quote-navy"><p>“My coach helped me believe that I was capable of succeeding in college and life, even when I doubted myself. She encouraged me to apply for opportunities I wouldn't have gone for on my own.”</p><footer><cite>Martha</cite>, Level Up Scholar · Elevating Women 2025</footer></blockquote>
+          </div>
+        </div>
+      </section>
 
-  <section class="chapter on-navy" id="the-experience" aria-labelledby="c8">
-    <div class="wrap">
-      <p class="chapter-num">08 · The experience</p>
-      <h2 id="c8">A real relationship. Not homework.</h2>
-      <p class="lede">People assume coaching demands more time than they have. Here's what it actually looks like.</p>
-      <ol class="steps grid grid-3" style="margin-top:2rem">
-        <li><h3>Commit two years, minimum</h3><p style="color:var(--blue-gray)">A meaningful relationship takes time. You'll walk alongside your scholar through two critical years, and many coaches choose to stick around well beyond that.</p></li>
-        <li><h3>Connect weekly</h3><p style="color:var(--blue-gray)">A quick text, a phone call, a coffee. Consistent contact matters more than long sessions. Just show up for your scholar.</p></li>
-        <li><h3>Meet monthly</h3><p style="color:var(--blue-gray)">At least once a month, connect in person. Share a meal, attend an event together, or simply sit and talk.</p></li>
-      </ol>
-      <p class="lede" style="margin-top:1.5rem"><strong style="color:var(--white)">All in? About two hours a month.</strong> That's the whole footprint.</p>
-    </div>
-  </section>
+      <section class="slide s-navy" id="s8" tabindex="0" aria-roledescription="slide" aria-label="8 of 14: The experience">
+        <div class="wrap">
+          <p class="eyebrow">The experience</p>
+          <h2 class="slide-title">A real relationship. Not homework.</h2>
+          <p class="lede">People assume coaching demands more time than they have. Here's what it actually looks like.</p>
+          <ol class="steps grid grid-3" style="margin-top:1.5rem">
+            <li><h3>Commit two years, minimum</h3><p>A meaningful relationship takes time. You'll walk alongside your scholar through two critical years, and many coaches choose to stick around well beyond that.</p></li>
+            <li><h3>Connect weekly</h3><p>A quick text, a phone call, a coffee. Consistent contact matters more than long sessions. Just show up for your scholar.</p></li>
+            <li><h3>Meet monthly</h3><p>At least once a month, connect in person. Share a meal, attend an event together, or simply sit and talk.</p></li>
+          </ol>
+          <p class="slide-callout">All in? <strong>About two hours a month.</strong> That's the whole footprint.</p>
+        </div>
+      </section>
 
-  <section class="chapter" id="your-year" aria-labelledby="c9">
-    <div class="wrap">
-      <p class="chapter-num">09 · Your year</p>
-      <h2 id="c9">Four anchor experiences.</h2>
-      <p class="lede">We run the calendar. You bring the relationship. Every event is planned, organized, and hosted by Level Up.</p>
-      <div class="grid grid-4">
-        <article class="card"><div class="card-media"><Img src="deck-event-matchday" alt="Match Day celebration" sizes={card} /></div><p class="badge">Summer</p><h3>Coach Orientation &amp; Match Day</h3><p>Get trained, meet your scholar, and kick off the relationship at our signature Match Day celebration.</p></article>
-        <article class="card"><div class="card-media"><Img src="deck-event-pd" alt="Professional Development Day" sizes={card} /></div><p class="badge">Fall</p><h3>Professional Development Day</h3><p>A full-day workshop with your scholar: interview prep, LinkedIn, elevator pitches, and career skills.</p></article>
-        <article class="card"><div class="card-media"><Img src="deck-event-finance" alt="Finance Dinner" sizes={card} /></div><p class="badge">Winter</p><h3>Finance Dinner</h3><p>A relational dinner built around practical money conversations with professionals. Real talk, not lectures.</p></article>
-        <article class="card"><div class="card-media"><Img src="deck-event-network" alt="Level Up Your Network event" sizes={card} /></div><p class="badge">Spring</p><h3>Level Up Your Network</h3><p>Our flagship networking event. Scholars call it the most impactful event of the year.</p></article>
-      </div>
-      <p style="margin-top:1.5rem"><a class="text-link arrow" href="/your-year-as-a-coach">See the full year, month by month</a></p>
-    </div>
-  </section>
+      <section class="slide" id="s9" tabindex="0" aria-roledescription="slide" aria-label="9 of 14: Your year">
+        <div class="wrap">
+          <p class="eyebrow">Your year</p>
+          <h2 class="slide-title">Four anchor experiences.</h2>
+          <p class="lede">We run the calendar. You bring the relationship. Every event is planned, organized, and hosted by Level Up.</p>
+          <div class="grid grid-4">
+            <article class="card"><div class="card-media"><Img src="deck-event-matchday" alt="Match Day celebration" sizes={card} /></div><p class="badge">Summer</p><h3>Coach Orientation &amp; Match Day</h3><p>Get trained, meet your scholar, and kick off the relationship at our signature Match Day celebration.</p></article>
+            <article class="card"><div class="card-media"><Img src="deck-event-pd" alt="Professional Development Day" sizes={card} /></div><p class="badge">Fall</p><h3>Professional Development Day</h3><p>A full-day workshop with your scholar: interview prep, LinkedIn, elevator pitches, and career skills.</p></article>
+            <article class="card"><div class="card-media"><Img src="deck-event-finance" alt="Finance Dinner" sizes={card} /></div><p class="badge">Winter</p><h3>Finance Dinner</h3><p>A relational dinner built around practical money conversations with professionals. Real talk, not lectures.</p></article>
+            <article class="card"><div class="card-media"><Img src="deck-event-network" alt="Level Up Your Network event" sizes={card} /></div><p class="badge">Spring</p><h3>Level Up Your Network</h3><p>Our flagship networking event. Scholars call it the most impactful event of the year.</p></article>
+          </div>
+        </div>
+      </section>
 
-  <section class="chapter soft" id="your-support" aria-labelledby="c10">
-    <div class="wrap">
-      <p class="chapter-num">10 · Your support</p>
-      <h2 id="c10">We don't just pair you and disappear.</h2>
-      <p class="lede">You don't need special training. You just need to care. We handle the rest. Open any card to see what that looks like.</p>
-      <div class="grid grid-2">
-        <article class="card">
-          <span class="ic-circle"><Icon name="student" /></span>
-          <h3>Coach Orientation</h3><p>A full orientation before you ever meet your scholar.</p>
-          <details class="more"><summary>See what's covered</summary><div>
-            <p>Before you meet your scholar, you'll attend a full orientation led by our Director of Student Success and Executive Director. You'll walk out knowing exactly how to start strong.</p>
-            <ul class="checklist"><li>The coaching mindset: it's a relationship, not a checklist</li><li>Boundaries: what's your lane, and what's ours</li><li>What success looks like across the first year</li><li>A walkthrough of the Level Up App and your resources</li><li>Real scenarios from real coach-scholar pairs</li></ul>
-          </div></details>
-        </article>
-        <article class="card">
-          <span class="ic-circle"><Icon name="calendar" /></span>
-          <h3>The Coaching Compass</h3><p>A monthly newsletter so you never wonder "what do I talk about?"</p>
-          <details class="more"><summary>See an issue of the Coaching Compass</summary><div>
-            <p>Our monthly coach newsletter. Conversation starters, upcoming events, and one good read, so you always have something to talk about with your scholar.</p>
-            <div class="mock">
-              <p><strong>The Coaching Compass</strong><br /><span class="muted">Your monthly guide to coaching at Level Up</span></p>
-              <p><strong>This month's conversation starter</strong><br />“What's one thing this semester that turned out easier than you expected?”</p>
-              <p><strong>Coming up</strong><br />Professional Development Day · Finance Dinner RSVP opens</p>
-              <p style="margin:0"><strong>One good read</strong><br />A five-minute article on making first impressions count.</p>
-            </div>
-          </div></details>
-        </article>
-        <article class="card">
-          <span class="ic-circle"><Icon name="coach" /></span>
-          <h3>A Coach Community</h3><p>You'll join 30+ coaches who share insights and support each other.</p>
-          <details class="more"><summary>Meet the coach community</summary><div>
-            <p>You'll join a growing network of 30+ Cincinnati professionals who coach alongside you.</p>
-            <ul class="checklist"><li>Quarterly coach happy hours to swap notes and share wins</li><li>New coaches paired with experienced coaches for best practices</li><li>Group events where coaches and scholars mix</li><li>Our team checks in with you monthly, by text or call</li></ul>
-            <p>If something isn't working, you flag it and we step in. Supporting the coach is how we support the scholar.</p>
-          </div></details>
-        </article>
-        <article class="card">
-          <span class="ic-circle"><Icon name="launch" /></span>
-          <h3>The Level Up App</h3><p>Resources, events, and check-ins, right in your pocket.</p>
-          <details class="more"><summary>Take a peek at the app</summary><div>
-            <p>Everything you need lives in one place: monthly conversation topics, mentoring resources, event RSVPs, and quick check-ins that keep our team in the loop.</p>
-            <ul class="checklist mock" style="padding-left:2.75rem"><li>This month's discussion topic</li><li>RSVP: Professional Development Day</li><li>Log a check-in with your scholar</li><li>Mentoring resource library</li></ul>
-          </div></details>
-        </article>
-      </div>
-    </div>
-  </section>
+      <section class="slide s-soft" id="s10" tabindex="0" aria-roledescription="slide" aria-label="10 of 14: Your support">
+        <div class="wrap">
+          <p class="eyebrow">Your support</p>
+          <h2 class="slide-title">We don't just pair you and disappear.</h2>
+          <p class="lede">You don't need special training. You just need to care. We handle the rest. Open any card to see what that looks like.</p>
+          <div class="grid grid-4">
+            <article class="card">
+              <span class="ic-circle"><Icon name="student" /></span>
+              <h3>Coach Orientation</h3><p>A full orientation before you ever meet your scholar.</p>
+              <details class="more"><summary>See what's covered</summary><div>
+                <p>Before you meet your scholar, you'll attend a full orientation led by our Director of Student Success and Executive Director. You'll walk out knowing exactly how to start strong.</p>
+                <ul class="checklist"><li>The coaching mindset: it's a relationship, not a checklist</li><li>Boundaries: what's your lane, and what's ours</li><li>What success looks like across the first year</li><li>A walkthrough of the Level Up App and your resources</li><li>Real scenarios from real coach-scholar pairs</li></ul>
+              </div></details>
+            </article>
+            <article class="card">
+              <span class="ic-circle"><Icon name="calendar" /></span>
+              <h3>The Coaching Compass</h3><p>A monthly newsletter so you never wonder "what do I talk about?"</p>
+              <details class="more"><summary>See an issue</summary><div>
+                <p>Our monthly coach newsletter. Conversation starters, upcoming events, and one good read, so you always have something to talk about with your scholar.</p>
+                <div class="mock">
+                  <p><strong>The Coaching Compass</strong><br /><span class="muted">Your monthly guide to coaching at Level Up</span></p>
+                  <p><strong>This month's conversation starter</strong><br />“What's one thing this semester that turned out easier than you expected?”</p>
+                  <p><strong>Coming up</strong><br />Professional Development Day · Finance Dinner RSVP opens</p>
+                  <p style="margin:0"><strong>One good read</strong><br />A five-minute article on making first impressions count.</p>
+                </div>
+              </div></details>
+            </article>
+            <article class="card">
+              <span class="ic-circle"><Icon name="coach" /></span>
+              <h3>A Coach Community</h3><p>You'll join 30+ coaches who share insights and support each other.</p>
+              <details class="more"><summary>Meet the community</summary><div>
+                <p>You'll join a growing network of 30+ Cincinnati professionals who coach alongside you.</p>
+                <ul class="checklist"><li>Quarterly coach happy hours to swap notes and share wins</li><li>New coaches paired with experienced coaches for best practices</li><li>Group events where coaches and scholars mix</li><li>Our team checks in with you monthly, by text or call</li></ul>
+                <p>If something isn't working, you flag it and we step in. Supporting the coach is how we support the scholar.</p>
+              </div></details>
+            </article>
+            <article class="card">
+              <span class="ic-circle"><Icon name="launch" /></span>
+              <h3>The Level Up App</h3><p>Resources, events, and check-ins, right in your pocket.</p>
+              <details class="more"><summary>Take a peek</summary><div>
+                <p>Everything you need lives in one place: monthly conversation topics, mentoring resources, event RSVPs, and quick check-ins that keep our team in the loop.</p>
+                <ul class="checklist mock" style="padding-left:2.75rem"><li>This month's discussion topic</li><li>RSVP: Professional Development Day</li><li>Log a check-in with your scholar</li><li>Mentoring resource library</li></ul>
+              </div></details>
+            </article>
+          </div>
+        </div>
+      </section>
 
-  <section class="chapter on-navy" id="the-results" aria-labelledby="c11">
-    <div class="wrap split">
-      <div>
-        <p class="chapter-num">11 · The results</p>
-        <h2 id="c11">Our scholars are thriving.</h2>
-        <p class="lede">This is what support changes. Every number below belongs to a real student beating the odds you saw earlier.</p>
-        <dl class="stats" style="grid-template-columns:repeat(2,minmax(0,1fr))">
-          <div><dt>average cumulative GPA</dt><dd>3.31</dd></div>
-          <div><dt>jobs &amp; internships aligned to major</dt><dd>89%+</dd></div>
-          <div><dt>Dean's List rate</dt><dd>48%</dd></div>
-          <div><dt>average scholar rating: “I feel supported by Level Up” (out of 5)</dt><dd>4.92</dd></div>
-          <div><dt>good academic standing</dt><dd>95%</dd></div>
-          <div><dt>average scholar rating: “My coach supports my needs” (out of 5)</dt><dd>4.81</dd></div>
-        </dl>
-        <p class="source">2025 Impact Report &amp; annual scholar surveys · <a href="/impact">Read the Impact Report</a></p>
-      </div>
-      <figure style="margin:0"><Img src="deck-graduate" alt="Nate Dunn, 2026 Level Up graduate" sizes={half} /><figcaption class="small" style="color:var(--blue-gray)">Nate Dunn, 2026 Level Up graduate</figcaption></figure>
-    </div>
-  </section>
+      <section class="slide s-navy" id="s11" tabindex="0" aria-roledescription="slide" aria-label="11 of 14: The results">
+        <div class="wrap slide-split">
+          <div>
+            <p class="eyebrow">The results</p>
+            <h2 class="slide-title">Our scholars are thriving.</h2>
+            <p class="lede">This is what support changes. Every number below belongs to a real student beating the odds you saw earlier.</p>
+            <dl class="tile-stats compact three">
+              <div><dt>average cumulative GPA</dt><dd>3.33</dd></div>
+              <div><dt>jobs &amp; internships aligned to major</dt><dd>90%+</dd></div>
+              <div><dt>Dean's List rate</dt><dd>48%</dd></div>
+              <div><dt>“I feel supported by Level Up” (avg. of 5 stars)</dt><dd>4.95</dd></div>
+              <div><dt>good academic standing</dt><dd>96%</dd></div>
+              <div><dt>“My coach supports my needs” (avg. of 5 stars)</dt><dd>4.84</dd></div>
+            </dl>
+            <p class="source">2025 Impact Report &amp; annual scholar surveys · <a href="/impact">Read the Impact Report</a></p>
+          </div>
+          <figure class="slide-photo tall" style="margin:0"><Img src="deck-graduate" alt="Nate Dunn, 2026 Level Up graduate" sizes="(min-width: 56rem) 28rem, calc(100vw - 2rem)" /><figcaption>Nate Dunn · 2026 Level Up graduate</figcaption></figure>
+        </div>
+      </section>
 
-  <section class="chapter" id="who-we-want" aria-labelledby="c12">
-    <div class="wrap">
-      <p class="chapter-num">12 · Who we're looking for</p>
-      <h2 id="c12">Could this be you?</h2>
-      <div class="grid grid-2" style="margin-top:1.5rem">
-        <article class="card"><h3>What you need</h3><ul class="checklist"><li>College graduate with 2+ years of professional experience</li><li>Willing to commit to a two-year coaching relationship</li><li>Pass a standard background check</li><li>A strong listener who shows up consistently</li></ul></article>
-        <article class="card"><h3>Bonus points</h3><ul class="checklist"><li>First-generation college graduate yourself</li><li>Experience in your scholar's field of interest</li><li>Previous mentoring or coaching background</li><li>Connections to Cincinnati's professional community</li></ul></article>
-      </div>
-      <p class="lede" style="margin-top:1.5rem">If you read that list and thought “that's me,” it probably is.</p>
-    </div>
-  </section>
+      <section class="slide" id="s12" tabindex="0" aria-roledescription="slide" aria-label="12 of 14: Who we're looking for">
+        <div class="wrap">
+          <p class="eyebrow">Who we're looking for</p>
+          <h2 class="slide-title">Could this be you?</h2>
+          <div class="grid grid-2" style="margin-top:1rem">
+            <article class="card"><h3>What you need</h3><ul class="checklist"><li>College graduate with 2+ years of professional experience</li><li>Willing to commit to a two-year coaching relationship</li><li>Pass a standard background check</li><li>A strong listener who shows up consistently</li></ul></article>
+            <article class="card"><h3>Bonus points</h3><ul class="checklist"><li>First-generation college graduate yourself</li><li>Experience in your scholar's field of interest</li><li>Previous mentoring or coaching background</li><li>Connections to Cincinnati's professional community</li></ul></article>
+          </div>
+          <p class="slide-callout dark">If you read that list and thought “that's me,” it probably is.</p>
+        </div>
+      </section>
 
-  <section class="chapter skyline-cta on-navy" id="the-ask" aria-labelledby="c13">
-    <div class="bg"><Img src="cincinnati-skyline" alt="" sizes="100vw" widths={[640, 1024, 1600]} /></div>
-    <div class="wrap split">
-      <div>
-        <p class="chapter-num">13 · The ask</p>
-        <h2 id="c13">Ready to change the odds?</h2>
-        <p class="lede">New coaches join every summer, and the next class of scholars is already on the way. A few hours a month can reshape someone's trajectory.</p>
-        <div class="btn-row"><a class="btn btn-coral btn-arrow" href="/become-a-coach#apply">Apply to Be a Coach</a></div>
-        <h3 style="margin-top:2rem">What questions do you have?</h3>
-        <p>Reach out anytime: <a href={`mailto:${site.email}`}>{site.email}</a> · <a href={`tel:+1${site.phone.replace(/-/g, '')}`}>{site.phone}</a></p>
-      </div>
-      <figure style="margin:0;justify-self:center;text-align:center">
-        <div style="background:var(--white);padding:1rem;border-radius:1rem;width:12rem"><Img src="deck-qr" alt="QR code to apply at levelupcincinnati.org/become-a-coach" widths={[192, 384]} sizes="160px" /></div>
-        <figcaption style="margin-top:.5rem">Scan to apply</figcaption>
-      </figure>
+      <section class="slide s-navy" id="s13" tabindex="0" aria-roledescription="slide" aria-label="13 of 14: The ask">
+        <div class="wrap slide-split">
+          <div>
+            <p class="eyebrow">The ask</p>
+            <h2 class="slide-title">Ready to change the odds?</h2>
+            <p class="lede">New coaches join every summer, and the next class of scholars is already on the way. A few hours a month can reshape someone's trajectory.</p>
+            <div class="btn-row"><a class="btn btn-coral btn-arrow" href="/become-a-coach#apply">Apply to Be a Coach</a></div>
+            <p style="margin-top:1.25rem">levelupcincinnati.org/become-a-coach</p>
+            <p>Questions? Reach out anytime.<br /><a href={`mailto:${site.email}`}>{site.email}</a> · <a href={`tel:+1${site.phone.replace(/-/g, '')}`}>{site.phone}</a></p>
+          </div>
+          <figure class="qr"><Img src="deck-qr" alt="QR code to apply at levelupcincinnati.org/become-a-coach" widths={[192, 384]} sizes="176px" /><figcaption>Scan to apply</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="slide s-navy s-end" id="s14" tabindex="0" aria-roledescription="slide" aria-label="14 of 14: Questions">
+        <div class="wrap center">
+          <img src="/logo-white.svg" width="220" height="105" alt="Level Up Cincinnati" loading="lazy" style="margin:0 auto 1.5rem" />
+          <h2 class="slide-title">What questions do you have?</h2>
+          <p class="lede">Bridging Opportunity for First-Generation Scholars</p>
+          <p><a href="/">levelupcincinnati.org</a> · <a href={`mailto:${site.email}`}>{site.email}</a> · <a href={`tel:+1${site.phone.replace(/-/g, '')}`}>{site.phone}</a></p>
+          <div class="btn-row" style="justify-content:center;margin-top:1rem"><a class="btn btn-coral btn-arrow" href="/become-a-coach#apply">Apply to Be a Coach</a><a class="btn btn-outline" href="#s1">Start over</a></div>
+        </div>
+      </section>
     </div>
-  </section>
+
+    <div class="deck-bar">
+      <div class="deck-dots" aria-hidden="true">{Array.from({ length: total }, (_, i) => <span class:list={{ on: i === 0 }}></span>)}</div>
+      <p class="deck-count" aria-live="polite"><span id="deck-n">1</span> / {total}</p>
+      <button class="deck-btn" id="deck-prev" type="button" aria-label="Previous slide"><Icon name="arrow" /></button>
+      <button class="deck-btn" id="deck-next" type="button" aria-label="Next slide"><Icon name="arrow" /></button>
+    </div>
+  </div>
+
+  <script is:inline>
+    (()=>{const d=document.getElementById('deck'),S=[...d.children],n=S.length,c=document.getElementById('deck-n'),D=[...document.querySelectorAll('.deck-dots span')],rm=matchMedia('(prefers-reduced-motion: reduce)').matches;let i=0;
+    document.documentElement.classList.add('deck-js');
+    const set=k=>{if(k===i&&S[k].classList.contains('is-active'))return;i=k;S.forEach((s,j)=>s.classList.toggle('is-active',j===i));D.forEach((a,j)=>a.classList.toggle('on',j<=i));c.textContent=i+1;history.replaceState(null,'','#s'+(i+1))};
+    const go=k=>{k=Math.max(0,Math.min(n-1,k));d.scrollTo({left:S[k].offsetLeft,behavior:rm?'auto':'smooth'})};
+    document.getElementById('deck-prev').onclick=()=>go(i-1);document.getElementById('deck-next').onclick=()=>go(i+1);
+    addEventListener('keydown',e=>{if(e.altKey||e.metaKey||e.ctrlKey||e.target.closest('input,textarea,select'))return;const f={ArrowRight:1,PageDown:1,ArrowLeft:-1,PageUp:-1}[e.key];if(f){e.preventDefault();go(i+f)}});
+    const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&set(S.indexOf(e.target))),{root:d,threshold:.55});S.forEach(s=>io.observe(s));
+    const h=+location.hash.replace('#s','');if(h>1&&h<=n)d.scrollLeft=S[h-1].offsetLeft})();
+  </script>
 </Base>

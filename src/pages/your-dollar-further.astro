@@ -22,23 +22,24 @@ const wins = [
   image="ai-sarah-grad"
   crumbs={[{ name: 'Your Dollar, Further', path: '/your-dollar-further' }]}
 >
-  <section class="hero on-navy">
-    <div class="wrap hero-grid">
-      <div>
-        <p class="eyebrow">Your dollar, further</p>
-        <h1>We're obsessive about efficiency.</h1>
-        <p class="lede">It's how a 1.5-person team stewards every dollar. See how we use AI to make sure your gift reaches our students, not our overhead.</p>
-        <div class="btn-row"><a class="btn btn-coral btn-arrow" href="https://jimrodarte.substack.com/p/this-isnt-a-tech-story" rel="noopener">Start with the series opener</a><a class="btn btn-outline" href="#proof">See where the value comes from</a></div>
-      </div>
-      <div class="hero-media"><Img src="ai-sarah-grad" alt="Sarah at her University of Cincinnati graduation" priority sizes="(min-width: 56rem) 34rem, calc(100vw - 2rem)" widths={[360, 480, 640, 800, 1080]} /></div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="value">
+  <section class="section ydf-hero">
     <div class="wrap">
-      <header class="head-center"><p class="eyebrow">Value created with AI to date</p><h2 id="value">$180K+ in value, and growing.</h2><p class="lede">Plus about $69,000 a year in ongoing work AI now handles. Every dollar redirected to scholars.</p></header>
-      <ul class="value-grid">{values.map(([k, v]) => <li><span>{k}</span><b>{v}</b></li>)}<li><span>+ 32 more use cases</span><b>…</b></li></ul>
-      <dl class="stats" style="margin-top:2.5rem">
+      <div class="ydf-grid">
+        <div>
+          <p class="pill">Your dollar, further</p>
+          <h1 class="ydf-title">We're obsessive about <span class="mark">efficiency.</span></h1>
+          <p class="lede">It's how a 1.5-person team stewards every dollar. See how we use AI to make sure your gift reaches our students, not our overhead.</p>
+          <p><a class="text-link arrow" href="https://jimrodarte.substack.com/p/this-isnt-a-tech-story" rel="noopener">Start with the series opener</a></p>
+        </div>
+        <aside class="receipt" aria-labelledby="receipt-h">
+          <p class="receipt-head"><span id="receipt-h">Value created with AI</span><span>To date</span></p>
+          <ul>{values.map(([k, v]) => <li><span>{k}</span><b>{v}</b></li>)}<li class="more-cases"><span>+ 32 more use cases</span><b>…</b></li></ul>
+          <p class="receipt-total"><span>Value created</span><strong>$180K+</strong></p>
+          <p class="receipt-sub"><span>Ongoing, per year</span><b>~$69K</b></p>
+          <p class="receipt-note">And growing. Every dollar redirected to scholars.</p>
+        </aside>
+      </div>
+      <dl class="ydf-tiles">
         <div><dt>raised in 2025</dt><dd>$630K+</dd></div>
         <div><dt>full-time staff</dt><dd>1.5</dd></div>
         <div><dt>AI use cases</dt><dd>40</dd></div>
@@ -51,7 +52,7 @@ const wins = [
     <div class="wrap split">
       <div>
         <p class="eyebrow">The point</p>
-        <h2 id="point">Every dollar we don't spend on overhead is a dollar that supports a scholar.</h2>
+        <h2 id="point">Every dollar we don't spend on overhead is a dollar that supports a <span style="color:var(--coral)">scholar</span>.</h2>
         <p class="lede">Efficiency is the means. Students are the point. Here's what your support produces.</p>
         <dl class="stats" style="grid-template-columns:repeat(2,minmax(0,1fr))">
           <div><dt>scholar retention</dt><dd>90%+</dd></div>
@@ -68,18 +69,19 @@ const wins = [
   <section class="section soft" id="proof" aria-labelledby="proof-h">
     <div class="wrap">
       <header class="head-center"><p class="eyebrow">The proof</p><h2 id="proof-h">Where the value comes from.</h2><p class="lede">Catch the high level, or open any one to read more. Each links to the full story on Substack.</p></header>
-      <div class="grid" style="gap:1.25rem">
+      <div class="ledger-list">
         {wins.map(w => (
-          <article class="card win">
-            <Img src={w.img} alt={w.alt} widths={[224, 448]} sizes="14rem" />
-            <div>
-              <p class="kicker">{w.kicker}</p>
-              <p class="amount">{w.amt}</p>
-              <h3>{w.title}</h3>
-              <p>{w.lead}</p>
-              <details class="more"><summary>Read more: {w.title.replace(/\.$/, '')}</summary><div>{w.body.map(b => <p>{b}</p>)}<p class="badge">{w.tag}</p><p><a class="text-link arrow" href={w.url} rel="noopener">Continue reading on Substack</a></p></div></details>
+          <details class="ledger">
+            <summary>
+              <span class="ledger-amt"><b>{w.amt}</b><span>{w.kicker}</span></span>
+              <span class="ledger-main"><strong>{w.title}</strong><span>{w.lead}</span></span>
+              <span class="ledger-more">Read more</span>
+            </summary>
+            <div class="ledger-body">
+              <div>{w.body.map(b => <p>{b}</p>)}<p><a class="text-link arrow" href={w.url} rel="noopener">Continue reading on Substack</a></p></div>
+              <figure><Img src={w.img} alt={w.alt} widths={[224, 448]} sizes="14rem" /><figcaption>{w.tag}</figcaption></figure>
             </div>
-          </article>
+          </details>
         ))}
       </div>
       <p class="center" style="margin-top:2rem">These eight are the headline. Another 32 use cases add up underneath them.</p>
@@ -88,16 +90,18 @@ const wins = [
 
   <section class="section" aria-labelledby="built">
     <div class="wrap narrow">
-      <p class="eyebrow">What we've built so far</p>
-      <h2 id="built">$180K+ in value created with AI, and growing.</h2>
-      <p class="lede">Plus about $69,000 a year in work AI now handles.</p>
+      <div class="coral-card">
+        <p class="eyebrow">What we've built so far</p>
+        <h2 id="built"><span class="coral-big">$180K+</span> in value created with AI, and growing.</h2>
+        <p>Plus about $69,000 a year in work AI now handles.</p>
+      </div>
       <details class="more"><summary>How we estimate these numbers</summary><div>
         <p>These are conservative estimates of what this work would cost at 2026 market rates. Most is capability we created with AI, not cash we would have spent. Some, like the $15,000 grant-writing consultant we let go, is money we redirected straight to students.</p>
         <p>A note on the numbers: outside of confirmed cash savings, like the $15,000 a year we no longer spend on grant writing, the dollar figures on this page are good-faith estimates of what this work would cost at market rates, calculated with help from the same AI we use to run the organization. Careful napkin math, shared transparently.</p>
       </div></details>
       <div style="margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:1.5rem;align-items:flex-start">
         <Img src="ai-jim" alt="Jim Rodarte, Executive Director of Level Up Cincinnati" widths={[160, 320]} sizes="160px" class="avatar-lg" />
-        <blockquote class="quote" style="margin:0;flex:1 1 18rem"><p>“I'm not a developer. I'm a nonprofit director who got a little obsessive about making our budget go further. Everything on this page, I built with AI so more of every dollar reaches our scholars instead of our overhead. If you're thinking about supporting Level Up, I'd genuinely welcome a conversation.”</p><footer><cite>Jim Rodarte</cite>, Executive Director &amp; Co-Founder, Level Up Cincinnati</footer></blockquote>
+        <blockquote class="quote quote-navy" style="margin:0;flex:1 1 18rem"><p>“I'm not a developer. I'm a nonprofit director who got a little obsessive about making our budget go further. Everything on this page, I built with AI so more of every dollar reaches our scholars instead of our overhead. If you're thinking about supporting Level Up, I'd genuinely welcome a conversation.”</p><footer><cite>Jim Rodarte</cite>, Executive Director &amp; Co-Founder, Level Up Cincinnati</footer></blockquote>
       </div>
     </div>
   </section>
