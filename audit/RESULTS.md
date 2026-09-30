@@ -14,11 +14,11 @@
 | Accessibility | 92 | 92 | **100** |
 | Best Practices | 96 | 73 | **100** |
 | SEO | 100 | 100 | **100** |
-| Largest Contentful Paint | 15.8 s | 17.2 s | **1.44s** |
-| First Contentful Paint | 3.9 s | 5.7 s | **0.84s** |
+| Largest Contentful Paint | 15.8 s | 17.2 s | **1.43s** |
+| First Contentful Paint | 3.9 s | 5.7 s | **0.81s** |
 | Total Blocking Time | 810 ms | 240 ms | **0 ms** |
 | Cumulative Layout Shift | 0 | 0 | **0** |
-| Page weight | 4,003 KiB | 3,971 KiB | **92 KiB** |
+| Page weight | 4,003 KiB | 3,971 KiB | **94 KiB** |
 | Requests | — | 85 | **7** |
 | JavaScript files | 39 scripts | 32 scripts | **0 files** (two ~1 KB inline scripts: menu, and scroll animations) |
 
@@ -33,35 +33,41 @@
 
 | Page | Mobile P / A / BP / SEO | Mobile LCP | Mobile weight | Desktop P / A / BP / SEO | Desktop LCP |
 |---|---|---|---|---|---|
-| `/` | 100 / 100 / 100 / 100 | 1.44s | 92 KiB | 100 / 100 / 100 / 100 | 0.38s |
-| `/our-vision` | 100 / 100 / 100 / 100 | 1.06s | 197 KiB | 100 / 100 / 100 / 100 | 0.29s |
-| `/our-team` | 100 / 100 / 100 / 100 | 0.92s | 127 KiB | 100 / 100 / 100 / 100 | 0.26s |
-| `/become-a-coach` | 100 / 100 / 100 / 100 | 1.29s | 89 KiB | 100 / 100 / 100 / 100 | 0.32s |
-| `/your-year-as-a-coach` | 100 / 100 / 100 / 100 | 0.91s | 26 KiB | 100 / 100 / 100 / 100 | 0.24s |
-| `/our-partners` | 100 / 100 / 100 / 100 | 0.91s | 25 KiB | 100 / 100 / 100 / 100 | 0.25s |
-| `/join-the-network` | 100 / 100 / 100 / 100 | 1.14s | 81 KiB | 100 / 100 / 100 / 100 | 0.27s |
-| `/students` | 100 / 100 / 100 / 100 | 1.36s | 80 KiB | 100 / 100 / 100 / 100 | 0.32s |
-| `/events` | 100 / 100 / 100 / 100 | 0.91s | 25 KiB | 100 / 100 / 100 / 100 | 0.25s |
-| `/aiming-for-opportunity` | 100 / 100 / 100 / 100 | 1.36s | 172 KiB | 100 / 100 / 100 / 100 | 0.36s |
-| `/aiming-for-opportunity/what-to-expect` | 100 / 100 / 100 / 100 | 1.43s | 91 KiB | 100 / 100 / 100 / 100 | 0.31s |
-| `/urban-bourbon` | 100 / 100 / 100 / 100 | 1.36s | 114 KiB | 100 / 100 / 100 / 100 | 0.31s |
-| `/herizon-series` | 100 / 100 / 100 / 100 | 1.21s | 44 KiB | 100 / 100 / 100 / 100 | 0.30s |
-| `/elevating-women` | 100 / 100 / 100 / 100 | 1.74s | 155 KiB | 100 / 100 / 100 / 100 | 0.37s |
-| `/donate` | 100 / 100 / 100 / 100 | 0.91s | 34 KiB | 100 / 100 / 100 / 100 | 0.25s |
-| `/coaches` | 100 / 100 / 100 / 100 | 0.92s | 98 KiB | 100 / 100 / 100 / 100 | 0.26s |
-| `/coaches/jena-mcclanahan` | 100 / 100 / 100 / 100 | 0.91s | 61 KiB | 100 / 100 / 100 / 100 | 0.25s |
-| `/scholars` | 100 / 100 / 100 / 100 | 0.91s | 67 KiB | 100 / 100 / 100 / 100 | 0.25s |
-| `/scholars/ndeye-wade` | 100 / 100 / 100 / 100 | 0.91s | 61 KiB | 100 / 100 / 100 / 100 | 0.25s |
-| `/privacy-policy` | 100 / 100 / 100 / 100 | 1.06s | 29 KiB | 100 / 100 / 100 / 100 | 0.29s |
-| `/terms-of-use` | 100 / 100 / 100 / 100 | 1.06s | 32 KiB | 100 / 100 / 100 / 100 | 0.29s |
-| `/thanks` | 100 / 100 / 100 / 69 | 0.91s | 55 KiB | 100 / 100 / 100 / 69 | 0.25s |
-| `/404` | 100 / 100 / 100 / 100 | 0.91s | 64 KiB | 100 / 100 / 100 / 100 | 0.25s |
+| `/` | 100 / 100 / 100 / 100 | 1.43s | 94 KiB | 100 / 100 / 100 / 100 | 0.38s |
+| `/our-vision` | 100 / 100 / 100 / 100 | 1.06s | 198 KiB | 100 / 100 / 100 / 100 | 0.30s |
+| `/our-team` | 100 / 100 / 100 / 100 | 0.92s | 128 KiB | 100 / 100 / 100 / 100 | 0.26s |
+| `/become-a-coach` | 100 / 100 / 100 / 100 | 1.29s | 90 KiB | 100 / 100 / 100 / 100 | 0.32s |
+| `/coaching-in-5-minutes` | 100 / 100 / 100 / 100 | 1.36s | 91 KiB | 100 / 100 / 100 / 100 | 0.33s |
+| `/your-year-as-a-coach` | 100 / 100 / 100 / 100 | 1.05s | 27 KiB | 100 / 100 / 100 / 100 | 0.28s |
+| `/volunteer` | 100 / 100 / 100 / 100 | 1.21s | 42 KiB | 100 / 100 / 100 / 100 | 0.29s |
+| `/volunteer/pd-day-2026` | 100 / 100 / 100 / 100 | 0.90s | 26 KiB | 100 / 100 / 100 / 100 | 0.25s |
+| `/volunteer/pool` | 100 / 100 / 100 / 100 | 0.91s | 56 KiB | 100 / 100 / 100 / 100 | 0.25s |
+| `/our-partners` | 100 / 100 / 100 / 100 | 0.90s | 26 KiB | 100 / 100 / 100 / 100 | 0.24s |
+| `/join-the-network` | 100 / 100 / 100 / 100 | 1.29s | 82 KiB | 100 / 100 / 100 / 100 | 0.31s |
+| `/students` | 100 / 100 / 100 / 100 | 1.36s | 81 KiB | 100 / 100 / 100 / 100 | 0.32s |
+| `/events` | 100 / 100 / 100 / 100 | 1.05s | 27 KiB | 100 / 100 / 100 / 100 | 0.28s |
+| `/aiming-for-opportunity` | 100 / 100 / 100 / 100 | 1.43s | 173 KiB | 100 / 100 / 100 / 100 | 0.36s |
+| `/aiming-for-opportunity/what-to-expect` | 100 / 100 / 100 / 100 | 1.58s | 92 KiB | 100 / 100 / 100 / 100 | 0.35s |
+| `/urban-bourbon` | 100 / 100 / 100 / 100 | 1.36s | 115 KiB | 100 / 100 / 100 / 100 | 0.31s |
+| `/herizon-series` | 100 / 100 / 100 / 100 | 1.36s | 45 KiB | 100 / 100 / 100 / 100 | 0.33s |
+| `/elevating-women` | 100 / 100 / 100 / 100 | 1.74s | 156 KiB | 100 / 100 / 100 / 100 | 0.37s |
+| `/donate` | 100 / 100 / 100 / 100 | 0.91s | 35 KiB | 100 / 100 / 100 / 100 | 0.25s |
+| `/impact` | 100 / 100 / 100 / 100 | 1.36s | 65 KiB | 100 / 100 / 100 / 100 | 0.35s |
+| `/your-dollar-further` | 100 / 100 / 100 / 100 | 1.28s | 67 KiB | 100 / 100 / 100 / 100 | 0.34s |
+| `/coaches` | 100 / 100 / 100 / 100 | 1.07s | 99 KiB | 100 / 100 / 100 / 100 | 0.30s |
+| `/coaches/jena-mcclanahan` | 100 / 100 / 100 / 100 | 0.91s | 63 KiB | 100 / 100 / 100 / 100 | 0.25s |
+| `/scholars` | 100 / 100 / 100 / 100 | 0.92s | 68 KiB | 100 / 100 / 100 / 100 | 0.25s |
+| `/scholars/ndeye-wade` | 100 / 100 / 100 / 100 | 0.91s | 62 KiB | 100 / 100 / 100 / 100 | 0.25s |
+| `/privacy-policy` | 100 / 100 / 100 / 100 | 1.05s | 30 KiB | 100 / 100 / 100 / 100 | 0.28s |
+| `/terms-of-use` | 100 / 100 / 100 / 100 | 1.05s | 33 KiB | 100 / 100 / 100 / 100 | 0.28s |
+| `/thanks` | 100 / 100 / 100 / 69 | 0.91s | 56 KiB | 100 / 100 / 100 / 69 | 0.24s |
+| `/404` | 100 / 100 / 100 / 100 | 0.91s | 65 KiB | 100 / 100 / 100 / 100 | 0.25s |
 
 **Across the whole site, averaged over the 20 pages measured before the rebuild:**
 - Performance: 56 → 100
 - Accessibility: 92 → 100
 - Best Practices: 73 → 100
-- Average page weight: 3.2 MB → 79 KB
+- Average page weight: 3.2 MB → 76 KB
 
 **Notes:**
 - `/thanks` is the page people see after submitting a form. It is deliberately marked "don't show in Google" (`noindex`), which Lighthouse's SEO score counts against it (69). Every page meant to appear in search scores 100.
@@ -71,7 +77,7 @@
 
 | Check | Result |
 |---|---|
-| Automated accessibility scan (axe-core, WCAG 2.2 AA + best practices), all 60 pages | **0 violations** (before: color contrast, unnamed links, duplicate IDs, invalid ARIA) |
+| Automated accessibility scan (axe-core, WCAG 2.2 AA + best practices), all 66 pages | **0 violations** (before: color contrast, unnamed links, duplicate IDs, invalid ARIA) |
 | Exactly one `<h1>` per page | 60 / 60 |
 | Unique title ≤ 60 characters, no doubled brand name | 60 / 60 |
 | Meta description ≤ 155 characters | 60 / 60 |
@@ -121,6 +127,18 @@
   - Cards that lift on hover, photos that zoom slightly, coral icon circles, and centered section headings.
   - The Cincinnati skyline (Roebling Bridge at sunset) behind the footer and the final call to action.
   - A reading-progress bar on long pages.
+
+### All four subdomain sites, rebuilt into one site
+Level Up's separate sites (hosted on Vercel and Netlify) are now pages on the main site. They share one design, one navigation, and the same speed and accessibility standards:
+
+| Was | Now | What it includes |
+|---|---|---|
+| `coach.levelupcincinnati.org` (14-slide deck) | `/coaching-in-5-minutes` | All 14 slides as a scrolling story with a chapter menu and a progress bar along the bottom. Includes the "see your role" and "what's covered" details, the Coaching Compass sample, and the QR code. It fixes the old deck's overlapping arrow and static progress bar. |
+| `impact.levelupcincinnati.org` | `/impact` | The full 2025 Impact Report: stats, survey results, the Executive Director's letter, Sarah/Martha/Nick stories, coach stories, the P.A.C.E. model with ★ requirements, events, financial stewardship (spending and revenue bars), the 24-photo gallery, partners, and thank-you lists. |
+| `ai.levelupcincinnati.org` | `/your-dollar-further` | The value grid, eight expandable case studies with links to Substack, a note on how the numbers are estimated, Jim's quote, and the call to action. |
+| `volunteer.levelupcincinnati.org` | `/volunteer`, `/volunteer/pd-day-2026`, `/volunteer/pool` | Upcoming events with a Signups open / Coming soon status, a role picker that disables full roles, "notify me" forms, ways to help, and the volunteer pool. |
+
+The **Scholar App** (`app.`) is a logged-in application, so it stays separate and linked.
 
 ### Motion that doesn't cost speed
 - **Stats count up** the first time they scroll into view, like on the old site. The real number is always in the HTML, so search engines, link previews, and visitors without JavaScript see "98%" rather than "0%".
