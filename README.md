@@ -21,6 +21,7 @@ npm run preview
 | Page copy | `src/pages/*.astro` | No — developer edit |
 | Styles (brand tokens at top) | `src/styles/global.css` | No |
 | Images | `src/assets/img`, `src/assets/people` | Photos via CMS |
+| GitHub preview sub-folder | Repository variable `BASE_PATH` (e.g. `/Level-Up-Cincinnati`) → `scripts/prefix-base.mjs`. **Delete the variable when the custom domain is connected.** | — |
 | Old-URL redirects | `scripts/gen-redirects.mjs` (instant-redirect pages; Pages has no server redirects) | Automatic |
 | Form email | `src/data/site.json` → `forms.accessKey` (Web3Forms) | One-time setup |
 | Website sign-in (Firebase, Microsoft 365) + Givebutter/Outlook links | `src/data/auth.json` (see TODO-FOR-ORG.md, "Login setup") | One-time setup |

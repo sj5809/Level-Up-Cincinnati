@@ -31,6 +31,11 @@ jobs:
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
       - run: npm run build
+      # Preview only: while the site is served from a sub-folder (sj5809.github.io/Level-Up-Cincinnati/),
+      # prefix every link/image with it. Delete the BASE_PATH repository variable when a custom domain is connected.
+      - run: node scripts/prefix-base.mjs
+        env:
+          BASE_PATH: ${{ vars.BASE_PATH }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
