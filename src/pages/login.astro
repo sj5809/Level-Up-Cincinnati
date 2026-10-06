@@ -1,0 +1,99 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import auth from '../data/auth.json';
+import { authConfigured, microsoftEnabled } from '../lib/auth-client';
+---
+<Base
+  title="Log In"
+  description="Log in to your Level Up Cincinnati account. Scholars, coaches, and staff can sign in here or open the Level Up App."
+  crumbs={[{ name: 'Log in', path: '/login' }]}
+>
+  <section class="section auth-page">
+    <div class="wrap auth-grid">
+      <div class="auth-card">
+        <p class="eyebrow">Welcome back</p>
+        <h1>Log in</h1>
+        {!authConfigured && (
+          <p class="auth-note" role="status"><Icon name="clock" size={18} /><span>Website sign-in is being connected. Until then, scholars and coaches can log in through the <a href={auth.links.app}>Level Up App</a>.</span></p>
+        )}
+        {microsoftEnabled && (
+          <>
+            <button class="btn btn-ms" type="button" id="ms-login">
+              <svg width="20" height="20" viewBox="0 0 21 21" aria-hidden="true"><rect x="1" y="1" width="9" height="9" fill="#f25022" /><rect x="11" y="1" width="9" height="9" fill="#7fba00" /><rect x="1" y="11" width="9" height="9" fill="#00a4ef" /><rect x="11" y="11" width="9" height="9" fill="#ffb900" /></svg>
+              Staff: sign in with Microsoft
+            </button>
+            <p class="auth-or"><span>or use your email</span></p>
+          </>
+        )}
+        <form class="form" id="login-form" novalidate>
+          <div class="field"><label for="li-email">Email</label><input type="email" id="li-email" name="email" autocomplete="email" required /></div>
+          <div class="field">
+            <label for="li-password">Password</label>
+            <input type="password" id="li-password" name="password" autocomplete="current-password" required minlength="6" />
+          </div>
+          <p class="auth-msg" id="login-msg" role="alert" aria-live="assertive"></p>
+          <button class="btn btn-coral btn-arrow" type="submit">Log in</button>
+          <button class="link-btn" type="button" id="forgot">Forgot password?</button>
+        </form>
+        <noscript><p class="auth-note">Sign-in needs JavaScript. You can also log in through the <a href={auth.links.app}>Level Up App</a>.</p></noscript>
+        <p class="auth-switch">New here? <a href="/signup">Create an account</a></p>
+      </div>
+
+      <aside class="auth-side on-navy" aria-labelledby="other-ways">
+        <h2 id="other-ways">Other ways in</h2>
+        <ul class="auth-links">
+          <li><a href={auth.links.app}><span class="ic-circle"><Icon name="student" /></span><span><strong>Scholars &amp; coaches</strong><br />Open the Level Up App: your conversation topics, events, and check-ins.</span></a></li>
+          <li><a href={auth.links.givebutterDonor}><span class="ic-circle"><Icon name="heart" /></span><span><strong>Donors</strong><br />Give or manage a recurring gift on Givebutter.</span></a></li>
+          <li><a href={auth.links.outlook}><span class="ic-circle"><Icon name="partner" /></span><span><strong>Staff email</strong><br />Open Outlook (Microsoft 365).</span></a></li>
+        </ul>
+        <p class="small" style="color:var(--blue-gray)">Questions about your account? <a href="mailto:hello@levelupcincinnati.org">hello@levelupcincinnati.org</a></p>
+      </aside>
+    </div>
+  </section>
+
+  <script>
+    import { authConfigured, loadAuth, friendly, tenantId } from '../lib/auth-client';
+    const form = document.getElementById('login-form') as HTMLFormElement;
+    const msg = document.getElementById('login-msg')!;
+    const say = (t: string, ok = false) => { msg.textContent = t; msg.classList.toggle('ok', ok); };
+    const nextRaw = new URLSearchParams(location.search).get('next') || '/account';
+    const next = nextRaw.startsWith('/') && !nextRaw.startsWith('//') ? nextRaw : '/account';
+    const notReady = () => { if (authConfigured) return false; say('Website sign-in isn’t connected yet. Please use the Level Up App for now.'); return true; };
+    if (authConfigured) form.addEventListener('focusin', () => loadAuth(), { once: true }); // warm up on first focus
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (notReady() || !form.reportValidity()) return;
+      const data = new FormData(form);
+      const btn = form.querySelector<HTMLButtonElement>('[type=submit]')!;
+      btn.disabled = true; say('Signing in…', true);
+      try {
+        const { auth, fb } = await loadAuth();
+        await fb.signInWithEmailAndPassword(auth, String(data.get('email')), String(data.get('password')));
+        location.assign(next);
+      } catch (err) { say(friendly(err)); btn.disabled = false; }
+    });
+
+    document.getElementById('forgot')!.addEventListener('click', async () => {
+      if (notReady()) return;
+      const email = (document.getElementById('li-email') as HTMLInputElement).value.trim();
+      if (!email) { say('Enter your email above, then choose “Forgot password?” again.'); return; }
+      try {
+        const { auth, fb } = await loadAuth();
+        await fb.sendPasswordResetEmail(auth, email);
+        say('If that email has an account, a reset link is on its way.', true);
+      } catch (err) { say(friendly(err)); }
+    });
+
+    document.getElementById('ms-login')?.addEventListener('click', async () => {
+      try {
+        const { auth, fb } = await loadAuth();
+        const provider = new fb.OAuthProvider('microsoft.com');
+        provider.setCustomParameters({ tenant: tenantId, prompt: 'select_account' });
+        await fb.signInWithPopup(auth, provider);
+        location.assign(next);
+      } catch (err) { say(friendly(err)); }
+    });
+  </script>
+</Base>

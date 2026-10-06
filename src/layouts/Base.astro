@@ -130,9 +130,11 @@ const year = new Date().getFullYear();
               ) : <a href={g.href} aria-current={current(g.href!)}>{g.label}</a>}
             </li>
           ))}
+          <li class="nav-login"><a href="/login" aria-current={current('/login')}>Log in</a></li>
         </ul>
       </nav>
       <div class="header-actions">
+        <a class="header-login" href="/login" aria-current={current('/login')}>Log in</a>
         <a class="btn btn-coral" href="/donate">Donate</a>
         <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
           <svg class="i-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg>

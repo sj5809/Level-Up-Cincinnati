@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import auth from '../data/auth.json';
+import { authConfigured } from '../lib/auth-client';
+const open = auth.allowSignup;
+---
+<Base
+  title="Create an Account"
+  description="Create your Level Up Cincinnati account to stay connected with scholars, coaches, events, and the Level Up community."
+  crumbs={[{ name: 'Create an account', path: '/signup' }]}
+>
+  <section class="section auth-page">
+    <div class="wrap auth-grid">
+      <div class="auth-card">
+        <p class="eyebrow">Join the community</p>
+        <h1>Create an account</h1>
+        {!authConfigured && (
+          <p class="auth-note" role="status"><Icon name="clock" size={18} /><span>Website accounts are being connected. Until then, scholars and coaches can sign up in the <a href={auth.links.app}>Level Up App</a>.</span></p>
+        )}
+        {open ? (
+          <form class="form" id="signup-form" novalidate>
+            <div class="field"><label for="su-name">Full name</label><input type="text" id="su-name" name="name" autocomplete="name" required /></div>
+            <div class="field"><label for="su-email">Email</label><input type="email" id="su-email" name="email" autocomplete="email" required /></div>
+            <div class="half">
+              <div class="field"><label for="su-pass">Password</label><input type="password" id="su-pass" name="password" autocomplete="new-password" required minlength="8" aria-describedby="su-pass-hint" /></div>
+              <div class="field"><label for="su-pass2">Confirm password</label><input type="password" id="su-pass2" name="password2" autocomplete="new-password" required minlength="8" /></div>
+            </div>
+            <span class="hint" id="su-pass-hint">At least 8 characters.</span>
+            <label class="check"><input type="checkbox" name="agree" required /><span>I agree to the <a href="/terms-of-use">Terms of Use</a> and <a href="/privacy-policy">Privacy Policy</a>.</span></label>
+            <p class="auth-msg" id="signup-msg" role="alert" aria-live="assertive"></p>
+            <button class="btn btn-coral btn-arrow" type="submit">Create account</button>
+          </form>
+        ) : (
+          <p>Accounts are created in the Level Up App. <a class="btn btn-coral btn-arrow" href={auth.links.app}>Sign up in the Level Up App</a></p>
+        )}
+        <p class="auth-switch">Already have an account? <a href="/login">Log in</a></p>
+      </div>
+
+      <aside class="auth-side on-navy" aria-labelledby="why-account">
+        <h2 id="why-account">Not sure you need an account?</h2>
+        <ul class="auth-links">
+          <li><a href="/become-a-coach"><span class="ic-circle"><Icon name="coach" /></span><span><strong>Want to coach?</strong><br />Apply on the Become a Coach page; no account needed.</span></a></li>
+          <li><a href="/volunteer"><span class="ic-circle"><Icon name="volunteer" /></span><span><strong>Want to volunteer?</strong><br />Pick an event and a role; no account needed.</span></a></li>
+          <li><a href={auth.links.givebutterDonor}><span class="ic-circle"><Icon name="heart" /></span><span><strong>Want to give?</strong><br />Donate securely on Givebutter.</span></a></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <script>
+    import { authConfigured, loadAuth, friendly } from '../lib/auth-client';
+    const form = document.getElementById('signup-form') as HTMLFormElement | null;
+    if (form) {
+      const msg = document.getElementById('signup-msg')!;
+      const say = (t: string, ok = false) => { msg.textContent = t; msg.classList.toggle('ok', ok); };
+      if (authConfigured) form.addEventListener('focusin', () => loadAuth(), { once: true });
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!authConfigured) { say('Website accounts aren’t connected yet. Please sign up in the Level Up App for now.'); return; }
+        if (!form.reportValidity()) return;
+        const d = new FormData(form);
+        if (d.get('password') !== d.get('password2')) { say('The two passwords don’t match.'); return; }
+        const btn = form.querySelector<HTMLButtonElement>('[type=submit]')!;
+        btn.disabled = true; say('Creating your account…', true);
+        try {
+          const { auth, fb } = await loadAuth();
+          const { user } = await fb.createUserWithEmailAndPassword(auth, String(d.get('email')), String(d.get('password')));
+          await fb.updateProfile(user, { displayName: String(d.get('name')).trim() });
+          await fb.sendEmailVerification(user).catch(() => {});
+          location.assign('/account?welcome=1');
+        } catch (err) { say(friendly(err)); btn.disabled = false; }
+      });
+    }
+  </script>
+</Base>

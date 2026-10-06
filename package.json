@@ -21,7 +21,8 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.3.5"
+    "astro": "^7.3.5",
+    "firebase": "^12.19.0"
   },
   "allowScripts": {
     "esbuild@0.28.2": true

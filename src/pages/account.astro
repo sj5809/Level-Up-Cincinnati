@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import auth from '../data/auth.json';
+---
+<Base title="Your Account" description="Your Level Up Cincinnati account: quick links to the Level Up App, Givebutter, and staff tools." noindex>
+  <section class="section auth-page">
+    <div class="wrap narrow">
+      <p class="eyebrow">Your account</p>
+      <h1 id="acct-title">Hi there</h1>
+      <p class="lede" id="acct-status" aria-live="polite">Checking your sign-in…</p>
+      <p class="auth-note" id="acct-verify" hidden><Icon name="check" size={18} /><span>We sent a verification link to your email. Please confirm it when you get a chance.</span></p>
+
+      <div id="acct-body" hidden>
+        <h2>Quick links</h2>
+        <ul class="auth-links light">
+          <li><a href={auth.links.app}><span class="ic-circle"><Icon name="student" /></span><span><strong>Level Up App</strong><br />Conversation topics, events, and check-ins.</span></a></li>
+          <li><a href={auth.links.givebutterDonor}><span class="ic-circle"><Icon name="heart" /></span><span><strong>Give on Givebutter</strong><br />Make or manage a gift.</span></a></li>
+          <li><a href="/events"><span class="ic-circle"><Icon name="calendar" /></span><span><strong>Upcoming events</strong><br />Add them to your calendar.</span></a></li>
+        </ul>
+
+        <div id="acct-staff" hidden>
+          <h2>Staff tools</h2>
+          <p class="muted">Each tool uses its own login.</p>
+          <ul class="auth-links light">
+            <li><a href={auth.links.outlook}><span class="ic-circle"><Icon name="partner" /></span><span><strong>Outlook email</strong><br />Microsoft 365 mail and calendar.</span></a></li>
+            <li><a href={auth.links.microsoft365}><span class="ic-circle"><Icon name="launch" /></span><span><strong>Microsoft 365</strong><br />Teams, OneDrive, Word, Excel.</span></a></li>
+            {auth.links.givebutterStaff && <li><a href={auth.links.givebutterStaff}><span class="ic-circle"><Icon name="heart" /></span><span><strong>Givebutter dashboard</strong><br />Donations, donors, and campaigns.</span></a></li>}
+            <li><a href={auth.links.cms}><span class="ic-circle"><Icon name="volunteer" /></span><span><strong>Edit the website</strong><br />Events, people, partners, and stats.</span></a></li>
+          </ul>
+        </div>
+
+        <button class="btn btn-outline" type="button" id="signout" style="margin-top:1.5rem">Sign out</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    import { authConfigured, loadAuth, isStaffEmail } from '../lib/auth-client';
+    const status = document.getElementById('acct-status')!;
+    if (!authConfigured) {
+      status.textContent = 'Website sign-in isn’t connected yet.';
+    } else {
+      loadAuth().then(({ auth, fb }) => {
+        fb.onAuthStateChanged(auth, (user) => {
+          if (!user) { location.replace('/login?next=/account'); return; }
+          document.getElementById('acct-title')!.textContent = `Hi, ${user.displayName?.split(' ')[0] || 'there'}`;
+          status.textContent = `You're signed in as ${user.email}.`;
+          document.getElementById('acct-body')!.hidden = false;
+          document.getElementById('acct-staff')!.hidden = !isStaffEmail(user.email);
+          document.getElementById('acct-verify')!.hidden = !(new URLSearchParams(location.search).has('welcome') && !user.emailVerified);
+        });
+        document.getElementById('signout')!.addEventListener('click', () => fb.signOut(auth).then(() => location.assign('/')));
+      });
+    }
+  </script>
+</Base>

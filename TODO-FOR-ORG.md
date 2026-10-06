@@ -99,3 +99,32 @@ These are the open items from the website rebuild. Nothing here blocks launch: e
 
     The coaching presentation's results (3.33 GPA, 90%+, 48%, 4.95, 96%, 4.84) match the Impact Report. Its numbers count up on screen, which is why an early capture showed lower in-between values.
 27. **Vector logo found.** The coach presentation had SVG logos, and the site now uses them. That resolves item 20.
+
+## Login setup (website Log in / Create account)
+
+28. **What to get from Level Up to switch on website sign-in.** The pages are built (`/login`, `/signup`, `/account`). Until these settings are filled in, they show a friendly "being connected" notice and point people to the Level Up App. All settings go in `src/data/auth.json`.
+
+    **Firebase (the Level Up App's account system)**
+    - In the Firebase console → **Project settings → Your apps**, add or choose a **Web app** and copy its config: `apiKey`, `authDomain`, `projectId`, `appId`. These are safe to publish; they aren't passwords.
+    - **Authentication → Sign-in method:** confirm **Email/Password** is enabled.
+    - **Authentication → Settings → Authorized domains:** add `www.levelupcincinnati.org` (and the `<org>.github.io` preview address).
+    - **Decide:** should people be able to **create accounts on the website**, or only in the app? The app may set up a profile when someone signs up there, which website sign-ups would skip.
+      - **Now:** website sign-up is on (`allowSignup: true`).
+      - If the app needs its own sign-up, set `allowSignup` to `false` and the page will send people to the app instead.
+
+    **Microsoft 365 ("Staff: sign in with Microsoft")**
+    - The **Directory (tenant) ID** of their Microsoft 365 organization (Microsoft Entra admin center → Overview).
+    - An **App registration** in Entra (name it "Level Up website sign-in"):
+      - Set the redirect URI to the address Firebase shows when you enable Microsoft. It looks like `https://<project>.firebaseapp.com/__/auth/handler`.
+      - Then create a client secret.
+    - In Firebase → **Sign-in method → Microsoft**, paste that app's **client ID** and **client secret**.
+    - Put the tenant ID in `auth.json` and set `microsoft.enabled` to `true`.
+    - Whoever manages Microsoft 365 (often the Executive Director, or an IT volunteer) can do this in about 15 minutes.
+
+    **Givebutter**
+    - Givebutter doesn't let other websites sign people into it (and its API key must never go on a public website). So the site **links** to Givebutter:
+      - Donors go to `givebutter.com/levelup` (change it if they use a different campaign page).
+      - Staff get a "Givebutter dashboard" shortcut once we have the URL they use to log in (`links.givebutterStaff`).
+
+    **Privacy policy:** add a line that the website offers account sign-in through Google Firebase (and Microsoft for staff).
+

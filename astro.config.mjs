@@ -5,5 +5,5 @@ export default defineConfig({
   site: 'https://www.levelupcincinnati.org',
   trailingSlash: 'never',
   build: { format: 'file', inlineStylesheets: 'always' },
-  integrations: [sitemap({ filter: page => !/\/(thanks|admin|404)/.test(page) })],
+  integrations: [sitemap({ filter: page => !/\/(thanks|admin|404|account)/.test(page) })],
 });

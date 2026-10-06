@@ -23,6 +23,7 @@ npm run preview
 | Images | `src/assets/img`, `src/assets/people` | Photos via CMS |
 | Old-URL redirects | `scripts/gen-redirects.mjs` (instant-redirect pages; Pages has no server redirects) | Automatic |
 | Form email | `src/data/site.json` → `forms.accessKey` (Web3Forms) | One-time setup |
+| Website sign-in (Firebase, Microsoft 365) + Givebutter/Outlook links | `src/data/auth.json` (see TODO-FOR-ORG.md, "Login setup") | One-time setup |
 
 ## Checks
 
